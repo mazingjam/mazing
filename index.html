@@ -5,68 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Mazing ar en snabb, levande webbplats som deployas automatiskt via Vercel."
+      content="Mazing ar en privat-ish portal for de projekt vi bygger."
     />
     <title>Mazing</title>
     <link rel="stylesheet" href="/src/styles.css" />
     <script type="module" src="/src/app.js"></script>
   </head>
   <body>
-    <main class="shell">
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero__media" aria-hidden="true">
-          <div class="grid"></div>
-          <div class="pulse pulse--one"></div>
-          <div class="pulse pulse--two"></div>
+    <main>
+      <section id="gate" class="gate" aria-labelledby="gate-title">
+        <div class="gate__grain" aria-hidden="true"></div>
+        <div class="gate__content">
+          <p class="gate__kicker">private-ish project portal</p>
+          <h1 id="gate-title">Mazing</h1>
+          <form id="gateForm" class="gate__form" autocomplete="off">
+            <label for="unlockInput">Type yes to unlock the real homepage</label>
+            <div class="gate__row">
+              <input
+                id="unlockInput"
+                name="unlock"
+                inputmode="text"
+                autocapitalize="none"
+                spellcheck="false"
+                placeholder="yes"
+              />
+              <button type="submit">Unlock</button>
+            </div>
+            <p id="gateMessage" class="gate__message" aria-live="polite"></p>
+          </form>
         </div>
+      </section>
 
-        <div class="hero__content">
-          <p class="eyebrow">Live lokalt. Auto-deploy pa push.</p>
-          <h1 id="page-title">Mazing</h1>
-          <p class="lead">
-            En webbplats byggd for snabbt samarbete: spara en fil, sidan laddas om,
-            pusha till Git och Vercel publicerar nasta version.
-          </p>
-          <div class="actions" aria-label="Primara lankar">
-            <a class="button button--primary" href="#workflow">Se flodet</a>
-            <a class="button button--secondary" href="#deploy">Deploy</a>
+      <section id="portal" class="portal" hidden>
+        <header class="portal__header">
+          <div>
+            <p class="eyebrow">Mazing</p>
+            <h2>Latest Builds</h2>
           </div>
-        </div>
-      </section>
+          <button id="lockButton" class="ghost-button" type="button">Lock</button>
+        </header>
 
-      <section id="workflow" class="band">
-        <div class="section-heading">
-          <p class="eyebrow">Arbetsflode</p>
-          <h2>Alltid aktuell medan vi bygger</h2>
-        </div>
-        <div class="steps">
-          <article class="step">
-            <span class="step__number">01</span>
-            <h3>Utveckla</h3>
-            <p>Kör dev-servern och jobba direkt i filerna.</p>
-          </article>
-          <article class="step">
-            <span class="step__number">02</span>
-            <h3>Live reload</h3>
-            <p>Webbläsaren uppdateras automatiskt när HTML, CSS eller JS ändras.</p>
-          </article>
-          <article class="step">
-            <span class="step__number">03</span>
-            <h3>Deploy</h3>
-            <p>Vercel bygger från Git och publicerar varje push.</p>
-          </article>
-        </div>
-      </section>
+        <section class="notice" aria-label="Security note">
+          <p>
+            This gate is a convenience layer, not real authentication. Keep sensitive
+            content out of static builds; use Vercel protection or real auth for that.
+          </p>
+        </section>
 
-      <section id="deploy" class="deploy">
-        <div>
-          <p class="eyebrow">Vercel</p>
-          <h2>Redo for Git-baserad publicering</h2>
-        </div>
-        <p>
-          Projektet har ett byggkommando och en output-mapp sa Vercel kan kopplas
-          till repot och deploya automatiskt fran huvudbranchen.
-        </p>
+        <section class="projects" aria-label="Project links">
+          <article class="project project--live">
+            <div>
+              <p class="project__status">Live</p>
+              <h3>Mazing</h3>
+              <p>Portal och nav for senaste versionerna av projekten.</p>
+            </div>
+            <a href="/" aria-label="Open Mazing">Open</a>
+          </article>
+
+          <article class="project">
+            <div>
+              <p class="project__status">Ready for deploy</p>
+              <h3>Word Alchemy</h3>
+              <p>Word/puzzle MVP med fragment, target words och specialeffekter.</p>
+            </div>
+            <span>Pending URL</span>
+          </article>
+
+          <article class="project">
+            <div>
+              <p class="project__status">Local build</p>
+              <h3>MTGSet</h3>
+              <p>Custom MTG-set viewer, faction gallery och card review workflow.</p>
+            </div>
+            <span>Pending URL</span>
+          </article>
+
+          <article class="project">
+            <div>
+              <p class="project__status">Concept</p>
+              <h3>Again</h3>
+              <p>Roguelite mobile game project.</p>
+            </div>
+            <span>Pending URL</span>
+          </article>
+
+          <article class="project">
+            <div>
+              <p class="project__status">Concept</p>
+              <h3>GrowUp</h3>
+              <p>Project space for GrowUp assets, concepts and builds.</p>
+            </div>
+            <span>Pending URL</span>
+          </article>
+        </section>
+
+        <section class="deploy-note">
+          <h3>Preview URL Policy</h3>
+          <p>
+            Obscure URLs are acceptable for low-risk previews and quick mobile checks.
+            They are not access control. Anything private should sit behind Vercel
+            protection, auth, or stay out of the public build.
+          </p>
+        </section>
       </section>
     </main>
   </body>
