@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mazing ar en snabb, levande webbplats som deployas automatiskt via Vercel."
+    />
+    <title>Mazing</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__media" aria-hidden="true">
+          <div class="grid"></div>
+          <div class="pulse pulse--one"></div>
+          <div class="pulse pulse--two"></div>
+        </div>
+
+        <div class="hero__content">
+          <p class="eyebrow">Live lokalt. Auto-deploy pa push.</p>
+          <h1 id="page-title">Mazing</h1>
+          <p class="lead">
+            En webbplats byggd for snabbt samarbete: spara en fil, sidan laddas om,
+            pusha till Git och Vercel publicerar nasta version.
+          </p>
+          <div class="actions" aria-label="Primara lankar">
+            <a class="button button--primary" href="#workflow">Se flodet</a>
+            <a class="button button--secondary" href="#deploy">Deploy</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="band">
+        <div class="section-heading">
+          <p class="eyebrow">Arbetsflode</p>
+          <h2>Alltid aktuell medan vi bygger</h2>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step__number">01</span>
+            <h3>Utveckla</h3>
+            <p>Kör dev-servern och jobba direkt i filerna.</p>
+          </article>
+          <article class="step">
+            <span class="step__number">02</span>
+            <h3>Live reload</h3>
+            <p>Webbläsaren uppdateras automatiskt när HTML, CSS eller JS ändras.</p>
+          </article>
+          <article class="step">
+            <span class="step__number">03</span>
+            <h3>Deploy</h3>
+            <p>Vercel bygger från Git och publicerar varje push.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="deploy" class="deploy">
+        <div>
+          <p class="eyebrow">Vercel</p>
+          <h2>Redo for Git-baserad publicering</h2>
+        </div>
+        <p>
+          Projektet har ett byggkommando och en output-mapp sa Vercel kan kopplas
+          till repot och deploya automatiskt fran huvudbranchen.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
