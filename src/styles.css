@@ -146,6 +146,8 @@ button,
   font-weight: 850;
   text-decoration: none;
   cursor: pointer;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .gate__message {
@@ -235,6 +237,7 @@ p {
 .project span {
   color: var(--muted);
   font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .project p {
