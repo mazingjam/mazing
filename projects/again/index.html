@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eternal Heroes Prototype</title>
+    <link rel="stylesheet" href="styles.css?v=20260618-heroes-27">
+  </head>
+  <body>
+    <main class="app" id="app">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Eternal Heroes</p>
+          <h1>Dynasty Prototype</h1>
+        </div>
+        <div class="run-meta">
+          <span id="runCount">Run 1</span>
+          <span id="soulCount">0 Souls</span>
+          <button class="reset-game" id="resetTopBtn" type="button">Reset Game</button>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="panel roster-panel">
+          <div class="panel-head pantheon-head">
+            <h2>Pantheon</h2>
+            <div class="panel-actions">
+              <button class="icon-button" id="togglePantheonBtn" type="button" aria-expanded="false">Show</button>
+              <button class="icon-button" id="resetBtn" title="Reset prototype save" aria-label="Reset prototype save">↻</button>
+            </div>
+          </div>
+          <div id="soulsList" class="souls-list is-collapsed"></div>
+          <div class="panel-head bestiary-head">
+            <h2>Bestiary</h2>
+            <button class="icon-button" id="toggleBestiaryBtn" type="button" aria-expanded="false">Show</button>
+          </div>
+          <div id="bestiaryList" class="bestiary-list is-collapsed"></div>
+          <div class="panel-head inventory-head">
+            <h2>Inventory</h2>
+          </div>
+          <div id="resourcesList" class="resources-list"></div>
+          <div id="inventoryList" class="inventory-list"></div>
+        </aside>
+
+        <section class="stage">
+          <div id="screen"></div>
+        </section>
+
+        <aside class="panel log-panel">
+          <div class="panel-head">
+            <h2>Hero</h2>
+          </div>
+          <div id="heroInspector" class="hero-inspector"></div>
+          <div class="panel-head">
+            <h2>Chronicle</h2>
+          </div>
+          <div id="log" class="log"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="src/app.js?v=20260618-heroes-27"></script>
+  </body>
+</html>

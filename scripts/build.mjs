@@ -9,5 +9,6 @@ await rm(dist, { force: true, recursive: true });
 await mkdir(dist, { recursive: true });
 await cp(join(root, "index.html"), join(dist, "index.html"));
 await cp(join(root, "src"), join(dist, "src"), { recursive: true });
+await cp(join(root, "projects"), join(dist, "projects"), { recursive: true });
 
 console.log("Built static site to dist/");
