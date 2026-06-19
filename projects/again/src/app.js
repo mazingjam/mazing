@@ -1606,11 +1606,24 @@ function startCombatTicker() {
 function clearCombatTicker() {
   if (combatTicker) window.clearInterval(combatTicker);
   combatTicker = null;
+}
+
+function clearTransitionTimer() {
   if (transitionTimer) window.clearTimeout(transitionTimer);
   transitionTimer = null;
 }
 
 function tickCombat() {
+  try {
+    tickCombatUnsafe();
+  } catch (error) {
+    console.error("Combat tick failed", error);
+    addLog("Combat recovered from a timing error.");
+    recoverCombatTick();
+  }
+}
+
+function tickCombatUnsafe() {
   if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return;
   if (resolveCombatTerminalState()) return;
   const now = performance.now();
@@ -1651,6 +1664,19 @@ function tickCombat() {
   });
 
   resolveCombatTerminalState();
+  updateCombatDom();
+}
+
+function recoverCombatTick() {
+  if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return;
+  if (resolveCombatTerminalState()) return;
+  const ally = (activeRun.allies || []).find(isAlive);
+  const enemy = (activeRun.enemies || []).find(isAlive);
+  if (ally && enemy) {
+    const unit = ally.isSummon ? (activeRun.allies || []).find((candidate) => !candidate.isSummon && isAlive(candidate)) || ally : ally;
+    performFallbackAttack(unit);
+    if (!activeRun.outcome && isAlive(enemy)) performFallbackAttack(enemy);
+  }
   updateCombatDom();
 }
 
@@ -2371,7 +2397,9 @@ function finishCombat(logLine, outcome) {
     banner.classList.add("show");
   }
   clearCombatTicker();
+  clearTransitionTimer();
   transitionTimer = window.setTimeout(() => {
+    transitionTimer = null;
     activeRun.combatRecap = createCombatRecap(logLine, outcome);
     activeRun.phase = "combat-recap";
     render();
@@ -2873,7 +2901,7 @@ function advanceNode() {
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
   activeRun.combatStats = null;
-  activeRun.phase = activeRun.enemies ? "combat" : "event";
+  activeRun.phase = activeRun.enemies ? "prep" : "event";
   render();
 }
 
