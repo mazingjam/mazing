@@ -894,6 +894,15 @@ function render() {
   if (activeRun.phase === "event") renderEvent();
   if (activeRun.phase === "level-complete") renderLevelComplete();
   if (activeRun.phase === "complete") renderComplete();
+  ensureCombatTickerHealthy();
+}
+
+function ensureCombatTickerHealthy() {
+  if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return;
+  resolveCombatTerminalState();
+  if (activeRun.phase === "combat" && !activeRun.outcome && !combatTicker) {
+    startCombatTicker();
+  }
 }
 
 function renderHeroSelect() {
@@ -1603,6 +1612,7 @@ function clearCombatTicker() {
 
 function tickCombat() {
   if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return;
+  if (resolveCombatTerminalState()) return;
   const now = performance.now();
   const delta = Math.min(0.18, (now - activeRun.lastTick) / 1000);
   activeRun.lastTick = now;
@@ -1640,9 +1650,22 @@ function tickCombat() {
     }
   });
 
-  checkPartyDefeat();
-  checkWaveVictory();
+  resolveCombatTerminalState();
   updateCombatDom();
+}
+
+function resolveCombatTerminalState() {
+  if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return false;
+  const enemies = activeRun.enemies || [];
+  if (enemies.length && enemies.every((enemy) => !isAlive(enemy))) {
+    checkWaveVictory();
+    return !!activeRun.outcome;
+  }
+  if (!hasLivingHeroAllies()) {
+    checkPartyDefeat();
+    return !!activeRun.outcome;
+  }
+  return false;
 }
 
 function performAllyAttack(ally) {
@@ -1727,6 +1750,7 @@ function ensureCombatTiming(unit, side) {
 }
 
 function performEnemyAttack(enemy) {
+  if (resolveCombatTerminalState()) return;
   const target = getEnemyIntentTarget(enemy) || getEnemyTarget(enemy);
   enemy.intentTargetId = null;
   if (!target) return;

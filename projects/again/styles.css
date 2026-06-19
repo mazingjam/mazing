@@ -12,10 +12,10 @@
   --blue: #6f8f91;
   --violet: #8d6f9c;
   --shadow: rgba(0, 0, 0, 0.52);
-  --ui-leather: url("assets/ui/panel-leather.png");
-  --ui-stone: url("assets/ui/frame-stone.png");
-  --ui-parchment: url("assets/ui/parchment.png");
-  --ui-blood: url("assets/ui/frame-blood.png");
+  --ui-leather: url("assets/ui/panel-leather-clean.png");
+  --ui-stone: url("assets/ui/frame-stone-clean.png");
+  --ui-parchment: url("assets/ui/parchment-clean.png");
+  --ui-blood: url("assets/ui/frame-blood-clean.png");
 }
 
 * {
@@ -177,7 +177,7 @@ h3 {
 .inheritance-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .choice-card,
@@ -185,14 +185,14 @@ h3 {
 .inheritance-choice,
 .soul-card,
 .combat-card {
-  border: 8px solid transparent;
-  border-image: var(--ui-stone) 70 fill stretch;
+  border: 1px solid rgba(201, 154, 69, 0.34);
   border-radius: 8px;
   background:
-    linear-gradient(rgba(37, 28, 20, 0.9), rgba(23, 17, 13, 0.96)),
-    var(--ui-stone);
-  background-size: cover;
-  background-position: center;
+    linear-gradient(180deg, rgba(42, 31, 22, 0.92), rgba(21, 15, 11, 0.97)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.08), transparent 46%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 230, 177, 0.04),
+    0 8px 18px rgba(0, 0, 0, 0.22);
 }
 
 .choice-card,
@@ -214,8 +214,8 @@ h3 {
   transform: translateY(-2px);
   border-color: var(--gold);
   background:
-    linear-gradient(rgba(49, 36, 23, 0.9), rgba(28, 20, 14, 0.96)),
-    var(--ui-stone);
+    linear-gradient(180deg, rgba(54, 39, 24, 0.94), rgba(27, 18, 12, 0.98)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.12), transparent 46%);
   outline: none;
 }
 
@@ -264,7 +264,9 @@ h3 {
 .choice-card {
   display: grid;
   align-content: start;
-  gap: 10px;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .choice-card h3,
@@ -272,24 +274,32 @@ h3 {
 .choice-card .tags,
 .choice-card .stat-row {
   margin: 0;
+  min-width: 0;
 }
 
 .choice-card-head {
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-columns: 50px minmax(0, 1fr);
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .choice-card-head h3 {
-  font-size: 18px;
+  overflow: hidden;
+  font-size: 16px;
   line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .choice-card-head p {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.25;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .upgrade-icon {
@@ -322,7 +332,7 @@ h3 {
   position: relative;
   width: 58px;
   height: 58px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(201, 154, 69, 0.42);
   border-radius: 50%;
   overflow: hidden;
   background: linear-gradient(160deg, var(--hero-a), var(--hero-b));
@@ -551,18 +561,20 @@ h3 {
 .stat-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 12px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .stat {
   border-top: 1px solid var(--line);
-  padding-top: 8px;
+  min-width: 0;
+  padding-top: 7px;
 }
 
 .stat strong {
   display: block;
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1;
 }
 
 .muted {
@@ -938,14 +950,11 @@ h3 {
   row-gap: 4px;
   width: 128px;
   height: 220px;
-  border: 7px solid transparent;
-  border-image: var(--ui-stone) 70 fill stretch;
+  border: 1px solid rgba(201, 154, 69, 0.34);
   border-radius: 8px;
   background:
-    linear-gradient(rgba(38, 28, 20, 0.88), rgba(20, 14, 11, 0.96)),
-    var(--ui-stone);
-  background-size: cover;
-  background-position: center;
+    linear-gradient(180deg, rgba(43, 32, 23, 0.88), rgba(20, 14, 10, 0.96)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.08), transparent 42%);
   padding: 8px;
   text-align: center;
   will-change: transform;
@@ -1028,17 +1037,17 @@ h3 {
 }
 
 .ally-card {
-  border-image: var(--ui-leather) 62 fill stretch;
+  border-color: rgba(98, 130, 74, 0.72);
   background:
-    linear-gradient(180deg, rgba(52, 83, 50, 0.8), rgba(24, 31, 23, 0.94)),
-    var(--ui-leather);
+    linear-gradient(180deg, rgba(48, 78, 46, 0.78), rgba(22, 31, 21, 0.95)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.1), transparent 44%);
 }
 
 .legacy-card {
-  border-image: var(--ui-leather) 62 fill stretch;
+  border-color: rgba(67, 145, 139, 0.74);
   background:
-    linear-gradient(180deg, rgba(32, 95, 91, 0.82), rgba(22, 42, 41, 0.96)),
-    var(--ui-leather);
+    linear-gradient(180deg, rgba(32, 92, 88, 0.76), rgba(20, 41, 39, 0.96)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.08), transparent 44%);
 }
 
 .summon-card {
@@ -1049,25 +1058,25 @@ h3 {
   width: 66px;
   height: 78px;
   padding: 5px;
-  border-image: var(--ui-stone) 70 fill stretch;
+  border-color: rgba(139, 130, 105, 0.64);
   background:
-    linear-gradient(180deg, rgba(54, 59, 59, 0.82), rgba(24, 27, 27, 0.96)),
-    var(--ui-stone);
+    linear-gradient(180deg, rgba(47, 49, 44, 0.82), rgba(22, 24, 22, 0.96)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.08), transparent 44%);
 }
 
 .enemy-card {
-  border-image: var(--ui-blood) 68 fill stretch;
+  border-color: rgba(157, 52, 43, 0.78);
   background:
-    linear-gradient(180deg, rgba(99, 35, 31, 0.9), rgba(38, 16, 14, 0.96)),
-    var(--ui-blood);
+    linear-gradient(180deg, rgba(99, 35, 31, 0.88), rgba(38, 16, 14, 0.96)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.08), transparent 44%);
 }
 
 .boss-card {
   width: 168px;
-  border-image: var(--ui-blood) 62 fill stretch;
+  border-color: rgba(124, 18, 24, 0.92);
   background:
     linear-gradient(180deg, rgba(93, 12, 18, 0.96), rgba(25, 7, 9, 0.98)),
-    var(--ui-blood);
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.09), transparent 44%);
 }
 
 .role-badge {
@@ -1196,12 +1205,11 @@ h3 {
   place-items: center;
   width: 58px;
   height: 76px;
-  border: 6px solid transparent;
-  border-image: var(--ui-stone) 70 fill stretch;
+  border: 1px solid rgba(139, 130, 105, 0.64);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(50, 53, 50, 0.88), rgba(21, 23, 22, 0.96)),
-    var(--ui-stone);
+    linear-gradient(180deg, rgba(47, 49, 44, 0.86), rgba(21, 23, 22, 0.96)),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.08), transparent 44%);
   padding: 4px;
   box-sizing: border-box;
   overflow: hidden;
@@ -2407,7 +2415,7 @@ button.loot-card:focus-visible {
 
   .hero-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
+    gap: 6px;
   }
 
   .inheritance-grid {
@@ -2435,32 +2443,61 @@ button.loot-card:focus-visible {
   }
 
   .choice-card {
-    gap: 8px;
-    padding: 8px;
+    gap: 7px;
+    padding: 8px 6px;
   }
 
   .choice-card-head {
     grid-template-columns: 1fr;
-    gap: 6px;
+    justify-items: center;
+    gap: 5px;
   }
 
   .choice-card-head .hero-portrait {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
   }
 
   .choice-card-head h3 {
-    font-size: 13px;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
   }
 
   .choice-card-head p,
   .choice-card p {
-    font-size: 10px;
+    font-size: 9px;
+    line-height: 1.2;
   }
 
   .choice-card .tag {
-    padding: 3px 6px;
+    padding: 3px 5px;
+    font-size: 8px;
+  }
+
+  .choice-card .tags {
+    gap: 3px;
+  }
+
+  .choice-card .stat-row {
+    gap: 3px;
+    margin-top: 4px;
+  }
+
+  .choice-card .stat {
+    padding-top: 5px;
+  }
+
+  .choice-card .stat strong {
+    font-size: 15px;
+  }
+
+  .choice-card .stat span {
+    display: block;
+    overflow: hidden;
     font-size: 9px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .recap-grid,
