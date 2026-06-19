@@ -693,39 +693,39 @@ const levelUpPools = {
   ],
   warrior: [
     { id: "warrior-block", type: "Warrior", name: "Shield Rhythm", text: "+8% block chance.", icon: 3, tags: ["Block"] },
-    { id: "warrior-retaliate", type: "Warrior", name: "Retaliate", text: "Blocked hits strike back for 35% power.", icon: 1, tags: ["Block", "Counter"] },
+    { id: "warrior-retaliate", type: "Warrior", name: "Retaliate", text: "Blocked hits strike back for 35% power.", icon: 100, tags: ["Block", "Counter"] },
     { id: "warrior-guard", type: "Warrior", name: "Guardian Oath", text: "+5 armor. Enemies prefer targeting this hero.", icon: 101, tags: ["Guard", "Armor"] },
-    { id: "warrior-bastion", type: "Warrior", name: "Living Bastion", text: "+14 HP and +3 armor.", icon: 2, tags: ["Armor"] },
+    { id: "warrior-bastion", type: "Warrior", name: "Living Bastion", text: "+14 HP and +3 armor.", icon: 112, tags: ["Armor"] },
   ],
   necromancer: [
-    { id: "necro-skeletons", type: "Necro", name: "Bone Reinforcement", text: "Future skeletons gain +6 HP and +1 power.", icon: 8, tags: ["Skeleton"] },
-    { id: "necro-haste", type: "Necro", name: "Rattling March", text: "Future skeletons attack faster.", icon: 5, tags: ["Skeleton", "Speed"] },
-    { id: "necro-death-energy", type: "Necro", name: "Grave Battery", text: "Gain more energy when enemies die.", icon: 108, tags: ["Death", "Energy"] },
-    { id: "necro-bone-curse", type: "Necro", name: "Bone Curse", text: "+2 power and +8% slow chance.", icon: 4, tags: ["Curse", "Slow"] },
+    { id: "necro-skeletons", type: "Necro", name: "Bone Reinforcement", text: "Future skeletons gain +6 HP and +1 power.", icon: 115, tags: ["Skeleton"] },
+    { id: "necro-haste", type: "Necro", name: "Rattling March", text: "Future skeletons attack faster.", icon: 116, tags: ["Skeleton", "Speed"] },
+    { id: "necro-death-energy", type: "Necro", name: "Grave Battery", text: "Gain more energy when enemies die.", icon: 122, tags: ["Death", "Energy"] },
+    { id: "necro-bone-curse", type: "Necro", name: "Bone Curse", text: "+2 power and +8% slow chance.", icon: 106, tags: ["Curse", "Slow"] },
   ],
   alchemist: [
-    { id: "alchemist-freeze", type: "Alchemist", name: "Chilled Mixture", text: "+8% freeze chance.", icon: 4, tags: ["Freeze"] },
-    { id: "alchemist-poison", type: "Alchemist", name: "Lingering Toxin", text: "Attacks can add a poison burst.", icon: 106, tags: ["Poison"] },
-    { id: "alchemist-splash", type: "Alchemist", name: "Splash Flask", text: "Attacks sometimes splash a second enemy.", icon: 6, tags: ["Splash"] },
-    { id: "alchemist-field-kit", type: "Alchemist", name: "Field Kit", text: "+12 HP and healing effects improve.", icon: 2, tags: ["Healing"] },
+    { id: "alchemist-freeze", type: "Alchemist", name: "Chilled Mixture", text: "+8% freeze chance.", icon: 105, tags: ["Freeze"] },
+    { id: "alchemist-poison", type: "Alchemist", name: "Lingering Toxin", text: "Attacks can add a poison burst.", icon: 123, tags: ["Poison"] },
+    { id: "alchemist-splash", type: "Alchemist", name: "Splash Flask", text: "Attacks sometimes splash a second enemy.", icon: 102, tags: ["Splash"] },
+    { id: "alchemist-field-kit", type: "Alchemist", name: "Field Kit", text: "+12 HP and healing effects improve.", icon: 4, tags: ["Healing"] },
   ],
   druid: [
-    { id: "druid-evade", type: "Druid", name: "Wild Step", text: "+8% evade and +10 HP.", icon: 2, tags: ["Evade"] },
-    { id: "druid-thorns", type: "Druid", name: "Briar Skin", text: "Attackers take thorn damage.", icon: 101, tags: ["Thorns"] },
-    { id: "druid-regrowth", type: "Druid", name: "Regrowth Aura", text: "Living allies slowly heal in combat.", icon: 107, tags: ["Regen"] },
-    { id: "druid-root", type: "Druid", name: "Root Lash", text: "+10% slow chance and +1 armor.", icon: 5, tags: ["Slow"] },
+    { id: "druid-evade", type: "Druid", name: "Wild Step", text: "+8% evade and +10 HP.", icon: 109, tags: ["Evade"] },
+    { id: "druid-thorns", type: "Druid", name: "Briar Skin", text: "Attackers take thorn damage.", icon: 119, tags: ["Thorns"] },
+    { id: "druid-regrowth", type: "Druid", name: "Regrowth Aura", text: "Living allies slowly heal in combat.", icon: 114, tags: ["Regen"] },
+    { id: "druid-root", type: "Druid", name: "Root Lash", text: "+10% slow chance and +1 armor.", icon: 118, tags: ["Slow"] },
   ],
   hunter: [
     { id: "hunter-crit", type: "Hunter", name: "Killing Angle", text: "+10% crit chance.", icon: 7, tags: ["Crit"] },
-    { id: "hunter-execute", type: "Hunter", name: "Mercy Shot", text: "Deal more damage to enemies below 35% HP.", icon: 100, tags: ["Execute"] },
-    { id: "hunter-mark", type: "Hunter", name: "Marked Shot", text: "Crits slow and expose enemies.", icon: 102, tags: ["Mark"] },
-    { id: "hunter-backline", type: "Hunter", name: "Backline Pressure", text: "+2 power. Attacks prefer the last enemy.", icon: 7, tags: ["Precision"] },
+    { id: "hunter-execute", type: "Hunter", name: "Mercy Shot", text: "Deal more damage to enemies below 35% HP.", icon: 110, tags: ["Execute"] },
+    { id: "hunter-mark", type: "Hunter", name: "Marked Shot", text: "Crits slow and expose enemies.", icon: 104, tags: ["Mark"] },
+    { id: "hunter-backline", type: "Hunter", name: "Backline Pressure", text: "+2 power. Attacks prefer the last enemy.", icon: 121, tags: ["Precision"] },
   ],
   chronomancer: [
-    { id: "chrono-slow", type: "Chrono", name: "Time Drag", text: "+12% slow chance.", icon: 5, tags: ["Slow"] },
+    { id: "chrono-slow", type: "Chrono", name: "Time Drag", text: "+12% slow chance.", icon: 113, tags: ["Slow"] },
     { id: "chrono-haste", type: "Chrono", name: "Borrowed Seconds", text: "+0.12 speed and +15% energy gain.", icon: 8, tags: ["Haste"] },
-    { id: "chrono-rewind", type: "Chrono", name: "Rewind Spark", text: "Once per combat, survive a lethal hit with 20 HP.", icon: 108, tags: ["Rewind"] },
-    { id: "chrono-echo", type: "Chrono", name: "Delayed Echo", text: "Every fourth attack repeats for light damage.", icon: 6, tags: ["Echo"] },
+    { id: "chrono-rewind", type: "Chrono", name: "Rewind Spark", text: "Once per combat, survive a lethal hit with 20 HP.", icon: 103, tags: ["Rewind"] },
+    { id: "chrono-echo", type: "Chrono", name: "Delayed Echo", text: "Every fourth attack repeats for light damage.", icon: 124, tags: ["Echo"] },
   ],
 };
 
@@ -890,6 +890,7 @@ function render() {
   if (activeRun.phase === "reward") renderReward();
   if (activeRun.phase === "level-up") renderLevelUp();
   if (activeRun.phase === "loot") renderLoot();
+  if (activeRun.phase === "combat-recap") renderCombatRecap();
   if (activeRun.phase === "event") renderEvent();
   if (activeRun.phase === "level-complete") renderLevelComplete();
   if (activeRun.phase === "complete") renderComplete();
@@ -1055,17 +1056,19 @@ function createWave(levelIndex, waveIndex) {
   const encounter = getCurrentEncounter(levelIndex, waveIndex);
   if (encounter.type === "event") return null;
   const modifier = getActiveEncounterModifier(encounter, levelIndex, waveIndex);
-  const scale = 1 + state.souls.length * 0.04;
+  const scaling = getEnemyScaling(levelIndex, waveIndex, encounter.type);
   return encounter.enemyIds.map((enemyId, index) => {
     const baseEnemy = enemies.find((enemy) => enemy.id === enemyId);
+    const primaryBossScale = encounter.type === "boss" && index === 0 ? 1.55 : 1;
     return {
       ...baseEnemy,
       instanceId: `${enemyId}_${levelIndex}_${waveIndex}_${index}`,
       encounterType: encounter.type,
       side: "enemy",
       isBoss: encounter.type === "boss" && index === 0,
-      maxHp: Math.round(baseEnemy.hp * scale * (encounter.type === "boss" && index === 0 ? 1.55 : 1)),
-      hp: Math.round(baseEnemy.hp * scale * (encounter.type === "boss" && index === 0 ? 1.55 : 1)),
+      maxHp: Math.round(baseEnemy.hp * scaling.hp * primaryBossScale),
+      hp: Math.round(baseEnemy.hp * scaling.hp * primaryBossScale),
+      power: Math.max(1, Math.round(baseEnemy.power * scaling.power)),
       attackTimer: getEnemyStartingTimer(modifier, index),
       attackInterval: getEncounterAttackInterval(baseEnemy.speed, "enemy", modifier),
       energy: 0,
@@ -1076,6 +1079,36 @@ function createWave(levelIndex, waveIndex) {
       markedPrey: modifier === "marked-prey",
     };
   });
+}
+
+function getEnemyScaling(levelIndex, waveIndex, encounterType) {
+  const breakdown = getEnemyScalingBreakdown(levelIndex, waveIndex, encounterType);
+  const baseHp = 1 + breakdown.levelHp + breakdown.waveHp + breakdown.soulHp;
+  const basePower = 1 + breakdown.levelPower + breakdown.wavePower;
+  return {
+    hp: baseHp * (1 + breakdown.encounterHp),
+    power: basePower * (1 + breakdown.encounterPower),
+  };
+}
+
+function getEnemyScalingBreakdown(levelIndex, waveIndex, encounterType) {
+  const soulCount = Math.min(5, state.souls.length);
+  const levelHp = levelIndex * 0.1;
+  const waveHp = waveIndex * 0.025;
+  const soulHp = soulCount * 0.025;
+  const levelPower = levelIndex * 0.055;
+  const wavePower = waveIndex * 0.016;
+  const encounterHp = encounterType === "elite" ? 0.16 : encounterType === "boss" ? 0.08 : 0;
+  const encounterPower = encounterType === "elite" ? 0.08 : encounterType === "boss" ? 0.05 : 0;
+  return {
+    levelHp,
+    waveHp,
+    soulHp,
+    encounterHp,
+    levelPower,
+    wavePower,
+    encounterPower,
+  };
 }
 
 function createAllies(hero, mentor) {
@@ -1130,7 +1163,8 @@ function renderCombat() {
   }
 
   hero.echoCounter = hero.echoCounter ?? 0;
-  activeRun.outcome = null;
+  if (!activeRun.outcome) activeRun.outcome = null;
+  if (!activeRun.combatStats) resetCombatStats();
 
   screen.innerHTML = `
     <div class="level-progress">
@@ -1176,6 +1210,7 @@ function renderCombat() {
 function renderPrep() {
   const level = getCurrentLevel();
   const progress = getLevelProgress(activeRun.levelIndex, activeRun.waveIndex);
+  const encounter = getCurrentEncounter(activeRun.levelIndex, activeRun.waveIndex);
   screen.innerHTML = `
     <div class="screen-pad">
       <div class="screen-title">
@@ -1190,6 +1225,7 @@ function renderPrep() {
       </div>
       ${bloodlinePreviewMarkup()}
       ${partyPreviewMarkup(activeRun.hero)}
+      ${encounterPreviewMarkup(encounter, progress)}
       <div class="prep-summary">
         <div><strong>${progress.levelName}</strong><span>Wave ${progress.waveNumber} / ${progress.totalWaves}</span></div>
         <div><strong>${state.resources.gold}</strong><span>Gold available</span></div>
@@ -1204,9 +1240,102 @@ function renderPrep() {
   });
 }
 
+function encounterPreviewMarkup(encounter, progress) {
+  if (!encounter || encounter.type === "event") {
+    return `
+      <section class="encounter-preview">
+        <div class="encounter-preview-head">
+          <div>
+            <span class="tag">Event</span>
+            <h3>${encounter?.name || "Unknown Event"}</h3>
+          </div>
+        </div>
+        <p class="encounter-note">${encounter?.text || "No combat expected."}</p>
+      </section>
+    `;
+  }
+
+  const enemiesPreview = createWave(activeRun.levelIndex, activeRun.waveIndex) || [];
+  const modifier = getActiveEncounterModifier(encounter, activeRun.levelIndex, activeRun.waveIndex);
+  const scaling = getEnemyScalingBreakdown(activeRun.levelIndex, activeRun.waveIndex, encounter.type);
+  const threat = getEncounterThreat(enemiesPreview, activeRun.allies || []);
+  const roles = summarizeEnemyRoles(enemiesPreview);
+
+  return `
+    <section class="encounter-preview threat-${threat.level}">
+      <div class="encounter-preview-head">
+        <div>
+          <span class="tag">${encounter.type}</span>
+          <h3>${encounter.name}</h3>
+        </div>
+        <div class="threat-pill">
+          <strong>${threat.label}</strong>
+          <span>${threat.ratio.toFixed(1)}x pressure</span>
+        </div>
+      </div>
+      <div class="encounter-preview-grid">
+        <div class="encounter-stat-card">
+          <strong>${enemiesPreview.length}</strong>
+          <span>${enemiesPreview.length === 1 ? "Enemy" : "Enemies"}</span>
+        </div>
+        <div class="encounter-stat-card">
+          <strong>${enemiesPreview.reduce((sum, enemy) => sum + enemy.maxHp, 0)}</strong>
+          <span>Total HP</span>
+        </div>
+        <div class="encounter-stat-card">
+          <strong>${enemiesPreview.reduce((sum, enemy) => sum + enemy.power, 0)}</strong>
+          <span>Total Power</span>
+        </div>
+      </div>
+      <div class="encounter-enemy-list">
+        ${enemiesPreview.map((enemy) => `
+          <div class="encounter-enemy ${enemy.isBoss ? "boss" : ""}">
+            <div class="token sprite enemy-token" style="${spriteStyle(enemy.sprite)}"></div>
+            <div>
+              <strong>${enemy.name}</strong>
+              <span>${formatRole(enemy.role)} - ${enemy.maxHp} HP / ${enemy.power} PWR</span>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+      <div class="tags encounter-tags">
+        ${modifier ? `<span class="stat-pill encounter-modifier">${getEncounterModifierText(modifier)}</span>` : `<span class="stat-pill">No modifier</span>`}
+        ${roles.map((role) => `<span class="stat-pill">${role}</span>`).join("")}
+      </div>
+      <div class="scaling-line">
+        <span>Level +${Math.round(scaling.levelHp * 100)}% HP / +${Math.round(scaling.levelPower * 100)}% PWR</span>
+        <span>Wave +${Math.round(scaling.waveHp * 100)}% HP / +${Math.round(scaling.wavePower * 100)}% PWR</span>
+        <span>Souls +${Math.round(scaling.soulHp * 100)}% HP</span>
+        ${scaling.encounterHp || scaling.encounterPower ? `<span>${encounter.type} +${Math.round(scaling.encounterHp * 100)}% HP / +${Math.round(scaling.encounterPower * 100)}% PWR</span>` : ""}
+      </div>
+    </section>
+  `;
+}
+
+function summarizeEnemyRoles(units) {
+  const counts = new Map();
+  units.forEach((unit) => counts.set(formatRole(unit.role), (counts.get(formatRole(unit.role)) || 0) + 1));
+  return [...counts.entries()].map(([role, count]) => count > 1 ? `${count} ${role}` : role);
+}
+
+function getEncounterThreat(enemiesPreview, alliesPreview) {
+  const enemyHp = enemiesPreview.reduce((sum, enemy) => sum + enemy.maxHp, 0);
+  const enemyPower = enemiesPreview.reduce((sum, enemy) => sum + enemy.power, 0);
+  const livingAllies = alliesPreview.filter(isAlive);
+  const allyHp = livingAllies.reduce((sum, ally) => sum + ally.maxHp + (ally.armor || 0) * 4, 0);
+  const allyPower = livingAllies.reduce((sum, ally) => sum + ally.power + getWeapons(ally).reduce((weaponSum, weapon) => weaponSum + getItemAttackPower(weapon), 0), 0);
+  const enemyPressure = enemyHp * 0.35 + enemyPower * 8;
+  const partyPressure = Math.max(1, allyHp * 0.28 + allyPower * 8.5);
+  const ratio = enemyPressure / partyPressure;
+  if (ratio >= 1.28) return { level: "high", label: "High Threat", ratio };
+  if (ratio >= 0.9) return { level: "medium", label: "Medium Threat", ratio };
+  return { level: "low", label: "Low Threat", ratio };
+}
+
 function startPreparedEncounter() {
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
+  resetCombatStats();
   activeRun.phase = activeRun.enemies ? "combat" : "event";
   render();
 }
@@ -1363,13 +1492,103 @@ function summonUnitToken(unit) {
 function attachCombatUnitHandlers() {
   document.querySelectorAll('[data-side="ally"]').forEach((card) => {
     card.addEventListener("click", () => {
+      if (activeRun?.outcome) return;
       selectedUnitId = card.dataset.unitId;
       selectedInspectorSlot = null;
       render();
     });
   });
 }
+
+function resetCombatStats() {
+  if (!activeRun) return;
+  activeRun.combatStats = {
+    startedAt: Date.now(),
+    units: {},
+    summonsCreated: 0,
+    fallen: [],
+  };
+  [...(activeRun.allies || []), ...(activeRun.enemies || [])].forEach(ensureCombatStat);
+}
+
+function ensureCombatStat(unit) {
+  if (!activeRun?.combatStats || !unit) return null;
+  const id = unit.instanceId || unit.id || unit.name;
+  if (!activeRun.combatStats.units[id]) {
+    activeRun.combatStats.units[id] = {
+      id,
+      name: unit.name,
+      side: unit.side,
+      className: unit.className || formatRole(unit.role),
+      isHero: !!unit.isHero,
+      isLegacyHero: !!unit.isLegacyHero,
+      isSummon: !!unit.isSummon,
+      damageDealt: 0,
+      damageTaken: 0,
+      kills: 0,
+      crits: 0,
+      blocks: 0,
+      dodges: 0,
+      summonsCreated: 0,
+      deathBy: null,
+    };
+  }
+  return activeRun.combatStats.units[id];
+}
+
+function recordDamageDealt(attacker, damage) {
+  const stats = ensureCombatStat(attacker);
+  if (stats) stats.damageDealt += Math.max(0, Math.round(damage || 0));
+}
+
+function recordDamageTaken(target, damage) {
+  const stats = ensureCombatStat(target);
+  if (stats) stats.damageTaken += Math.max(0, Math.round(damage || 0));
+}
+
+function recordKill(attacker) {
+  const stats = ensureCombatStat(attacker);
+  if (stats) stats.kills += 1;
+}
+
+function recordCrit(attacker) {
+  const stats = ensureCombatStat(attacker);
+  if (stats) stats.crits += 1;
+}
+
+function recordBlock(unit) {
+  const stats = ensureCombatStat(unit);
+  if (stats) stats.blocks += 1;
+}
+
+function recordDodge(unit) {
+  const stats = ensureCombatStat(unit);
+  if (stats) stats.dodges += 1;
+}
+
+function recordSummonCreated(unit) {
+  const stats = ensureCombatStat(unit);
+  if (stats) stats.summonsCreated += 1;
+  if (activeRun?.combatStats) activeRun.combatStats.summonsCreated += 1;
+}
+
+function recordFallen(unit, attacker) {
+  if (!activeRun?.combatStats || !unit || activeRun.combatStats.fallen.some((fallen) => fallen.id === unit.instanceId)) return;
+  const stats = ensureCombatStat(unit);
+  if (stats) stats.deathBy = attacker?.name || "Unknown";
+  activeRun.combatStats.fallen.push({
+    id: unit.instanceId,
+    name: unit.name,
+    side: unit.side,
+    isHero: !!unit.isHero,
+    isLegacyHero: !!unit.isLegacyHero,
+    isSummon: !!unit.isSummon,
+    killer: attacker?.name || "Unknown",
+  });
+}
+
 function startCombatTicker() {
+  if (activeRun?.outcome) return;
   clearCombatTicker();
   activeRun.lastTick = performance.now();
   combatTicker = window.setInterval(tickCombat, 80);
@@ -1421,6 +1640,7 @@ function tickCombat() {
     }
   });
 
+  checkPartyDefeat();
   checkWaveVictory();
   updateCombatDom();
 }
@@ -1435,6 +1655,7 @@ function performAllyAttack(ally) {
   ally.lastWeaponName = weapon?.name || "Unarmed";
   const weaponPower = getItemAttackPower(weapon);
   const crit = Math.random() < (ally.critChance || 0);
+  if (crit) recordCrit(ally);
   const critMultiplier = crit ? 1.5 + (ally.critDamage || 0) : 1;
   let damage = Math.round(((ally.power + weaponPower) * 1.45 + ally.speed * 4) * random(0.85, 1.25) * critMultiplier);
   if (ally.executeBonus && target.hp / target.maxHp <= 0.35) {
@@ -1516,11 +1737,13 @@ function performEnemyAttack(enemy) {
   }
   enemy.currentAttackType = enemy.attackType || "melee";
   if (Math.random() < (target.evade || 0)) {
+    recordDodge(target);
     showCombatCallout(document.querySelector(`#${target.instanceId}`), "DODGE", "dodge");
     addLog(`${target.name} evades ${enemy.name}.`);
     return;
   }
   const blocked = Math.random() < (target.block || 0);
+  if (blocked) recordBlock(target);
   const mitigation = blocked ? 0.45 : 1;
   const roleMultiplier = enemy.role === "assassin" && enemy.markedPrey ? 1.22 : 1;
   const damage = Math.max(1, Math.round((enemy.power * 1.35 - target.armor * 0.28) * random(0.8, 1.3) * mitigation * roleMultiplier));
@@ -1571,9 +1794,14 @@ function performFallbackAttack(unit) {
     }
     const damage = Math.max(1, Math.round((unit.power || 1) * 0.8));
     target.hp -= damage;
+    recordDamageDealt(unit, damage);
+    recordDamageTaken(target, damage);
     syncHeroFromUnit(target);
     showDamageNumber(document.querySelector(`#${target.instanceId}`), damage);
-    if (target.hp <= 0 && !target.defeated) target.defeated = true;
+    if (target.hp <= 0 && !target.defeated) {
+      target.defeated = true;
+      recordFallen(target, unit);
+    }
     if (!hasLivingHeroAllies()) finishCombat(`${unit.name} destroys the party.`, "Fallen");
     return;
   }
@@ -1585,6 +1813,14 @@ function performFallbackAttack(unit) {
   const damage = Math.max(1, Math.round((unit.power || 1) * 0.8));
   damageEnemy(target, damage, unit);
   showDamageNumber(document.querySelector(`#${target.instanceId}`), damage);
+}
+
+function checkPartyDefeat() {
+  if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return false;
+  if (hasLivingHeroAllies()) return false;
+  const killer = (activeRun.enemies || []).find(isAlive);
+  finishCombat(`${killer?.name || "The enemy"} destroys the party.`, "Fallen");
+  return true;
 }
 
 function applyOffensiveStatuses(attacker, target, crit) {
@@ -1612,14 +1848,18 @@ function applyOffensiveStatuses(attacker, target, crit) {
 function damageEnemy(enemy, damage, attacker) {
   const hero = activeRun.hero;
   if (Math.random() < (enemy.evade || 0)) {
+    recordDodge(enemy);
     showCombatCallout(document.querySelector(`#${enemy.instanceId}`), "DODGE", "dodge");
     addLog(`${enemy.name} slips the hit.`);
     return false;
   }
   enemy.hp -= damage;
+  recordDamageDealt(attacker, damage);
+  recordDamageTaken(enemy, damage);
   if (attacker?.isHero) hero.damageDealt += damage;
   if (enemy.hp <= 0 && !enemy.defeated) {
     enemy.defeated = true;
+    recordKill(attacker);
     if (attacker?.isHero) hero.kills += 1;
     if (attacker?.deathPowerBonus) attacker.power += attacker.deathPowerBonus;
     gainEnergy(attacker, 28 + (attacker?.deathEnergyBonus || 0));
@@ -1639,6 +1879,8 @@ function damageAlly(target, damage, attacker) {
     return false;
   }
   target.hp -= damage;
+  recordDamageDealt(attacker, damage);
+  recordDamageTaken(target, damage);
   syncHeroFromUnit(target);
   if (attacker?.lifesteal) {
     const heal = Math.max(1, Math.round(damage * attacker.lifesteal));
@@ -1647,6 +1889,14 @@ function damageAlly(target, damage, attacker) {
   if (target.thorns && attacker && attacker.side === "enemy" && isAlive(attacker)) {
     damageEnemy(attacker, target.thorns, target);
     showDamageNumber(document.querySelector(`#${attacker.instanceId}`), target.thorns);
+  }
+  if (target.hp <= 0 && !target.defeated) {
+    target.defeated = true;
+    recordFallen(target, attacker);
+    addLog(`${attacker?.name || "An enemy"} brings down ${target.name}.`);
+  }
+  if (!hasLivingHeroAllies()) {
+    checkPartyDefeat();
   }
   return true;
 }
@@ -1839,6 +2089,8 @@ function summonBoneServant(unit, sourceName) {
   }
   const summon = createSkeletonSummon(summonCount, unit);
   activeRun.allies.push(summon);
+  ensureCombatStat(summon);
+  recordSummonCreated(unit);
   appendSummonToCombat(summon);
   addLog(`${unit.name} raises a Bone Servant with ${sourceName}.`);
   return true;
@@ -1890,6 +2142,7 @@ function summonEnemyShade(enemy) {
     maxEnergy: 0,
   };
   wave.push(shade);
+  ensureCombatStat(shade);
   appendEnemyToCombat(shade);
   showFloatingText(document.querySelector(`#${shade.instanceId}`), "Summoned", "summon-number");
   addLog(`${enemy.name} splits off a Mirror Shade.`);
@@ -2001,10 +2254,11 @@ function getPrimaryTarget(ally) {
   return randomFrom(alive);
 }
 
-function getEnemyTarget(enemy) {
+function getEnemyTarget(enemy, options = {}) {
+  const shouldFinishOnEmpty = options.finishOnEmpty !== false;
   const aliveAllies = (activeRun.allies || []).filter(isAlive);
   if (!aliveAllies.length) {
-    finishCombat(`${enemy.name} destroys the whole party.`, "Fallen");
+    if (shouldFinishOnEmpty) finishCombat(`${enemy.name} destroys the whole party.`, "Fallen");
     return null;
   }
   if (enemy.role === "archer") {
@@ -2027,12 +2281,12 @@ function getEnemyIntentTarget(enemy) {
 }
 
 function updateEnemyIntents() {
-  if (!activeRun || activeRun.phase !== "combat") return;
+  if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return;
   (activeRun.enemies || []).filter(isAlive).forEach((enemy) => {
     const attackProgress = enemy.attackInterval ? enemy.attackTimer / enemy.attackInterval : 0;
     const target = getEnemyIntentTarget(enemy);
     if (attackProgress >= 0.7 && !target) {
-      enemy.intentTargetId = getEnemyTarget(enemy)?.instanceId || null;
+      enemy.intentTargetId = getEnemyTarget(enemy, { finishOnEmpty: false })?.instanceId || null;
     }
     if (attackProgress < 0.25 || !target) {
       if (attackProgress < 0.25) enemy.intentTargetId = null;
@@ -2083,6 +2337,7 @@ function isAlive(enemy) {
 }
 
 function finishCombat(logLine, outcome) {
+  if (!activeRun || activeRun.outcome) return;
   activeRun.outcome = outcome;
   addLog(logLine);
   updateCombatDom();
@@ -2093,21 +2348,132 @@ function finishCombat(logLine, outcome) {
   }
   clearCombatTicker();
   transitionTimer = window.setTimeout(() => {
-    if (outcome === "Fallen") {
-      createSoul("fell in battle");
-      return;
-    }
-    cleanupCombatSummons();
-    activeRun.pendingLoot = generateLootChoices();
-    activeRun.afterLootPhase = isCurrentBossWave() ? "level-complete" : "advance";
-    activeRun.phase = "loot";
+    activeRun.combatRecap = createCombatRecap(logLine, outcome);
+    activeRun.phase = "combat-recap";
     render();
   }, 1150);
 }
 
+function createCombatRecap(logLine, outcome) {
+  const encounter = getCurrentEncounter(activeRun.levelIndex, activeRun.waveIndex);
+  const stats = activeRun.combatStats || { units: {}, fallen: [], summonsCreated: 0 };
+  const units = Object.values(stats.units || {});
+  const allies = units.filter((unit) => unit.side === "ally");
+  const enemies = units.filter((unit) => unit.side === "enemy");
+  const mvp = allies.slice().sort((a, b) => getMvpScore(b) - getMvpScore(a))[0] || null;
+  return {
+    outcome,
+    logLine,
+    encounterName: encounter?.name || "Encounter",
+    encounterType: encounter?.type || "combat",
+    waveLabel: `${getCurrentLevel().name} - Wave ${activeRun.waveIndex + 1}`,
+    allies,
+    enemies,
+    fallen: stats.fallen || [],
+    summonsCreated: stats.summonsCreated || 0,
+    mvp,
+  };
+}
+
+function getMvpScore(unit) {
+  return (unit.damageDealt || 0) + (unit.kills || 0) * 35 + (unit.blocks || 0) * 12 + (unit.dodges || 0) * 12 + (unit.summonsCreated || 0) * 18;
+}
+
+function renderCombatRecap() {
+  const recap = activeRun.combatRecap;
+  if (!recap) {
+    continueAfterCombatRecap();
+    return;
+  }
+  const allyRows = recap.allies.filter((unit) => unit.damageDealt || unit.damageTaken || unit.kills || unit.crits || unit.blocks || unit.dodges || unit.summonsCreated || unit.isHero || unit.isLegacyHero);
+  screen.innerHTML = `
+    <div class="screen-pad">
+      <div class="screen-title">
+        <div>
+          <h2>${recap.outcome === "Victory" ? "Combat Won" : "Run Lost"}</h2>
+          <p>${recap.encounterName}. ${recap.logLine}</p>
+        </div>
+        <button class="primary" id="continueCombatRecapBtn">${recap.outcome === "Victory" ? "Choose Loot" : "Continue"}</button>
+      </div>
+      <section class="combat-recap-card ${recap.outcome === "Fallen" ? "fallen" : ""}">
+        <div class="combat-recap-head">
+          <div>
+            <span class="tag">${recap.encounterType}</span>
+            <h3>${recap.waveLabel}</h3>
+          </div>
+          ${recap.mvp ? `<div class="mvp-card"><strong>MVP</strong><span>${recap.mvp.name}</span></div>` : ""}
+        </div>
+        <div class="recap-items combat-recap-totals">
+          <span><strong>${sumStats(recap.allies, "damageDealt")}</strong> damage dealt</span>
+          <span><strong>${sumStats(recap.allies, "damageTaken")}</strong> damage taken</span>
+          <span><strong>${sumStats(recap.allies, "kills")}</strong> kills</span>
+          <span><strong>${sumStats(recap.allies, "crits")}</strong> crits</span>
+          <span><strong>${sumStats(recap.allies, "blocks")}</strong> blocks</span>
+          <span><strong>${sumStats(recap.allies, "dodges")}</strong> dodges</span>
+        </div>
+        <h3>Party Performance</h3>
+        <div class="combat-recap-list">
+          ${allyRows.map(combatRecapUnitRow).join("") || `<p class="empty">No party stats recorded.</p>`}
+        </div>
+        ${recap.fallen.length ? `
+          <h3>Fallen</h3>
+          <div class="combat-recap-list fallen-list">
+            ${recap.fallen.map((fallen) => `
+              <div class="combat-recap-row">
+                <strong>${fallen.name}</strong>
+                <span>${fallen.isSummon ? "Summon" : fallen.isLegacyHero ? "Eternal" : "Hero"} - fell to ${fallen.killer}</span>
+              </div>
+            `).join("")}
+          </div>
+        ` : ""}
+      </section>
+    </div>
+  `;
+  document.querySelector("#continueCombatRecapBtn").addEventListener("click", continueAfterCombatRecap);
+}
+
+function combatRecapUnitRow(unit) {
+  return `
+    <div class="combat-recap-row ${unit.isSummon ? "summon" : unit.isLegacyHero ? "legacy" : ""}">
+      <div>
+        <strong>${unit.name}</strong>
+        <span>${unit.isSummon ? "Summon" : unit.isLegacyHero ? "Eternal" : unit.className || "Hero"}</span>
+      </div>
+      <div class="combat-recap-stats">
+        <span>${unit.damageDealt || 0} DMG</span>
+        <span>${unit.damageTaken || 0} taken</span>
+        <span>${unit.kills || 0} K</span>
+        <span>${unit.crits || 0} C</span>
+        <span>${unit.blocks || 0} B</span>
+        <span>${unit.dodges || 0} D</span>
+        ${unit.summonsCreated ? `<span>${unit.summonsCreated} summons</span>` : ""}
+      </div>
+    </div>
+  `;
+}
+
+function sumStats(units, key) {
+  return units.reduce((sum, unit) => sum + (unit[key] || 0), 0);
+}
+
+function continueAfterCombatRecap() {
+  if (!activeRun?.combatRecap) return;
+  const outcome = activeRun.combatRecap.outcome;
+  activeRun.combatRecap = null;
+  if (outcome === "Fallen") {
+    createSoul("fell in battle");
+    return;
+  }
+  cleanupCombatSummons();
+  activeRun.pendingLoot = generateLootChoices();
+  activeRun.afterLootPhase = isCurrentBossWave() ? "level-complete" : "advance";
+  activeRun.phase = "loot";
+  render();
+}
+
 function updateCombatDom() {
   if (!activeRun || activeRun.phase !== "combat") return;
-  updateEnemyIntents();
+  if (!activeRun.outcome) updateEnemyIntents();
   const units = [...(activeRun.allies || []), ...(activeRun.enemies || [])];
   document.querySelectorAll(".intent-target, .intent-source, .charging-attack").forEach((node) => {
     node.classList.remove("intent-target", "intent-source", "charging-attack");
@@ -2482,6 +2848,7 @@ function advanceNode() {
   }
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
+  activeRun.combatStats = null;
   activeRun.phase = activeRun.enemies ? "combat" : "event";
   render();
 }
@@ -2495,6 +2862,7 @@ function continueToNextLevel() {
   activeRun.waveIndex = 0;
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
+  activeRun.combatStats = null;
   activeRun.phase = "prep";
   render();
 }

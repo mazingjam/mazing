@@ -1,17 +1,21 @@
 :root {
   color-scheme: dark;
-  --bg: #101014;
-  --panel: #1b1c22;
-  --panel-2: #24262e;
-  --ink: #f3efe4;
-  --muted: #aaa59a;
-  --line: #383a44;
-  --gold: #d7ad58;
-  --red: #ca5950;
-  --green: #6eaf72;
-  --blue: #6e9ebc;
-  --violet: #9a7ebd;
-  --shadow: rgba(0, 0, 0, 0.35);
+  --bg: #0f0b08;
+  --panel: #211912;
+  --panel-2: #2b2118;
+  --ink: #f6ead3;
+  --muted: #b9a98d;
+  --line: #6f5630;
+  --gold: #c99a45;
+  --red: #9d342b;
+  --green: #5f8f58;
+  --blue: #6f8f91;
+  --violet: #8d6f9c;
+  --shadow: rgba(0, 0, 0, 0.52);
+  --ui-leather: url("assets/ui/panel-leather.png");
+  --ui-stone: url("assets/ui/frame-stone.png");
+  --ui-parchment: url("assets/ui/parchment.png");
+  --ui-blood: url("assets/ui/frame-blood.png");
 }
 
 * {
@@ -22,8 +26,9 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(135deg, rgba(110, 158, 188, 0.12), transparent 28%),
-    radial-gradient(circle at 80% 15%, rgba(215, 173, 88, 0.14), transparent 30%),
+    radial-gradient(circle at 50% 0%, rgba(201, 154, 69, 0.16), transparent 34%),
+    radial-gradient(circle at 80% 15%, rgba(99, 48, 28, 0.28), transparent 32%),
+    linear-gradient(135deg, rgba(58, 37, 22, 0.56), transparent 38%),
     var(--bg);
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -88,9 +93,10 @@ h3 {
 .run-meta span,
 .tag,
 .stat-pill {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 999px;
+  border: 1px solid rgba(201, 154, 69, 0.42);
+  background:
+    linear-gradient(180deg, rgba(67, 48, 29, 0.82), rgba(25, 18, 13, 0.88));
+  border-radius: 6px;
   padding: 6px 10px;
   color: var(--muted);
   font-size: 12px;
@@ -118,8 +124,13 @@ h3 {
 
 .panel,
 .stage {
-  border: 1px solid var(--line);
-  background: rgba(27, 28, 34, 0.94);
+  border: 10px solid transparent;
+  border-image: var(--ui-leather) 58 fill stretch;
+  background:
+    linear-gradient(rgba(24, 17, 11, 0.86), rgba(20, 14, 10, 0.94)),
+    var(--ui-leather);
+  background-size: cover;
+  background-position: center;
   box-shadow: 0 14px 36px var(--shadow);
 }
 
@@ -151,8 +162,10 @@ h3 {
   place-items: center;
   min-width: 34px;
   height: 34px;
+  border: 6px solid transparent;
+  border-image: var(--ui-stone) 72 fill stretch;
   border-radius: 8px;
-  background: var(--panel-2);
+  background: #211914;
   color: var(--ink);
   padding: 0 9px;
   font-size: 12px;
@@ -172,9 +185,14 @@ h3 {
 .inheritance-choice,
 .soul-card,
 .combat-card {
-  border: 1px solid var(--line);
+  border: 8px solid transparent;
+  border-image: var(--ui-stone) 70 fill stretch;
   border-radius: 8px;
-  background: var(--panel-2);
+  background:
+    linear-gradient(rgba(37, 28, 20, 0.9), rgba(23, 17, 13, 0.96)),
+    var(--ui-stone);
+  background-size: cover;
+  background-position: center;
 }
 
 .choice-card,
@@ -195,7 +213,9 @@ h3 {
 .inheritance-choice:focus-visible {
   transform: translateY(-2px);
   border-color: var(--gold);
-  background: #2b2d36;
+  background:
+    linear-gradient(rgba(49, 36, 23, 0.9), rgba(28, 20, 14, 0.96)),
+    var(--ui-stone);
   outline: none;
 }
 
@@ -400,9 +420,12 @@ h3 {
 
 .run-preview,
 .party-preview {
-  border: 1px solid var(--line);
+  border: 8px solid transparent;
+  border-image: var(--ui-leather) 62 fill stretch;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
+  background:
+    linear-gradient(rgba(31, 22, 15, 0.8), rgba(19, 14, 10, 0.9)),
+    var(--ui-leather);
   margin-bottom: 12px;
   padding: 12px;
 }
@@ -550,23 +573,27 @@ h3 {
 .secondary,
 .danger {
   min-height: 42px;
+  border: 7px solid transparent;
+  border-image: var(--ui-stone) 72 fill stretch;
   border-radius: 8px;
   padding: 0 14px;
-  color: #171717;
+  color: var(--ink);
   font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .primary {
-  background: var(--gold);
+  background: linear-gradient(180deg, #b9842f, #6f431d);
 }
 
 .secondary {
-  background: var(--panel-2);
+  background: linear-gradient(180deg, #3a2a1f, #19110d);
   color: var(--ink);
 }
 
 .danger {
-  background: var(--red);
+  border-image: var(--ui-blood) 72 fill stretch;
+  background: linear-gradient(180deg, #783027, #2b0f0f);
   color: white;
 }
 
@@ -586,9 +613,10 @@ h3 {
 }
 
 .prep-summary div {
-  border: 1px solid var(--line);
+  border: 6px solid transparent;
+  border-image: var(--ui-leather) 64 fill stretch;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(32, 22, 14, 0.72);
   padding: 12px;
 }
 
@@ -600,6 +628,152 @@ h3 {
 .prep-summary span {
   color: var(--muted);
   font-size: 12px;
+}
+
+.encounter-preview {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.encounter-preview.threat-low {
+  filter: drop-shadow(0 0 8px rgba(77, 112, 62, 0.12));
+}
+
+.encounter-preview.threat-medium {
+  filter: drop-shadow(0 0 9px rgba(201, 154, 69, 0.14));
+}
+
+.encounter-preview.threat-high {
+  filter: drop-shadow(0 0 10px rgba(157, 52, 43, 0.16));
+}
+
+.encounter-preview-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.encounter-preview-head h3,
+.encounter-note {
+  margin: 0;
+}
+
+.encounter-preview-head h3 {
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.threat-pill {
+  min-width: 104px;
+  border: 1px solid rgba(201, 154, 69, 0.3);
+  border-radius: 8px;
+  background: rgba(29, 18, 11, 0.56);
+  padding: 8px;
+  text-align: right;
+}
+
+.threat-pill strong,
+.threat-pill span,
+.encounter-stat-card strong,
+.encounter-stat-card span,
+.encounter-enemy strong,
+.encounter-enemy span,
+.scaling-line span {
+  display: block;
+}
+
+.threat-pill strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.threat-pill span,
+.encounter-stat-card span,
+.encounter-enemy span,
+.encounter-note,
+.scaling-line span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.encounter-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.encounter-stat-card {
+  border: 1px solid rgba(201, 154, 69, 0.28);
+  border-radius: 8px;
+  background: rgba(24, 15, 9, 0.46);
+  padding: 9px;
+}
+
+.encounter-stat-card strong {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.encounter-enemy-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.encounter-enemy {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  border: 1px solid rgba(157, 52, 43, 0.48);
+  border-radius: 8px;
+  background: rgba(74, 24, 20, 0.34);
+  padding: 8px;
+}
+
+.encounter-enemy.boss {
+  border-color: rgba(124, 18, 24, 0.82);
+  background: rgba(74, 12, 15, 0.52);
+}
+
+.encounter-enemy .token {
+  width: 34px;
+  height: 34px;
+}
+
+.encounter-enemy strong,
+.encounter-enemy span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.encounter-enemy strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.encounter-tags {
+  margin: 0;
+}
+
+.scaling-line {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.scaling-line span {
+  border-left: 2px solid rgba(201, 154, 69, 0.42);
+  background: rgba(27, 17, 10, 0.42);
+  padding: 5px 7px;
 }
 
 .shop-grid {
@@ -657,11 +831,11 @@ h3 {
   padding: 20px;
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(rgba(11, 12, 16, 0.32), rgba(11, 12, 16, 0.48)),
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(24, 13, 8, 0.2), rgba(14, 9, 7, 0.58)),
+    linear-gradient(rgba(201, 154, 69, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 154, 69, 0.04) 1px, transparent 1px),
     var(--combat-bg),
-    #17181d;
+    #17110c;
   background-position: center, 0 0, 0 0, center;
   background-repeat: no-repeat, repeat, repeat, no-repeat;
   background-size: cover, 38px 38px, 38px 38px, cover;
@@ -687,7 +861,10 @@ h3 {
   gap: 12px;
   padding: 12px 20px;
   border-bottom: 1px solid var(--line);
-  background: rgba(20, 21, 26, 0.96);
+  background:
+    linear-gradient(180deg, rgba(43, 31, 20, 0.92), rgba(19, 13, 9, 0.96)),
+    var(--ui-leather);
+  background-size: cover;
 }
 
 .level-progress div {
@@ -761,9 +938,14 @@ h3 {
   row-gap: 4px;
   width: 128px;
   height: 220px;
-  border: 1px solid var(--line);
+  border: 7px solid transparent;
+  border-image: var(--ui-stone) 70 fill stretch;
   border-radius: 8px;
-  background: rgba(36, 38, 46, 0.92);
+  background:
+    linear-gradient(rgba(38, 28, 20, 0.88), rgba(20, 14, 11, 0.96)),
+    var(--ui-stone);
+  background-size: cover;
+  background-position: center;
   padding: 8px;
   text-align: center;
   will-change: transform;
@@ -787,9 +969,9 @@ h3 {
 }
 
 .build-summary-tags span {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(201, 154, 69, 0.26);
+  border-radius: 6px;
+  background: rgba(39, 28, 18, 0.72);
   color: rgba(255, 244, 221, 0.86);
   padding: 4px 7px;
   font-size: 11px;
@@ -802,15 +984,15 @@ h3 {
 }
 
 .fighter.selected-unit {
-  box-shadow: 0 0 0 2px var(--gold), 0 0 22px rgba(215, 173, 88, 0.25);
+  box-shadow: 0 0 0 2px var(--gold), 0 0 20px rgba(201, 154, 69, 0.28);
 }
 
 .fighter.intent-source {
-  box-shadow: 0 0 0 2px rgba(255, 183, 99, 0.62), 0 0 18px rgba(255, 129, 80, 0.28);
+  box-shadow: 0 0 0 2px rgba(214, 147, 68, 0.72), 0 0 18px rgba(142, 70, 34, 0.28);
 }
 
 .fighter.intent-target {
-  box-shadow: 0 0 0 2px rgba(255, 226, 132, 0.9), 0 0 26px rgba(255, 206, 92, 0.36);
+  box-shadow: 0 0 0 2px rgba(239, 198, 101, 0.92), 0 0 24px rgba(201, 154, 69, 0.34);
 }
 
 .fighter.intent-target::after {
@@ -820,7 +1002,8 @@ h3 {
   top: 6px;
   z-index: 3;
   border-radius: 999px;
-  background: rgba(255, 216, 114, 0.94);
+  border: 1px solid rgba(83, 52, 20, 0.42);
+  background: rgba(226, 174, 73, 0.94);
   color: #24180d;
   padding: 2px 6px;
   font-size: 8px;
@@ -833,7 +1016,7 @@ h3 {
 }
 
 .fighter.energy-ready {
-  box-shadow: 0 0 0 2px rgba(215, 173, 88, 0.8), 0 0 24px rgba(215, 173, 88, 0.38);
+  box-shadow: 0 0 0 2px rgba(201, 154, 69, 0.82), 0 0 24px rgba(201, 154, 69, 0.34);
 }
 
 .fighter.ultimate-cast {
@@ -845,13 +1028,17 @@ h3 {
 }
 
 .ally-card {
-  border-color: rgba(110, 175, 114, 0.78);
-  background: linear-gradient(180deg, rgba(46, 92, 63, 0.86), rgba(30, 41, 35, 0.94));
+  border-image: var(--ui-leather) 62 fill stretch;
+  background:
+    linear-gradient(180deg, rgba(52, 83, 50, 0.8), rgba(24, 31, 23, 0.94)),
+    var(--ui-leather);
 }
 
 .legacy-card {
-  border-color: rgba(73, 190, 184, 0.84);
-  background: linear-gradient(180deg, rgba(29, 92, 95, 0.9), rgba(24, 45, 48, 0.96));
+  border-image: var(--ui-leather) 62 fill stretch;
+  background:
+    linear-gradient(180deg, rgba(32, 95, 91, 0.82), rgba(22, 42, 41, 0.96)),
+    var(--ui-leather);
 }
 
 .summon-card {
@@ -862,19 +1049,25 @@ h3 {
   width: 66px;
   height: 78px;
   padding: 5px;
-  border-color: rgba(145, 172, 184, 0.78);
-  background: linear-gradient(180deg, rgba(52, 68, 78, 0.9), rgba(28, 35, 42, 0.96));
+  border-image: var(--ui-stone) 70 fill stretch;
+  background:
+    linear-gradient(180deg, rgba(54, 59, 59, 0.82), rgba(24, 27, 27, 0.96)),
+    var(--ui-stone);
 }
 
 .enemy-card {
-  border-color: rgba(202, 89, 80, 0.8);
-  background: linear-gradient(180deg, rgba(102, 42, 42, 0.88), rgba(44, 27, 31, 0.95));
+  border-image: var(--ui-blood) 68 fill stretch;
+  background:
+    linear-gradient(180deg, rgba(99, 35, 31, 0.9), rgba(38, 16, 14, 0.96)),
+    var(--ui-blood);
 }
 
 .boss-card {
   width: 168px;
-  border-color: rgba(164, 28, 42, 0.95);
-  background: linear-gradient(180deg, rgba(94, 18, 28, 0.96), rgba(34, 12, 18, 0.98));
+  border-image: var(--ui-blood) 62 fill stretch;
+  background:
+    linear-gradient(180deg, rgba(93, 12, 18, 0.96), rgba(25, 7, 9, 0.98)),
+    var(--ui-blood);
 }
 
 .role-badge {
@@ -882,9 +1075,9 @@ h3 {
   left: 6px;
   top: 6px;
   z-index: 3;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  background: rgba(18, 19, 24, 0.78);
+  border: 1px solid rgba(201, 154, 69, 0.34);
+  border-radius: 5px;
+  background: rgba(22, 14, 9, 0.82);
   color: rgba(255, 244, 221, 0.92);
   padding: 2px 6px;
   font-size: 8px;
@@ -945,9 +1138,10 @@ h3 {
   background-size: cover;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.24);
+  border: 2px solid rgba(201, 154, 69, 0.3);
   box-shadow:
-    inset 0 0 0 2px rgba(255, 255, 255, 0.08),
-    0 0 0 3px rgba(0, 0, 0, 0.16);
+    inset 0 0 0 2px rgba(255, 236, 197, 0.05),
+    0 0 0 3px rgba(0, 0, 0, 0.22);
 }
 
 .hero-sheet-portrait img {
@@ -960,25 +1154,25 @@ h3 {
 .hero-icon-portrait {
   background-image: url("assets/expanded-icons.png");
   background-repeat: no-repeat;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08), 0 0 0 3px rgba(215, 173, 88, 0.1);
+  box-shadow: inset 0 0 0 2px rgba(255, 236, 197, 0.06), 0 0 0 3px rgba(201, 154, 69, 0.12);
 }
 
 .enemy-token {
-  box-shadow: 0 0 0 4px rgba(202, 89, 80, 0.2);
+  box-shadow: 0 0 0 4px rgba(111, 28, 23, 0.35);
 }
 
 .ally-card .token {
-  box-shadow: 0 0 0 4px rgba(110, 175, 114, 0.2);
+  box-shadow: 0 0 0 4px rgba(67, 99, 54, 0.35);
 }
 
 .legacy-card .token {
-  box-shadow: 0 0 0 4px rgba(73, 190, 184, 0.24);
+  box-shadow: 0 0 0 4px rgba(45, 113, 108, 0.36);
 }
 
 .summon-card .token {
   width: 34px;
   height: 34px;
-  box-shadow: 0 0 0 4px rgba(145, 172, 184, 0.2);
+  box-shadow: 0 0 0 4px rgba(93, 89, 78, 0.36);
 }
 
 .summon-card .tags {
@@ -1002,9 +1196,12 @@ h3 {
   place-items: center;
   width: 58px;
   height: 76px;
-  border: 1px solid rgba(145, 172, 184, 0.78);
+  border: 6px solid transparent;
+  border-image: var(--ui-stone) 70 fill stretch;
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(52, 68, 78, 0.9), rgba(28, 35, 42, 0.96));
+  background:
+    linear-gradient(180deg, rgba(50, 53, 50, 0.88), rgba(21, 23, 22, 0.96)),
+    var(--ui-stone);
   padding: 4px;
   box-sizing: border-box;
   overflow: hidden;
@@ -1018,7 +1215,7 @@ h3 {
   width: 30px;
   height: 30px;
   margin: 0;
-  box-shadow: 0 0 0 3px rgba(145, 172, 184, 0.2);
+  box-shadow: 0 0 0 3px rgba(93, 89, 78, 0.34);
 }
 
 .summon-token > span {
@@ -1036,12 +1233,13 @@ h3 {
 
 .side-label {
   display: inline-flex;
-  border-radius: 999px;
+  border: 1px solid rgba(201, 154, 69, 0.28);
+  border-radius: 5px;
   align-self: center;
   justify-self: center;
   padding: 3px 8px;
   margin-bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(24, 15, 10, 0.72);
   color: var(--ink);
   font-size: 11px;
   font-weight: 900;
@@ -1083,9 +1281,9 @@ h3 {
   place-items: center;
   width: 24px;
   height: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(201, 154, 69, 0.28);
   border-radius: 5px;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(15, 10, 7, 0.56);
   overflow: hidden;
 }
 
@@ -1125,7 +1323,8 @@ h3 {
   width: 100%;
   height: 8px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 154, 69, 0.22);
+  background: rgba(13, 9, 6, 0.7);
   overflow: hidden;
 }
 
@@ -1133,7 +1332,7 @@ h3 {
   display: block;
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #6e9ebc, #d7ad58);
+  background: linear-gradient(90deg, #577f7f, #c99a45);
   transition: width 120ms linear;
 }
 
@@ -1144,7 +1343,8 @@ h3 {
 .hp {
   height: 12px;
   border-radius: 999px;
-  background: #111217;
+  border: 1px solid rgba(201, 154, 69, 0.18);
+  background: rgba(11, 8, 6, 0.78);
   overflow: hidden;
   margin-top: 0;
   width: 100%;
@@ -1160,13 +1360,14 @@ h3 {
 }
 
 .enemy-card .hp > span {
-  background: linear-gradient(90deg, var(--red), #f09865);
+  background: linear-gradient(90deg, #8f2e28, #d6804e);
 }
 
 .timer {
   height: 8px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.38);
+  border: 1px solid rgba(201, 154, 69, 0.18);
+  background: rgba(11, 8, 6, 0.72);
   overflow: hidden;
   margin-top: 0;
   width: 100%;
@@ -1177,7 +1378,7 @@ h3 {
   display: block;
   width: 0%;
   height: 100%;
-  background: #e7d092;
+  background: linear-gradient(90deg, #e5c982, #a56d31);
   transition: width 80ms linear;
 }
 
@@ -1378,16 +1579,24 @@ h3 {
   margin-bottom: 14px;
 }
 
+.shop-card,
+.encounter-preview,
 .recap-card {
-  border: 1px solid var(--line);
+  border: 8px solid transparent;
+  border-image: var(--ui-stone) 70 fill stretch;
   border-radius: 8px;
-  background: var(--panel-2);
+  background:
+    linear-gradient(rgba(38, 28, 20, 0.9), rgba(22, 16, 12, 0.96)),
+    var(--ui-stone);
+  background-size: cover;
+  background-position: center;
   padding: 14px;
 }
 
 .eternal-recap {
-  border-color: rgba(73, 190, 184, 0.52);
-  background: linear-gradient(180deg, rgba(28, 65, 68, 0.72), rgba(33, 35, 43, 0.96));
+  background:
+    linear-gradient(180deg, rgba(32, 78, 75, 0.72), rgba(22, 31, 30, 0.96)),
+    var(--ui-leather);
 }
 
 .recap-head,
@@ -1427,9 +1636,9 @@ h3 {
 .recap-items span,
 .returning-row,
 .inheritance-summary {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(201, 154, 69, 0.28);
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.16);
+  background: rgba(21, 14, 9, 0.48);
   padding: 8px;
 }
 
@@ -1452,23 +1661,139 @@ h3 {
   margin: 8px 0 10px;
 }
 
+.combat-recap-card {
+  display: grid;
+  gap: 12px;
+  border: 8px solid transparent;
+  border-image: var(--ui-leather) 62 fill stretch;
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(36, 52, 31, 0.78), rgba(22, 17, 12, 0.96)),
+    var(--ui-leather);
+  background-size: cover;
+  padding: 14px;
+}
+
+.combat-recap-card.fallen {
+  border-image: var(--ui-blood) 66 fill stretch;
+  background:
+    linear-gradient(180deg, rgba(86, 28, 25, 0.62), rgba(23, 11, 9, 0.96)),
+    var(--ui-blood);
+}
+
+.combat-recap-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.combat-recap-head h3 {
+  margin: 6px 0 0;
+  font-size: 18px;
+}
+
+.mvp-card {
+  min-width: 92px;
+  border: 1px solid rgba(201, 154, 69, 0.52);
+  border-radius: 8px;
+  background: rgba(82, 54, 22, 0.42);
+  padding: 8px;
+  text-align: right;
+}
+
+.mvp-card strong,
+.mvp-card span,
+.combat-recap-row strong,
+.combat-recap-row span {
+  display: block;
+}
+
+.mvp-card strong {
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.mvp-card span {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.combat-recap-totals span strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.combat-recap-list {
+  display: grid;
+  gap: 8px;
+}
+
+.combat-recap-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+  gap: 10px;
+  border: 1px solid rgba(201, 154, 69, 0.28);
+  border-radius: 8px;
+  background: rgba(18, 11, 7, 0.38);
+  padding: 9px;
+}
+
+.combat-recap-row.legacy {
+  border-color: rgba(73, 190, 184, 0.44);
+}
+
+.combat-recap-row.summon {
+  opacity: 0.86;
+}
+
+.combat-recap-row strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.combat-recap-row span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.combat-recap-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.combat-recap-stats span {
+  border: 1px solid rgba(201, 154, 69, 0.22);
+  border-radius: 5px;
+  background: rgba(45, 29, 16, 0.54);
+  padding: 3px 6px;
+  font-weight: 800;
+}
+
+.fallen-list .combat-recap-row {
+  border-color: rgba(202, 89, 80, 0.44);
+}
+
 .bestiary-card {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
   align-items: center;
   gap: 10px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(157, 52, 43, 0.46);
   border-radius: 8px;
-  background: rgba(202, 89, 80, 0.11);
+  background: rgba(74, 24, 20, 0.28);
   padding: 8px;
 }
 
 .resource-row {
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(201, 154, 69, 0.28);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(32, 21, 13, 0.56);
   padding: 8px 10px;
   color: var(--muted);
   font-size: 12px;
@@ -1484,9 +1809,13 @@ h3 {
   grid-template-columns: 42px minmax(0, 1fr);
   align-items: center;
   gap: 10px;
-  border: 1px solid var(--line);
+  border: 7px solid transparent;
+  border-image: var(--ui-stone) 70 fill stretch;
   border-radius: 8px;
-  background: var(--panel-2);
+  background:
+    linear-gradient(rgba(37, 27, 19, 0.88), rgba(22, 15, 11, 0.96)),
+    var(--ui-stone);
+  background-size: cover;
   color: var(--ink);
   padding: 8px;
   text-align: left;
@@ -1500,7 +1829,9 @@ button.loot-card:hover,
 button.loot-card:focus-visible {
   transform: translateY(-2px);
   border-color: var(--gold);
-  background: #2b2d36;
+  background:
+    linear-gradient(rgba(49, 35, 21, 0.9), rgba(28, 19, 12, 0.96)),
+    var(--ui-stone);
   outline: none;
 }
 
@@ -1520,15 +1851,19 @@ button.loot-card:focus-visible {
 }
 
 .hero-detail {
-  border: 1px solid var(--line);
+  border: 7px solid transparent;
+  border-image: var(--ui-leather) 62 fill stretch;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
+  background:
+    linear-gradient(rgba(37, 27, 18, 0.82), rgba(20, 14, 10, 0.94)),
+    var(--ui-leather);
   padding: 10px;
 }
 
 .hero-detail.legacy-detail {
-  border-color: rgba(73, 190, 184, 0.52);
-  background: linear-gradient(180deg, rgba(28, 65, 68, 0.86), rgba(27, 29, 36, 0.95));
+  background:
+    linear-gradient(180deg, rgba(31, 78, 75, 0.74), rgba(18, 31, 30, 0.95)),
+    var(--ui-leather);
 }
 
 .hero-detail-head {
@@ -1558,7 +1893,7 @@ button.loot-card:focus-visible {
 }
 
 .hero-stat-grid span {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(201, 154, 69, 0.26);
   border-radius: 8px;
   padding: 6px;
   color: var(--muted);
@@ -1582,9 +1917,9 @@ button.loot-card:focus-visible {
   place-items: center;
   width: 46px;
   height: 46px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(201, 154, 69, 0.36);
   border-radius: 8px;
-  background: var(--panel-2);
+  background: rgba(17, 11, 7, 0.62);
   color: var(--ink);
   padding: 0;
   overflow: hidden;
@@ -1608,7 +1943,7 @@ button.loot-card:focus-visible {
 .inspect-slot-empty {
   width: 24px;
   height: 24px;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border: 1px dashed rgba(201, 154, 69, 0.34);
   border-radius: 6px;
 }
 
@@ -1620,9 +1955,12 @@ button.loot-card:focus-visible {
 .item-popover {
   display: grid;
   gap: 8px;
-  border: 1px solid rgba(215, 173, 88, 0.38);
+  border: 7px solid transparent;
+  border-image: var(--ui-parchment) 60 fill stretch;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.2);
+  background:
+    linear-gradient(rgba(52, 36, 20, 0.72), rgba(26, 17, 10, 0.88)),
+    var(--ui-parchment);
   margin-top: 10px;
   padding: 10px;
 }
@@ -2044,6 +2382,21 @@ button.loot-card:focus-visible {
     display: grid;
   }
 
+  .encounter-preview-head {
+    display: grid;
+  }
+
+  .threat-pill {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .encounter-preview-grid,
+  .encounter-enemy-list,
+  .scaling-line {
+    grid-template-columns: 1fr;
+  }
+
   h1 {
     font-size: 24px;
   }
@@ -2111,8 +2464,22 @@ button.loot-card:focus-visible {
   }
 
   .recap-grid,
-  .recap-items {
+  .recap-items,
+  .combat-recap-row {
     grid-template-columns: 1fr;
+  }
+
+  .combat-recap-head {
+    display: grid;
+  }
+
+  .mvp-card {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .combat-recap-stats {
+    justify-content: flex-start;
   }
 
   .run-preview {
