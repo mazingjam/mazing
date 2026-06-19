@@ -1234,7 +1234,8 @@ h3 {
 
 .damage-number,
 .heal-number,
-.summon-number {
+.summon-number,
+.combat-callout {
   position: absolute;
   left: 50%;
   top: 18px;
@@ -1251,6 +1252,21 @@ h3 {
   color: #fff0cf;
 }
 
+.crit-number {
+  top: 30px;
+  color: #ffe06b;
+  font-size: 36px;
+  text-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.9),
+    0 0 18px rgba(255, 195, 67, 0.8);
+}
+
+.blocked-number {
+  color: #c9d3df;
+  font-size: 24px;
+  opacity: 0.9;
+}
+
 .heal-number {
   color: #baf4bd;
 }
@@ -1260,6 +1276,47 @@ h3 {
   color: #d7c3ff;
   font-size: 18px;
   text-transform: uppercase;
+}
+
+.combat-callout {
+  top: 0;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(8, 9, 12, 0.72);
+}
+
+.crit-callout {
+  color: #ffe06b;
+  border-color: rgba(255, 214, 93, 0.72);
+  box-shadow: 0 0 18px rgba(255, 191, 64, 0.42);
+}
+
+.block-callout {
+  color: #cfe6ff;
+  border-color: rgba(135, 185, 235, 0.72);
+  box-shadow: 0 0 18px rgba(91, 151, 216, 0.36);
+}
+
+.dodge-callout {
+  color: #d8ffd8;
+  border-color: rgba(127, 219, 139, 0.7);
+  box-shadow: 0 0 18px rgba(110, 175, 114, 0.34);
+}
+
+.crit-flash {
+  animation: crit-flash 520ms ease;
+}
+
+.block-flash {
+  animation: block-flash 520ms ease;
+}
+
+.dodge-flash {
+  animation: dodge-flash 520ms ease;
 }
 
 .outcome-banner {
@@ -1849,6 +1906,48 @@ button.loot-card:focus-visible {
   100% {
     opacity: 0;
     transform: translate(-50%, -24px) scale(1);
+  }
+}
+
+@keyframes crit-flash {
+  0%,
+  100% {
+    filter: brightness(1);
+    box-shadow: inherit;
+  }
+  28% {
+    filter: brightness(1.55) saturate(1.3);
+    box-shadow: 0 0 28px rgba(255, 197, 66, 0.68);
+  }
+}
+
+@keyframes block-flash {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateX(0);
+  }
+  30% {
+    filter: brightness(1.28) saturate(0.95);
+    transform: translateX(-2px);
+  }
+  52% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes dodge-flash {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateX(0);
+  }
+  28% {
+    filter: brightness(1.3);
+    transform: translateX(-7px);
+  }
+  58% {
+    transform: translateX(5px);
   }
 }
 

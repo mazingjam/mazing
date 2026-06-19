@@ -215,7 +215,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "melee",
     damage: 5,
-    icon: 14,
+    icon: 11,
     statBoosts: [{ stat: "damage", value: 2 }],
     uniqueEffect: "Heal on kill",
   },
@@ -225,7 +225,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 15,
+    icon: 12,
     uniqueEffect: "Summon a skeleton when killing an enemy",
   },
   frost_dagger: {
@@ -236,7 +236,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "melee",
     damage: 3,
-    icon: 100,
+    icon: 13,
     statBoosts: [{ stat: "freezeChance", value: 0.08 }],
   },
   oak_buckler: {
@@ -246,7 +246,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 2,
-    icon: 101,
+    icon: 14,
     statBoosts: [{ stat: "block", value: 0.08 }],
   },
   shadow_boots: {
@@ -256,7 +256,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 1,
-    icon: 102,
+    icon: 15,
     statBoosts: [{ stat: "evade", value: 0.08 }],
   },
   falcon_bow: {
@@ -267,7 +267,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 3,
-    icon: 103,
+    icon: 100,
     statBoosts: [{ stat: "critChance", value: 0.08 }],
   },
   thorn_staff: {
@@ -278,7 +278,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 2,
-    icon: 104,
+    icon: 101,
     statBoosts: [{ stat: "slowChance", value: 0.12 }],
   },
   wolf_pelt: {
@@ -288,7 +288,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 2,
-    icon: 105,
+    icon: 102,
     statBoosts: [{ stat: "hp", value: 8 }, { stat: "evade", value: 0.04 }],
   },
   clockwork_ring: {
@@ -297,7 +297,7 @@ const itemDefinitions = {
     rarity: "basic",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 106,
+    icon: 103,
     statBoosts: [{ stat: "speed", value: 0.08 }, { stat: "slowChance", value: 0.06 }],
   },
   glass_amulet: {
@@ -306,7 +306,7 @@ const itemDefinitions = {
     rarity: "basic",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 107,
+    icon: 104,
     statBoosts: [{ stat: "critDamage", value: 0.25 }],
   },
   glacier_mail: {
@@ -316,7 +316,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 4,
-    icon: 108,
+    icon: 105,
     statBoosts: [{ stat: "freezeChance", value: 0.05 }],
   },
   viper_charm: {
@@ -325,7 +325,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 109,
+    icon: 106,
     statBoosts: [{ stat: "critChance", value: 0.1 }],
     uniqueEffect: "Critical hits slow enemies",
   },
@@ -336,7 +336,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 1,
-    icon: 108,
+    icon: 107,
     tags: ["Skeleton", "Death"],
     uniqueEffect: "Skeletons gain +8 HP and +2 power",
   },
@@ -347,7 +347,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 4,
-    icon: 101,
+    icon: 108,
     tags: ["Thorns", "Armor"],
     uniqueEffect: "Gain +5 thorns",
   },
@@ -357,7 +357,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 100,
+    icon: 109,
     tags: ["Execute", "Crit"],
     statBoosts: [{ stat: "critChance", value: 0.08 }],
     uniqueEffect: "Execute damage increased",
@@ -370,7 +370,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 3,
-    icon: 106,
+    icon: 110,
     tags: ["Poison", "Splash"],
     uniqueEffect: "Attacks gain poison chance",
   },
@@ -380,7 +380,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 106,
+    icon: 111,
     tags: ["Slow", "Energy", "Haste"],
     statBoosts: [{ stat: "slowChance", value: 0.08 }],
     uniqueEffect: "Energy gain increased",
@@ -392,10 +392,147 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 3,
-    icon: 101,
+    icon: 112,
     tags: ["Block", "Counter", "Guard"],
     statBoosts: [{ stat: "block", value: 0.08 }],
     uniqueEffect: "Blocks retaliate",
+  },
+  marrow_lantern: {
+    id: "marrow_lantern",
+    name: "Marrow Lantern",
+    rarity: "unique",
+    type: "jewelry",
+    slotType: "jewelry",
+    icon: 113,
+    tags: ["Skeleton", "Energy"],
+    statBoosts: [{ stat: "slowChance", value: 0.06 }],
+    uniqueEffect: "Skeletons attack faster",
+  },
+  executioner_hood: {
+    id: "executioner_hood",
+    name: "Executioner Hood",
+    rarity: "rare",
+    type: "armor",
+    slotType: "armor",
+    armor: 2,
+    icon: 114,
+    tags: ["Execute", "Crit"],
+    statBoosts: [{ stat: "critChance", value: 0.08 }, { stat: "critDamage", value: 0.2 }],
+  },
+  venom_needle: {
+    id: "venom_needle",
+    name: "Venom Needle",
+    rarity: "magic",
+    type: "weapon",
+    slotType: "weapon",
+    attackType: "melee",
+    damage: 3,
+    icon: 115,
+    tags: ["Poison", "Crit"],
+    statBoosts: [{ stat: "critChance", value: 0.04 }],
+    uniqueEffect: "Attacks gain poison chance",
+  },
+  bastion_plate: {
+    id: "bastion_plate",
+    name: "Bastion Plate",
+    rarity: "rare",
+    type: "armor",
+    slotType: "armor",
+    armor: 5,
+    icon: 116,
+    tags: ["Armor", "Guard", "Block"],
+    statBoosts: [{ stat: "block", value: 0.06 }, { stat: "hp", value: 10 }],
+  },
+  echo_orb: {
+    id: "echo_orb",
+    name: "Echo Orb",
+    rarity: "unique",
+    type: "jewelry",
+    slotType: "jewelry",
+    icon: 117,
+    tags: ["Echo", "Energy"],
+    statBoosts: [{ stat: "speed", value: 0.08 }],
+    uniqueEffect: "Delayed echo improved",
+  },
+  frostbrand: {
+    id: "frostbrand",
+    name: "Frostbrand",
+    rarity: "rare",
+    type: "weapon",
+    slotType: "weapon",
+    attackType: "melee",
+    damage: 4,
+    icon: 118,
+    tags: ["Freeze", "Slow"],
+    statBoosts: [{ stat: "freezeChance", value: 0.08 }, { stat: "slowChance", value: 0.06 }],
+  },
+  beast_totem: {
+    id: "beast_totem",
+    name: "Beast Totem",
+    rarity: "unique",
+    type: "jewelry",
+    slotType: "jewelry",
+    icon: 119,
+    tags: ["Regrowth", "Thorns"],
+    uniqueEffect: "Regrowth also grants thorns",
+  },
+  quicksilver_ring: {
+    id: "quicksilver_ring",
+    name: "Quicksilver Ring",
+    rarity: "magic",
+    type: "jewelry",
+    slotType: "jewelry",
+    icon: 120,
+    tags: ["Speed", "Haste"],
+    statBoosts: [{ stat: "speed", value: 0.16 }],
+  },
+  grave_gauntlets: {
+    id: "grave_gauntlets",
+    name: "Grave Gauntlets",
+    rarity: "rare",
+    type: "armor",
+    slotType: "armor",
+    armor: 2,
+    icon: 121,
+    tags: ["Death", "Damage"],
+    statBoosts: [{ stat: "damage", value: 2 }, { stat: "armor", value: 1 }],
+    uniqueEffect: "Gain power on kill",
+  },
+  glass_arrowhead: {
+    id: "glass_arrowhead",
+    name: "Glass Arrowhead",
+    rarity: "rare",
+    type: "weapon",
+    slotType: "weapon",
+    attackType: "projectile",
+    damage: 4,
+    icon: 122,
+    tags: ["Crit", "Precision"],
+    statBoosts: [{ stat: "critChance", value: 0.08 }, { stat: "critDamage", value: 0.25 }],
+  },
+  witch_salve: {
+    id: "witch_salve",
+    name: "Witch Salve",
+    rarity: "magic",
+    type: "jewelry",
+    slotType: "jewelry",
+    icon: 123,
+    tags: ["Healing", "Survive"],
+    statBoosts: [{ stat: "hp", value: 14 }],
+    uniqueEffect: "Healing improved",
+  },
+  time_splinter: {
+    id: "time_splinter",
+    name: "Time Splinter",
+    rarity: "unique",
+    type: "weapon",
+    slotType: "weapon",
+    attackType: "projectile",
+    damage: 3,
+    icon: 124,
+    tags: ["Slow", "Rewind", "Energy"],
+    statBoosts: [{ stat: "slowChance", value: 0.1 }],
+    uniqueEffect: "Once per combat, survive a lethal hit with 20 HP",
   },
 };
 
@@ -517,6 +654,14 @@ const rewards = [
   { id: "split", name: "Split", category: "skill", type: "Modifier", icon: 6, text: "Your main skill tags a second target. +1 power, +1 speed." },
   { id: "pierce", name: "Pierce", category: "skill", type: "Modifier", icon: 7, text: "Your attacks punish the backline. +4 power." },
   { id: "echo", name: "Echo", category: "skill", type: "Modifier", icon: 8, text: "Every third hero attack repeats for half damage. +2 power." },
+  { id: "bone-engine", name: "Bone Engine", category: "skill", type: "Modifier", icon: 100, text: "Skeletons gain +4 HP, +1 power, and faster attacks." },
+  { id: "poison-cloud", name: "Poison Cloud", category: "skill", type: "Modifier", icon: 101, text: "Gain poison chance and occasional splash damage." },
+  { id: "shield-riposte", name: "Shield Riposte", category: "skill", type: "Modifier", icon: 102, text: "Gain block chance. Blocks retaliate for damage." },
+  { id: "frost-chain", name: "Frost Chain", category: "skill", type: "Modifier", icon: 103, text: "Gain freeze and slow chance." },
+  { id: "execution-mark", name: "Execution Mark", category: "skill", type: "Modifier", icon: 104, text: "Deal more damage to wounded enemies. +6% crit." },
+  { id: "regrowth-thorns", name: "Regrowth Thorns", category: "skill", type: "Modifier", icon: 105, text: "Gain light regeneration and thorn damage." },
+  { id: "time-loop", name: "Time Loop", category: "skill", type: "Modifier", icon: 106, text: "Gain one rewind charge and improved energy gain." },
+  { id: "glass-cannon", name: "Glass Cannon", category: "skill", type: "Modifier", icon: 107, text: "+6 power and +20% crit damage, but lose armor." },
   { id: "hunter_bow", name: "Hunter Bow", category: "item", type: "Weapon", icon: 7, text: "Add a projectile weapon to an open item slot. +3 weapon power." },
   { id: "iron_axe", name: "Iron Axe", category: "item", type: "Weapon", icon: 1, text: "Add a melee weapon to an open item slot. +4 weapon power." },
   { id: "spark_orb", name: "Spark Orb", category: "item", type: "Weapon", icon: 4, text: "Add a magic projectile weapon to an open item slot. +4 weapon power." },
@@ -1298,7 +1443,7 @@ function performAllyAttack(ally) {
   const damageLanded = damageEnemy(target, damage, ally);
   if (damageLanded) {
     applyOffensiveStatuses(ally, target, crit);
-    animateAttack("ally", ally, target, damage);
+    animateAttack("ally", ally, target, damage, { crit });
   } else {
     addLog(`${target.name} evades ${ally.name}.`);
   }
@@ -1371,6 +1516,7 @@ function performEnemyAttack(enemy) {
   }
   enemy.currentAttackType = enemy.attackType || "melee";
   if (Math.random() < (target.evade || 0)) {
+    showCombatCallout(document.querySelector(`#${target.instanceId}`), "DODGE", "dodge");
     addLog(`${target.name} evades ${enemy.name}.`);
     return;
   }
@@ -1383,12 +1529,15 @@ function performEnemyAttack(enemy) {
     gainEnergy(enemy, 18);
     return;
   }
+  if (blocked) {
+    showCombatCallout(document.querySelector(`#${target.instanceId}`), "BLOCK", "block");
+  }
   if (blocked && target.retaliate && isAlive(enemy)) {
     const counterDamage = Math.max(1, Math.round(target.power * target.retaliate));
     damageEnemy(enemy, counterDamage, target);
     animateAttack("ally", target, enemy, counterDamage);
   }
-  animateAttack("enemy", enemy, target, damage);
+  animateAttack("enemy", enemy, target, damage, { blocked });
   gainEnergy(enemy, 18);
   applyEnemyRoleEffect(enemy, target, damage);
 
@@ -1463,6 +1612,7 @@ function applyOffensiveStatuses(attacker, target, crit) {
 function damageEnemy(enemy, damage, attacker) {
   const hero = activeRun.hero;
   if (Math.random() < (enemy.evade || 0)) {
+    showCombatCallout(document.querySelector(`#${enemy.instanceId}`), "DODGE", "dodge");
     addLog(`${enemy.name} slips the hit.`);
     return false;
   }
@@ -1471,6 +1621,7 @@ function damageEnemy(enemy, damage, attacker) {
   if (enemy.hp <= 0 && !enemy.defeated) {
     enemy.defeated = true;
     if (attacker?.isHero) hero.kills += 1;
+    if (attacker?.deathPowerBonus) attacker.power += attacker.deathPowerBonus;
     gainEnergy(attacker, 28 + (attacker?.deathEnergyBonus || 0));
     triggerKillEffects(attacker);
     addLog(`${attacker?.name || hero.name} defeats ${enemy.name}.`);
@@ -1568,7 +1719,7 @@ function checkWaveVictory() {
   finishCombat(`${hero.name} clears ${encounter.name} with ${hero.skill}.`, "Victory");
 }
 
-function animateAttack(source, attackerUnit, targetUnit, damage) {
+function animateAttack(source, attackerUnit, targetUnit, damage, options = {}) {
   const attacker = document.querySelector(`#${attackerUnit.instanceId}`);
   const target = document.querySelector(`#${targetUnit.instanceId}`);
   if (!attacker || !target) return;
@@ -1577,11 +1728,11 @@ function animateAttack(source, attackerUnit, targetUnit, damage) {
   void attacker?.offsetWidth;
   if ((attackerUnit.currentAttackType || attackerUnit.attackType) === "projectile") {
     attacker.classList.add(source === "ally" ? "recoil-down" : "recoil-up");
-    launchProjectile(attacker, target, source, damage);
+    launchProjectile(attacker, target, source, damage, options);
   } else {
     attacker.classList.add(source === "ally" ? "attack-up" : "attack-down");
     target.classList.add("hit");
-    showDamageNumber(target, damage);
+    showDamageNumber(target, damage, options);
   }
   window.setTimeout(() => {
     attacker?.classList.remove("attack-up", "attack-down");
@@ -1590,7 +1741,7 @@ function animateAttack(source, attackerUnit, targetUnit, damage) {
   }, 430);
 }
 
-function launchProjectile(attacker, target, source, damage) {
+function launchProjectile(attacker, target, source, damage, options = {}) {
   const battlefield = document.querySelector(".battlefield");
   if (!battlefield) return;
   const fieldRect = battlefield.getBoundingClientRect();
@@ -1609,7 +1760,7 @@ function launchProjectile(attacker, target, source, damage) {
   battlefield.appendChild(projectile);
   window.setTimeout(() => {
     target.classList.add("hit");
-    showDamageNumber(target, damage);
+    showDamageNumber(target, damage, options);
   }, 240);
   window.setTimeout(() => {
     target.classList.remove("hit");
@@ -1617,8 +1768,22 @@ function launchProjectile(attacker, target, source, damage) {
   }, 520);
 }
 
-function showDamageNumber(target, damage) {
-  showFloatingText(target, `-${damage}`, "damage-number");
+function showDamageNumber(target, damage, options = {}) {
+  if (options.crit) {
+    showCombatCallout(target, "CRIT", "crit");
+    showFloatingText(target, `-${damage}`, "damage-number crit-number");
+    return;
+  }
+  showFloatingText(target, `-${damage}`, options.blocked ? "damage-number blocked-number" : "damage-number");
+}
+
+function showCombatCallout(target, text, type) {
+  if (!target) return;
+  target.classList.remove("dodge-flash", "block-flash", "crit-flash");
+  void target.offsetWidth;
+  target.classList.add(`${type}-flash`);
+  showFloatingText(target, text, `combat-callout ${type}-callout`);
+  window.setTimeout(() => target.classList.remove(`${type}-flash`), 520);
 }
 
 function showFloatingText(target, text, className = "damage-number") {
@@ -1898,6 +2063,7 @@ function syncHeroFromUnit(unit) {
   activeRun.hero.skeletonPowerBonus = unit.skeletonPowerBonus || 0;
   activeRun.hero.skeletonSpeedBonus = unit.skeletonSpeedBonus || 0;
   activeRun.hero.deathEnergyBonus = unit.deathEnergyBonus || 0;
+  activeRun.hero.deathPowerBonus = unit.deathPowerBonus || 0;
   activeRun.hero.poisonChance = unit.poisonChance || 0;
   activeRun.hero.alchemySplash = unit.alchemySplash || 0;
   activeRun.hero.healingBonus = unit.healingBonus || 0;
@@ -1979,7 +2145,7 @@ function renderReward() {
       <div class="reward-grid">
         ${options.map((reward) => `
           <button class="reward-card" data-reward="${reward.id}">
-            <div class="upgrade-icon upgrade-sprite" style="${upgradeIconStyle(reward.icon)}"></div>
+            ${rewardIconMarkup(reward)}
             <div>
               <span class="tag">${reward.type}</span>
               <h3>${reward.name}</h3>
@@ -1995,6 +2161,17 @@ function renderReward() {
   document.querySelectorAll("[data-reward]").forEach((button) => {
     button.addEventListener("click", () => takeReward(button.dataset.reward));
   });
+}
+
+function rewardIconMarkup(reward) {
+  if (reward.category === "item") {
+    const item = itemDefinitions[reward.id];
+    return `<div class="item-icon" style="${itemIconStyle(item?.icon ?? reward.icon)}"></div>`;
+  }
+  if (reward.category === "resource") {
+    return `<div class="item-icon" style="${itemIconStyle(reward.icon)}"></div>`;
+  }
+  return `<div class="upgrade-icon upgrade-sprite" style="${upgradeIconStyle(reward.icon)}"></div>`;
 }
 
 function renderLoot() {
@@ -2234,6 +2411,48 @@ function takeReward(rewardId) {
   }
   if (reward.id === "pierce") hero.power += 4;
   if (reward.id === "echo") hero.power += 2;
+  if (reward.id === "bone-engine") {
+    hero.skeletonHpBonus = (hero.skeletonHpBonus || 0) + 4;
+    hero.skeletonPowerBonus = (hero.skeletonPowerBonus || 0) + 1;
+    hero.skeletonSpeedBonus = (hero.skeletonSpeedBonus || 0) + 0.08;
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Skeleton", "Speed"])];
+  }
+  if (reward.id === "poison-cloud") {
+    hero.poisonChance = (hero.poisonChance || 0) + 0.14;
+    hero.alchemySplash = (hero.alchemySplash || 0) + 0.1;
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Poison", "Splash"])];
+  }
+  if (reward.id === "shield-riposte") {
+    hero.block = (hero.block || 0) + 0.06;
+    hero.retaliate = Math.max(hero.retaliate || 0, 0.24);
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Block", "Counter"])];
+  }
+  if (reward.id === "frost-chain") {
+    hero.freezeChance = (hero.freezeChance || 0) + 0.06;
+    hero.slowChance = (hero.slowChance || 0) + 0.08;
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Freeze", "Slow"])];
+  }
+  if (reward.id === "execution-mark") {
+    hero.executeBonus = (hero.executeBonus || 0) + 0.24;
+    hero.critChance = (hero.critChance || 0) + 0.06;
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Execute", "Crit"])];
+  }
+  if (reward.id === "regrowth-thorns") {
+    hero.regenAura = (hero.regenAura || 0) + 0.45;
+    hero.thorns = (hero.thorns || 0) + 2;
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Regrowth", "Thorns"])];
+  }
+  if (reward.id === "time-loop") {
+    hero.rewindCharges = (hero.rewindCharges || 0) + 1;
+    hero.energyGainBonus = (hero.energyGainBonus || 0) + 0.12;
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Rewind", "Energy"])];
+  }
+  if (reward.id === "glass-cannon") {
+    hero.power += 6;
+    hero.critDamage = (hero.critDamage || 0) + 0.2;
+    hero.armor = Math.max(0, hero.armor - 2);
+    hero.buildTags = [...new Set([...(hero.buildTags || []), "Damage", "Crit"])];
+  }
   if (reward.id === "energy-flow") hero.energyGainBonus = (hero.energyGainBonus || 0) + 0.2;
   if (reward.id === "double-cast") hero.startingEnergy = (hero.startingEnergy || 0) + 35;
   if (reward.id === "wide-ultimate") {
@@ -2300,6 +2519,7 @@ function syncHeroUnitFromHero() {
   heroUnit.skeletonPowerBonus = activeRun.hero.skeletonPowerBonus || 0;
   heroUnit.skeletonSpeedBonus = activeRun.hero.skeletonSpeedBonus || 0;
   heroUnit.deathEnergyBonus = activeRun.hero.deathEnergyBonus || 0;
+  heroUnit.deathPowerBonus = activeRun.hero.deathPowerBonus || 0;
   heroUnit.poisonChance = activeRun.hero.poisonChance || 0;
   heroUnit.alchemySplash = activeRun.hero.alchemySplash || 0;
   heroUnit.healingBonus = activeRun.hero.healingBonus || 0;
@@ -2346,6 +2566,7 @@ function refreshAlliesForNextWave(allies) {
         evade: activeRun.hero.evade || 0,
         freezeChance: activeRun.hero.freezeChance || 0,
         slowChance: activeRun.hero.slowChance || 0,
+        deathPowerBonus: activeRun.hero.deathPowerBonus || 0,
         itemSlots: normalizeItemSlots(activeRun.hero.itemSlots),
         energy: activeRun.hero.startingEnergy || ally.energy || 0,
         energyGainBonus: activeRun.hero.energyGainBonus || 0,
@@ -2494,6 +2715,7 @@ function addHeroToLegacyParty(hero, soul) {
     skeletonPowerBonus: hero.skeletonPowerBonus || 0,
     skeletonSpeedBonus: hero.skeletonSpeedBonus || 0,
     deathEnergyBonus: hero.deathEnergyBonus || 0,
+    deathPowerBonus: hero.deathPowerBonus || 0,
     retaliate: hero.retaliate || 0,
     guardPriority: hero.guardPriority || 0,
     poisonChance: hero.poisonChance || 0,
@@ -3009,11 +3231,20 @@ function applyItemStats(unit) {
       unit.skeletonHpBonus = (unit.skeletonHpBonus || 0) + 8;
       unit.skeletonPowerBonus = (unit.skeletonPowerBonus || 0) + 2;
     }
+    if (item.uniqueEffect === "Skeletons attack faster") unit.skeletonSpeedBonus = (unit.skeletonSpeedBonus || 0) + 0.18;
     if (item.uniqueEffect === "Gain +5 thorns") unit.thorns = (unit.thorns || 0) + 5;
     if (item.uniqueEffect === "Execute damage increased") unit.executeBonus = (unit.executeBonus || 0) + 0.3;
     if (item.uniqueEffect === "Attacks gain poison chance") unit.poisonChance = (unit.poisonChance || 0) + 0.18;
     if (item.uniqueEffect === "Energy gain increased") unit.energyGainBonus = (unit.energyGainBonus || 0) + 0.18;
     if (item.uniqueEffect === "Blocks retaliate") unit.retaliate = Math.max(unit.retaliate || 0, 0.28);
+    if (item.uniqueEffect === "Delayed echo improved") unit.delayedEcho = (unit.delayedEcho || 0) + 1;
+    if (item.uniqueEffect === "Regrowth also grants thorns") {
+      unit.regenAura = (unit.regenAura || 0) + 0.5;
+      unit.thorns = (unit.thorns || 0) + 2;
+    }
+    if (item.uniqueEffect === "Gain power on kill") unit.deathPowerBonus = (unit.deathPowerBonus || 0) + 1;
+    if (item.uniqueEffect === "Healing improved") unit.healingBonus = (unit.healingBonus || 0) + 0.25;
+    if (item.uniqueEffect === "Once per combat, survive a lethal hit with 20 HP") unit.rewindCharges = (unit.rewindCharges || 0) + 1;
     (item.statBoosts || []).forEach((boost) => {
       if (boost.stat === "damage") unit.power += boost.value;
       if (boost.stat === "hp") unit.maxHp += boost.value;
@@ -3080,12 +3311,19 @@ function getLootItemPool() {
     "hunter_bow", "iron_axe", "spark_orb", "frost_dagger", "oak_buckler",
     "shadow_boots", "falcon_bow", "thorn_staff", "wolf_pelt", "clockwork_ring",
     "glass_amulet", "glacier_mail", "bone_crown", "thornmail", "executioner_ring",
-    "viper_flask", "hourglass_charm", "sentinel_shield",
+    "viper_flask", "hourglass_charm", "sentinel_shield", "marrow_lantern",
+    "executioner_hood", "venom_needle", "bastion_plate", "echo_orb", "frostbrand",
+    "beast_totem", "quicksilver_ring", "grave_gauntlets", "glass_arrowhead",
+    "witch_salve", "time_splinter",
   ];
 }
 
 function getUniqueLootItemPool() {
-  return ["skull_blade", "summoner_charm", "viper_charm", "bone_crown", "thornmail", "executioner_ring", "viper_flask", "hourglass_charm", "sentinel_shield"];
+  return [
+    "skull_blade", "summoner_charm", "viper_charm", "bone_crown", "thornmail",
+    "executioner_ring", "viper_flask", "hourglass_charm", "sentinel_shield",
+    "marrow_lantern", "echo_orb", "beast_totem", "time_splinter",
+  ];
 }
 
 function pickWeightedLootItem(pool) {
@@ -3380,6 +3618,10 @@ function getHeroPortraitKey(hero) {
 }
 
 function upgradeIconStyle(index) {
+  if (index >= 100) {
+    const expandedIndex = index - 100;
+    return `background-image: url("assets/expanded-icons.png"); ${expandedIconStyle(expandedIndex)}`;
+  }
   const col = index % 3;
   const row = Math.floor(index / 3);
   const pos = [0, 50, 100];
