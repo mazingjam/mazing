@@ -800,10 +800,12 @@ const names = ["Ragnar", "Selene", "Orin", "Veyra", "Maela", "Korr", "Ilya", "Da
 const ATTACK_INTERVAL_MULTIPLIER = 2;
 const PASSIVE_ENERGY_PER_SECOND = 3.8;
 const MAX_SUMMONS = 5;
+const APP_VERSION = "v0.42";
 
 const state = loadState();
 let activeRun = null;
 let combatTicker = null;
+let combatWatchdog = null;
 let transitionTimer = null;
 let selectedUnitId = null;
 let selectedInventoryIndex = null;
@@ -822,6 +824,8 @@ const inventoryList = document.querySelector("#inventoryList");
 const heroInspector = document.querySelector("#heroInspector");
 const runCount = document.querySelector("#runCount");
 const soulCount = document.querySelector("#soulCount");
+const versionLabel = document.querySelector("#versionLabel");
+if (versionLabel) versionLabel.textContent = APP_VERSION;
 document.querySelector("#resetBtn").addEventListener("click", resetSave);
 document.querySelector("#resetTopBtn").addEventListener("click", resetSave);
 togglePantheonBtn?.addEventListener("click", () => {
@@ -1207,6 +1211,7 @@ function renderCombat() {
         ${getActiveEncounterModifier(encounter, levelIndex, waveIndex) ? `<span class="stat-pill encounter-modifier">${getEncounterModifierText(getActiveEncounterModifier(encounter, levelIndex, waveIndex))}</span>` : ""}
         <span class="stat-pill">${hero.skill}</span>
         <span class="stat-pill">${hero.build.slice(-2).join(" + ")}</span>
+        <span class="stat-pill combat-heartbeat" id="combatHeartbeat">${combatStatusText()}</span>
       </div>
     </div>
   `;
@@ -1345,8 +1350,18 @@ function startPreparedEncounter() {
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
   resetCombatStats();
+  resetCombatRuntime();
   activeRun.phase = activeRun.enemies ? "combat" : "event";
   render();
+}
+
+function resetCombatRuntime() {
+  if (!activeRun) return;
+  activeRun.outcome = null;
+  activeRun.combatTickCount = 0;
+  activeRun.lastTick = 0;
+  activeRun.lastTickWall = 0;
+  activeRun.lastProgressAt = Date.now();
 }
 
 function renderShop() {
@@ -1600,12 +1615,18 @@ function startCombatTicker() {
   if (activeRun?.outcome) return;
   clearCombatTicker();
   activeRun.lastTick = performance.now();
+  activeRun.lastTickWall = Date.now();
+  activeRun.lastProgressAt = activeRun.lastProgressAt || Date.now();
+  activeRun.combatTickCount = activeRun.combatTickCount || 0;
   combatTicker = window.setInterval(tickCombat, 80);
+  combatWatchdog = window.setInterval(watchCombatStall, 1200);
 }
 
 function clearCombatTicker() {
   if (combatTicker) window.clearInterval(combatTicker);
   combatTicker = null;
+  if (combatWatchdog) window.clearInterval(combatWatchdog);
+  combatWatchdog = null;
 }
 
 function clearTransitionTimer() {
@@ -1629,6 +1650,8 @@ function tickCombatUnsafe() {
   const now = performance.now();
   const delta = Math.min(0.18, (now - activeRun.lastTick) / 1000);
   activeRun.lastTick = now;
+  activeRun.lastTickWall = Date.now();
+  activeRun.combatTickCount = (activeRun.combatTickCount || 0) + 1;
 
   const { allies, enemies: wave } = activeRun;
   allies.filter(isAlive).forEach((ally) => {
@@ -1665,6 +1688,32 @@ function tickCombatUnsafe() {
 
   resolveCombatTerminalState();
   updateCombatDom();
+}
+
+function watchCombatStall() {
+  if (!activeRun || activeRun.phase !== "combat" || activeRun.outcome) return;
+  const now = Date.now();
+  if (!activeRun.lastTickWall || now - activeRun.lastTickWall > 1800) {
+    addLog("Combat ticker restarted.");
+    startCombatTicker();
+    return;
+  }
+  if ((now - (activeRun.lastProgressAt || now)) > 9000) {
+    addLog("Combat timers forced after a stall.");
+    [...(activeRun.allies || []), ...(activeRun.enemies || [])].filter(isAlive).forEach((unit) => {
+      ensureCombatTiming(unit, unit.side);
+      unit.attackTimer = Math.max(unit.attackTimer || 0, unit.attackInterval);
+    });
+    activeRun.lastProgressAt = now;
+    updateCombatDom();
+  }
+}
+
+function combatStatusText() {
+  if (!activeRun || activeRun.phase !== "combat") return APP_VERSION;
+  const tick = activeRun.combatTickCount || 0;
+  const age = activeRun.lastTickWall ? Math.round((Date.now() - activeRun.lastTickWall) / 100) / 10 : 0;
+  return `${APP_VERSION} · tick ${tick} · ${age}s`;
 }
 
 function recoverCombatTick() {
@@ -1904,6 +1953,7 @@ function damageEnemy(enemy, damage, attacker) {
     return false;
   }
   enemy.hp -= damage;
+  activeRun.lastProgressAt = Date.now();
   recordDamageDealt(attacker, damage);
   recordDamageTaken(enemy, damage);
   if (attacker?.isHero) hero.damageDealt += damage;
@@ -1929,6 +1979,7 @@ function damageAlly(target, damage, attacker) {
     return false;
   }
   target.hp -= damage;
+  activeRun.lastProgressAt = Date.now();
   recordDamageDealt(attacker, damage);
   recordDamageTaken(target, damage);
   syncHeroFromUnit(target);
@@ -2526,6 +2577,7 @@ function continueAfterCombatRecap() {
 function updateCombatDom() {
   if (!activeRun || activeRun.phase !== "combat") return;
   if (!activeRun.outcome) updateEnemyIntents();
+  setText("#combatHeartbeat", combatStatusText());
   const units = [...(activeRun.allies || []), ...(activeRun.enemies || [])];
   document.querySelectorAll(".intent-target, .intent-source, .charging-attack").forEach((node) => {
     node.classList.remove("intent-target", "intent-source", "charging-attack");
@@ -2901,6 +2953,7 @@ function advanceNode() {
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
   activeRun.combatStats = null;
+  resetCombatRuntime();
   activeRun.phase = activeRun.enemies ? "prep" : "event";
   render();
 }
@@ -2915,6 +2968,7 @@ function continueToNextLevel() {
   activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
   activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
   activeRun.combatStats = null;
+  resetCombatRuntime();
   activeRun.phase = "prep";
   render();
 }
