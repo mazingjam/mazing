@@ -1859,8 +1859,8 @@ h3 {
 .inventory-item,
 .loot-card {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: start;
   gap: 10px;
   border: 7px solid transparent;
   border-image: var(--ui-stone) 70 fill stretch;
@@ -1872,6 +1872,23 @@ h3 {
   color: var(--ink);
   padding: 8px;
   text-align: left;
+}
+
+.loot-card {
+  min-height: 104px;
+}
+
+.loot-card .item-icon,
+.inventory-item .item-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.loot-card-body {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
 }
 
 button.loot-card {
@@ -2055,30 +2072,34 @@ button.loot-card:focus-visible {
 }
 
 .inventory-item strong,
-.inventory-item span,
-.loot-card strong,
-.loot-card span {
+.inventory-item > span,
+.loot-card-body strong,
+.loot-card-body > span {
   display: block;
 }
 
 .inventory-item strong,
-.loot-card strong {
-  font-size: 13px;
+.loot-card-body strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .inventory-item span,
-.loot-card span {
+.loot-card-body > span {
   color: var(--muted);
-  font-size: 11px;
-  line-height: 1.25;
+  font-size: 12px;
+  line-height: 1.3;
 }
 
 .item-tags {
-  grid-column: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin-top: 2px;
+  margin-top: 0;
 }
 
 .item-tags span {
@@ -2096,7 +2117,6 @@ button.loot-card:focus-visible {
 }
 
 .loot-card em {
-  grid-column: 2;
   color: var(--gold);
   font-size: 10px;
   font-style: normal;
@@ -2586,6 +2606,16 @@ button.loot-card:focus-visible {
 
   .loot-grid {
     grid-template-columns: 1fr;
+  }
+
+  .loot-card {
+    min-height: 92px;
+  }
+
+  .loot-card .item-icon,
+  .inventory-item .item-icon {
+    width: 48px;
+    height: 48px;
   }
 
   .upgrade-icon {

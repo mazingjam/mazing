@@ -800,7 +800,7 @@ const names = ["Ragnar", "Selene", "Orin", "Veyra", "Maela", "Korr", "Ilya", "Da
 const ATTACK_INTERVAL_MULTIPLIER = 2;
 const PASSIVE_ENERGY_PER_SECOND = 3.8;
 const MAX_SUMMONS = 5;
-const APP_VERSION = "v0.42";
+const APP_VERSION = "v0.45";
 
 const state = loadState();
 let activeRun = null;
@@ -1106,7 +1106,7 @@ function getEnemyScaling(levelIndex, waveIndex, encounterType) {
 
 function getEnemyScalingBreakdown(levelIndex, waveIndex, encounterType) {
   const soulCount = Math.min(5, state.souls.length);
-  const levelHp = levelIndex * 0.1;
+  const levelHp = levelIndex * 1.0;
   const waveHp = waveIndex * 0.025;
   const soulHp = soulCount * 0.025;
   const levelPower = levelIndex * 0.055;
@@ -1835,13 +1835,13 @@ function performEnemyAttack(enemy) {
     return;
   }
   enemy.currentAttackType = enemy.attackType || "melee";
-  if (Math.random() < (target.evade || 0)) {
+  if (Math.random() < getEffectiveEvade(target)) {
     recordDodge(target);
     showCombatCallout(document.querySelector(`#${target.instanceId}`), "DODGE", "dodge");
     addLog(`${target.name} evades ${enemy.name}.`);
     return;
   }
-  const blocked = Math.random() < (target.block || 0);
+  const blocked = Math.random() < getEffectiveBlock(target);
   if (blocked) recordBlock(target);
   const mitigation = blocked ? 0.45 : 1;
   const roleMultiplier = enemy.role === "assassin" && enemy.markedPrey ? 1.22 : 1;
@@ -1946,7 +1946,7 @@ function applyOffensiveStatuses(attacker, target, crit) {
 
 function damageEnemy(enemy, damage, attacker) {
   const hero = activeRun.hero;
-  if (Math.random() < (enemy.evade || 0)) {
+  if (Math.random() < getEffectiveEvade(enemy)) {
     recordDodge(enemy);
     showCombatCallout(document.querySelector(`#${enemy.instanceId}`), "DODGE", "dodge");
     addLog(`${enemy.name} slips the hit.`);
@@ -1968,6 +1968,19 @@ function damageEnemy(enemy, damage, attacker) {
     checkWaveVictory();
   }
   return true;
+}
+
+function getEffectiveEvade(unit) {
+  return taperedChance(unit?.evade || 0);
+}
+
+function getEffectiveBlock(unit) {
+  return taperedChance(unit?.block || 0);
+}
+
+function taperedChance(value) {
+  const rating = Math.max(0, value * 100);
+  return rating / (100 + rating);
 }
 
 function damageAlly(target, damage, attacker) {
@@ -2670,8 +2683,10 @@ function lootChoiceCard(choice, index) {
   return `
     <button class="loot-card resource" data-loot-choice="${index}">
       <div class="item-icon" style="${itemIconStyle(choice.icon)}"></div>
-      <strong>${choice.name}</strong>
-      <span>${choice.text}</span>
+      <div class="loot-card-body">
+        <strong>${choice.name}</strong>
+        <span>${choice.text}</span>
+      </div>
     </button>
   `;
 }
@@ -2681,12 +2696,14 @@ function itemLootCard(item, index) {
   return `
     <button class="loot-card rarity-${item.rarity} ${matches.length ? "build-match" : ""}" data-loot-choice="${index}">
       <div class="item-icon" style="${itemIconStyle(item.icon)}"></div>
-      <strong>${item.name}</strong>
-      <span>${describeItem(item)}</span>
-      <div class="item-tags">
-        ${getItemTags(item).map((tag) => `<span class="${matches.includes(tag) ? "matches" : ""}">${tag}</span>`).join("")}
+      <div class="loot-card-body">
+        <strong>${item.name}</strong>
+        <span>${describeItem(item)}</span>
+        <div class="item-tags">
+          ${getItemTags(item).map((tag) => `<span class="${matches.includes(tag) ? "matches" : ""}">${tag}</span>`).join("")}
+        </div>
+        ${matches.length ? `<em>Matches: ${matches.join(", ")}</em>` : ""}
       </div>
-      ${matches.length ? `<em>Matches: ${matches.join(", ")}</em>` : ""}
     </button>
   `;
 }
@@ -3454,7 +3471,7 @@ function renderHeroInspector() {
         <span>ARM <strong>${selected.armor}</strong></span>
         <span>SPD <strong>${selected.speed.toFixed(2)}</strong></span>
         <span>CRIT <strong>${Math.round((selected.critChance || 0) * 100)}%</strong></span>
-        <span>DEF <strong>${Math.round((selected.block || 0) * 100)}%/${Math.round((selected.evade || 0) * 100)}%</strong></span>
+        <span>DEF <strong>${Math.round(getEffectiveBlock(selected) * 100)}%/${Math.round(getEffectiveEvade(selected) * 100)}%</strong></span>
       </div>
       <h3>Ultimate</h3>
       <p>${getUltimateName(selected)} · ${selected.maxEnergy ? Math.round(((selected.energy || 0) / selected.maxEnergy) * 100) : 0}% energy</p>
@@ -3901,7 +3918,7 @@ function rollStatBoosts(count) {
 }
 
 function describeItem(item) {
-  const parts = [item.rarity, item.type];
+  const parts = [`${capitalize(item.rarity)} ${item.type}`];
   if (item.damage) parts.push(`${item.damage} dmg`);
   if (item.armor) parts.push(`${item.armor} armor`);
   if (item.statBoosts?.length) {
@@ -3909,7 +3926,11 @@ function describeItem(item) {
   }
   if (item.inherent) parts.push(item.inherent);
   if (item.uniqueEffect) parts.push(item.uniqueEffect);
-  return parts.join(" - ");
+  return parts.join(" · ");
+}
+
+function capitalize(value = "") {
+  return value ? `${value[0].toUpperCase()}${value.slice(1)}` : "";
 }
 
 function getItemTags(item) {
@@ -4002,12 +4023,14 @@ function normalizeInheritance(inheritance = {}) {
 }
 
 function itemIconStyle(index) {
-  if (index >= 100) {
-    const expandedIndex = index - 100;
+  const safeIndex = Number.isFinite(index) ? Math.max(0, Math.floor(index)) : 0;
+  if (safeIndex >= 100) {
+    const expandedIndex = Math.min(24, safeIndex - 100);
     return `background-image: url("assets/expanded-icons.png"); ${expandedIconStyle(expandedIndex)}`;
   }
-  const col = index % 4;
-  const row = Math.floor(index / 4);
+  const baseIndex = safeIndex % 16;
+  const col = baseIndex % 4;
+  const row = Math.floor(baseIndex / 4);
   const pos = [0, 33.333, 66.666, 100];
   return `--item-x: ${pos[col]}%; --item-y: ${pos[row]}%;`;
 }
