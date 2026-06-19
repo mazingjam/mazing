@@ -1,0 +1,52 @@
+{
+  "set": {
+    "name": "Untitled Custom Set",
+    "code": "CUS",
+    "status": "draft"
+  },
+  "cards": [
+    {
+      "id": "CUS-0001",
+      "name": "Ashroot Initiate",
+      "manaCost": "{1}{G}",
+      "manaValue": 2,
+      "typeLine": "Creature - Human Druid",
+      "rarity": "common",
+      "colors": ["G"],
+      "colorIdentity": ["G"],
+      "rulesText": "When Ashroot Initiate enters, you may mill a card. If a land card was milled this way, you gain 2 life.",
+      "flavorText": "The forest remembers every footstep.",
+      "power": "2",
+      "toughness": "2",
+      "status": "draft",
+      "tags": ["graveyard", "lifegain"],
+      "art": {
+        "status": "needs_prompt",
+        "prompt": "A young forest druid kneeling beside glowing roots, fantasy card art"
+      },
+      "notes": "Starter example card for testing the schema."
+    },
+    {
+      "id": "CUS-0002",
+      "name": "Unwritten Warning",
+      "manaCost": "{1}{U}",
+      "manaValue": 2,
+      "typeLine": "Instant",
+      "rarity": "common",
+      "colors": ["U"],
+      "colorIdentity": ["U"],
+      "rulesText": "Counter target spell unless its controller pays {2}.",
+      "flavorText": "",
+      "power": null,
+      "toughness": null,
+      "status": "draft",
+      "tags": ["counterspell"],
+      "art": {
+        "status": "needs_prompt",
+        "prompt": "A mage interrupting glowing runes before they finish forming, fantasy card art"
+      },
+      "notes": "Placeholder blue common."
+    }
+  ]
+}
+

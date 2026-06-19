@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Word Alchemy MVP</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="game">
+        <header class="topbar">
+          <div class="brand">
+            <img src="assets/alchemy-mark.svg" alt="" width="44" height="44">
+            <div>
+              <h1>Word Alchemy</h1>
+              <p id="levelName">Loading...</p>
+            </div>
+          </div>
+          <div class="stats">
+            <span id="moves">0 moves</span>
+            <span id="score">0</span>
+          </div>
+        </header>
+
+        <section class="targets" aria-label="Target words">
+          <div class="section-label">Targets</div>
+          <div id="targets" class="target-list"></div>
+        </section>
+
+        <section class="cauldron" aria-label="Current word">
+          <div class="cauldron-inner">
+            <div id="selection" class="selection">Choose fragments</div>
+            <button id="brewButton" type="button">Brew</button>
+          </div>
+          <p id="message" class="message">Build compound words from meaning fragments.</p>
+        </section>
+
+        <section class="board-wrap" aria-label="Fragment board">
+          <div id="board" class="board"></div>
+        </section>
+
+        <footer class="actions">
+          <button id="undoButton" type="button">Undo</button>
+          <button id="clearButton" type="button">Clear</button>
+          <button id="nextButton" type="button">Next</button>
+          <button id="restartButton" type="button">Restart</button>
+        </footer>
+      </section>
+
+      <aside class="codex">
+        <h2>How It Plays</h2>
+        <p>Tap fragments to form target words. Some fragments also change the board when brewed.</p>
+        <dl>
+          <div>
+            <dt>FIRE</dt>
+            <dd>Burns one cracked tile.</dd>
+          </div>
+          <div>
+            <dt>WATER</dt>
+            <dd>Washes a used fragment back into play.</dd>
+          </div>
+          <div>
+            <dt>GHOST</dt>
+            <dd>Lets one locked tile be used.</dd>
+          </div>
+          <div>
+            <dt>ROOT</dt>
+            <dd>Refreshes one nature fragment.</dd>
+          </div>
+        </dl>
+      </aside>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
+

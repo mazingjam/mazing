@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>GrowUp Companion Prototype</title>
+    <meta
+      name="description"
+      content="Mobil webbprototyp för GrowUps companion app med sömn, mat, profil och boxresa."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <header class="topbar">
+        <button class="baby-chip" id="profileShortcut" type="button" aria-label="Öppna barnprofil">
+          <span class="baby-avatar small" aria-hidden="true"><span></span></span>
+        </button>
+        <div class="age-chip">
+          <strong id="ageDays">90</strong>
+        </div>
+        <div class="top-title">
+          <strong id="screenTitle">Idag</strong>
+          <span id="screenSubtitle">GrowUp companion</span>
+        </div>
+        <button class="icon-button" id="boxShortcut" type="button" aria-label="Öppna boxresa">🎁</button>
+      </header>
+
+      <main class="screen-stack">
+        <section class="screen active" data-screen="home" aria-labelledby="homeTitle">
+          <div class="hero-status">
+            <div>
+              <p class="eyebrow">Nuvarande rytm</p>
+              <h1 id="homeTitle"><span id="currentState">Vaken</span></h1>
+              <p id="stateDetail">Nästa nap beräknas när dagens logg uppdateras.</p>
+            </div>
+            <div class="home-actions">
+              <button class="primary-action" id="quickSleepButton" type="button">Starta nap</button>
+              <button class="secondary-action compact" data-nav="timeline" type="button">Dagbok</button>
+            </div>
+          </div>
+
+          <section class="rhythm-card" aria-label="Dygnsrytm">
+            <svg class="rhythm-ring" viewBox="0 0 320 320" role="img" aria-label="Dygnsring med dagens händelser">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              <circle class="ring-track" cx="160" cy="160" r="118"></circle>
+              <g id="ringEvents"></g>
+              <text class="ring-label" x="160" y="145" text-anchor="middle" id="ringMain">Nästa nap</text>
+              <text class="ring-time" x="160" y="185" text-anchor="middle" id="ringTime">--:--</text>
+            </svg>
+          </section>
+
+          <section class="prediction-card">
+            <div>
+              <p class="eyebrow">Sömnprognos</p>
+              <h2 id="predictionWindow">Beräknar...</h2>
+              <p id="predictionReason">Lägg till dagens första händelse för bättre prognos.</p>
+            </div>
+            <span class="confidence" id="predictionConfidence">Låg</span>
+          </section>
+
+          <section class="timer-card hidden" id="runningTimerCard">
+            <div class="timer-icon">🌙</div>
+            <div>
+              <strong id="timerLabel">Nap pågår</strong>
+              <span id="timerElapsed">00:00</span>
+            </div>
+            <button class="mini-action" id="pauseTimerButton" type="button">Paus</button>
+            <button class="mini-action solid" id="stopTimerButton" type="button">Stoppa</button>
+          </section>
+
+          <section class="box-teaser">
+            <div>
+              <p class="eyebrow">Nästa GrowUp-box</p>
+              <h2>Välj snutte-djur</h2>
+              <p>Valet används i månad 2-boxen och kan bli en figur i framtida böcker.</p>
+            </div>
+            <button class="secondary-action" data-nav="box" type="button">Välj</button>
+          </section>
+        </section>
+
+        <section class="screen" data-screen="timeline" aria-labelledby="timelineTitle">
+          <div class="screen-heading">
+            <p class="eyebrow">Dagbok</p>
+            <h1 id="timelineTitle">Dagens händelser</h1>
+          </div>
+          <div class="date-strip" id="dateStrip"></div>
+          <div class="timeline-list" id="timelineList"></div>
+        </section>
+
+        <section class="screen" data-screen="insights" aria-labelledby="insightsTitle">
+          <div class="screen-heading">
+            <p class="eyebrow">Trender</p>
+            <h1 id="insightsTitle">Insikter</h1>
+          </div>
+          <div class="stats-grid">
+            <article>
+              <span>Total sömn</span>
+              <strong id="totalSleepStat">0h</strong>
+            </article>
+            <article>
+              <span>Dagsömn</span>
+              <strong id="daySleepStat">0h</strong>
+            </article>
+            <article>
+              <span>Naps</span>
+              <strong id="napCountStat">0</strong>
+            </article>
+            <article>
+              <span>Matningar</span>
+              <strong id="feedCountStat">0</strong>
+            </article>
+          </div>
+          <section class="chart-card">
+            <div class="section-row">
+              <h2>Sömn senaste 7 dagarna</h2>
+              <span>Dagar</span>
+            </div>
+            <svg class="line-chart" viewBox="0 0 340 190" aria-label="Sömndiagram">
+              <g id="sleepChart"></g>
+            </svg>
+          </section>
+          <section class="insight-card">
+            <h2>Produktdata</h2>
+            <p id="personalizationInsight">Profilen saknar några val innan nästa personliga produkt kan skapas.</p>
+          </section>
+        </section>
+
+        <section class="screen" data-screen="profile" aria-labelledby="profileTitle">
+          <div class="profile-hero">
+            <div class="baby-avatar large" aria-hidden="true"><span></span></div>
+            <div>
+              <p class="eyebrow">Barnprofil</p>
+              <h1 id="profileTitle">Alma</h1>
+              <p id="profileMeta">10 månader · varm persika · lite hår</p>
+            </div>
+          </div>
+
+          <section class="profile-form">
+            <label>
+              Namn
+              <input id="childNameInput" type="text" />
+            </label>
+            <label>
+              Födelsedatum
+              <input id="birthDateInput" type="date" />
+            </label>
+            <fieldset>
+              <legend>Hudton</legend>
+              <div class="swatches" id="skinSwatches">
+                <button class="swatch selected" style="--swatch:#f3c7a4" data-value="varm persika" type="button"></button>
+                <button class="swatch" style="--swatch:#c58b63" data-value="gyllene brun" type="button"></button>
+                <button class="swatch" style="--swatch:#7a4f3a" data-value="djup brun" type="button"></button>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Hår</legend>
+              <div class="segmented" id="hairOptions">
+                <button class="selected" data-value="lite hår" type="button">Lite hår</button>
+                <button data-value="utan hår" type="button">Utan hår</button>
+                <button data-value="lockigt hår" type="button">Lockigt</button>
+              </div>
+            </fieldset>
+          </section>
+
+          <section class="preference-panel">
+            <div class="section-row">
+              <h2>Preferenser</h2>
+              <button class="mini-action" id="addPreferenceButton" type="button">Lägg till</button>
+            </div>
+            <div class="tag-list" id="preferenceTags"></div>
+          </section>
+        </section>
+
+        <section class="screen" data-screen="box" aria-labelledby="boxTitle">
+          <div class="screen-heading">
+            <p class="eyebrow">Subscription</p>
+            <h1 id="boxTitle">Boxresan</h1>
+          </div>
+          <section class="box-card current">
+            <span>Månad 1</span>
+            <h2>Godnatt, lilla stjärna</h2>
+            <p>Personlig bok är redo för preview. Namn och avatar hämtas från barnprofilen.</p>
+            <div class="progress">
+              <span style="width: 82%"></span>
+            </div>
+          </section>
+          <section class="box-card">
+            <span>Månad 2</span>
+            <h2>Snutte-djur</h2>
+            <p>Välj favoritdjur. Valet används för snutten och kan återkomma i kommande böcker.</p>
+            <div class="choice-grid" id="animalChoices"></div>
+          </section>
+          <section class="checklist-card">
+            <h2>Personalisering</h2>
+            <div id="productChecklist"></div>
+          </section>
+        </section>
+
+        <section class="screen" data-screen="sounds" aria-labelledby="soundsTitle">
+          <div class="screen-heading">
+            <p class="eyebrow">Ljud</p>
+            <h1 id="soundsTitle">Sömnljud & böcker</h1>
+          </div>
+          <div class="sound-list">
+            <button type="button">🌧️ Regn <span>30 min</span></button>
+            <button type="button">🌊 Vågbrus <span>45 min</span></button>
+            <button type="button">🎵 Lugn vaggsång <span>20 min</span></button>
+            <button type="button">📖 Godnatt, lilla stjärna <span>3 min</span></button>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Appnavigation">
+        <button class="active" data-nav="home" type="button">⌂<span>Hem</span></button>
+        <button data-nav="sounds" type="button">♪<span>Ljud</span></button>
+        <button class="add-button" id="openAddSheet" type="button" aria-label="Lägg till händelse">+</button>
+        <button data-nav="insights" type="button">▥<span>Insikt</span></button>
+        <button data-nav="profile" type="button">◌<span>Profil</span></button>
+      </nav>
+    </div>
+
+    <div class="sheet-backdrop hidden" id="sheetBackdrop"></div>
+    <section class="bottom-sheet hidden" id="addSheet" aria-labelledby="addSheetTitle" aria-modal="true">
+      <div class="sheet-handle"></div>
+      <h2 id="addSheetTitle">Lägg till</h2>
+      <div class="event-grid" id="eventGrid"></div>
+    </section>
+
+    <section class="bottom-sheet hidden detail-sheet" id="detailSheet" aria-labelledby="detailTitle" aria-modal="true">
+      <div class="sheet-handle"></div>
+      <div class="detail-header">
+        <div class="detail-icon" id="detailIcon">🌙</div>
+        <h2 id="detailTitle">Nap</h2>
+      </div>
+      <div class="time-row">
+        <label>
+          Start
+          <input id="eventStartInput" type="time" />
+        </label>
+        <label>
+          Slut
+          <input id="eventEndInput" type="time" />
+        </label>
+      </div>
+      <div id="detailOptions"></div>
+      <button class="primary-action wide" id="saveEventButton" type="button">Spara</button>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

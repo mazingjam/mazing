@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MTGSet Factions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .faction-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .faction-card {
+        overflow: hidden;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .faction-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        background: #ddd;
+      }
+
+      .faction-body {
+        padding: 14px;
+      }
+
+      .faction-body h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .faction-body p {
+        color: var(--muted);
+      }
+
+      .nav-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 650;
+      }
+
+      @media (min-width: 760px) {
+        .faction-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Factions</h1>
+        <p id="summary">Concept art and short lore</p>
+      </div>
+      <a class="nav-link" href="./">Cards</a>
+    </header>
+
+    <main>
+      <section class="faction-grid">
+        <article class="faction-card">
+          <img src="../images/factions/wbu-old-money-government.png" alt="WBU concept art">
+          <div class="faction-body">
+            <h2>WBU: Old Money + Government</h2>
+            <p>The old houses rule through charters, courts, banks, registries, and inherited seals. Gold is legitimacy: counted, witnessed, taxed, inherited, and weaponized through paperwork.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/rwu-progress-military.png" alt="RWU concept art">
+          <div class="faction-body">
+            <h2>RWU: Individualism + Military + Progress</h2>
+            <p>The future arrives as a parade. Heroes are minted, patents become weapons, and public works become monuments. Gold marks medals, funding, upgrades, and chosen ambition.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/rbu-bribe.png" alt="RBU concept art">
+          <div class="faction-body">
+            <h2>RBU: Bribe</h2>
+            <p>Nothing is illegal if the right person profits. Private rooms, rigged hearings, black-market docks, and coin-lit contracts reveal the real law beneath the written one.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/wbr-human-citizens.png" alt="WBR concept art">
+          <div class="faction-body">
+            <h2>WBR: Human Citizens</h2>
+            <p>The crowd is a resource, a mandate, and a threat. Citizens gather between solidarity and exploitation, while gold marks wages, debt, patronage, and bought loyalty.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/gr-collapse.png" alt="GR concept art">
+          <div class="faction-body">
+            <h2>GR: Collapse</h2>
+            <p>The city cracks, blooms, burns, and remembers it was never separate from the wild. Roads split by roots, Buildings break open, and gold disappears into moss and fire.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/gu-reclamation.png" alt="GU concept art">
+          <div class="faction-body">
+            <h2>GU: Reclamation</h2>
+            <p>Archives become reefs, laboratories become wetlands, and forgotten machines learn to photosynthesize. This is adaptation, memory, and living systems thinking back.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/mono-g-force-of-nature.png" alt="Mono-green concept art">
+          <div class="faction-body">
+            <h2>Mono-G: Force of Nature</h2>
+            <p>Not a faction, but the bill coming due. It does not negotiate. It grows through vaults, sleeps under roads, and wakes when gold becomes too heavy for the world.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/rgu-nature-convergence.png" alt="RGU concept art">
+          <div class="faction-body">
+            <h2>RGU: Nature Convergence</h2>
+            <p>Where storm, adaptation, and inevitability meet, nature becomes a system with teeth. It does not reject progress; it outgrows it.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/wb-humanity.png" alt="WB concept art">
+          <div class="faction-body">
+            <h2>WB: Humanity</h2>
+            <p>The human cost: names counted, bodies buried, ration papers issued, shrines kept lit, and communities deciding what survives when every power demands payment.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/gw-unity.png" alt="GW concept art">
+          <div class="faction-body">
+            <h2>GW: Unity</h2>
+            <p>The split can still be healed, but not cheaply. Envoys plant gardens in courtyards, broker treaties with the wild, and build sanctuaries without walls.</p>
+          </div>
+        </article>
+
+        <article class="faction-card">
+          <img src="../images/factions/gb-doom.png" alt="GB concept art">
+          <div class="faction-body">
+            <h2>GB: Doom</h2>
+            <p>Every empire composts. Every contract ends in soil. Every buried thing becomes leverage. Doom is not tragedy here; it is process.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

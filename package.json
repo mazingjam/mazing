@@ -7,6 +7,11 @@
     "dev": "node scripts/dev-server.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/dev-server.mjs --dist",
-    "sync:again": "node scripts/sync-again.mjs"
+    "sync:again": "node scripts/sync-again.mjs",
+    "sync:wordalchemy": "node scripts/sync-wordalchemy.mjs",
+    "sync:mtgset": "node scripts/sync-mtgset.mjs",
+    "sync:resort": "node scripts/sync-resort.mjs",
+    "sync:growup": "node scripts/sync-growup.mjs",
+    "sync:previews": "node scripts/sync-again.mjs && node scripts/sync-wordalchemy.mjs && node scripts/sync-mtgset.mjs && node scripts/sync-resort.mjs && node scripts/sync-growup.mjs"
   }
 }

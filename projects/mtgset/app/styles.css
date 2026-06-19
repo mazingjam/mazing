@@ -1,0 +1,282 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f7f4;
+  --panel: #ffffff;
+  --text: #171713;
+  --muted: #66645d;
+  --line: #d8d5cb;
+  --accent: #27615b;
+  --accent-2: #9a5b21;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 16px;
+  background: rgba(247, 247, 244, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+p {
+  margin: 0;
+}
+
+#summary {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  min-height: 40px;
+  padding: 0 14px;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 6px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+main {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.review-tools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  min-height: 180px;
+  padding: 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.card.needs-rethink {
+  border-color: #b95332;
+  box-shadow: 0 0 0 2px rgba(185, 83, 50, 0.14), var(--shadow);
+}
+
+.card.edited {
+  border-style: dashed;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: start;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.card-name {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.mana {
+  flex: 0 0 auto;
+  color: var(--accent-2);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.pill {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  background: #fbfaf7;
+}
+
+.type-line {
+  margin-bottom: 10px;
+  font-weight: 650;
+}
+
+.rules {
+  white-space: pre-wrap;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.review-button,
+.edit-button,
+.save-button,
+.reset-button {
+  min-height: 36px;
+  padding: 0 10px;
+  color: var(--text);
+  background: #f4eee8;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.review-button.active {
+  color: #fff;
+  background: #b95332;
+  border-color: #b95332;
+}
+
+.edit-button.active,
+.save-button {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.reset-button {
+  color: #7a351e;
+}
+
+.editor {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.editor label {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.editor input,
+.editor textarea {
+  min-height: 38px;
+}
+
+.editor textarea {
+  min-height: 120px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    align-items: start;
+  }
+
+  .top-actions {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .review-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .card-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MTGSet Card Browser</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>MTGSet</h1>
+        <p id="summary">Loading cards...</p>
+      </div>
+      <div class="top-actions">
+        <a class="nav-link" href="/app/factions.html">Factions</a>
+        <button id="refreshButton" type="button">Refresh</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="review-tools" aria-label="Review tools">
+        <button id="exportButton" type="button">Export review</button>
+        <button id="clearDraftsButton" type="button">Clear edits</button>
+      </section>
+
+      <section class="controls" aria-label="Filters">
+        <input id="searchInput" type="search" placeholder="Search name, text, archetype..." autocomplete="off">
+        <div class="filters">
+          <select id="archetypeFilter" aria-label="Archetype">
+            <option value="">All archetypes</option>
+          </select>
+          <select id="rarityFilter" aria-label="Rarity">
+            <option value="">All rarities</option>
+            <option value="Commons">Commons</option>
+            <option value="Uncommons">Uncommons</option>
+            <option value="Rares">Rares</option>
+          </select>
+          <select id="reviewFilter" aria-label="Review status">
+            <option value="">All review states</option>
+            <option value="needs-rethink">Needs rethink</option>
+            <option value="edited">Edited</option>
+            <option value="unmarked">Unmarked</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="cardList" class="card-list" aria-live="polite"></section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
