@@ -3,50 +3,48 @@ const cards = [
     id: "vanguard",
     name: "Vanguard",
     role: "Shield anchor",
-    cost: 3,
+    cost: 2,
     hp: 920,
     damage: 62,
     range: 0.75,
     speed: 0.42,
-    sprite: "assets/sprites/vanguard.svg"
+    sprite: "assets/sprites/normalized/vanguard.png"
   },
   {
     id: "lancer",
     name: "Lancer",
     role: "Bridge pressure",
-    cost: 4,
+    cost: 3,
     hp: 620,
     damage: 118,
     range: 0.95,
     speed: 0.72,
-    sprite: "assets/sprites/lancer.svg"
+    sprite: "assets/sprites/normalized/lancer.png"
   },
   {
     id: "arbalest",
     name: "Arbalest",
     role: "Backline control",
-    cost: 3,
+    cost: 2,
     hp: 430,
     damage: 86,
     range: 4.4,
     speed: 0.38,
-    sprite: "assets/sprites/arbalest.svg"
+    sprite: "assets/sprites/normalized/arbalest.png"
   },
   {
     id: "ember",
     name: "Ember Adept",
     role: "Burst caster",
-    cost: 4,
+    cost: 3,
     hp: 480,
     damage: 132,
     range: 3.2,
     speed: 0.46,
-    sprite: "assets/sprites/ember.svg"
+    sprite: "assets/sprites/normalized/ember.png"
   }
 ];
 
-const draftPool = document.querySelector("#draftPool");
-const draftCount = document.querySelector("#draftCount");
 const startBtn = document.querySelector("#startBtn");
 const resetBtn = document.querySelector("#resetBtn");
 const arena = document.querySelector("#arena");
@@ -67,7 +65,6 @@ const clockEl = document.querySelector("#clock");
 const blueScore = document.querySelector("#blueScore");
 const redScore = document.querySelector("#redScore");
 
-const selected = new Set();
 const state = {
   running: false,
   frame: 0,
@@ -112,32 +109,8 @@ function createTowers() {
   ];
 }
 
-function renderDraft() {
-  draftPool.innerHTML = "";
-  cards.forEach((card) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `draft-choice ${selected.has(card.id) ? "selected" : ""}`;
-    button.innerHTML = `
-      <span class="mini-sprite" style="${spriteStyle(card)}"></span>
-      <span><strong>${card.name}</strong><small>${card.role} | ${card.damage} dmg | ${card.hp} hp</small></span>
-      <span class="cost">${card.cost}</span>
-    `;
-    button.addEventListener("click", () => {
-      if (state.running) return;
-      if (selected.has(card.id)) selected.delete(card.id);
-      else if (selected.size < 4) selected.add(card.id);
-      renderDraft();
-      renderHand();
-    });
-    draftPool.appendChild(button);
-  });
-  draftCount.textContent = `${selected.size} / 4`;
-  startBtn.disabled = selected.size !== 4 || state.running;
-}
-
 function getDeck() {
-  return cards.filter((card) => selected.has(card.id));
+  return cards;
 }
 
 function renderHand() {
@@ -279,14 +252,13 @@ function effect(type, x, y) {
 }
 
 function start() {
-  if (selected.size !== 4) return;
   state.running = true;
   state.frame = 0;
   state.inputs = [];
-  state.ether = 5;
+  state.ether = 10;
   state.units = [];
   state.towers = createTowers();
-  state.nextOpponent = 90;
+  state.nextOpponent = 60;
   state.opponentIndex = 0;
   state.lastTime = 0;
   statusEl.textContent = "Playing";
@@ -310,12 +282,12 @@ function reset() {
   state.nextOpponent = 120;
   state.opponentIndex = 0;
   state.lastTime = 0;
-  statusEl.textContent = "Drafting";
+  statusEl.textContent = "Ready";
   startBtn.textContent = "Start Slice";
+  startBtn.disabled = false;
   startOverlay.classList.remove("hidden");
   logEl.innerHTML = "";
-  log("Reset. Draft four cards.");
-  renderDraft();
+  log("Ready. Press Start, then drag cards from your hand.");
   renderTowers();
   renderUnits();
   renderHand();
@@ -343,7 +315,7 @@ function tick() {
   if (state.frame >= state.nextOpponent) {
     const card = cards[state.opponentIndex % cards.length];
     const lane = state.opponentIndex % 2 === 0 ? 31 : 69;
-    deploy("red", card, lane, 24, false);
+    deploy("red", card, lane, 44, false);
     state.opponentIndex += 1;
     state.nextOpponent += 150;
   }

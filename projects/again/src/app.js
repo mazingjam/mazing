@@ -800,13 +800,16 @@ const names = ["Ragnar", "Selene", "Orin", "Veyra", "Maela", "Korr", "Ilya", "Da
 const ATTACK_INTERVAL_MULTIPLIER = 2;
 const PASSIVE_ENERGY_PER_SECOND = 3.8;
 const MAX_SUMMONS = 5;
-const APP_VERSION = "v0.45";
+const AUTO_RUN_DELAY = 900;
+const AUTO_RUN_LONG_DELAY = 1600;
+const APP_VERSION = "v0.46";
 
 const state = loadState();
 let activeRun = null;
 let combatTicker = null;
 let combatWatchdog = null;
 let transitionTimer = null;
+let autoRunTimer = null;
 let selectedUnitId = null;
 let selectedInventoryIndex = null;
 let selectedInspectorSlot = null;
@@ -825,9 +828,11 @@ const heroInspector = document.querySelector("#heroInspector");
 const runCount = document.querySelector("#runCount");
 const soulCount = document.querySelector("#soulCount");
 const versionLabel = document.querySelector("#versionLabel");
+const autoRunBtn = document.querySelector("#autoRunBtn");
 if (versionLabel) versionLabel.textContent = APP_VERSION;
 document.querySelector("#resetBtn").addEventListener("click", resetSave);
 document.querySelector("#resetTopBtn").addEventListener("click", resetSave);
+autoRunBtn?.addEventListener("click", toggleAutoRun);
 togglePantheonBtn?.addEventListener("click", () => {
   isPantheonOpen = !isPantheonOpen;
   renderSouls();
@@ -850,6 +855,7 @@ function loadState() {
       inventory: parsed.inventory || [],
       resources: normalizeResources(parsed.resources),
       inheritance: normalizeInheritance(parsed.inheritance),
+      autoRun: !!parsed.autoRun,
       log: parsed.log || ["The chronicle begins."],
     };
   }
@@ -860,6 +866,7 @@ function loadState() {
     inventory: [],
     resources: normalizeResources(),
     inheritance: normalizeInheritance(),
+    autoRun: false,
     log: ["The chronicle begins."],
   };
 }
@@ -874,9 +881,11 @@ function resetSave() {
 }
 
 function render() {
+  clearAutoRunTimer();
   clearCombatTicker();
   runCount.textContent = `Run ${state.runCount}`;
   soulCount.textContent = `${state.souls.length} Souls`;
+  renderAutoRunButton();
   renderSouls();
   renderBestiary();
   renderInventory();
@@ -885,6 +894,7 @@ function render() {
 
   if (!activeRun) {
     renderHeroSelect();
+    scheduleAutoRunStep();
     return;
   }
 
@@ -898,7 +908,36 @@ function render() {
   if (activeRun.phase === "event") renderEvent();
   if (activeRun.phase === "level-complete") renderLevelComplete();
   if (activeRun.phase === "complete") renderComplete();
+  if (activeRun.phase === "eternal-complete") renderEternalComplete();
   ensureCombatTickerHealthy();
+  scheduleAutoRunStep();
+}
+
+function toggleAutoRun() {
+  state.autoRun = !state.autoRun;
+  saveState();
+  renderAutoRunButton();
+  if (state.autoRun) {
+    addLog("Auto Run enabled.");
+    if (!activeRun && state.partyHeroes?.length) startEternalOnlyRun();
+    else scheduleAutoRunStep(200);
+  } else {
+    addLog("Auto Run disabled.");
+    clearAutoRunTimer();
+  }
+  renderLog();
+}
+
+function renderAutoRunButton() {
+  if (!autoRunBtn) return;
+  autoRunBtn.classList.toggle("active", !!state.autoRun);
+  autoRunBtn.setAttribute("aria-pressed", String(!!state.autoRun));
+  autoRunBtn.textContent = state.autoRun ? "Auto On" : "Auto Run";
+}
+
+function clearAutoRunTimer() {
+  if (autoRunTimer) window.clearTimeout(autoRunTimer);
+  autoRunTimer = null;
 }
 
 function ensureCombatTickerHealthy() {
@@ -1063,6 +1102,57 @@ function startRun(classId, mentorId) {
   };
   addLog(`${hero.name} the ${hero.className} enters run ${state.runCount}.`);
   render();
+}
+
+function startEternalOnlyRun() {
+  const roster = state.partyHeroes || [];
+  if (!roster.length) {
+    state.autoRun = false;
+    saveState();
+    renderAutoRunButton();
+    addLog("Auto Run needs at least one Eternal hero.");
+    return;
+  }
+  const hero = createEternalRunProxy(roster);
+  activeRun = {
+    hero,
+    mentorId: null,
+    levelIndex: 0,
+    waveIndex: 0,
+    phase: "prep",
+    allies: createEternalOnlyAllies(roster),
+    enemies: createWave(0, 0),
+    isEternalOnly: true,
+  };
+  addLog(`Auto Run ${state.runCount}: Eternal Vanguard enters without a new founder.`);
+  render();
+}
+
+function createEternalRunProxy(roster) {
+  const leader = roster.slice().sort((a, b) => getLegacyPowerScore(b) - getLegacyPowerScore(a))[0];
+  return {
+    ...leader,
+    id: `eternal_proxy_${Date.now()}`,
+    name: "Eternal Vanguard",
+    classId: leader.classId || "warrior",
+    className: "Eternal Party",
+    skill: "Legacy Assault",
+    build: ["Legacy Assault"],
+    traits: ["Eternal", "Auto"],
+    level: 1,
+    kills: 0,
+    damageDealt: 0,
+    itemSlots: [null, null, null],
+    isEternalProxy: true,
+  };
+}
+
+function getLegacyPowerScore(hero) {
+  return (hero.maxHp || 0) * 0.25 + (hero.power || 0) * 8 + (hero.armor || 0) * 3 + (hero.speed || 1) * 10;
+}
+
+function createEternalOnlyAllies(roster) {
+  return addStartingNecroSummons(roster.slice(-5).map((partyHero, index) => createLegacyHeroUnit(partyHero, index)));
 }
 
 function createWave(levelIndex, waveIndex) {
@@ -2079,7 +2169,7 @@ function checkWaveVictory() {
   const hero = activeRun.hero;
   const encounter = getCurrentEncounter(activeRun.levelIndex, activeRun.waveIndex);
   hero.level += encounter.type === "elite" ? 2 : 1;
-  activeRun.pendingLevelUp = true;
+  activeRun.pendingLevelUp = !activeRun.isEternalOnly;
   finishCombat(`${hero.name} clears ${encounter.name} with ${hero.skill}.`, "Victory");
 }
 
@@ -2577,6 +2667,10 @@ function continueAfterCombatRecap() {
   const outcome = activeRun.combatRecap.outcome;
   activeRun.combatRecap = null;
   if (outcome === "Fallen") {
+    if (activeRun.isEternalOnly) {
+      finishEternalOnlyRun("Eternal party fell.");
+      return;
+    }
     createSoul("fell in battle");
     return;
   }
@@ -2585,6 +2679,99 @@ function continueAfterCombatRecap() {
   activeRun.afterLootPhase = isCurrentBossWave() ? "level-complete" : "advance";
   activeRun.phase = "loot";
   render();
+}
+
+function scheduleAutoRunStep(delay = AUTO_RUN_DELAY) {
+  clearAutoRunTimer();
+  if (!state.autoRun) return;
+  autoRunTimer = window.setTimeout(runAutoStep, delay);
+}
+
+function runAutoStep() {
+  autoRunTimer = null;
+  if (!state.autoRun) return;
+  if (!activeRun) {
+    if (state.partyHeroes?.length) startEternalOnlyRun();
+    return;
+  }
+  if (activeRun.phase === "prep") {
+    startPreparedEncounter();
+    return;
+  }
+  if (activeRun.phase === "combat-recap") {
+    continueAfterCombatRecap();
+    return;
+  }
+  if (activeRun.phase === "loot") {
+    chooseLoot(getAutoLootChoiceIndex(activeRun.pendingLoot || []));
+    return;
+  }
+  if (activeRun.phase === "level-up") {
+    takeStatUpgrade(getAutoLevelUpChoiceId(activeRun.hero));
+    return;
+  }
+  if (activeRun.phase === "event") {
+    takeEvent(getAutoEventChoice());
+    return;
+  }
+  if (activeRun.phase === "level-complete") {
+    continueToNextLevel();
+    return;
+  }
+  if (activeRun.phase === "complete") {
+    if (activeRun.inheritanceOptions?.length) {
+      takeInheritanceReward(getAutoInheritanceChoiceId(activeRun.inheritanceOptions));
+      return;
+    }
+    if (state.partyHeroes?.length) startEternalOnlyRun();
+    return;
+  }
+  if (activeRun.phase === "eternal-complete") {
+    startEternalOnlyRun();
+  }
+}
+
+function getAutoLootChoiceIndex(choices) {
+  if (!choices.length) return 0;
+  let bestIndex = 0;
+  let bestScore = -Infinity;
+  choices.forEach((choice, index) => {
+    const score = getAutoLootScore(choice);
+    if (score > bestScore) {
+      bestScore = score;
+      bestIndex = index;
+    }
+  });
+  return bestIndex;
+}
+
+function getAutoLootScore(choice) {
+  if (!choice) return -Infinity;
+  if (choice.kind === "item") {
+    const rarityScore = { basic: 20, magic: 35, rare: 55, unique: 80 }[choice.item?.rarity] || 10;
+    return rarityScore + getItemBuildMatches(choice.item, activeRun?.hero).length * 18;
+  }
+  if (choice.kind === "rareOrb") return 45;
+  if (choice.kind === "magicOrb") return 34;
+  if (choice.kind === "gold") return 20 + Math.min(25, (choice.amount || 0) / 2);
+  return 0;
+}
+
+function getAutoLevelUpChoiceId(hero) {
+  const options = getLevelUpOptions(hero);
+  const preferred = options.find((option) => option.type === hero.className || option.type === "Necro" && hero.className === "Necromancer");
+  return (preferred || options.find((option) => option.id === "hp") || options[0])?.id;
+}
+
+function getAutoEventChoice() {
+  if (state.souls.length) return "memory";
+  return "blessing";
+}
+
+function getAutoInheritanceChoiceId(options) {
+  return (options.find((option) => option.stat === "power")
+    || options.find((option) => option.stat === "hp")
+    || options[0])?.id;
 }
 
 function updateCombatDom() {
@@ -2718,7 +2905,7 @@ function chooseLoot(index) {
   if (choice.kind === "item") state.inventory.push(choice.item);
   addLog(`Chose ${choice.name}.`);
   activeRun.pendingLoot = null;
-  if (activeRun.pendingLevelUp) {
+  if (activeRun.pendingLevelUp && !activeRun.isEternalOnly) {
     activeRun.phase = "level-up";
     saveState();
     render();
@@ -2978,6 +3165,10 @@ function advanceNode() {
 function continueToNextLevel() {
   activeRun.levelIndex += 1;
   if (activeRun.levelIndex >= levels.length) {
+    if (activeRun.isEternalOnly) {
+      finishEternalOnlyRun("Eternal party cleared the prototype.");
+      return;
+    }
     createSoul("ascended after defeating the final boss");
     return;
   }
@@ -2988,6 +3179,48 @@ function continueToNextLevel() {
   resetCombatRuntime();
   activeRun.phase = "prep";
   render();
+}
+
+function finishEternalOnlyRun(summary) {
+  const fallen = activeRun?.combatStats?.fallen || [];
+  state.runCount += 1;
+  addLog(summary);
+  activeRun = {
+    phase: "eternal-complete",
+    summary,
+    fallen,
+  };
+  saveState();
+  render();
+}
+
+function renderEternalComplete() {
+  screen.innerHTML = `
+    <div class="screen-pad">
+      <div class="screen-title">
+        <div>
+          <h2>Eternal Run Complete</h2>
+          <p>${activeRun.summary} ${state.autoRun ? "Auto Run will begin another Eternal-only run." : "The pantheon waits."}</p>
+        </div>
+        <button class="primary" id="nextEternalRunBtn">Begin Eternal Run</button>
+      </div>
+      <section class="recap-card">
+        <h3>Eternal Party</h3>
+        <div class="returning-list">
+          ${(state.partyHeroes || []).slice(-5).map((ally) => `
+            <div class="returning-row">
+              ${heroPortraitMarkup(ally, "mini-sprite")}
+              <div>
+                <strong>${ally.name}</strong>
+                <span>${ally.className} - ${ally.power} PWR / ${ally.maxHp} HP</span>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+  document.querySelector("#nextEternalRunBtn")?.addEventListener("click", startEternalOnlyRun);
 }
 
 function syncHeroUnitFromHero() {
@@ -3225,7 +3458,7 @@ function addHeroToLegacyParty(hero, soul) {
     energyGainBonus: hero.energyGainBonus || 0,
     itemSlots: normalizeItemSlots(hero.itemSlots),
   };
-  state.partyHeroes = [...(state.partyHeroes || []), partyHero].slice(-4);
+  state.partyHeroes = [...(state.partyHeroes || []), partyHero].slice(-5);
 }
 
 function chooseLegacyTrait(hero) {

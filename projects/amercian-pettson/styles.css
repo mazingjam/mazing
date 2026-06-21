@@ -311,6 +311,78 @@ h3 {
     var(--paper);
 }
 
+.concept-art {
+  background:
+    linear-gradient(rgba(84, 118, 139, 0.1), rgba(84, 118, 139, 0.1)),
+    var(--cream);
+  border-block: 1px solid var(--line);
+}
+
+.art-stack {
+  display: grid;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  gap: 22px;
+}
+
+.wide-sheet img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.style-tests {
+  background:
+    linear-gradient(rgba(158, 53, 43, 0.07), rgba(158, 53, 43, 0.07)),
+    var(--paper);
+}
+
+.style-note {
+  width: min(860px, 100%);
+  margin: -10px auto 28px;
+  color: var(--muted);
+}
+
+.style-note p {
+  margin-bottom: 0;
+}
+
+.style-matrix {
+  display: grid;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  gap: 26px;
+}
+
+.style-matrix article {
+  display: grid;
+  grid-template-columns: 160px repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.style-matrix h3 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 240, 0.78);
+}
+
+.style-matrix figure {
+  box-shadow: 0 10px 28px rgba(42, 31, 20, 0.12);
+}
+
+.style-matrix figure img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+
 .draft-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -369,6 +441,14 @@ figcaption span {
   .concept-grid,
   .draft-grid {
     grid-template-columns: 1fr;
+  }
+
+  .style-matrix article {
+    grid-template-columns: 1fr;
+  }
+
+  .style-matrix h3 {
+    min-height: auto;
   }
 
   .character-list {

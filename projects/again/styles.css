@@ -139,6 +139,23 @@ h3 {
   font-weight: 800;
 }
 
+.auto-run-toggle {
+  border: 1px solid rgba(201, 154, 69, 0.58);
+  border-radius: 8px;
+  background: rgba(67, 48, 29, 0.32);
+  color: var(--ink);
+  min-height: 30px;
+  padding: 0 10px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.auto-run-toggle.active {
+  background: linear-gradient(180deg, rgba(185, 132, 47, 0.82), rgba(111, 67, 29, 0.88));
+  box-shadow: 0 0 0 1px rgba(255, 230, 177, 0.16), 0 0 18px rgba(201, 154, 69, 0.18);
+}
+
 .layout {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr) 280px;

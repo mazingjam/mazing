@@ -1,45 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="64" viewBox="0 0 256 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="456" height="76" viewBox="0 0 456 76">
   <defs>
-    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#9be0a8"/>
-      <stop offset="1" stop-color="#386d51"/>
-    </linearGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".35"/>
-    </filter>
+    <style>
+      .line{stroke:#151617;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .scratch{stroke:#101112;stroke-width:1.25;stroke-linecap:round;opacity:.75}
+      .green{fill:#53695b}.beard{fill:#b9874d}.iron{fill:#5c6260}.dark{fill:#292927}.skin{fill:#c09570}.wood{fill:#7a5734}.shadow{fill:#080909;opacity:.28}
+    </style>
   </defs>
-  <g filter="url(#soft)" stroke-linecap="round" stroke-linejoin="round">
+  <g>
     <g transform="translate(0 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M23 28h17l4 19-12 7-12-7z" fill="url(#green)" stroke="#193826" stroke-width="2"/>
-      <circle cx="32" cy="20" r="8" fill="#ddb88c" stroke="#302015" stroke-width="2"/>
-      <path d="M23 21c3-8 16-9 20-1-7-3-13-3-20 1z" fill="#3f604d"/>
-      <path d="M42 34h12M49 28v12M38 34h-16" stroke="#c8a56d" stroke-width="3"/>
-      <path d="M54 34l5-3v6z" fill="#d9d2c4"/>
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line iron" d="M25 20l20-3 8 9-5 10-25 0-5-9z"/>
+      <path class="line skin" d="M29 25h14l-2 11-12 0z"/>
+      <path class="line beard" d="M26 33l20 0-4 18-13 0z"/>
+      <path class="line green" d="M24 43l26-1 7 19-35 0z"/>
+      <path class="line dark" d="M23 60l-9 7h16l5-7zM50 60l7 7h14l-10-9z"/>
+      <path class="line wood" d="M12 42h34"/>
+      <path class="line" fill="none" d="M45 36l16 12M58 38L47 50"/>
+      <path class="scratch" d="M30 20l7-2M32 47l12-3M23 53l9 2"/>
     </g>
-    <g transform="translate(64 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M22 29h17l5 18-12 7-13-7z" fill="url(#green)" stroke="#193826" stroke-width="2"/>
-      <circle cx="31" cy="20" r="8" fill="#ddb88c" stroke="#302015" stroke-width="2"/>
-      <path d="M22 21c3-8 16-9 20-1-7-3-13-3-20 1z" fill="#3f604d"/>
-      <path d="M44 34h12M51 28v12M39 34h-17" stroke="#c8a56d" stroke-width="3"/>
-      <path d="M57 34l5-3v6z" fill="#d9d2c4"/>
+    <g transform="translate(76 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line iron" d="M24 20l20-3 8 9-5 10-25 0-5-9z"/>
+      <path class="line skin" d="M28 25h14l-2 11-12 0z"/>
+      <path class="line beard" d="M25 33l20 0-4 18-13 0z"/>
+      <path class="line green" d="M23 43l26-1 7 19-35 0z"/>
+      <path class="line dark" d="M22 60l-7 7h17l4-8zM51 59l9 8h14l-12-9z"/>
+      <path class="line wood" d="M11 43h35"/>
+      <path class="line" fill="none" d="M45 37l17 11M59 38L47 50"/>
+      <path class="scratch" d="M29 20l7-2M31 47l12-3M23 53l9 2"/>
     </g>
-    <g transform="translate(128 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M24 27h17l4 20-13 7-12-7z" fill="url(#green)" stroke="#193826" stroke-width="2"/>
-      <circle cx="33" cy="19" r="8" fill="#ddb88c" stroke="#302015" stroke-width="2"/>
-      <path d="M24 20c3-8 16-9 20-1-7-3-13-3-20 1z" fill="#3f604d"/>
-      <path d="M40 35h16M49 29v12M36 35h-14" stroke="#c8a56d" stroke-width="3"/>
-      <path d="M58 35l6-3v6z" fill="#d9d2c4"/>
+    <g transform="translate(152 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line iron" d="M26 19l20-2 8 10-6 9-25 0-5-9z"/>
+      <path class="line skin" d="M30 25h14l-2 11-12 0z"/>
+      <path class="line beard" d="M27 33l20 0-5 18-13 0z"/>
+      <path class="line green" d="M25 43l26-1 6 19-35 0z"/>
+      <path class="line dark" d="M23 60l-9 7h16l5-7zM49 60l7 7h14l-10-9z"/>
+      <path class="line wood" d="M13 42h34"/>
+      <path class="line" fill="none" d="M46 36l16 12M59 38L48 50"/>
+      <path class="scratch" d="M31 20l7-2M33 47l12-3M24 53l9 2"/>
     </g>
-    <g transform="translate(192 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M23 28h17l4 19-12 7-12-7z" fill="url(#green)" stroke="#193826" stroke-width="2"/>
-      <circle cx="32" cy="20" r="8" fill="#ddb88c" stroke="#302015" stroke-width="2"/>
-      <path d="M23 21c3-8 16-9 20-1-7-3-13-3-20 1z" fill="#3f604d"/>
-      <path d="M42 34h12M49 28v12M38 34h-16" stroke="#c8a56d" stroke-width="3"/>
-      <path d="M54 34l5-3v6z" fill="#d9d2c4"/>
+    <g transform="translate(228 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line iron" d="M24 20l20-3 8 9-5 10-25 0-5-9z"/>
+      <path class="line skin" d="M28 25h14l-2 11-12 0z"/>
+      <path class="line beard" d="M25 33l20 0-4 18-13 0z"/>
+      <path class="line green" d="M23 43l26-1 7 19-35 0z"/>
+      <path class="line dark" d="M22 60l-8 7h16l5-7zM50 60l7 7h14l-10-9z"/>
+      <path class="line wood" d="M12 41h48"/>
+      <path class="line" fill="none" d="M57 35l14 11M70 36L59 49"/>
+      <path class="scratch" d="M29 20l7-2M32 47l12-3M54 41l8 0"/>
+    </g>
+    <g transform="translate(304 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line iron" d="M24 20l20-3 8 9-5 10-25 0-5-9z"/>
+      <path class="line skin" d="M28 25h14l-2 11-12 0z"/>
+      <path class="line beard" d="M25 33l20 0-4 18-13 0z"/>
+      <path class="line green" d="M23 43l26-1 7 19-35 0z"/>
+      <path class="line dark" d="M22 60l-7 7h17l4-8zM51 59l9 8h14l-12-9z"/>
+      <path class="line wood" d="M9 39h54"/>
+      <path class="line" fill="none" d="M61 33l15 10M74 34L63 47"/>
+      <path class="line" fill="#d9d0a8" d="M66 39l9 3-9 3z"/>
+      <path class="scratch" d="M29 20l7-2M31 47l12-3M54 39l8 0"/>
+    </g>
+    <g transform="translate(380 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line iron" d="M26 19l20-2 8 10-6 9-25 0-5-9z"/>
+      <path class="line skin" d="M30 25h14l-2 11-12 0z"/>
+      <path class="line beard" d="M27 33l20 0-5 18-13 0z"/>
+      <path class="line green" d="M25 43l26-1 6 19-35 0z"/>
+      <path class="line dark" d="M23 60l-9 7h16l5-7zM49 60l7 7h14l-10-9z"/>
+      <path class="line wood" d="M11 41h49"/>
+      <path class="line" fill="none" d="M57 35l14 11M70 36L59 49"/>
+      <path class="scratch" d="M31 20l7-2M33 47l12-3M54 41l8 0"/>
     </g>
   </g>
 </svg>

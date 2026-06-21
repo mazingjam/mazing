@@ -1,46 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="64" viewBox="0 0 256 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="456" height="76" viewBox="0 0 456 76">
   <defs>
-    <linearGradient id="robe" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#ffd07a"/>
-      <stop offset="1" stop-color="#8f3640"/>
-    </linearGradient>
-    <radialGradient id="flame">
-      <stop offset="0" stop-color="#fff6b3"/>
-      <stop offset=".5" stop-color="#ff9d32"/>
-      <stop offset="1" stop-color="#d64232"/>
-    </radialGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".35"/>
-    </filter>
+    <style>
+      .line{stroke:#151617;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .scratch{stroke:#101112;stroke-width:1.2;stroke-linecap:round;opacity:.75}
+      .robe{fill:#6e3d39}.skin{fill:#b78968}.mask{fill:#343837}.dark{fill:#22201f}.fire{fill:#e9b84f}.hot{fill:#f4e7a2}.shadow{fill:#080909;opacity:.28}
+    </style>
   </defs>
-  <g filter="url(#soft)" stroke-linecap="round" stroke-linejoin="round">
+  <g>
     <g transform="translate(0 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M24 28h16l6 20-14 6-14-6z" fill="url(#robe)" stroke="#4b1a21" stroke-width="2"/>
-      <circle cx="32" cy="20" r="8" fill="#e5b282" stroke="#302015" stroke-width="2"/>
-      <path d="M24 20c3-9 16-9 18 0-6-2-12-2-18 0z" fill="#5b2934"/>
-      <circle cx="49" cy="27" r="6" fill="url(#flame)"/>
+      <ellipse class="shadow" cx="38" cy="67" rx="23" ry="5"/>
+      <path class="line dark" d="M26 20l20-1 7 10-7 8-20 0-7-9z"/>
+      <path class="line skin" d="M29 25h15l-2 13-12 0z"/>
+      <path class="line mask" d="M27 28l20 0-5 7-10 0z"/>
+      <path class="line robe" d="M25 38l22 0 10 24-36 0z"/>
+      <path class="line dark" d="M22 60l-8 7h16l4-7zM51 60l8 7h13l-11-9z"/>
+      <circle class="line fire" cx="58" cy="34" r="6"/><circle class="hot" cx="58" cy="34" r="2"/>
+      <path class="scratch" d="M31 20l8-2M32 47l13-4M24 54l8 1"/>
     </g>
-    <g transform="translate(64 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M23 28h17l7 20-15 6-14-6z" fill="url(#robe)" stroke="#4b1a21" stroke-width="2"/>
-      <circle cx="31" cy="20" r="8" fill="#e5b282" stroke="#302015" stroke-width="2"/>
-      <path d="M23 20c3-9 16-9 18 0-6-2-12-2-18 0z" fill="#5b2934"/>
-      <circle cx="51" cy="24" r="7" fill="url(#flame)"/>
+    <g transform="translate(76 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="23" ry="5"/>
+      <path class="line dark" d="M25 20l20-1 7 10-7 8-20 0-7-9z"/>
+      <path class="line skin" d="M28 25h15l-2 13-12 0z"/>
+      <path class="line mask" d="M26 28l20 0-5 7-10 0z"/>
+      <path class="line robe" d="M24 38l22 0 10 24-36 0z"/>
+      <path class="line dark" d="M21 60l-6 7h17l3-8zM52 59l9 8h13l-12-9z"/>
+      <circle class="line fire" cx="59" cy="32" r="7"/><circle class="hot" cx="59" cy="32" r="2.4"/>
+      <path class="scratch" d="M30 20l8-2M31 47l13-4M24 54l8 1"/>
     </g>
-    <g transform="translate(128 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M25 27h16l7 21-15 6-14-6z" fill="url(#robe)" stroke="#4b1a21" stroke-width="2"/>
-      <circle cx="33" cy="19" r="8" fill="#e5b282" stroke="#302015" stroke-width="2"/>
-      <path d="M25 19c3-9 16-9 18 0-6-2-12-2-18 0z" fill="#5b2934"/>
-      <path d="M52 24c9 4 8 12 0 14 4-5 2-9 0-14z" fill="url(#flame)"/>
+    <g transform="translate(152 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="23" ry="5"/>
+      <path class="line dark" d="M27 19l20-1 7 10-7 8-20 0-7-9z"/>
+      <path class="line skin" d="M30 24h15l-2 13-12 0z"/>
+      <path class="line mask" d="M28 27l20 0-5 7-10 0z"/>
+      <path class="line robe" d="M26 38l22 0 9 24-36 0z"/>
+      <path class="line dark" d="M22 60l-8 7h16l4-7zM50 60l8 7h13l-11-9z"/>
+      <circle class="line fire" cx="58" cy="34" r="6"/><circle class="hot" cx="58" cy="34" r="2"/>
+      <path class="scratch" d="M32 20l8-2M33 47l13-4M25 54l8 1"/>
     </g>
-    <g transform="translate(192 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M24 28h16l6 20-14 6-14-6z" fill="url(#robe)" stroke="#4b1a21" stroke-width="2"/>
-      <circle cx="32" cy="20" r="8" fill="#e5b282" stroke="#302015" stroke-width="2"/>
-      <path d="M24 20c3-9 16-9 18 0-6-2-12-2-18 0z" fill="#5b2934"/>
-      <circle cx="49" cy="27" r="6" fill="url(#flame)"/>
+    <g transform="translate(228 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="24" ry="5"/>
+      <path class="line dark" d="M25 20l20-1 7 10-7 8-20 0-7-9z"/>
+      <path class="line skin" d="M28 25h15l-2 13-12 0z"/>
+      <path class="line mask" d="M26 28l20 0-5 7-10 0z"/>
+      <path class="line robe" d="M24 38l22 0 10 24-36 0z"/>
+      <path class="line dark" d="M21 60l-8 7h16l4-7zM51 60l8 7h13l-11-9z"/>
+      <path class="line fire" d="M55 28c13 6 13 17-1 23 5-9 2-14 1-23z"/>
+      <path class="line hot" d="M60 34c6 4 5 9-1 12 2-5 1-8 1-12z"/>
+      <path class="scratch" d="M31 20l8-2M32 47l13-4M53 42l9-2"/>
+    </g>
+    <g transform="translate(304 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="24" ry="5"/>
+      <path class="line dark" d="M25 20l20-1 7 10-7 8-20 0-7-9z"/>
+      <path class="line skin" d="M28 25h15l-2 13-12 0z"/>
+      <path class="line mask" d="M26 28l20 0-5 7-10 0z"/>
+      <path class="line robe" d="M24 38l22 0 10 24-36 0z"/>
+      <path class="line dark" d="M21 60l-7 7h17l4-8zM52 59l9 8h13l-12-9z"/>
+      <path class="line fire" d="M56 25c18 8 18 21-2 27 8-10 4-18 2-27z"/>
+      <path class="line hot" d="M62 32c8 5 7 12-1 16 4-6 2-10 1-16z"/>
+      <path class="scratch" d="M30 20l8-2M31 47l13-4M54 42l10-3"/>
+    </g>
+    <g transform="translate(380 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="24" ry="5"/>
+      <path class="line dark" d="M27 19l20-1 7 10-7 8-20 0-7-9z"/>
+      <path class="line skin" d="M30 24h15l-2 13-12 0z"/>
+      <path class="line mask" d="M28 27l20 0-5 7-10 0z"/>
+      <path class="line robe" d="M26 38l22 0 9 24-36 0z"/>
+      <path class="line dark" d="M22 60l-8 7h16l4-7zM50 60l8 7h13l-11-9z"/>
+      <path class="line fire" d="M55 28c13 6 13 17-1 23 5-9 2-14 1-23z"/>
+      <path class="line hot" d="M60 34c6 4 5 9-1 12 2-5 1-8 1-12z"/>
+      <path class="scratch" d="M32 20l8-2M33 47l13-4M53 42l9-2"/>
     </g>
   </g>
 </svg>

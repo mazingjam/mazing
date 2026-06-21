@@ -1,45 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="64" viewBox="0 0 256 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="456" height="76" viewBox="0 0 456 76">
   <defs>
-    <linearGradient id="cloth" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#ffb58f"/>
-      <stop offset="1" stop-color="#a6483e"/>
-    </linearGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".35"/>
-    </filter>
+    <style>
+      .line{stroke:#151617;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .scratch{stroke:#101112;stroke-width:1.25;stroke-linecap:round;opacity:.75}
+      .iron{fill:#4c5350}.cloth{fill:#8b443a}.skin{fill:#b8896e}.dark{fill:#262422}.crest{fill:#9f3739}.hi{fill:#e7d78a}.shadow{fill:#080909;opacity:.28}
+    </style>
   </defs>
-  <g filter="url(#soft)" stroke-linecap="round" stroke-linejoin="round">
+  <g>
     <g transform="translate(0 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M27 25h12l6 22-12 6-13-6z" fill="url(#cloth)" stroke="#421d18" stroke-width="2"/>
-      <circle cx="33" cy="18" r="8" fill="#e7bc91" stroke="#352116" stroke-width="2"/>
-      <path d="M24 17c4-8 16-8 19 0-7-3-13-3-19 0z" fill="#70322a"/>
-      <path d="M44 17l-24 36" stroke="#d9bd80" stroke-width="3"/>
-      <path d="M46 14l4-8 2 9z" fill="#e9e1cc" stroke="#5e5d55" stroke-width="1.5"/>
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line crest" d="M28 15c10-7 22-4 28 4l-27 1z"/>
+      <path class="line iron" d="M26 20l22-2 5 13-8 9-20 0-4-11z"/>
+      <path class="line skin" d="M30 28h13l-2 13-11 1z"/>
+      <path class="line cloth" d="M27 38l18 1 9 22-28 0z"/>
+      <path class="line dark" d="M23 59l-8 8h16l4-8zM48 60l8 7h13l-11-9z"/>
+      <path class="line" fill="none" d="M15 58l42-43"/>
+      <path class="line hi" d="M57 13l7-8-2 11z"/>
+      <path class="scratch" d="M31 21l9-1M36 43l12 4M23 50l8-2"/>
     </g>
-    <g transform="translate(64 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M26 26h12l7 21-12 6-13-6z" fill="url(#cloth)" stroke="#421d18" stroke-width="2"/>
-      <circle cx="32" cy="18" r="8" fill="#e7bc91" stroke="#352116" stroke-width="2"/>
-      <path d="M23 17c4-8 16-8 19 0-7-3-13-3-19 0z" fill="#70322a"/>
-      <path d="M47 20l-30 29" stroke="#d9bd80" stroke-width="3"/>
-      <path d="M50 17l6-7v9z" fill="#e9e1cc" stroke="#5e5d55" stroke-width="1.5"/>
+    <g transform="translate(76 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line crest" d="M28 14c10-7 22-4 28 4l-27 2z"/>
+      <path class="line iron" d="M25 20l22-2 6 13-8 9-20 0-5-11z"/>
+      <path class="line skin" d="M30 28h13l-2 13-11 1z"/>
+      <path class="line cloth" d="M26 38l19 1 9 22-28 0z"/>
+      <path class="line dark" d="M22 59l-6 8h17l3-9zM49 59l10 8h13l-12-9z"/>
+      <path class="line" fill="none" d="M12 53l48-35"/>
+      <path class="line hi" d="M61 16l8-6-4 10z"/>
+      <path class="scratch" d="M31 21l10-1M36 43l12 4M23 50l8-2"/>
     </g>
-    <g transform="translate(128 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M25 25h13l8 21-13 7-14-7z" fill="url(#cloth)" stroke="#421d18" stroke-width="2"/>
-      <circle cx="32" cy="17" r="8" fill="#e7bc91" stroke="#352116" stroke-width="2"/>
-      <path d="M23 16c4-8 16-8 19 0-7-3-13-3-19 0z" fill="#70322a"/>
-      <path d="M51 31l-38 13" stroke="#d9bd80" stroke-width="3"/>
-      <path d="M54 29l8-3-5 7z" fill="#e9e1cc" stroke="#5e5d55" stroke-width="1.5"/>
+    <g transform="translate(152 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="25" ry="5"/>
+      <path class="line crest" d="M28 15c10-7 22-4 28 4l-27 1z"/>
+      <path class="line iron" d="M27 20l22-2 5 13-9 9-20 0-4-11z"/>
+      <path class="line skin" d="M31 28h13l-2 13-12 1z"/>
+      <path class="line cloth" d="M27 38l19 1 8 22-28 0z"/>
+      <path class="line dark" d="M21 59l-8 8h17l5-8zM47 60l9 7h14l-11-9z"/>
+      <path class="line" fill="none" d="M15 57l43-42"/>
+      <path class="line hi" d="M58 13l7-8-2 11z"/>
+      <path class="scratch" d="M32 21l9-1M36 43l12 4M23 50l8-2"/>
     </g>
-    <g transform="translate(192 0)">
-      <ellipse cx="32" cy="55" rx="17" ry="5" fill="#000" opacity=".25"/>
-      <path d="M27 24h12l6 22-12 7-13-7z" fill="url(#cloth)" stroke="#421d18" stroke-width="2"/>
-      <circle cx="33" cy="18" r="8" fill="#e7bc91" stroke="#352116" stroke-width="2"/>
-      <path d="M24 17c4-8 16-8 19 0-7-3-13-3-19 0z" fill="#70322a"/>
-      <path d="M44 17l-24 36" stroke="#d9bd80" stroke-width="3"/>
-      <path d="M46 14l4-8 2 9z" fill="#e9e1cc" stroke="#5e5d55" stroke-width="1.5"/>
+    <g transform="translate(228 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="26" ry="5"/>
+      <path class="line crest" d="M29 14c10-7 22-4 28 4l-27 2z"/>
+      <path class="line iron" d="M26 20l23-2 5 13-9 9-20 0-4-11z"/>
+      <path class="line skin" d="M31 28h13l-2 13-12 1z"/>
+      <path class="line cloth" d="M27 38l19 1 9 22-29 0z"/>
+      <path class="line dark" d="M22 59l-7 8h17l4-8zM49 59l8 8h14l-11-9z"/>
+      <path class="line" fill="none" d="M15 42l52-8"/>
+      <path class="line hi" d="M68 33l8-3-6 8z"/>
+      <path class="scratch" d="M38 42l10 6M27 50l8-4M52 35l8 1"/>
+    </g>
+    <g transform="translate(304 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="26" ry="5"/>
+      <path class="line crest" d="M28 14c10-7 22-4 28 4l-27 2z"/>
+      <path class="line iron" d="M25 20l23-2 6 13-9 9-20 0-5-11z"/>
+      <path class="line skin" d="M30 28h13l-2 13-12 1z"/>
+      <path class="line cloth" d="M26 38l20 1 9 22-29 0z"/>
+      <path class="line dark" d="M22 59l-6 8h17l3-9zM49 59l10 8h13l-12-9z"/>
+      <path class="line" fill="none" d="M10 38l57 2"/>
+      <path class="line hi" d="M68 40l8-5-4 10z"/>
+      <path class="scratch" d="M37 42l11 5M27 50l8-4M52 40l8 1"/>
+    </g>
+    <g transform="translate(380 0)">
+      <ellipse class="shadow" cx="38" cy="67" rx="26" ry="5"/>
+      <path class="line crest" d="M29 14c10-7 22-4 28 4l-27 2z"/>
+      <path class="line iron" d="M27 20l23-2 5 13-9 9-20 0-4-11z"/>
+      <path class="line skin" d="M31 28h13l-2 13-12 1z"/>
+      <path class="line cloth" d="M27 38l19 1 9 22-29 0z"/>
+      <path class="line dark" d="M22 59l-8 8h17l5-8zM48 59l9 8h14l-11-9z"/>
+      <path class="line" fill="none" d="M14 43l53-13"/>
+      <path class="line hi" d="M68 29l8-4-5 9z"/>
+      <path class="scratch" d="M38 42l10 6M27 50l8-4M52 34l8 0"/>
     </g>
   </g>
 </svg>
