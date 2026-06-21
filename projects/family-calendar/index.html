@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Familjekalender MVP for tabletvy med samlade personliga kalendrar."
+    />
+    <title>Familjekalender</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar" aria-label="Familjekalender">
+        <div>
+          <p class="eyebrow">Mazing Calendar</p>
+          <h1>Familjen</h1>
+        </div>
+        <div class="topbar__meta" aria-live="polite">
+          <span id="clock">--:--</span>
+          <span id="todayLabel">Idag</span>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Kalenderkontroller">
+        <div id="personFilters" class="person-filters"></div>
+        <div class="toolbar__actions">
+          <button id="toggleViewButton" class="secondary-button" type="button">
+            Agenda
+          </button>
+          <button id="newEventButton" class="primary-button" type="button">
+            Nytt event
+          </button>
+        </div>
+      </section>
+
+      <section class="now-strip" aria-label="Nasta handelse">
+        <div>
+          <p class="eyebrow">Narmast</p>
+          <h2 id="nextEventTitle">Inget mer idag</h2>
+        </div>
+        <p id="nextEventMeta">Veckan ar synkad.</p>
+      </section>
+
+      <section class="content-grid">
+        <section class="calendar-panel" aria-label="Veckovy">
+          <div id="weekGrid" class="week-grid"></div>
+        </section>
+
+        <aside class="side-panel" aria-label="Detaljer">
+          <section>
+            <div class="panel-heading">
+              <p class="eyebrow">Idag</p>
+              <h2 id="dailyHeading">Dagens plan</h2>
+            </div>
+            <div id="todayList" class="event-list"></div>
+          </section>
+
+          <section>
+            <div class="panel-heading">
+              <p class="eyebrow">Status</p>
+              <h2>Synk</h2>
+            </div>
+            <div class="sync-list">
+              <div>
+                <span class="sync-dot sync-dot--ok"></span>
+                Google Calendar redo
+              </div>
+              <div>
+                <span class="sync-dot sync-dot--pending"></span>
+                Outlook kommer i fas 2
+              </div>
+              <div>
+                <span class="sync-dot sync-dot--local"></span>
+                Lokala testevent sparas pa enheten
+              </div>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <dialog id="eventDialog" class="event-dialog">
+      <form id="eventForm" method="dialog">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Skapa</p>
+            <h2>Nytt event</h2>
+          </div>
+          <button id="closeDialogButton" class="icon-button" type="button" aria-label="Stang">
+            X
+          </button>
+        </div>
+
+        <label>
+          Titel
+          <input id="eventTitle" name="title" required placeholder="Tandlakare, match, middag" />
+        </label>
+
+        <div class="form-row">
+          <label>
+            Datum
+            <input id="eventDate" name="date" type="date" required />
+          </label>
+          <label>
+            Start
+            <input id="eventStart" name="start" type="time" required />
+          </label>
+          <label>
+            Slut
+            <input id="eventEnd" name="end" type="time" required />
+          </label>
+        </div>
+
+        <label>
+          Kalender
+          <select id="eventOwner" name="owner"></select>
+        </label>
+
+        <label>
+          Plats eller notis
+          <input id="eventNote" name="note" placeholder="Skola, hemma, ta med gympaklader" />
+        </label>
+
+        <div class="dialog-actions">
+          <button id="cancelDialogButton" class="secondary-button" type="button">Avbryt</button>
+          <button class="primary-button" type="submit">Lagg till</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

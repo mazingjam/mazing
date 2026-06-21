@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clash Empire - Feel Slice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="side">
+        <div class="brand">
+          <div class="crest">CE</div>
+          <div>
+            <h1>Clash Empire</h1>
+            <p>Feel slice: draft, drag, deploy.</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Draft</h2>
+            <span id="draftCount" class="pill">0 / 4</span>
+          </div>
+          <div id="draftPool" class="draft-pool"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>State</h2>
+            <span id="status" class="pill">Drafting</span>
+          </div>
+          <div class="state-grid">
+            <div>
+              <span>Frame</span>
+              <strong id="frameReadout">0</strong>
+            </div>
+            <div>
+              <span>Hash</span>
+              <strong id="hashReadout">000000</strong>
+            </div>
+            <div>
+              <span>Input</span>
+              <strong id="inputReadout">0</strong>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="play">
+        <div class="topbar">
+          <div class="score red-side">
+            <span>Opponent</span>
+            <strong id="redScore">3 towers</strong>
+          </div>
+          <div class="clock" id="clock">02:00</div>
+          <div class="score blue-side">
+            <span>You</span>
+            <strong id="blueScore">3 towers</strong>
+          </div>
+        </div>
+
+        <div id="arena" class="arena" aria-label="Arena">
+          <div class="lane-grid"></div>
+          <div class="river"></div>
+          <div class="bridge left"></div>
+          <div class="bridge right"></div>
+          <div id="preview" class="placement-preview" hidden></div>
+          <div id="effects" class="effects"></div>
+          <div id="units" class="units"></div>
+          <div id="towers" class="towers"></div>
+          <div id="startOverlay" class="start-overlay">
+            <h2>Draft four cards, then play from your hand.</h2>
+            <p>Drag a card into the blue half. The first second should feel like a real game, not a rules document.</p>
+          </div>
+        </div>
+
+        <div class="bench">
+          <div class="ether">
+            <span>Ether</span>
+            <strong id="etherReadout">0.0</strong>
+            <div class="ether-track"><i id="etherFill"></i></div>
+          </div>
+          <button id="startBtn" class="primary" type="button" disabled>Start Slice</button>
+          <button id="resetBtn" class="ghost" type="button">Reset</button>
+        </div>
+
+        <div id="hand" class="hand" aria-label="Playable hand"></div>
+      </section>
+
+      <aside class="side">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Feel Targets</h2>
+          </div>
+          <ul class="targets">
+            <li>Cards lift, follow the pointer, and snap back cleanly.</li>
+            <li>Placement validity is visible before release.</li>
+            <li>Deploy has anticipation, pop, and impact feedback.</li>
+            <li>Units use local animation sheets for idle, walk, attack, and hit.</li>
+          </ul>
+        </section>
+
+        <section class="panel reference-card">
+          <div class="panel-head">
+            <h2>Art Bar</h2>
+          </div>
+          <img src="assets/reference/sprite-style-reference.png" alt="Generated sprite style reference" />
+        </section>
+
+        <section class="panel log-panel">
+          <div class="panel-head">
+            <h2>Event Log</h2>
+          </div>
+          <ol id="log" class="log"></ol>
+        </section>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
