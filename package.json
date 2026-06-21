@@ -14,6 +14,8 @@
     "sync:growup": "node scripts/sync-growup.mjs",
     "sync:clash-empire": "node scripts/sync-clash-empire.mjs",
     "sync:puzzle": "node scripts/sync-puzzle.mjs",
-    "sync:previews": "node scripts/sync-again.mjs && node scripts/sync-wordalchemy.mjs && node scripts/sync-mtgset.mjs && node scripts/sync-resort.mjs && node scripts/sync-growup.mjs && node scripts/sync-clash-empire.mjs && node scripts/sync-puzzle.mjs"
+    "sync:amercian-pettson": "node scripts/sync-amercian-pettson.mjs",
+    "sync:brf-nygatan": "node scripts/sync-brf-nygatan.mjs",
+    "sync:previews": "node scripts/sync-again.mjs && node scripts/sync-wordalchemy.mjs && node scripts/sync-mtgset.mjs && node scripts/sync-resort.mjs && node scripts/sync-growup.mjs && node scripts/sync-clash-empire.mjs && node scripts/sync-puzzle.mjs && node scripts/sync-amercian-pettson.mjs && node scripts/sync-brf-nygatan.mjs"
   }
 }
