@@ -802,7 +802,7 @@ const PASSIVE_ENERGY_PER_SECOND = 3.8;
 const MAX_SUMMONS = 5;
 const AUTO_RUN_DELAY = 900;
 const AUTO_RUN_LONG_DELAY = 1600;
-const APP_VERSION = "v0.46";
+const APP_VERSION = "v0.47";
 
 const state = loadState();
 let activeRun = null;
@@ -842,6 +842,13 @@ toggleBestiaryBtn?.addEventListener("click", () => {
   renderBestiary();
 });
 
+window.addEventListener("pagehide", markLastSeen);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") markLastSeen();
+});
+
+restoreActiveRun();
+applyOfflineCatchUp();
 render();
 
 function loadState() {
@@ -856,6 +863,9 @@ function loadState() {
       resources: normalizeResources(parsed.resources),
       inheritance: normalizeInheritance(parsed.inheritance),
       autoRun: !!parsed.autoRun,
+      activeRun: parsed.activeRun || null,
+      lastSeenAt: parsed.lastSeenAt || Date.now(),
+      offlineRecap: parsed.offlineRecap || null,
       log: parsed.log || ["The chronicle begins."],
     };
   }
@@ -867,12 +877,43 @@ function loadState() {
     resources: normalizeResources(),
     inheritance: normalizeInheritance(),
     autoRun: false,
+    activeRun: null,
+    lastSeenAt: Date.now(),
+    offlineRecap: null,
     log: ["The chronicle begins."],
   };
 }
 
 function saveState() {
+  state.activeRun = getPersistableActiveRun();
+  state.lastSeenAt = state.lastSeenAt || Date.now();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function markLastSeen() {
+  state.lastSeenAt = Date.now();
+  saveState();
+}
+
+function restoreActiveRun() {
+  activeRun = state.activeRun || null;
+  if (activeRun?.phase === "combat") {
+    activeRun.outcome = null;
+    activeRun.combatRecap = null;
+    resetCombatRuntime();
+  }
+}
+
+function getPersistableActiveRun() {
+  if (!activeRun) return null;
+  return {
+    ...activeRun,
+    outcome: null,
+    combatRecap: null,
+    lastTick: 0,
+    lastTickWall: 0,
+    combatTickCount: 0,
+  };
 }
 
 function resetSave() {
@@ -894,6 +935,7 @@ function render() {
 
   if (!activeRun) {
     renderHeroSelect();
+    renderOfflineRecapBanner();
     scheduleAutoRunStep();
     return;
   }
@@ -909,6 +951,7 @@ function render() {
   if (activeRun.phase === "level-complete") renderLevelComplete();
   if (activeRun.phase === "complete") renderComplete();
   if (activeRun.phase === "eternal-complete") renderEternalComplete();
+  renderOfflineRecapBanner();
   ensureCombatTickerHealthy();
   scheduleAutoRunStep();
 }
@@ -938,6 +981,380 @@ function renderAutoRunButton() {
 function clearAutoRunTimer() {
   if (autoRunTimer) window.clearTimeout(autoRunTimer);
   autoRunTimer = null;
+}
+
+function renderOfflineRecapBanner() {
+  const recap = state.offlineRecap;
+  if (!recap || !screen) return;
+  const banner = document.createElement("section");
+  banner.className = "offline-recap";
+  banner.innerHTML = `
+    <div>
+      <span class="tag">While Away</span>
+      <h3>Auto Run caught up ${recap.minutes} min</h3>
+      <p>${recap.wins} wins, ${recap.losses} losses, ${recap.loot} loot picks, ${recap.gold} gold${recap.souls ? `, ${recap.souls} souls` : ""}.</p>
+      ${recap.stopped ? `<p>${recap.stopped}</p>` : ""}
+    </div>
+    <button class="secondary" id="dismissOfflineRecap" type="button">Done</button>
+  `;
+  screen.prepend(banner);
+  document.querySelector("#dismissOfflineRecap")?.addEventListener("click", () => {
+    state.offlineRecap = null;
+    saveState();
+    render();
+  });
+}
+
+function applyOfflineCatchUp() {
+  if (!state.autoRun) {
+    state.lastSeenAt = Date.now();
+    return;
+  }
+  const now = Date.now();
+  const elapsedMs = Math.max(0, now - (state.lastSeenAt || now));
+  const steps = Math.min(120, Math.floor(elapsedMs / 30000));
+  if (steps <= 0) {
+    state.lastSeenAt = now;
+    return;
+  }
+  const recap = {
+    minutes: Math.floor(elapsedMs / 60000),
+    steps: 0,
+    wins: 0,
+    losses: 0,
+    loot: 0,
+    gold: 0,
+    souls: 0,
+    startedRuns: 0,
+    stopped: "",
+  };
+  for (let i = 0; i < steps; i += 1) {
+    if (!runOfflineAutoStep(recap)) break;
+  }
+  state.lastSeenAt = now;
+  if (recap.steps || recap.startedRuns) {
+    state.offlineRecap = recap;
+    addLog(`Offline Auto Run: ${recap.wins} wins, ${recap.losses} losses, ${recap.loot} loot over ${recap.minutes} min.`);
+  }
+  saveState();
+}
+
+function runOfflineAutoStep(recap) {
+  if (!activeRun) {
+    if (!state.partyHeroes?.length) {
+      recap.stopped = "No Eternal party available.";
+      return false;
+    }
+    activeRun = createEternalOnlyRunData();
+    recap.startedRuns += 1;
+  }
+  if (activeRun.phase === "complete") {
+    if (activeRun.inheritanceOptions?.length) {
+      applyInheritanceReward(getAutoInheritanceChoiceId(activeRun.inheritanceOptions));
+    } else {
+      activeRun = createEternalOnlyRunData();
+      recap.startedRuns += 1;
+    }
+    return true;
+  }
+  if (activeRun.phase === "eternal-complete") {
+    activeRun = createEternalOnlyRunData();
+    recap.startedRuns += 1;
+    return true;
+  }
+  if (activeRun.phase === "level-complete") {
+    offlineContinueToNextLevel(recap);
+    return true;
+  }
+  if (activeRun.phase === "event") {
+    offlineTakeEvent(getAutoEventChoice());
+    return true;
+  }
+  if (activeRun.phase === "loot") {
+    offlineChooseLoot(getAutoLootChoiceIndex(activeRun.pendingLoot || generateLootChoices()), recap);
+    return true;
+  }
+  if (activeRun.phase === "level-up") {
+    takeOfflineStatUpgrade(getAutoLevelUpChoiceId(activeRun.hero));
+    return true;
+  }
+  if (activeRun.phase === "combat-recap") {
+    activeRun.phase = activeRun.combatRecap?.outcome === "Fallen" ? "complete" : "loot";
+    return true;
+  }
+  if (activeRun.phase === "prep") {
+    offlineStartPreparedEncounter();
+  }
+  if (activeRun.phase === "combat") {
+    recap.steps += 1;
+    return resolveOfflineCombat(recap);
+  }
+  return true;
+}
+
+function createEternalOnlyRunData() {
+  const roster = state.partyHeroes || [];
+  return {
+    hero: createEternalRunProxy(roster),
+    mentorId: null,
+    levelIndex: 0,
+    waveIndex: 0,
+    phase: "prep",
+    allies: createEternalOnlyAllies(roster),
+    enemies: createWave(0, 0),
+    isEternalOnly: true,
+  };
+}
+
+function offlineStartPreparedEncounter() {
+  activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
+  activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
+  resetCombatStats();
+  resetCombatRuntime();
+  activeRun.phase = activeRun.enemies ? "combat" : "event";
+}
+
+function resolveOfflineCombat(recap) {
+  const enemiesNow = activeRun.enemies || createWave(activeRun.levelIndex, activeRun.waveIndex) || [];
+  const alliesNow = activeRun.allies || [];
+  const partyScore = getOfflinePartyScore(alliesNow);
+  const enemyScore = getOfflineEnemyScore(enemiesNow);
+  const winChance = Math.max(0.08, Math.min(0.94, partyScore / Math.max(1, partyScore + enemyScore)));
+  if (Math.random() <= winChance) {
+    recap.wins += 1;
+    applyOfflineDamageToParty(enemyScore);
+    activeRun.hero.level += getCurrentEncounter(activeRun.levelIndex, activeRun.waveIndex).type === "elite" ? 2 : 1;
+    activeRun.pendingLevelUp = !activeRun.isEternalOnly;
+    activeRun.pendingLoot = generateLootChoices();
+    activeRun.afterLootPhase = isCurrentBossWave() ? "level-complete" : "advance";
+    activeRun.phase = "loot";
+    return true;
+  }
+  recap.losses += 1;
+  if (activeRun.isEternalOnly) {
+    finishOfflineEternalRun("Offline Eternal party fell.");
+    return true;
+  }
+  createSoulOffline("fell while Auto Run was away", recap);
+  return true;
+}
+
+function getOfflinePartyScore(allies) {
+  return allies.filter(isAlive).reduce((score, ally) => {
+    return score
+      + (ally.maxHp || 0) * 0.32
+      + (ally.power || 0) * 9
+      + (ally.armor || 0) * 3
+      + getWeapons(ally).reduce((sum, weapon) => sum + getItemAttackPower(weapon), 0) * 7
+      + getEffectiveBlock(ally) * 80
+      + getEffectiveEvade(ally) * 80;
+  }, 0);
+}
+
+function getOfflineEnemyScore(enemiesNow) {
+  return enemiesNow.reduce((score, enemy) => score + (enemy.maxHp || enemy.hp || 0) * 0.28 + (enemy.power || 0) * 9, 0);
+}
+
+function applyOfflineDamageToParty(enemyScore) {
+  const living = (activeRun.allies || []).filter(isAlive);
+  if (!living.length) return;
+  const pressure = enemyScore * random(0.08, 0.18);
+  living.forEach((ally) => {
+    const damage = Math.max(1, Math.round((pressure / living.length) - (ally.armor || 0) * 0.35));
+    ally.hp = Math.max(1, ally.hp - damage);
+    syncHeroFromUnit(ally);
+  });
+}
+
+function offlineChooseLoot(index, recap) {
+  const choices = activeRun.pendingLoot || generateLootChoices();
+  activeRun.pendingLoot = choices;
+  const choice = choices[index] || choices[0];
+  if (!choice) {
+    continueAfterLootOffline();
+    return;
+  }
+  if (choice.kind === "gold") {
+    state.resources.gold += choice.amount;
+    recap.gold += choice.amount;
+  }
+  if (choice.kind === "magicOrb") state.resources.magicOrb += choice.amount;
+  if (choice.kind === "rareOrb") state.resources.rareOrb += choice.amount;
+  if (choice.kind === "item") state.inventory.push(choice.item);
+  recap.loot += 1;
+  activeRun.pendingLoot = null;
+  if (activeRun.pendingLevelUp && !activeRun.isEternalOnly) {
+    activeRun.phase = "level-up";
+  } else {
+    continueAfterLootOffline();
+  }
+}
+
+function continueAfterLootOffline() {
+  const nextPhase = activeRun.afterLootPhase || "advance";
+  activeRun.afterLootPhase = null;
+  if (nextPhase === "advance") {
+    advanceNodeOffline();
+    return;
+  }
+  activeRun.phase = nextPhase;
+}
+
+function advanceNodeOffline() {
+  activeRun.waveIndex += 1;
+  if (activeRun.waveIndex >= getCurrentLevel().waves.length) {
+    activeRun.phase = "level-complete";
+    return;
+  }
+  activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
+  activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
+  activeRun.combatStats = null;
+  resetCombatRuntime();
+  activeRun.phase = activeRun.enemies ? "prep" : "event";
+}
+
+function offlineContinueToNextLevel(recap) {
+  activeRun.levelIndex += 1;
+  if (activeRun.levelIndex >= levels.length) {
+    if (activeRun.isEternalOnly) {
+      finishOfflineEternalRun("Offline Eternal party cleared the prototype.");
+    } else {
+      createSoulOffline("ascended while Auto Run was away", recap);
+    }
+    return;
+  }
+  activeRun.waveIndex = 0;
+  activeRun.enemies = createWave(activeRun.levelIndex, activeRun.waveIndex);
+  activeRun.allies = refreshAlliesForNextWave(activeRun.allies);
+  activeRun.combatStats = null;
+  resetCombatRuntime();
+  activeRun.phase = "prep";
+}
+
+function offlineTakeEvent(choice) {
+  const hero = activeRun.hero;
+  if (choice === "blessing") hero.power += 4;
+  if (choice === "memory" && state.souls.length) hero.armor += 8;
+  if (choice === "gold") {
+    hero.speed += 0.25;
+    hero.hp -= 12;
+  }
+  if (hero.hp <= 0) {
+    if (activeRun.isEternalOnly) finishOfflineEternalRun("Offline Eternal party was consumed by a shrine bargain.");
+    else createSoulOffline("was consumed by a shrine bargain while Auto Run was away");
+    return;
+  }
+  advanceNodeOffline();
+}
+
+function takeOfflineStatUpgrade(stat) {
+  takeStatUpgradeMutations(stat);
+  activeRun.pendingLevelUp = false;
+  syncHeroUnitFromHero();
+  continueAfterLootOffline();
+}
+
+function takeStatUpgradeMutations(stat) {
+  const hero = activeRun.hero;
+  if (stat === "power") hero.power += 3;
+  if (stat === "hp") {
+    hero.maxHp += 18;
+    hero.hp += 18;
+  }
+  if (stat === "speed") hero.speed += 0.15;
+  if (stat?.includes("block")) hero.block = (hero.block || 0) + 0.08;
+  if (stat?.includes("guard")) {
+    hero.guardPriority = (hero.guardPriority || 0) + 1;
+    hero.armor += 5;
+  }
+  if (stat?.includes("bastion")) {
+    hero.maxHp += 14;
+    hero.hp += 14;
+    hero.armor += 3;
+  }
+  if (stat?.includes("skeleton")) {
+    hero.skeletonHpBonus = (hero.skeletonHpBonus || 0) + 6;
+    hero.skeletonPowerBonus = (hero.skeletonPowerBonus || 0) + 1;
+  }
+  if (stat?.includes("haste")) hero.skeletonSpeedBonus = (hero.skeletonSpeedBonus || 0) + 0.14;
+  if (stat?.includes("energy")) hero.deathEnergyBonus = (hero.deathEnergyBonus || 0) + 10;
+  if (stat?.includes("freeze")) hero.freezeChance = (hero.freezeChance || 0) + 0.08;
+  if (stat?.includes("poison")) hero.poisonChance = (hero.poisonChance || 0) + 0.16;
+  if (stat?.includes("splash")) hero.alchemySplash = (hero.alchemySplash || 0) + 0.18;
+  if (stat?.includes("evade")) {
+    hero.evade = (hero.evade || 0) + 0.08;
+    hero.maxHp += 10;
+    hero.hp += 10;
+  }
+  if (stat?.includes("thorns")) hero.thorns = (hero.thorns || 0) + 3;
+  if (stat?.includes("regrowth")) hero.regenAura = (hero.regenAura || 0) + 0.35;
+  if (stat?.includes("crit")) hero.critChance = (hero.critChance || 0) + 0.1;
+  if (stat?.includes("execute")) hero.executeBonus = (hero.executeBonus || 0) + 0.2;
+  if (stat?.includes("slow") || stat?.includes("root") || stat?.includes("chrono")) hero.slowChance = (hero.slowChance || 0) + 0.08;
+  if (stat?.includes("rewind")) hero.rewindCharges = (hero.rewindCharges || 0) + 1;
+  if (stat?.includes("echo")) hero.delayedEcho = (hero.delayedEcho || 0) + 1;
+  const upgrade = findLevelUpOption(stat);
+  if (upgrade) {
+    hero.build.push(upgrade.name);
+    hero.buildTags = [...new Set([...(hero.buildTags || []), ...(upgrade.tags || [])])];
+  }
+}
+
+function finishOfflineEternalRun(summary) {
+  state.runCount += 1;
+  activeRun = {
+    phase: "eternal-complete",
+    summary,
+    fallen: [],
+  };
+}
+
+function createSoulOffline(cause, recap = null) {
+  const hero = activeRun.hero;
+  const runRecap = createRunRecap(cause);
+  const trait = chooseLegacyTrait(hero);
+  const soul = {
+    id: `soul_${Date.now()}_${state.runCount}`,
+    name: hero.name,
+    title: trait.title,
+    className: hero.className,
+    level: hero.level,
+    cause,
+    legacyTraitId: trait.id,
+    line: `${hero.name} ${trait.line}.`,
+    effect: trait.effect,
+    build: hero.build.slice(-4),
+    kills: hero.kills,
+    damageDealt: hero.damageDealt,
+  };
+  state.souls.push(soul);
+  addHeroToLegacyParty(hero, soul);
+  state.runCount += 1;
+  if (recap) recap.souls += 1;
+  activeRun = {
+    phase: "complete",
+    soul,
+    recap: runRecap,
+    inheritanceOptions: pickInheritanceRewards(),
+    chosenInheritance: null,
+  };
+}
+
+function applyInheritanceReward(rewardId) {
+  const reward = inheritanceRewards.find((item) => item.id === rewardId);
+  if (!reward || !activeRun?.soul) return;
+  state.inheritance = normalizeInheritance(state.inheritance);
+  if (reward.stat === "power") state.inheritance.power = Math.min(8, state.inheritance.power + reward.value);
+  if (reward.stat === "hp") state.inheritance.hp = Math.min(48, state.inheritance.hp + reward.value);
+  if (reward.stat === "speed") state.inheritance.speed = Math.min(0.24, state.inheritance.speed + reward.value);
+  if (reward.stat === "gold") state.inheritance.gold = Math.min(120, state.inheritance.gold + reward.value);
+  if (reward.stat === "energy") state.inheritance.energy = Math.min(40, state.inheritance.energy + reward.value);
+  if (reward.stat === "critChance") state.inheritance.critChance = Math.min(0.16, state.inheritance.critChance + reward.value);
+  if (reward.stat === "block") state.inheritance.block = Math.min(0.18, state.inheritance.block + reward.value);
+  if (reward.stat === "evade") state.inheritance.evade = Math.min(0.18, state.inheritance.evade + reward.value);
+  if (reward.stat === "freezeChance") state.inheritance.freezeChance = Math.min(0.16, state.inheritance.freezeChance + reward.value);
+  activeRun.chosenInheritance = reward;
+  activeRun.inheritanceOptions = [];
 }
 
 function ensureCombatTickerHealthy() {
@@ -1101,6 +1518,7 @@ function startRun(classId, mentorId) {
     enemies: createWave(0, 0),
   };
   addLog(`${hero.name} the ${hero.className} enters run ${state.runCount}.`);
+  saveState();
   render();
 }
 
@@ -1125,6 +1543,7 @@ function startEternalOnlyRun() {
     isEternalOnly: true,
   };
   addLog(`Auto Run ${state.runCount}: Eternal Vanguard enters without a new founder.`);
+  saveState();
   render();
 }
 

@@ -344,8 +344,8 @@ h2 {
 .placement-preview {
   position: absolute;
   z-index: 8;
-  width: 104px;
-  height: 104px;
+  width: 78px;
+  height: 78px;
   border: 2px solid rgba(164, 244, 188, 0.92);
   border-radius: 50%;
   background:
@@ -364,25 +364,56 @@ h2 {
 .unit {
   position: absolute;
   z-index: 10;
-  width: 112px;
-  height: 126px;
-  transform: translate(-50%, -82%);
-  filter: drop-shadow(0 14px 8px rgba(0, 0, 0, 0.34));
+  width: 82px;
+  height: 94px;
+  transform: translate(-50%, -80%);
+  filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.34));
   pointer-events: none;
 }
 
+.team-shadow {
+  position: absolute;
+  left: 13px;
+  top: 68px;
+  width: 56px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.32);
+  filter: blur(2px);
+}
+
+.team-mark {
+  position: absolute;
+  z-index: 2;
+  left: 13px;
+  top: 74px;
+  width: 56px;
+  height: 8px;
+  border-radius: 999px;
+  border: 2px solid rgba(7, 10, 12, 0.82);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.42);
+}
+
+.unit.blue .team-mark {
+  background: linear-gradient(90deg, #55b8ff, #1d6ed0);
+}
+
+.unit.red .team-mark {
+  background: linear-gradient(90deg, #ff7f74, #bf2f2b);
+}
+
 .unit-sprite {
-  width: 112px;
-  height: 112px;
-  background-size: 600% 100%;
+  width: 82px;
+  height: 82px;
+  background-size: 1200% 100%;
   transform-origin: 50% 82%;
 }
 
 .unit .hp {
   position: absolute;
-  left: 24px;
-  top: 108px;
-  width: 64px;
+  left: 16px;
+  top: 82px;
+  width: 50px;
   height: 5px;
   border: 1px solid rgba(0, 0, 0, 0.62);
   background: #111;
@@ -395,15 +426,15 @@ h2 {
 }
 
 .unit.walk .unit-sprite {
-  animation: sprite-walk 0.42s steps(3) infinite;
+  animation: none;
 }
 
 .unit.idle .unit-sprite {
-  animation: sprite-walk 0.84s steps(3) infinite;
+  animation: none;
 }
 
 .unit.attack .unit-sprite {
-  animation: sprite-combat 0.34s steps(3) infinite, attack-pop 0.34s ease-in-out infinite;
+  animation: attack-pop 0.44s ease-in-out infinite;
 }
 
 .unit.hit {
@@ -411,7 +442,7 @@ h2 {
 }
 
 .unit.red {
-  filter: hue-rotate(140deg) saturate(1.2) drop-shadow(0 12px 8px rgba(0, 0, 0, 0.32));
+  filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.34));
 }
 
 .effect {
@@ -423,6 +454,26 @@ h2 {
   transform: translate(-50%, -50%);
   pointer-events: none;
   animation: impact 0.48s ease-out forwards;
+}
+
+.projectile {
+  position: absolute;
+  z-index: 22;
+  height: 3px;
+  transform-origin: 0 50%;
+  pointer-events: none;
+  border-radius: 999px;
+  animation: projectile-flash 0.42s ease-out forwards;
+}
+
+.projectile.blue {
+  background: linear-gradient(90deg, rgba(117, 205, 255, 0), rgba(117, 205, 255, 0.95), rgba(255, 255, 255, 0));
+  box-shadow: 0 0 10px rgba(117, 205, 255, 0.58);
+}
+
+.projectile.red {
+  background: linear-gradient(90deg, rgba(255, 120, 108, 0), rgba(255, 120, 108, 0.95), rgba(255, 255, 255, 0));
+  box-shadow: 0 0 10px rgba(255, 120, 108, 0.55);
 }
 
 .effect.deploy {
@@ -584,8 +635,8 @@ h2 {
 .hand-sprite {
   width: 92px;
   height: 92px;
-  background-size: 600% 100%;
-  animation: sprite-walk 0.84s steps(3) infinite;
+  background-size: 1200% 100%;
+  background-position: 0 0;
 }
 
 .hand-copy {
@@ -658,19 +709,31 @@ h2 {
 }
 
 @keyframes sprite-walk {
-  from {
+  0%,
+  32.99% {
     background-position: 0 0;
   }
-  to {
+  33%,
+  65.99% {
+    background-position: 20% 0;
+  }
+  66%,
+  100% {
     background-position: 40% 0;
   }
 }
 
 @keyframes sprite-combat {
-  from {
+  0%,
+  32.99% {
     background-position: 60% 0;
   }
-  to {
+  33%,
+  65.99% {
+    background-position: 80% 0;
+  }
+  66%,
+  100% {
     background-position: 100% 0;
   }
 }
@@ -688,10 +751,10 @@ h2 {
 
 @keyframes hit-flash {
   0% {
-    filter: brightness(2) drop-shadow(0 12px 8px rgba(0, 0, 0, 0.32));
+    filter: brightness(1.55) drop-shadow(0 10px 6px rgba(0, 0, 0, 0.32));
   }
   100% {
-    filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.32));
+    filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.32));
   }
 }
 
@@ -701,7 +764,22 @@ h2 {
     transform: translateY(0) scale(1);
   }
   45% {
-    transform: translateY(-2px) scale(1.06);
+    transform: translateY(-1px) scale(1.025);
+  }
+}
+
+@keyframes projectile-flash {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  25% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
   }
 }
 

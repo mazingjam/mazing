@@ -156,6 +156,33 @@ h3 {
   box-shadow: 0 0 0 1px rgba(255, 230, 177, 0.16), 0 0 18px rgba(201, 154, 69, 0.18);
 }
 
+.offline-recap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(201, 154, 69, 0.42);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(67, 48, 29, 0.82), rgba(25, 18, 13, 0.92));
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.offline-recap h3,
+.offline-recap p {
+  margin: 0;
+}
+
+.offline-recap h3 {
+  margin-top: 6px;
+}
+
+.offline-recap p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr) 280px;

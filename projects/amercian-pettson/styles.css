@@ -238,6 +238,24 @@ h3 {
   border-block: 1px solid var(--line);
 }
 
+.key-art {
+  background:
+    linear-gradient(rgba(96, 120, 74, 0.08), rgba(96, 120, 74, 0.08)),
+    var(--cream);
+  border-top: 1px solid var(--line);
+}
+
+.key-art-frame {
+  width: min(1180px, 100%);
+  margin: 0 auto 24px;
+}
+
+.key-art-frame img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 .character-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -383,6 +401,27 @@ h3 {
   object-fit: cover;
 }
 
+.smallfolk-clean {
+  background:
+    linear-gradient(rgba(216, 169, 59, 0.11), rgba(216, 169, 59, 0.11)),
+    var(--cream);
+  border-top: 1px solid var(--line);
+}
+
+.clean-grid {
+  display: grid;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.clean-grid figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 .draft-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -439,6 +478,7 @@ figcaption span {
 
 @media (max-width: 980px) {
   .concept-grid,
+  .clean-grid,
   .draft-grid {
     grid-template-columns: 1fr;
   }

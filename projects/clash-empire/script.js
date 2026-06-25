@@ -6,9 +6,11 @@ const cards = [
     cost: 2,
     hp: 920,
     damage: 62,
-    range: 0.75,
-    speed: 0.42,
-    sprite: "assets/sprites/normalized/vanguard.png"
+    range: 2.2,
+    speed: 0.34,
+    attackType: "melee",
+    sprite: "assets/sprites/normalized/vanguard.png",
+    spriteBack: "assets/sprites/normalized/vanguard-back.png"
   },
   {
     id: "lancer",
@@ -17,9 +19,11 @@ const cards = [
     cost: 3,
     hp: 620,
     damage: 118,
-    range: 0.95,
-    speed: 0.72,
-    sprite: "assets/sprites/normalized/lancer.png"
+    range: 2.5,
+    speed: 0.54,
+    attackType: "melee",
+    sprite: "assets/sprites/normalized/lancer.png",
+    spriteBack: "assets/sprites/normalized/lancer-back.png"
   },
   {
     id: "arbalest",
@@ -28,9 +32,11 @@ const cards = [
     cost: 2,
     hp: 430,
     damage: 86,
-    range: 4.4,
-    speed: 0.38,
-    sprite: "assets/sprites/normalized/arbalest.png"
+    range: 24,
+    speed: 0.26,
+    attackType: "ranged",
+    sprite: "assets/sprites/normalized/arbalest.png",
+    spriteBack: "assets/sprites/normalized/arbalest-back.png"
   },
   {
     id: "ember",
@@ -39,9 +45,11 @@ const cards = [
     cost: 3,
     hp: 480,
     damage: 132,
-    range: 3.2,
-    speed: 0.46,
-    sprite: "assets/sprites/normalized/ember.png"
+    range: 13,
+    speed: 0.3,
+    attackType: "ranged",
+    sprite: "assets/sprites/normalized/ember.png",
+    spriteBack: "assets/sprites/normalized/ember-back.png"
   }
 ];
 
@@ -96,6 +104,11 @@ function log(text) {
 
 function spriteStyle(card) {
   return `background-image:url('${card.sprite}')`;
+}
+
+function unitSpriteStyle(card, unit) {
+  const asset = unit.facing === "back" ? card.spriteBack : card.sprite;
+  return `background-image:url('${asset}')`;
 }
 
 function createTowers() {
@@ -156,9 +169,23 @@ function renderUnits() {
     el.className = `unit ${unit.side} ${unit.mode} ${unit.hitFrame > state.frame - 8 ? "hit" : ""}`;
     el.style.left = `${unit.x}%`;
     el.style.top = `${unit.y}%`;
-    el.innerHTML = `<span class="unit-sprite" style="${spriteStyle(card)}"></span><span class="hp"><i style="width:${Math.max(0, unit.hp / unit.maxHp) * 100}%"></i></span>`;
+    el.style.zIndex = String(100 + Math.round(unit.y * 10));
+    el.innerHTML = `<span class="team-shadow"></span><span class="team-mark"></span><span class="unit-sprite" style="${unitSpriteStyle(card, unit)};background-position:${spriteFramePosition(unit)}"></span><span class="hp"><i style="width:${Math.max(0, unit.hp / unit.maxHp) * 100}%"></i></span>`;
     unitsEl.appendChild(el);
   });
+}
+
+function spriteFramePosition(unit) {
+  const walkFrames = [0, 1, 2, 3, 4, 5].map(framePosition);
+  const combatFrames = [6, 7, 8, 9, 10, 11].map(framePosition);
+  const frames = unit.mode === "attack" ? combatFrames : walkFrames;
+  const cadence = unit.mode === "attack" ? 3 : 4;
+  const index = Math.floor(state.frame / cadence) % frames.length;
+  return `${frames[index]} 0`;
+}
+
+function framePosition(index) {
+  return `${(index / 11) * 100}%`;
 }
 
 function beginDrag(event, card, source) {
@@ -233,8 +260,10 @@ function deploy(side, card, x, y, isInput) {
     damage: card.damage,
     range: card.range,
     speed: card.speed,
+    attackType: card.attackType,
     cooldown: 0,
     mode: "idle",
+    facing: side === "blue" ? "back" : "front",
     hitFrame: -100
   });
   effect("deploy", x, y);
@@ -251,6 +280,21 @@ function effect(type, x, y) {
   window.setTimeout(() => el.remove(), 520);
 }
 
+function projectile(fromX, fromY, toX, toY, side) {
+  const el = document.createElement("div");
+  const dx = toX - fromX;
+  const dy = toY - fromY;
+  const length = Math.max(1, Math.hypot(dx, dy));
+  el.className = `projectile ${side}`;
+  el.style.left = `${fromX}%`;
+  el.style.top = `${fromY}%`;
+  el.style.width = `${length}%`;
+  el.style.transform = `translate(0, -50%) rotate(${Math.atan2(dy, dx)}rad)`;
+  effectsEl.appendChild(el);
+  effect("hit", toX, toY);
+  window.setTimeout(() => el.remove(), 460);
+}
+
 function start() {
   state.running = true;
   state.frame = 0;
@@ -258,7 +302,7 @@ function start() {
   state.ether = 10;
   state.units = [];
   state.towers = createTowers();
-  state.nextOpponent = 60;
+  state.nextOpponent = 80;
   state.opponentIndex = 0;
   state.lastTime = 0;
   statusEl.textContent = "Playing";
@@ -317,9 +361,10 @@ function tick() {
     const lane = state.opponentIndex % 2 === 0 ? 31 : 69;
     deploy("red", card, lane, 44, false);
     state.opponentIndex += 1;
-    state.nextOpponent += 150;
+    state.nextOpponent += 210;
   }
   state.units.forEach(updateUnit);
+  resolveUnitSpacing();
   state.units = state.units.filter((unit) => unit.hp > 0 && unit.y > 1 && unit.y < 99);
   if (state.frame >= 1200) {
     state.running = false;
@@ -336,13 +381,15 @@ function updateUnit(unit) {
     return;
   }
   const gap = distance(unit, target);
-  if (gap <= unit.range + 1.25) {
+  unit.facing = target.y < unit.y ? "back" : "front";
+  if (gap <= unit.range) {
     unit.mode = "attack";
     if (unit.cooldown <= 0) {
       target.hp -= unit.damage;
       target.hitFrame = state.frame;
-      unit.cooldown = 46;
-      effect("hit", target.x, target.y);
+      unit.cooldown = unit.attackType === "ranged" ? 58 : 42;
+      if (unit.attackType === "ranged") projectile(unit.x, unit.y, target.x, target.y, unit.side);
+      else effect("hit", target.x, target.y);
     }
     return;
   }
@@ -350,8 +397,30 @@ function updateUnit(unit) {
   const dx = target.x - unit.x;
   const dy = target.y - unit.y;
   const length = Math.max(0.001, Math.hypot(dx, dy));
-  unit.x += (dx / length) * unit.speed * 0.18;
-  unit.y += (dy / length) * unit.speed * 0.18;
+  unit.x += (dx / length) * unit.speed * 0.14;
+  unit.y += (dy / length) * unit.speed * 0.14;
+}
+
+function resolveUnitSpacing() {
+  const minGap = 2.5;
+  for (let i = 0; i < state.units.length; i += 1) {
+    for (let j = i + 1; j < state.units.length; j += 1) {
+      const a = state.units[i];
+      const b = state.units[j];
+      if (a.hp <= 0 || b.hp <= 0) continue;
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const gap = Math.hypot(dx, dy);
+      if (gap <= 0.001 || gap >= minGap) continue;
+      const push = (minGap - gap) * 0.035;
+      const nx = dx / gap;
+      const ny = dy / gap;
+      a.x = Math.max(5, Math.min(95, a.x - nx * push));
+      a.y = Math.max(5, Math.min(95, a.y - ny * push));
+      b.x = Math.max(5, Math.min(95, b.x + nx * push));
+      b.y = Math.max(5, Math.min(95, b.y + ny * push));
+    }
+  }
 }
 
 function nearestTarget(unit) {
