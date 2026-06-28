@@ -39,7 +39,7 @@ button {
   margin: 14px auto;
   padding: clamp(14px, 3vw, 28px);
   display: grid;
-  grid-template-rows: auto auto minmax(390px, 1fr) auto auto;
+  grid-template-rows: auto auto auto minmax(390px, 1fr) auto auto;
   gap: 16px;
   background: rgba(255, 250, 240, 0.9);
   border: 1px solid rgba(116, 91, 57, 0.18);
@@ -51,7 +51,9 @@ button {
 .status,
 .footer,
 .actions,
-.tools {
+.tools,
+.status-chips,
+.profile-tabs {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,6 +140,43 @@ h1 {
   font-weight: 850;
 }
 
+.counter.is-easy {
+  color: #225a3a;
+  background: #d8e9c6;
+}
+
+.counter.is-medium {
+  color: #6f5131;
+  background: #f2dbb8;
+}
+
+.counter.is-hard {
+  color: #7a2d29;
+  background: #efc3b9;
+}
+
+.profile-tabs {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-tab {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(110, 86, 56, 0.22);
+  border-radius: 999px;
+  color: #594634;
+  background: #fff5e4;
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.profile-tab.is-active {
+  color: #102029;
+  background: #f0d4a6;
+  border-color: rgba(99, 71, 36, 0.35);
+}
+
 .game-shell {
   display: grid;
   place-items: center;
@@ -186,6 +225,17 @@ h1 {
 .cell.is-sea {
   background: var(--sea);
   color: #fff;
+}
+
+.cell.is-hole {
+  cursor: default;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.18), rgba(255, 255, 255, 0.05)),
+    #bda985;
+  border-color: rgba(89, 68, 42, 0.18);
+  box-shadow:
+    inset 0 6px 12px rgba(62, 46, 28, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 .cell.is-bad {
@@ -241,6 +291,15 @@ h1 {
   .tools {
     flex-wrap: wrap;
     justify-content: flex-start;
+  }
+
+  .status {
+    display: grid;
+  }
+
+  .status-chips {
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .message {

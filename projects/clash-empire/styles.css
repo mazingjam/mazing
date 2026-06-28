@@ -270,58 +270,79 @@ h2 {
 
 .tower {
   position: absolute;
-  display: grid;
-  place-items: center;
-  width: 74px;
-  height: 74px;
-  border-radius: 8px;
-  border: 2px solid rgba(255, 236, 198, 0.38);
-  color: #fff;
-  font-weight: 900;
+  width: 72px;
+  height: 88px;
   transform: translate(-50%, -50%);
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
-  box-shadow:
-    inset 0 2px 8px rgba(255, 255, 255, 0.14),
-    inset 0 -16px 18px rgba(0, 0, 0, 0.24),
-    0 18px 24px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  filter: drop-shadow(0 13px 8px rgba(0, 0, 0, 0.36));
 }
 
-.tower::before {
-  content: "";
+.tower-shadow {
   position: absolute;
-  inset: 7px 8px auto 8px;
+  left: 9px;
+  right: 7px;
+  bottom: 0;
   height: 18px;
-  border-radius: 5px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.34);
+  filter: blur(3px);
 }
 
 .tower::after {
-  content: "";
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  bottom: -10px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.24);
-  filter: blur(2px);
+  content: none;
 }
 
 .tower.king {
-  width: 86px;
-  height: 86px;
+  width: 82px;
+  height: 102px;
 }
 
-.tower.blue {
-  background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.18), transparent 42%),
-    linear-gradient(160deg, #3c84c4, #174c82 58%, #12345b);
+.tower-art {
+  position: absolute;
+  inset: -8px -18px -3px -18px;
+  background-image: url("assets/towers/tower-sheet.png");
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  background-position: 0 50%;
+  transform-origin: 50% 80%;
 }
 
-.tower.red {
-  background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.18), transparent 42%),
-    linear-gradient(160deg, #b24b45, #7d2824 58%, #531916);
+.tower.king .tower-art {
+  inset: -9px -24px -5px -24px;
+  background-position: 100% 50%;
+}
+
+.tower-team-mark {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  width: 18px;
+  height: 24px;
+  border: 2px solid rgba(17, 14, 11, 0.84);
+  border-radius: 3px 3px 6px 6px;
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 50% 100%, 0 74%);
+  transform: translateX(-50%);
+  box-shadow:
+    inset 3px 0 rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.42);
+}
+
+.tower.king .tower-team-mark {
+  bottom: 21px;
+  width: 22px;
+  height: 30px;
+}
+
+.tower.blue .tower-team-mark {
+  background: linear-gradient(180deg, #77cfff, #1b75da 62%, #113f7e);
+}
+
+.tower.red .tower-team-mark {
+  background: linear-gradient(180deg, #ff8f84, #b82729 64%, #661719);
+}
+
+.tower.attacking .tower-art {
+  animation: tower-kick 0.18s ease-out;
 }
 
 .hp {
@@ -474,6 +495,14 @@ h2 {
 .projectile.red {
   background: linear-gradient(90deg, rgba(255, 120, 108, 0), rgba(255, 120, 108, 0.95), rgba(255, 255, 255, 0));
   box-shadow: 0 0 10px rgba(255, 120, 108, 0.55);
+}
+
+.projectile.tower-shot {
+  height: 4px;
+  border-radius: 0 999px 999px 0;
+  background:
+    linear-gradient(90deg, rgba(12, 12, 10, 0), rgba(20, 16, 12, 0.96) 24%, rgba(226, 174, 75, 0.96) 42%, rgba(255, 244, 200, 0.98) 55%, rgba(20, 16, 12, 0.92) 72%, rgba(12, 12, 10, 0));
+  box-shadow: 0 0 8px rgba(255, 233, 174, 0.44);
 }
 
 .effect.deploy {
@@ -765,6 +794,18 @@ h2 {
   }
   45% {
     transform: translateY(-1px) scale(1.025);
+  }
+}
+
+@keyframes tower-kick {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  45% {
+    transform: translateY(-2px) scale(1.035);
+  }
+  100% {
+    transform: translateY(0) scale(1);
   }
 }
 

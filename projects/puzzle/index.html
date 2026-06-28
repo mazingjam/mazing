@@ -30,8 +30,13 @@
           <span id="puzzleLabel">Ready</span>
           <strong id="goalText">Paint sea cells. Leave numbered islands at their exact sizes.</strong>
         </div>
-        <div id="stats" class="counter">5x5</div>
+        <div class="status-chips">
+          <div id="difficulty" class="counter">Easy</div>
+          <div id="stats" class="counter">4x4</div>
+        </div>
       </section>
+
+      <nav id="profileTabs" class="profile-tabs" aria-label="Generator profiles"></nav>
 
       <section class="game-shell">
         <div id="board" class="nurikabe-board" aria-label="Nurikabe board"></div>
@@ -49,7 +54,8 @@
 
       <aside class="notes">
         <p><strong>Generator contract:</strong> generated boards are accepted only after the solver counts exactly one full solution.</p>
-        <p><strong>MVP limit:</strong> current generation targets small 5x5 boards so browser-side uniqueness checks stay responsive.</p>
+        <p><strong>Profiles:</strong> board size increases by profile. Medium/Hard can include holes, which act as missing cells and change connectivity.</p>
+        <p><strong>Difficulty:</strong> estimated from active tile count, holes, clue density, island sizes, and solver search effort.</p>
       </aside>
     </main>
 

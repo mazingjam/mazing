@@ -1,0 +1,77 @@
+﻿id,name,type,category,notes,file,source,row,col
+sheet01-01-oracle-5,Oracle,Hero,Blue hero / oracle support,5 HP version. Adds blue energy and block from dice.,images/sheet01-01-oracle-5.jpg,old-cards-sheet-01.jpg,1,1
+sheet01-02-oracle-9,Oracle,Hero,Blue hero / oracle support,9 HP version. Adds blue block spell damage and die setting.,images/sheet01-02-oracle-9.jpg,old-cards-sheet-01.jpg,1,2
+sheet01-03-not-yet,Not Yet,Spell / Reaction,Blue control / deck manipulation,Looks at top of deck and moves a card.,images/sheet01-03-not-yet.jpg,old-cards-sheet-01.jpg,1,3
+sheet01-04-rewrite-fate,Rewrite Fate,Spell / Reaction,Blue die manipulation / heal,Roll D3 and pay blue for options.,images/sheet01-04-rewrite-fate.jpg,old-cards-sheet-01.jpg,2,1
+sheet01-05-conjecture,Conjecture,Spell,Blue card flow / movement,Roll D3 and pay blue for options.,images/sheet01-05-conjecture.jpg,old-cards-sheet-01.jpg,2,2
+sheet01-06-oracles-pendant,Oracle's Pendant,Item / Weapon,Blue item / ranged spell support,Can activate twice and supports rerolling.,images/sheet01-06-oracles-pendant.jpg,old-cards-sheet-01.jpg,2,3
+sheet01-07-borrow,Borrow,Skill,Thief utility / temporary weapon use,Use another player's weapon for an attack.,images/sheet01-07-borrow.jpg,old-cards-sheet-01.jpg,3,1
+sheet01-08-stolen-goods,Stolen Goods,Item,Thief setup / item access,Starts with an unused hero item.,images/sheet01-08-stolen-goods.jpg,old-cards-sheet-01.jpg,3,2
+sheet01-09-thief-7,Thief,Hero,Purple hero / ability theft,7 HP version. Can get abilities of another hero.,images/sheet01-09-thief-7.jpg,old-cards-sheet-01.jpg,3,3
+sheet02-01-savage-9,Savage,Hero,Red hero / weapon aggression,+1 item slot.,images/sheet02-01-savage-9.jpg,old-cards-sheet-02.jpg,1,1
+sheet02-02-savage-12,Savage,Hero,Red hero / multi-weapon aggression,+1 item slot. Attack with all weapons.,images/sheet02-02-savage-12.jpg,old-cards-sheet-02.jpg,1,2
+sheet02-03-feral-fling,Feral Fling,Skill,Red burst / weapon throw,Attack as ranged and discard weapon.,images/sheet02-03-feral-fling.jpg,old-cards-sheet-02.jpg,1,3
+sheet02-04-frenzied-strike,Frenzied Strike,Skill,Red multi-attack,Attack with weapon then spend red for another weapon attack.,images/sheet02-04-frenzied-strike.jpg,old-cards-sheet-02.jpg,2,1
+sheet02-05-intimidating-roar,Intimidating Roar,Skill,Red defense / self-heal,Block and heal based on damage dealt.,images/sheet02-05-intimidating-roar.jpg,old-cards-sheet-02.jpg,2,2
+sheet02-06-ravager,Ravager,Item / Weapon,Red weapon / pierce sustain,Attack scaling plus heal or pierce.,images/sheet02-06-ravager.jpg,old-cards-sheet-02.jpg,2,3
+sheet02-07-noble-4,Noble,Hero,Green or gold hero / pacifist support,Cannot attack.,images/sheet02-07-noble-4.jpg,old-cards-sheet-02.jpg,3,1
+sheet02-08-noble-7,Noble,Hero,Green or gold hero / ally buff,All united allies gain gold.,images/sheet02-08-noble-7.jpg,old-cards-sheet-02.jpg,3,2
+sheet02-09-legionair,Legionair,Hero,Green or gold hero / weapon holder,Has item slot and attacks with weapon.,images/sheet02-09-legionair.jpg,old-cards-sheet-02.jpg,3,3
+sheet03-01-golden-motivation,Golden Motivation,Skill,Gold support / ally attack,Any united ally attacks with weapon.,images/sheet03-01-golden-motivation.jpg,old-cards-sheet-03.jpg,1,1
+sheet03-02-influence,Influence,Skill,Gold support / movement economy,Pick movement or gold-counter effects.,images/sheet03-02-influence.jpg,old-cards-sheet-03.jpg,1,2
+sheet03-03-savage-8,Savage,Hero,Dark red hero / attrition,Lose HP at end of turn.,images/sheet03-03-savage-8.jpg,old-cards-sheet-03.jpg,1,3
+sheet03-04-savage-12-dark,Savage,Hero,Dark red hero / companion generation,Turns human kills into bonus companion.,images/sheet03-04-savage-12-dark.jpg,old-cards-sheet-03.jpg,2,1
+sheet03-05-drowned-king,Drowned King,Skill,Dark blue defensive choice,Choose heal damage or block options.,images/sheet03-05-drowned-king.jpg,old-cards-sheet-03.jpg,2,2
+sheet03-06-chain-reaction,Chain Reaction,Skill / Reaction,Dark weapon reaction / AOE,Ranged attacks count as sword for nearby units.,images/sheet03-06-chain-reaction.jpg,old-cards-sheet-03.jpg,2,3
+sheet03-07-monster,Monster,Companion,Dark companion / sacrifice sustain,Pierce attack and sacrifice healing.,images/sheet03-07-monster.jpg,old-cards-sheet-03.jpg,3,1
+sheet03-08-sea-serpents-edge,Sea Serpents Edge,Item / Weapon,Dark blue weapon / pierce sacrifice,Attack plus sacrifice for block or damage.,images/sheet03-08-sea-serpents-edge.jpg,old-cards-sheet-03.jpg,3,2
+sheet03-09-hunter,Hunter,Hero,Green red hero / encounter draw,Can draw an additional encounter card.,images/sheet03-09-hunter.jpg,old-cards-sheet-03.jpg,3,3
+sheet04-01-noble-7-duplicate,Noble,Hero,Green or gold hero / ally buff,Duplicate or variant of Noble 7.,images/sheet04-01-noble-7-duplicate.jpg,old-cards-sheet-04.jpg,1,1
+sheet04-02-noble-4-duplicate,Noble,Hero,Green or gold hero / pacifist support,Duplicate or variant of Noble 4.,images/sheet04-02-noble-4-duplicate.jpg,old-cards-sheet-04.jpg,1,2
+sheet04-03-curse-of-the-beast,Curse of the Beast,Form,Green red form / beast transformation,On hero flip heal or gain green.,images/sheet04-03-curse-of-the-beast.jpg,old-cards-sheet-04.jpg,1,3
+sheet04-04-midnight,Midnight,Skill,Beast human modal skill,Human draws encounter. Beast attacks and heals.,images/sheet04-04-midnight.jpg,old-cards-sheet-04.jpg,2,1
+sheet04-05-stray,Stray,Skill,Ranger beast movement,Human moves. Beast moves and flips.,images/sheet04-05-stray.jpg,old-cards-sheet-04.jpg,2,2
+sheet04-06-twisted-heart,Twisted Heart,Skill / Reaction,Beast transformation / damage,Roll D3 flip hero and resolve options.,images/sheet04-06-twisted-heart.jpg,old-cards-sheet-04.jpg,2,3
+sheet04-07-ranger-10,Ranger,Hero,Green red hero / beast melee,Sword D6 can be used twice.,images/sheet04-07-ranger-10.jpg,old-cards-sheet-04.jpg,3,1
+sheet04-08-ranger-8,Ranger,Hero,Green hero / ranged beast,Ranged D3 can be used twice.,images/sheet04-08-ranger-8.jpg,old-cards-sheet-04.jpg,3,2
+sheet04-09-elementalist-7,Elementalist,Hero,Tri-color hero / form caster,Discard card for blue.,images/sheet04-09-elementalist-7.jpg,old-cards-sheet-04.jpg,3,3
+sheet05-01-elementalist-9,Elementalist,Hero,Tri-color hero / draw caster,Discard card for blue and draw line.,images/sheet05-01-elementalist-9.jpg,old-cards-sheet-05.jpg,1,1
+sheet05-02-wind-form,Wind Form,Spell / Form,Blue red form / mobility and dodge,Move damage draw and dodge ranged.,images/sheet05-02-wind-form.jpg,old-cards-sheet-05.jpg,1,2
+sheet05-03-water-form,Water Form,Spell / Form,Blue form / AOE and stun,AOE attack pierce D3 and stun.,images/sheet05-03-water-form.jpg,old-cards-sheet-05.jpg,1,3
+sheet05-04-earth-form,Earth Form,Spell / Form,Green blue form / AOE and stun,AOE attack pierce D3 and stun.,images/sheet05-04-earth-form.jpg,old-cards-sheet-05.jpg,2,1
+sheet05-05-fire-form,Fire Form,Spell / Form,Red blue form / damage and block,Ranged D3 spell damage and block.,images/sheet05-05-fire-form.jpg,old-cards-sheet-05.jpg,2,2
+sheet05-06-noble-4-duplicate,Noble,Hero,Green or gold hero / pacifist support,Duplicate or variant of Noble 4.,images/sheet05-06-noble-4-duplicate.jpg,old-cards-sheet-05.jpg,2,3
+sheet05-07-noble-7-duplicate,Noble,Hero,Green or gold hero / ally buff,Duplicate or variant of Noble 7.,images/sheet05-07-noble-7-duplicate.jpg,old-cards-sheet-05.jpg,3,1
+sheet05-08-legionair-duplicate,Legionair,Hero,Green or gold hero / weapon holder,Duplicate or variant of Legionair.,images/sheet05-08-legionair-duplicate.jpg,old-cards-sheet-05.jpg,3,2
+sheet05-09-greed,Greed,Skill / Reaction,Gold economy / self-damage,Lose HP and gain gold with optional heal.,images/sheet05-09-greed.jpg,old-cards-sheet-05.jpg,3,3
+sheet06-01-shield,Shield,Item / Weapon,Defensive item,+1 block and star block action.,images/sheet06-01-shield.jpg,old-cards-sheet-06.jpg,1,1
+sheet06-02-horse,Horse,Item,Movement item,Move and attack. Discard for move.,images/sheet06-02-horse.jpg,old-cards-sheet-06.jpg,1,2
+sheet06-03-enrage,Enrage,Form,Red form / first attack buff,Adds red and pierce to first attack.,images/sheet06-03-enrage.jpg,old-cards-sheet-06.jpg,1,3
+sheet06-04-defencive-stance,Defencive Stance,Form,Blue defensive form,Add blue and block.,images/sheet06-04-defencive-stance.jpg,old-cards-sheet-06.jpg,2,1
+sheet06-05-follower-melee,Follower,Companion,Melee companion,Sword D3 companion.,images/sheet06-05-follower-melee.jpg,old-cards-sheet-06.jpg,2,2
+sheet06-06-follower-ranged,Follower,Companion,Ranged companion,Ranged D3 companion.,images/sheet06-06-follower-ranged.jpg,old-cards-sheet-06.jpg,2,3
+sheet06-07-perfect-ruby,Perfect Ruby,Crystal,Red energy source,Adds red energy.,images/sheet06-07-perfect-ruby.jpg,old-cards-sheet-06.jpg,3,1
+sheet06-08-perfect-emerald,Perfect Emerald,Crystal,Green energy source,Adds green energy.,images/sheet06-08-perfect-emerald.jpg,old-cards-sheet-06.jpg,3,2
+sheet06-09-perfect-sapphire,Perfect Sapphire,Crystal,Blue energy source,Adds blue energy.,images/sheet06-09-perfect-sapphire.jpg,old-cards-sheet-06.jpg,3,3
+sheet07-01-sapphire-ring,Sapphire Ring,Item / Weapon,Blue ring / spell damage,Adds blue and +2 spell damage.,images/sheet07-01-sapphire-ring.jpg,old-cards-sheet-07.jpg,1,1
+sheet07-02-emerald-ring,Emerald Ring,Item / Weapon,Green ring / block aura,Adds green and united allies get +1 block.,images/sheet07-02-emerald-ring.jpg,old-cards-sheet-07.jpg,1,2
+sheet07-03-ruby-ring,Ruby Ring,Item / Weapon,Red ring / armor reduction,Adds red and reduces enemy armor.,images/sheet07-03-ruby-ring.jpg,old-cards-sheet-07.jpg,1,3
+sheet07-04-wind-bow,Wind Bow,Item / Weapon,Ranged weapon / pierce,Ranged D3 can activate twice.,images/sheet07-04-wind-bow.jpg,old-cards-sheet-07.jpg,2,1
+sheet07-05-guild-shield,Guild Shield,Item,Defensive item / block,Sword-like D3 line and +2 block.,images/sheet07-05-guild-shield.jpg,old-cards-sheet-07.jpg,2,2
+sheet07-06-dragon-egg,Dragon Egg,Item,Event item / dragon summon,When world turns stash and pick random dragon.,images/sheet07-06-dragon-egg.jpg,old-cards-sheet-07.jpg,2,3
+sheet07-07-herbalist,Herbalist,Companion,Support companion / healing,Any hero may use heal.,images/sheet07-07-herbalist.jpg,old-cards-sheet-07.jpg,3,1
+sheet07-08-dagger,Dagger,Item / Weapon,Basic weapon / disposable ranged,Sword D3 and discard as ranged D3.,images/sheet07-08-dagger.jpg,old-cards-sheet-07.jpg,3,2
+sheet07-09-sword,Sword,Item / Weapon,Basic weapon / block,Sword D3 star block and +1 damage.,images/sheet07-09-sword.jpg,old-cards-sheet-07.jpg,3,3
+sheet08-01-thief-9,Thief,Hero,Purple hero / ability theft,9 HP version.,images/sheet08-01-thief-9.jpg,old-cards-sheet-08.jpg,1,1
+sheet08-02-informant,Informant,Skill / Reaction,Purple control / discard setup,Look at top of deck may discard and add resource.,images/sheet08-02-informant.jpg,old-cards-sheet-08.jpg,1,2
+sheet08-03-quick-learner,Quick Learner,Skill,Purple copy / discard interaction,Plays as skill or crystal of top discard.,images/sheet08-03-quick-learner.jpg,old-cards-sheet-08.jpg,1,3
+sheet08-04-bow,Bow,Item / Weapon,Basic ranged weapon,Ranged D3 and +1 damage.,images/sheet08-04-bow.jpg,old-cards-sheet-08.jpg,2,1
+sheet08-05-energy-orb,Energy Orb,Skill,Blue or white energy and draw,Draw 1 and add 2.,images/sheet08-05-energy-orb.jpg,old-cards-sheet-08.jpg,2,2
+sheet08-06-perfect-diamant,Perfect Diamant,Crystal,Tri-color energy source,Adds red green and blue.,images/sheet08-06-perfect-diamant.jpg,old-cards-sheet-08.jpg,2,3
+sheet08-07-chain-lightning,Chain Lightning,Spell,Blue spell / chain damage,Ranged D6 plus pierce and copy nearby.,images/sheet08-07-chain-lightning.jpg,old-cards-sheet-08.jpg,3,1
+sheet08-08-dual-blades,Dual Blades,Item / Weapon,Dual weapon / block,Sword D3 can activate twice with +2 block and +2 damage.,images/sheet08-08-dual-blades.jpg,old-cards-sheet-08.jpg,3,2
+sheet08-09-large-axe,Large Axe,Item / Weapon,Heavy weapon / pierce,D6 plus pierce and +2 damage.,images/sheet08-09-large-axe.jpg,old-cards-sheet-08.jpg,3,3
+single-01-demon-melee,Demon,Unit / Companion,Enemy or summon / melee,Standalone demon card. Sword D3.,images/single-01-demon-melee.jpg,old-card-demon-01.jpg,,
+single-02-demon-melee,Demon,Unit / Companion,Enemy or summon / melee,Standalone wolf-demon card. Sword D3.,images/single-02-demon-melee.jpg,old-card-demon-02.jpg,,
+single-03-demon-ranged,Demon,Unit / Companion,Enemy or summon / ranged,Standalone demon card. Ranged D3.,images/single-03-demon-ranged.jpg,old-card-demon-03.jpg,,
+single-04-rebell,Rebell,Unit / Companion,Enemy or ally unit / melee pierce,Standalone rebel card. Sword D3 pierce 1.,images/single-04-rebell.jpg,old-card-rebel-01.jpg,,

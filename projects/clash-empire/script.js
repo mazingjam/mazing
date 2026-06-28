@@ -73,15 +73,23 @@ const clockEl = document.querySelector("#clock");
 const blueScore = document.querySelector("#blueScore");
 const redScore = document.querySelector("#redScore");
 
+const MATCH_SECONDS = 120;
+const SIM_STEP = 1 / 30;
+const ETHER_PER_SECOND = 0.42;
+const OPPONENT_FIRST_SPAWN = 7;
+const OPPONENT_SPAWN_INTERVAL = 8.5;
+
 const state = {
   running: false,
   frame: 0,
+  elapsedSeconds: 0,
+  accumulator: 0,
   inputs: [],
   ether: 0,
   maxEther: 10,
   units: [],
   towers: [],
-  nextOpponent: 120,
+  nextOpponent: OPPONENT_FIRST_SPAWN,
   opponentIndex: 0,
   lastTime: 0,
   drag: null
@@ -112,13 +120,28 @@ function unitSpriteStyle(card, unit) {
 }
 
 function createTowers() {
+  const tower = (id, side, x, y, king = false) => ({
+    id,
+    side,
+    x,
+    y,
+    hp: king ? 2600 : 1800,
+    maxHp: king ? 2600 : 1800,
+    king,
+    range: king ? 24 : 20,
+    damage: king ? 92 : 74,
+    reload: king ? 0.9 : 0.78,
+    cooldown: king ? 0.24 : 0,
+    attackFrame: -100
+  });
+
   return [
-    { id: "red-left", side: "red", x: 28, y: 18, hp: 1800, maxHp: 1800 },
-    { id: "red-king", side: "red", x: 50, y: 9, hp: 2600, maxHp: 2600, king: true },
-    { id: "red-right", side: "red", x: 72, y: 18, hp: 1800, maxHp: 1800 },
-    { id: "blue-left", side: "blue", x: 28, y: 82, hp: 1800, maxHp: 1800 },
-    { id: "blue-king", side: "blue", x: 50, y: 91, hp: 2600, maxHp: 2600, king: true },
-    { id: "blue-right", side: "blue", x: 72, y: 82, hp: 1800, maxHp: 1800 }
+    tower("red-left", "red", 28, 18),
+    tower("red-king", "red", 50, 9, true),
+    tower("red-right", "red", 72, 18),
+    tower("blue-left", "blue", 28, 82),
+    tower("blue-king", "blue", 50, 91, true),
+    tower("blue-right", "blue", 72, 82)
   ];
 }
 
@@ -153,10 +176,15 @@ function renderTowers() {
   state.towers.forEach((tower) => {
     const el = document.createElement("div");
     const hp = Math.max(0, tower.hp);
-    el.className = `tower ${tower.side} ${tower.king ? "king" : ""}`;
+    el.className = `tower ${tower.side} ${tower.king ? "king" : ""} ${tower.attackFrame > state.frame - 9 ? "attacking" : ""}`;
     el.style.left = `${tower.x}%`;
     el.style.top = `${tower.y}%`;
-    el.innerHTML = `<span class="hp"><i style="width:${(hp / tower.maxHp) * 100}%"></i></span>${tower.king ? "K" : "T"}`;
+    el.innerHTML = `
+      <span class="tower-shadow"></span>
+      <span class="tower-art"></span>
+      <span class="tower-team-mark"></span>
+      <span class="hp"><i style="width:${(hp / tower.maxHp) * 100}%"></i></span>
+    `;
     towersEl.appendChild(el);
   });
 }
@@ -247,7 +275,7 @@ function clientToArena(clientX, clientY) {
 function deploy(side, card, x, y, isInput) {
   if (isInput) {
     state.ether = Math.max(0, state.ether - card.cost);
-    state.inputs.push({ frame: state.frame, card: card.id, x: Math.round(x), y: Math.round(y) });
+    state.inputs.push({ frame: state.frame, time: Number(state.elapsedSeconds.toFixed(2)), card: card.id, x: Math.round(x), y: Math.round(y) });
   }
   state.units.push({
     id: `${side}-${state.frame}-${card.id}-${state.units.length}`,
@@ -281,28 +309,34 @@ function effect(type, x, y) {
 }
 
 function projectile(fromX, fromY, toX, toY, side) {
+  return fireProjectile(fromX, fromY, toX, toY, side, "unit-shot");
+}
+
+function fireProjectile(fromX, fromY, toX, toY, side, kind) {
   const el = document.createElement("div");
   const dx = toX - fromX;
   const dy = toY - fromY;
   const length = Math.max(1, Math.hypot(dx, dy));
-  el.className = `projectile ${side}`;
+  el.className = `projectile ${side} ${kind}`;
   el.style.left = `${fromX}%`;
   el.style.top = `${fromY}%`;
   el.style.width = `${length}%`;
   el.style.transform = `translate(0, -50%) rotate(${Math.atan2(dy, dx)}rad)`;
   effectsEl.appendChild(el);
   effect("hit", toX, toY);
-  window.setTimeout(() => el.remove(), 460);
+  window.setTimeout(() => el.remove(), kind === "tower-shot" ? 360 : 460);
 }
 
 function start() {
   state.running = true;
   state.frame = 0;
+  state.elapsedSeconds = 0;
+  state.accumulator = 0;
   state.inputs = [];
   state.ether = 10;
   state.units = [];
   state.towers = createTowers();
-  state.nextOpponent = 80;
+  state.nextOpponent = OPPONENT_FIRST_SPAWN;
   state.opponentIndex = 0;
   state.lastTime = 0;
   statusEl.textContent = "Playing";
@@ -319,11 +353,13 @@ function start() {
 function reset() {
   state.running = false;
   state.frame = 0;
+  state.elapsedSeconds = 0;
+  state.accumulator = 0;
   state.inputs = [];
   state.ether = 0;
   state.units = [];
   state.towers = createTowers();
-  state.nextOpponent = 120;
+  state.nextOpponent = OPPONENT_FIRST_SPAWN;
   state.opponentIndex = 0;
   state.lastTime = 0;
   statusEl.textContent = "Ready";
@@ -340,41 +376,46 @@ function reset() {
 
 function loop(time) {
   if (!state.running) return;
-  if (!state.lastTime) state.lastTime = time;
-  const elapsed = time - state.lastTime;
-  if (elapsed > 48) {
-    const steps = Math.min(4, Math.floor(elapsed / 16));
-    for (let i = 0; i < steps; i += 1) tick();
-    state.lastTime = time;
-    renderTowers();
-    renderUnits();
-    updateReadouts();
+  const now = time / 1000;
+  if (!state.lastTime) state.lastTime = now;
+  const delta = Math.min(0.12, now - state.lastTime);
+  state.lastTime = now;
+  state.elapsedSeconds = Math.min(MATCH_SECONDS, state.elapsedSeconds + delta);
+  state.accumulator += delta;
+  while (state.accumulator >= SIM_STEP && state.running) {
+    tick(SIM_STEP);
+    state.accumulator -= SIM_STEP;
   }
-  requestAnimationFrame(loop);
+  renderTowers();
+  renderUnits();
+  updateReadouts();
+  if (state.running) requestAnimationFrame(loop);
 }
 
-function tick() {
+function tick(dt) {
   state.frame += 1;
-  state.ether = Math.min(state.maxEther, state.ether + 0.012);
-  if (state.frame >= state.nextOpponent) {
+  state.ether = Math.min(state.maxEther, state.ether + ETHER_PER_SECOND * dt);
+  if (state.elapsedSeconds >= state.nextOpponent) {
     const card = cards[state.opponentIndex % cards.length];
     const lane = state.opponentIndex % 2 === 0 ? 31 : 69;
     deploy("red", card, lane, 44, false);
     state.opponentIndex += 1;
-    state.nextOpponent += 210;
+    state.nextOpponent += OPPONENT_SPAWN_INTERVAL;
   }
-  state.units.forEach(updateUnit);
+  state.units.forEach((unit) => updateUnit(unit, dt));
+  updateTowers(dt);
   resolveUnitSpacing();
   state.units = state.units.filter((unit) => unit.hp > 0 && unit.y > 1 && unit.y < 99);
-  if (state.frame >= 1200) {
+  if (state.elapsedSeconds >= MATCH_SECONDS) {
     state.running = false;
     statusEl.textContent = "Complete";
     log(`Slice complete. Final hash ${computeHash()}.`);
+    renderHand();
   }
 }
 
-function updateUnit(unit) {
-  if (unit.cooldown > 0) unit.cooldown -= 1;
+function updateUnit(unit, dt) {
+  if (unit.cooldown > 0) unit.cooldown -= dt;
   const target = nearestTarget(unit);
   if (!target) {
     unit.mode = "idle";
@@ -387,7 +428,7 @@ function updateUnit(unit) {
     if (unit.cooldown <= 0) {
       target.hp -= unit.damage;
       target.hitFrame = state.frame;
-      unit.cooldown = unit.attackType === "ranged" ? 58 : 42;
+      unit.cooldown = unit.attackType === "ranged" ? 1.45 : 1.05;
       if (unit.attackType === "ranged") projectile(unit.x, unit.y, target.x, target.y, unit.side);
       else effect("hit", target.x, target.y);
     }
@@ -397,8 +438,29 @@ function updateUnit(unit) {
   const dx = target.x - unit.x;
   const dy = target.y - unit.y;
   const length = Math.max(0.001, Math.hypot(dx, dy));
-  unit.x += (dx / length) * unit.speed * 0.14;
-  unit.y += (dy / length) * unit.speed * 0.14;
+  const movement = unit.speed * 4.2 * dt;
+  unit.x += (dx / length) * movement;
+  unit.y += (dy / length) * movement;
+}
+
+function updateTowers(dt) {
+  state.towers.forEach((tower) => {
+    if (tower.hp <= 0) return;
+    if (tower.cooldown > 0) tower.cooldown -= dt;
+    const target = nearestEnemyUnit(tower);
+    if (!target || distance(tower, target) > tower.range || tower.cooldown > 0) return;
+    target.hp -= tower.damage;
+    target.hitFrame = state.frame;
+    tower.cooldown = tower.reload;
+    tower.attackFrame = state.frame;
+    fireProjectile(tower.x, tower.y - (tower.king ? 1.7 : 1.2), target.x, target.y - 1.2, tower.side, "tower-shot");
+  });
+}
+
+function nearestEnemyUnit(source) {
+  return state.units
+    .filter((unit) => unit.side !== source.side && unit.hp > 0)
+    .sort((a, b) => distance(source, a) - distance(source, b))[0];
 }
 
 function resolveUnitSpacing() {
@@ -439,7 +501,7 @@ function updateReadouts() {
   inputReadout.textContent = String(state.inputs.length);
   etherReadout.textContent = state.ether.toFixed(1);
   etherFill.style.width = `${(state.ether / state.maxEther) * 100}%`;
-  const seconds = Math.max(0, 120 - Math.floor(state.frame / 10));
+  const seconds = Math.max(0, Math.ceil(MATCH_SECONDS - state.elapsedSeconds));
   clockEl.textContent = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
   const blue = state.towers.filter((tower) => tower.side === "blue" && tower.hp > 0).length;
   const red = state.towers.filter((tower) => tower.side === "red" && tower.hp > 0).length;
@@ -451,7 +513,8 @@ function updateReadouts() {
 function computeHash() {
   const source = [
     state.frame,
-    state.inputs.map((entry) => `${entry.frame}:${entry.card}:${entry.x}:${entry.y}`).join(","),
+    state.elapsedSeconds.toFixed(2),
+    state.inputs.map((entry) => `${entry.frame}:${entry.time}:${entry.card}:${entry.x}:${entry.y}`).join(","),
     state.towers.map((tower) => `${tower.id}:${Math.round(tower.hp)}`).join(","),
     state.units.map((unit) => `${unit.cardId}:${unit.side}:${Math.round(unit.x)}:${Math.round(unit.y)}:${Math.round(unit.hp)}`).join(",")
   ].join("|");

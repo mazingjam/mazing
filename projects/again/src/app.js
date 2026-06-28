@@ -267,7 +267,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 3,
-    icon: 100,
+    icon: 121,
     statBoosts: [{ stat: "critChance", value: 0.08 }],
   },
   thorn_staff: {
@@ -278,7 +278,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 2,
-    icon: 101,
+    icon: 114,
     statBoosts: [{ stat: "slowChance", value: 0.12 }],
   },
   wolf_pelt: {
@@ -288,7 +288,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 2,
-    icon: 102,
+    icon: 111,
     statBoosts: [{ stat: "hp", value: 8 }, { stat: "evade", value: 0.04 }],
   },
   clockwork_ring: {
@@ -325,7 +325,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 106,
+    icon: 107,
     statBoosts: [{ stat: "critChance", value: 0.1 }],
     uniqueEffect: "Critical hits slow enemies",
   },
@@ -336,7 +336,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 1,
-    icon: 107,
+    icon: 115,
     tags: ["Skeleton", "Death"],
     uniqueEffect: "Skeletons gain +8 HP and +2 power",
   },
@@ -347,7 +347,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 4,
-    icon: 108,
+    icon: 118,
     tags: ["Thorns", "Armor"],
     uniqueEffect: "Gain +5 thorns",
   },
@@ -357,7 +357,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 109,
+    icon: 120,
     tags: ["Execute", "Crit"],
     statBoosts: [{ stat: "critChance", value: 0.08 }],
     uniqueEffect: "Execute damage increased",
@@ -370,7 +370,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 3,
-    icon: 110,
+    icon: 102,
     tags: ["Poison", "Splash"],
     uniqueEffect: "Attacks gain poison chance",
   },
@@ -380,7 +380,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 111,
+    icon: 113,
     tags: ["Slow", "Energy", "Haste"],
     statBoosts: [{ stat: "slowChance", value: 0.08 }],
     uniqueEffect: "Energy gain increased",
@@ -392,7 +392,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 3,
-    icon: 112,
+    icon: 108,
     tags: ["Block", "Counter", "Guard"],
     statBoosts: [{ stat: "block", value: 0.08 }],
     uniqueEffect: "Blocks retaliate",
@@ -403,7 +403,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 113,
+    icon: 116,
     tags: ["Skeleton", "Energy"],
     statBoosts: [{ stat: "slowChance", value: 0.06 }],
     uniqueEffect: "Skeletons attack faster",
@@ -415,7 +415,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 2,
-    icon: 114,
+    icon: 106,
     tags: ["Execute", "Crit"],
     statBoosts: [{ stat: "critChance", value: 0.08 }, { stat: "critDamage", value: 0.2 }],
   },
@@ -427,7 +427,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "melee",
     damage: 3,
-    icon: 115,
+    icon: 110,
     tags: ["Poison", "Crit"],
     statBoosts: [{ stat: "critChance", value: 0.04 }],
     uniqueEffect: "Attacks gain poison chance",
@@ -439,7 +439,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 5,
-    icon: 116,
+    icon: 101,
     tags: ["Armor", "Guard", "Block"],
     statBoosts: [{ stat: "block", value: 0.06 }, { stat: "hp", value: 10 }],
   },
@@ -449,7 +449,7 @@ const itemDefinitions = {
     rarity: "unique",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 117,
+    icon: 122,
     tags: ["Echo", "Energy"],
     statBoosts: [{ stat: "speed", value: 0.08 }],
     uniqueEffect: "Delayed echo improved",
@@ -462,7 +462,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "melee",
     damage: 4,
-    icon: 118,
+    icon: 100,
     tags: ["Freeze", "Slow"],
     statBoosts: [{ stat: "freezeChance", value: 0.08 }, { stat: "slowChance", value: 0.06 }],
   },
@@ -482,7 +482,7 @@ const itemDefinitions = {
     rarity: "magic",
     type: "jewelry",
     slotType: "jewelry",
-    icon: 120,
+    icon: 109,
     tags: ["Speed", "Haste"],
     statBoosts: [{ stat: "speed", value: 0.16 }],
   },
@@ -493,7 +493,7 @@ const itemDefinitions = {
     type: "armor",
     slotType: "armor",
     armor: 2,
-    icon: 121,
+    icon: 112,
     tags: ["Death", "Damage"],
     statBoosts: [{ stat: "damage", value: 2 }, { stat: "armor", value: 1 }],
     uniqueEffect: "Gain power on kill",
@@ -506,7 +506,7 @@ const itemDefinitions = {
     slotType: "weapon",
     attackType: "projectile",
     damage: 4,
-    icon: 122,
+    icon: 117,
     tags: ["Crit", "Precision"],
     statBoosts: [{ stat: "critChance", value: 0.08 }, { stat: "critDamage", value: 0.25 }],
   },
@@ -802,7 +802,7 @@ const PASSIVE_ENERGY_PER_SECOND = 3.8;
 const MAX_SUMMONS = 5;
 const AUTO_RUN_DELAY = 900;
 const AUTO_RUN_LONG_DELAY = 1600;
-const APP_VERSION = "v0.47";
+const APP_VERSION = "v0.48";
 
 const state = loadState();
 let activeRun = null;
@@ -810,6 +810,7 @@ let combatTicker = null;
 let combatWatchdog = null;
 let transitionTimer = null;
 let autoRunTimer = null;
+let isResettingSave = false;
 let selectedUnitId = null;
 let selectedInventoryIndex = null;
 let selectedInspectorSlot = null;
@@ -885,12 +886,14 @@ function loadState() {
 }
 
 function saveState() {
+  if (isResettingSave) return;
   state.activeRun = getPersistableActiveRun();
   state.lastSeenAt = state.lastSeenAt || Date.now();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
 function markLastSeen() {
+  if (isResettingSave) return;
   state.lastSeenAt = Date.now();
   saveState();
 }
@@ -917,6 +920,11 @@ function getPersistableActiveRun() {
 }
 
 function resetSave() {
+  isResettingSave = true;
+  activeRun = null;
+  clearAutoRunTimer();
+  clearCombatTicker();
+  clearTransitionTimer();
   localStorage.removeItem(STORAGE_KEY);
   location.reload();
 }
@@ -962,8 +970,7 @@ function toggleAutoRun() {
   renderAutoRunButton();
   if (state.autoRun) {
     addLog("Auto Run enabled.");
-    if (!activeRun && state.partyHeroes?.length) startEternalOnlyRun();
-    else scheduleAutoRunStep(200);
+    scheduleAutoRunStep(200);
   } else {
     addLog("Auto Run disabled.");
     clearAutoRunTimer();
@@ -1041,12 +1048,8 @@ function applyOfflineCatchUp() {
 
 function runOfflineAutoStep(recap) {
   if (!activeRun) {
-    if (!state.partyHeroes?.length) {
-      recap.stopped = "No Eternal party available.";
-      return false;
-    }
-    activeRun = createEternalOnlyRunData();
-    recap.startedRuns += 1;
+    recap.stopped = "No active run to continue.";
+    return false;
   }
   if (activeRun.phase === "complete") {
     if (activeRun.inheritanceOptions?.length) {
@@ -3110,7 +3113,6 @@ function runAutoStep() {
   autoRunTimer = null;
   if (!state.autoRun) return;
   if (!activeRun) {
-    if (state.partyHeroes?.length) startEternalOnlyRun();
     return;
   }
   if (activeRun.phase === "prep") {
@@ -3255,12 +3257,20 @@ function renderReward() {
 function rewardIconMarkup(reward) {
   if (reward.category === "item") {
     const item = itemDefinitions[reward.id];
-    return `<div class="item-icon" style="${itemIconStyle(item?.icon ?? reward.icon)}"></div>`;
+    return itemIconMarkup(item?.icon ?? reward.icon);
   }
   if (reward.category === "resource") {
-    return `<div class="item-icon" style="${itemIconStyle(reward.icon)}"></div>`;
+    return itemIconMarkup(reward.icon);
   }
-  return `<div class="upgrade-icon upgrade-sprite" style="${upgradeIconStyle(reward.icon)}"></div>`;
+  return upgradeIconMarkup(reward.icon);
+}
+
+function itemIconMarkup(icon) {
+  return `<div class="item-icon" style="${itemIconStyle(icon)}"></div>`;
+}
+
+function upgradeIconMarkup(icon) {
+  return `<div class="upgrade-icon upgrade-sprite" style="${upgradeIconStyle(icon)}"></div>`;
 }
 
 function renderLoot() {
@@ -3288,7 +3298,7 @@ function lootChoiceCard(choice, index) {
   if (choice.kind === "item") return itemLootCard(choice.item, index);
   return `
     <button class="loot-card resource" data-loot-choice="${index}">
-      <div class="item-icon" style="${itemIconStyle(choice.icon)}"></div>
+      ${itemIconMarkup(choice.icon)}
       <div class="loot-card-body">
         <strong>${choice.name}</strong>
         <span>${choice.text}</span>
@@ -3301,7 +3311,7 @@ function itemLootCard(item, index) {
   const matches = getItemBuildMatches(item, activeRun?.hero);
   return `
     <button class="loot-card rarity-${item.rarity} ${matches.length ? "build-match" : ""}" data-loot-choice="${index}">
-      <div class="item-icon" style="${itemIconStyle(item.icon)}"></div>
+      ${itemIconMarkup(item.icon)}
       <div class="loot-card-body">
         <strong>${item.name}</strong>
         <span>${describeItem(item)}</span>
@@ -3364,7 +3374,7 @@ function renderLevelUp() {
       <div class="reward-grid">
         ${options.map((option) => `
           <button class="reward-card" data-stat-upgrade="${option.id}">
-            <div class="upgrade-icon upgrade-sprite" style="${upgradeIconStyle(option.icon)}"></div>
+            ${upgradeIconMarkup(option.icon)}
             <div>
               <span class="tag">${option.type}</span>
               <h3>${option.name}</h3>
@@ -3935,7 +3945,7 @@ function renderComplete() {
           <div class="inheritance-grid">
             ${inheritanceOptions.map((reward) => `
               <button class="inheritance-choice" data-inheritance="${reward.id}">
-                <div class="upgrade-icon upgrade-sprite" style="${upgradeIconStyle(reward.icon)}"></div>
+                ${upgradeIconMarkup(reward.icon)}
                 <h3>${reward.name}</h3>
                 <strong>${reward.summary}</strong>
                 <p>${reward.text}</p>
@@ -4688,8 +4698,9 @@ function itemIconStyle(index) {
 }
 
 function expandedIconStyle(index) {
-  const col = index % 5;
-  const row = Math.floor(index / 5);
+  const safeIndex = Number.isFinite(index) ? Math.max(0, Math.min(24, Math.floor(index))) : 0;
+  const col = safeIndex % 5;
+  const row = Math.floor(safeIndex / 5);
   return `background-size: 500% 500%; background-position: ${col * 25}% ${row * 25}%;`;
 }
 
@@ -4767,12 +4778,14 @@ function getHeroPortraitKey(hero) {
 }
 
 function upgradeIconStyle(index) {
-  if (index >= 100) {
-    const expandedIndex = index - 100;
+  const safeIndex = Number.isFinite(index) ? Math.max(0, Math.floor(index)) : 0;
+  if (safeIndex >= 100) {
+    const expandedIndex = Math.min(24, safeIndex - 100);
     return `background-image: url("assets/expanded-icons.png"); ${expandedIconStyle(expandedIndex)}`;
   }
-  const col = index % 3;
-  const row = Math.floor(index / 3);
+  const baseIndex = safeIndex % 9;
+  const col = baseIndex % 3;
+  const row = Math.floor(baseIndex / 3);
   const pos = [0, 50, 100];
   return `--upgrade-x: ${pos[col]}%; --upgrade-y: ${pos[row]}%;`;
 }

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sunder Archive</title>
+    <meta
+      name="description"
+      content="Remote gallery for Sunder old card images, categories, and design references."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Sunder</p>
+          <h1>Old Card Archive</h1>
+          <p>
+            A browsable reference shelf for the earlier card prototype while the new
+            board-game version takes shape.
+          </p>
+        </div>
+        <div class="stats" aria-label="Archive stats">
+          <strong id="cardCount">76</strong>
+          <span>cards indexed</span>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Card filters">
+        <label>
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Oracle, weapon, green...">
+        </label>
+        <label>
+          <span>Type</span>
+          <select id="typeFilter">
+            <option value="all">All types</option>
+          </select>
+        </label>
+      </section>
+
+      <section id="typeSummary" class="type-summary" aria-label="Type summary"></section>
+
+      <section id="cardGrid" class="card-grid" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
