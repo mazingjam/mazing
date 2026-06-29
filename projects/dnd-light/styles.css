@@ -42,10 +42,10 @@ button {
 .stage {
   position: relative;
   min-height: 0;
-  padding: max(16px, env(safe-area-inset-top)) 16px 16px;
+  padding: max(10px, env(safe-area-inset-top)) 12px 10px;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: 14px;
+  gap: 8px;
   isolation: isolate;
 }
 
@@ -95,7 +95,7 @@ p {
 
 h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 8vw, 4rem);
+  font-size: clamp(1.7rem, 7vw, 3.4rem);
   line-height: 0.95;
 }
 
@@ -124,12 +124,12 @@ h1 {
   display: grid;
   align-content: end;
   justify-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .portrait-frame {
   position: relative;
-  width: min(66svh, 82vw, 470px);
+  width: min(55svh, 76vw, 420px);
   aspect-ratio: 3 / 4;
   border: 0;
   border-radius: 0;
@@ -156,7 +156,7 @@ h1 {
 
 .hero-summary {
   width: min(100%, 560px);
-  padding: 14px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
@@ -165,12 +165,7 @@ h1 {
 
 .hero-summary h2 {
   margin-top: 3px;
-  font-size: 1.35rem;
-}
-
-.hero-summary p {
-  color: var(--muted);
-  line-height: 1.45;
+  font-size: 1.12rem;
 }
 
 .hero-summary #heroKicker {
@@ -188,7 +183,7 @@ h1 {
 
 .sheet-strip article {
   flex: 1;
-  padding: 10px;
+  padding: 7px 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(5, 7, 12, 0.48);
@@ -206,11 +201,11 @@ h1 {
 .sheet-strip strong {
   display: block;
   margin-top: 2px;
-  font-size: 1.2rem;
+  font-size: 1.02rem;
 }
 
 .controls {
-  padding: 10px 14px max(12px, env(safe-area-inset-bottom));
+  padding: 8px 10px max(10px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
   background: var(--panel-strong);
   box-shadow: 0 -24px 70px rgba(0, 0, 0, 0.42);
@@ -223,7 +218,7 @@ h1 {
 }
 
 .tab {
-  min-height: 38px;
+  min-height: 34px;
   border: 0;
   border-radius: 8px;
   color: var(--muted);
@@ -237,16 +232,21 @@ h1 {
 }
 
 .choice-panel {
-  min-height: 94px;
+  min-height: 78px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  margin: 10px 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  margin: 8px 0;
 }
 
 .choice {
-  padding: 10px;
-  text-align: left;
+  min-height: 76px;
+  padding: 5px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  text-align: center;
 }
 
 .choice.is-selected {
@@ -259,11 +259,35 @@ h1 {
   display: block;
 }
 
-.choice span {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.25;
+.choice strong {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 0.78rem;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.choice-thumb {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.choice-thumb img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.choice-thumb.is-swatch {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: radial-gradient(circle, var(--swatch), rgba(255, 255, 255, 0.08) 68%);
 }
 
 .primary-button,
@@ -278,7 +302,7 @@ h1 {
 
 @media (min-width: 800px) {
   .app {
-    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-columns: minmax(0, 1fr) 340px;
     grid-template-rows: 100svh;
   }
 
@@ -291,11 +315,25 @@ h1 {
 
   .tabs,
   .choice-panel {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .choice-panel {
     align-content: start;
     overflow: auto;
+  }
+}
+
+@media (max-height: 760px) {
+  .portrait-frame {
+    width: min(46svh, 68vw, 360px);
+  }
+
+  .hero-summary {
+    padding: 8px 10px;
+  }
+
+  .sheet-strip {
+    display: none;
   }
 }

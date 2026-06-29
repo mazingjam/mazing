@@ -67,9 +67,9 @@ const options = {
   ],
 };
 
-const panels = ["race", "gender", "class", "color"];
+const panels = ["gender", "race", "class", "color"];
 const state = {
-  panel: "race",
+  panel: "gender",
   race: "human",
   gender: "female",
   class: "fighter",
@@ -81,7 +81,6 @@ const portraitImage = document.querySelector("#portraitImage");
 const colorAura = document.querySelector("#colorAura");
 const heroKicker = document.querySelector("#heroKicker");
 const heroName = document.querySelector("#heroName");
-const heroDescription = document.querySelector("#heroDescription");
 const heartStat = document.querySelector("#heartStat");
 const actionStat = document.querySelector("#actionStat");
 const luckStat = document.querySelector("#luckStat");
@@ -100,13 +99,39 @@ function renderChoices() {
     button.className = "choice";
     button.type = "button";
     button.classList.toggle("is-selected", item.id === state[state.panel]);
-    button.innerHTML = `<strong>${item.label}</strong><span>${item.detail}</span>`;
+    button.append(choiceThumb(state.panel, item), choiceLabel(item.label));
     button.addEventListener("click", () => {
       state[state.panel] = item.id;
       render();
     });
     choicePanel.append(button);
   });
+}
+
+function choiceLabel(label) {
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+  return strong;
+}
+
+function choiceThumb(kind, item) {
+  const thumb = document.createElement("span");
+  thumb.className = "choice-thumb";
+
+  if (kind === "color") {
+    thumb.classList.add("is-swatch");
+    thumb.style.setProperty("--swatch", item.aura);
+    return thumb;
+  }
+
+  const race = kind === "race" ? item.id : state.race;
+  const heroClass = kind === "class" ? item.id : state.class;
+  const gender = kind === "gender" ? item.id : state.gender;
+  const image = document.createElement("img");
+  image.src = `assets/images/characters/${race}-${heroClass}-${gender}.png`;
+  image.alt = "";
+  thumb.append(image);
+  return thumb;
 }
 
 function totalStats() {
@@ -130,7 +155,6 @@ function renderHero() {
   colorAura.style.setProperty("--aura", color.aura);
   heroKicker.textContent = `${race.label} ${gender.label} ${heroClass.label}`;
   heroName.textContent = heroClass.name;
-  heroDescription.textContent = `${race.detail} ${heroClass.detail} ${color.detail}`;
   heartStat.textContent = stats.heart;
   actionStat.textContent = stats.action;
   luckStat.textContent = stats.luck;
