@@ -350,9 +350,9 @@ const locationScenarios = {
       en: "A bell rings under the fog. A lost trader, a pickpocket crew, and a missing parcel all pull at the party at once.",
       sv: "En klocka ringer under dimman. En vilse handelsman, ficktjuvar och ett saknat paket drar i gruppen samtidigt.",
     },
-    fight: { enemy: { en: "Coin-Shield Bandits", sv: "Myntsköldsbanditer" }, hp: 14, power: 4, rewardGold: 3, rewardItem: "bladeToken" },
-    trade: { title: { en: "Trade for a fog pass", sv: "Byt till er ett dimpass" }, wants: ["compass", "sealedLetter", "traderSeal"], rewardGold: 2, rewardItem: "courierToken" },
-    help: { target: { en: "the blue-hatted courier with the yellow note", sv: "kuriren med blå hatt och gul lapp" }, image: "assets/images/adventure/search/mistmarket-search.png", x: 58, y: 42, rewardItem: "sealedLetter" },
+    fight: { action: { en: "Drive off the coin-shield bandits", sv: "Driv bort myntsköldsbanditerna" }, enemy: { en: "Coin-Shield Bandits", sv: "Myntsköldsbanditer" }, hp: 14, power: 4, rewardGold: 3, rewardItem: "bladeToken" },
+    trade: { action: { en: "Trade for a fog pass", sv: "Byt till er ett dimpass" }, title: { en: "Trade for a fog pass", sv: "Byt till er ett dimpass" }, wants: ["compass", "sealedLetter", "traderSeal"], rewardGold: 2, rewardItem: "courierToken" },
+    help: { action: { en: "Find the courier badge in the crowd", sv: "Hitta kurirmärket i vimlet" }, target: { en: "the blue courier badge with the yellow note", sv: "det blå kurirmärket med gul lapp" }, image: "assets/images/adventure/search/mistmarket-search.png", x: 58, y: 42, rewardItem: "sealedLetter" },
   },
   emberwild: {
     title: { en: "Roots glow under ash leaves", sv: "Rötter glöder under asklöv" },
@@ -360,9 +360,9 @@ const locationScenarios = {
       en: "The forest path splits around a smoldering shrine. Something hungry circles while a woodcarver begs for help.",
       sv: "Skogsstigen delar sig runt ett pyrande altare. Något hungrigt cirklar medan en träsnidare ber om hjälp.",
     },
-    fight: { enemy: { en: "Ash Prowler", sv: "Askstrykare" }, hp: 16, power: 5, rewardGold: 1, rewardItem: "warmScale" },
-    trade: { title: { en: "Offer proof to the shrine", sv: "Ge altaret ett bevis" }, wants: ["rootKey", "warmScale", "runeKey"], rewardGold: 2, rewardItem: "brightPotion" },
-    help: { target: { en: "the glowing root knot under the path", sv: "den lysande rotknuten under stigen" }, image: "assets/images/adventure/search/emberwild-search.png", x: 38, y: 55, rewardItem: "rootKey" },
+    fight: { action: { en: "Hold the ash prowler at the shrine", sv: "Håll askstrykaren borta från altaret" }, enemy: { en: "Ash Prowler", sv: "Askstrykare" }, hp: 16, power: 5, rewardGold: 1, rewardItem: "warmScale" },
+    trade: { action: { en: "Offer proof to the root shrine", sv: "Ge rotaltaret ett bevis" }, title: { en: "Offer proof to the shrine", sv: "Ge altaret ett bevis" }, wants: ["rootKey", "warmScale", "runeKey"], rewardGold: 2, rewardItem: "brightPotion" },
+    help: { action: { en: "Find the glowing root knot", sv: "Hitta den lysande rotknuten" }, target: { en: "the glowing root knot under the path", sv: "den lysande rotknuten under stigen" }, image: "assets/images/adventure/search/emberwild-search.png", x: 38, y: 55, rewardItem: "rootKey" },
   },
   sunspire: {
     title: { en: "Banners snap in the high wind", sv: "Fanor slår i högvinden" },
@@ -370,9 +370,9 @@ const locationScenarios = {
       en: "A captain needs volunteers. A noble wants a quiet deal. A messenger vanished in the festival crowd.",
       sv: "En kapten behöver frivilliga. En adlig vill göra en tyst affär. En budbärare har försvunnit i festivalen.",
     },
-    fight: { enemy: { en: "Training Yard Champion", sv: "Övningsgårdens mästare" }, hp: 18, power: 5, rewardGold: 3, rewardItem: "crownCharm" },
-    trade: { title: { en: "Negotiate with the noble", sv: "Förhandla med den adliga" }, wants: ["crownCharm", "sealedLetter", "dragonClue"], rewardGold: 4, rewardItem: "traderSeal" },
-    help: { target: { en: "the yellow fruit cart in the square", sv: "den gula fruktvagnen på torget" }, image: "assets/images/adventure/search/sunspire-search.png", x: 47, y: 35, rewardItem: "crownCharm" },
+    fight: { action: { en: "Challenge the training-yard champion", sv: "Utmana övningsgårdens mästare" }, enemy: { en: "Training Yard Champion", sv: "Övningsgårdens mästare" }, hp: 18, power: 5, rewardGold: 3, rewardItem: "crownCharm" },
+    trade: { action: { en: "Negotiate with the banner noble", sv: "Förhandla med fanadeln" }, title: { en: "Negotiate with the noble", sv: "Förhandla med den adliga" }, wants: ["crownCharm", "sealedLetter", "dragonClue"], rewardGold: 4, rewardItem: "traderSeal" },
+    help: { action: { en: "Find the tiny golden sun banner", sv: "Hitta den lilla gyllene solfanan" }, target: { en: "the tiny golden sun banner", sv: "den lilla gyllene solfanan" }, image: "assets/images/adventure/search/sunspire-search.png", x: 47, y: 35, rewardItem: "crownCharm" },
   },
   mirrorwake: {
     title: { en: "The lake reflects the wrong sky", sv: "Sjön speglar fel himmel" },
@@ -380,9 +380,9 @@ const locationScenarios = {
       en: "A silver ripple shows three futures: a fight at the pier, a bargain with a boatman, or a search beneath mirrored reeds.",
       sv: "En silvervåg visar tre framtider: strid vid bryggan, handel med en färjkarl eller sökande bland spegelvass.",
     },
-    fight: { enemy: { en: "Glassfin Eel", sv: "Glasfensål" }, hp: 15, power: 6, rewardGold: 2, rewardItem: "runeKey" },
-    trade: { title: { en: "Pay the mirror boatman", sv: "Betala spegelfärjkarlen" }, wants: ["runeKey", "courierToken", "compass"], rewardGold: 1, rewardItem: "dragonClue" },
-    help: { target: { en: "the small purple crystal in the water", sv: "den lilla lila kristallen i vattnet" }, image: "assets/images/adventure/search/mirrorwake-search.png", x: 63, y: 62, rewardItem: "runeKey" },
+    fight: { action: { en: "Fight the glassfin eel at the pier", sv: "Strid mot glasfensålen vid bryggan" }, enemy: { en: "Glassfin Eel", sv: "Glasfensål" }, hp: 15, power: 6, rewardGold: 2, rewardItem: "runeKey" },
+    trade: { action: { en: "Pay the mirror boatman for a crossing", sv: "Betala spegelfärjkarlen för överfart" }, title: { en: "Pay the mirror boatman", sv: "Betala spegelfärjkarlen" }, wants: ["runeKey", "courierToken", "compass"], rewardGold: 1, rewardItem: "dragonClue" },
+    help: { action: { en: "Find the small purple crystal", sv: "Hitta den lilla lila kristallen" }, target: { en: "the small purple crystal in the water", sv: "den lilla lila kristallen i vattnet" }, image: "assets/images/adventure/search/mirrorwake-search.png", x: 63, y: 62, rewardItem: "runeKey" },
   },
   stormcrown: {
     title: { en: "Thunder walks the pass", sv: "Åskan vandrar passet" },
@@ -390,9 +390,9 @@ const locationScenarios = {
       en: "The climb turns dangerous. A frost brute blocks the ridge, a miner trades maps, and a rescue signal flickers in the snow.",
       sv: "Klättringen blir farlig. Ett frostvidunder spärrar kammen, en gruvarbetare byter kartor och en nödsignal blinkar i snön.",
     },
-    fight: { enemy: { en: "Frost Brute", sv: "Frostbest" }, hp: 20, power: 6, rewardGold: 4, rewardItem: "warmScale" },
-    trade: { title: { en: "Trade for a safer ledge", sv: "Byt till er en säkrare avsats" }, wants: ["banditMap", "warmScale", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
-    help: { target: { en: "the red rescue flag in the snow", sv: "den röda nödflaggan i snön" }, image: "assets/images/adventure/search/stormcrown-search.png", x: 42, y: 47, rewardItem: "compass" },
+    fight: { action: { en: "Push past the frost brute", sv: "Pressa er förbi frostbesten" }, enemy: { en: "Frost Brute", sv: "Frostbest" }, hp: 20, power: 6, rewardGold: 4, rewardItem: "warmScale" },
+    trade: { action: { en: "Trade for a safer ledge route", sv: "Byt till er en säkrare avsatsväg" }, title: { en: "Trade for a safer ledge", sv: "Byt till er en säkrare avsats" }, wants: ["banditMap", "warmScale", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
+    help: { action: { en: "Find the red rescue flag", sv: "Hitta den röda nödflaggan" }, target: { en: "the red rescue flag in the snow", sv: "den röda nödflaggan i snön" }, image: "assets/images/adventure/search/stormcrown-search.png", x: 42, y: 47, rewardItem: "compass" },
   },
   harborbell: {
     title: { en: "Ships ring the bright bay", sv: "Skeppsklockor fyller viken" },
@@ -400,9 +400,9 @@ const locationScenarios = {
       en: "Dock guards argue with smugglers while a tide chest vanishes under coils of rope.",
       sv: "Hamnvakter grälar med smugglare medan en tidvattenkista försvinner bland repen.",
     },
-    fight: { enemy: { en: "Dock Smugglers", sv: "Hamnsugglare" }, hp: 17, power: 5, rewardGold: 3, rewardItem: "banditMap" },
-    trade: { title: { en: "Trade at the rope stall", sv: "Handla vid repståndet" }, wants: ["sealedLetter", "banditMap", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
-    help: { target: { en: "the bronze pearl between the boats", sv: "den bronsfärgade pärlan mellan båtarna" }, image: "assets/images/adventure/search/harborbell-search.png", x: 54, y: 69, rewardItem: "traderSeal" },
+    fight: { action: { en: "Break up the dock smugglers", sv: "Stoppa hamnsmugglarna" }, enemy: { en: "Dock Smugglers", sv: "Hamnsugglare" }, hp: 17, power: 5, rewardGold: 3, rewardItem: "banditMap" },
+    trade: { action: { en: "Trade quietly at the rope stall", sv: "Handla diskret vid repståndet" }, title: { en: "Trade at the rope stall", sv: "Handla vid repståndet" }, wants: ["sealedLetter", "banditMap", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
+    help: { action: { en: "Find the bronze pearl between boats", sv: "Hitta bronspärlan mellan båtarna" }, target: { en: "the bronze pearl between the boats", sv: "den bronsfärgade pärlan mellan båtarna" }, image: "assets/images/adventure/search/harborbell-search.png", x: 54, y: 69, rewardItem: "traderSeal" },
   },
   starfall: {
     title: { en: "A crystal star hums in the ruin", sv: "En kristallstjärna nynnar i ruinen" },
@@ -410,9 +410,9 @@ const locationScenarios = {
       en: "The observatory doors open to a restless guardian, a strange collector, and a hidden shard nobody else can see.",
       sv: "Observatoriets dörrar öppnar mot en rastlös väktare, en märklig samlare och en dold skärva som ingen annan ser.",
     },
-    fight: { enemy: { en: "Star Guardian", sv: "Stjärnväktare" }, hp: 22, power: 7, rewardGold: 5, rewardItem: "dragonClue" },
-    trade: { title: { en: "Trade with the shard collector", sv: "Handla med skärvsamlaren" }, wants: ["dragonClue", "runeKey", "crownCharm"], rewardGold: 4, rewardItem: "rootKey" },
-    help: { target: { en: "the fallen star shard", sv: "den fallna stjärnskärvan" }, image: "assets/images/adventure/search/starfall-search.png", x: 51, y: 52, rewardItem: "dragonClue" },
+    fight: { action: { en: "Face the restless star guardian", sv: "Möt den rastlösa stjärnväktaren" }, enemy: { en: "Star Guardian", sv: "Stjärnväktare" }, hp: 22, power: 7, rewardGold: 5, rewardItem: "dragonClue" },
+    trade: { action: { en: "Trade with the shard collector", sv: "Handla med skärvsamlaren" }, title: { en: "Trade with the shard collector", sv: "Handla med skärvsamlaren" }, wants: ["dragonClue", "runeKey", "crownCharm"], rewardGold: 4, rewardItem: "rootKey" },
+    help: { action: { en: "Find the fallen star shard", sv: "Hitta den fallna stjärnskärvan" }, target: { en: "the fallen star shard", sv: "den fallna stjärnskärvan" }, image: "assets/images/adventure/search/starfall-search.png", x: 51, y: 52, rewardItem: "dragonClue" },
   },
 };
 
@@ -528,6 +528,7 @@ const state = {
   unlocked: loadJson("dnd-light-unlocked", startUnlocked),
   adventureView: "party",
   location: "first-marker",
+  locationPhase: "intro",
   encounterIndex: 0,
   encounterResult: "",
   minigame: "",
@@ -558,6 +559,7 @@ const els = {
   adventureBg: document.querySelector("#adventureBg"),
   adventureTitle: document.querySelector("#adventureTitle"),
   adventureParty: document.querySelector("#adventureParty"),
+  adventurePanel: document.querySelector(".adventure-panel"),
   adventureSummary: document.querySelector("#adventureSummary"),
   partyGold: document.querySelector("#partyGold"),
   partyItemCount: document.querySelector("#partyItemCount"),
@@ -567,9 +569,12 @@ const els = {
   mapView: document.querySelector("#mapView"),
   locationView: document.querySelector("#locationView"),
   mapPoints: document.querySelector("#mapPoints"),
+  locationCard: document.querySelector("#locationCard"),
   locationType: document.querySelector("#locationType"),
   locationName: document.querySelector("#locationName"),
   locationDescription: document.querySelector("#locationDescription"),
+  locationBackButton: document.querySelector("#locationBackButton"),
+  locationContinueButton: document.querySelector("#locationContinueButton"),
   encounterCard: document.querySelector("#encounterCard"),
   encounterKind: document.querySelector("#encounterKind"),
   encounterTitle: document.querySelector("#encounterTitle"),
@@ -917,10 +922,12 @@ function travelTo(locationId) {
   stopBattle();
   state.location = locationId;
   state.adventureView = locationId === "first-marker" ? "map" : "location";
+  state.locationPhase = "intro";
   state.encounterIndex = 0;
   state.encounterResult = "";
   state.minigame = "";
   state.battle = null;
+  state.outcome = null;
   if (state.unlocked.length <= startUnlocked.length) {
     state.unlocked = [...new Set([...state.unlocked, ...locations.filter((location) => location.id !== "first-marker").map((location) => location.id)])];
     saveProgress();
@@ -970,6 +977,7 @@ function resetMinigame() {
   state.minigame = "";
   state.battle = null;
   state.outcome = null;
+  state.locationPhase = "encounter";
   state.encounterResult = "";
   saveProgress();
   renderAdventure();
@@ -1020,6 +1028,21 @@ function continueOutcome() {
   state.battle = null;
   state.encounterResult = "";
   state.adventureView = "map";
+  state.locationPhase = "intro";
+  saveProgress();
+  renderAdventure();
+}
+
+function showLocationEncounter() {
+  state.locationPhase = "encounter";
+  state.encounterResult = "";
+  saveProgress();
+  renderAdventure();
+}
+
+function backFromLocationIntro() {
+  state.adventureView = "map";
+  state.locationPhase = "intro";
   saveProgress();
   renderAdventure();
 }
@@ -1170,12 +1193,19 @@ function renderAdventure() {
 
   const title = partyMode ? t("firstMarker") : mapMode ? "Brightreach" : local(location.name);
   const image = partyMode ? "assets/images/adventure/party-road.png" : mapMode ? "assets/images/adventure/fantasyland-map-portrait.png" : location.image;
-  const summary = partyMode ? `${state.party.length} ${t("ready")}` : mapMode ? t("chooseRoad") : local(location.description);
+  const summary = partyMode
+    ? `${state.party.length} ${t("ready")}`
+    : mapMode
+      ? t("chooseRoad")
+      : state.locationPhase === "intro"
+        ? ""
+        : local(currentEncounter()?.title ?? location.description);
 
   adventureTabs.forEach((tab) => tab.classList.toggle("is-active", tab.dataset.adventureView === state.adventureView));
   els.partyView.hidden = !partyMode;
   els.mapView.hidden = !mapMode;
   els.locationView.hidden = !locationMode;
+  els.adventurePanel.hidden = locationMode;
   els.adventureTitle.textContent = title;
   els.adventureBg.src = image;
   els.adventureSummary.textContent = summary;
@@ -1273,7 +1303,11 @@ function renderLocation(location) {
 
   const encounter = currentEncounter();
   const showingOutcome = Boolean(state.outcome);
-  els.encounterCard.hidden = Boolean(state.minigame) || showingOutcome;
+  const showingIntro = state.locationPhase === "intro" && !showingOutcome && !state.minigame;
+  els.locationCard.hidden = !showingIntro;
+  els.locationBackButton.hidden = !showingIntro;
+  els.locationContinueButton.hidden = !showingIntro;
+  els.encounterCard.hidden = showingIntro || Boolean(state.minigame) || showingOutcome;
   els.fightPanel.hidden = showingOutcome || state.minigame !== "fight";
   els.tradePanel.hidden = showingOutcome || state.minigame !== "trade";
   els.helpPanel.hidden = showingOutcome || state.minigame !== "help";
@@ -1295,14 +1329,18 @@ function renderLocation(location) {
   els.encounterResult.textContent = state.encounterResult;
   els.encounterChoices.innerHTML = "";
   [
-    { key: "fight", label: t("fight") },
-    { key: "trade", label: t("trade") },
-    { key: "help", label: t("help") },
+    { key: "fight", icon: "SW", label: local(encounter.fight.action) },
+    { key: "trade", icon: "CO", label: local(encounter.trade.action) },
+    { key: "help", icon: "SE", label: local(encounter.help.action) },
   ].forEach((choice) => {
     const button = document.createElement("button");
     button.className = "encounter-choice";
     button.type = "button";
-    button.textContent = choice.label;
+    const icon = document.createElement("span");
+    icon.textContent = choice.icon;
+    const label = document.createElement("strong");
+    label.textContent = choice.label;
+    button.append(icon, label);
     button.addEventListener("click", () => startMinigame(choice.key));
     els.encounterChoices.append(button);
   });
@@ -1423,6 +1461,8 @@ document.querySelector("#randomButton").addEventListener("click", randomize);
 els.saveHeroButton.addEventListener("click", addCurrentHero);
 els.startAdventureButton.addEventListener("click", startAdventure);
 els.resetButton.addEventListener("click", resetGame);
+els.locationBackButton.addEventListener("click", backFromLocationIntro);
+els.locationContinueButton.addEventListener("click", showLocationEncounter);
 document.querySelector("#backToCreatorButton").addEventListener("click", backToCreator);
 adventureTabs.forEach((tab) => tab.addEventListener("click", () => setAdventureView(tab.dataset.adventureView)));
 els.itemPopupClose.addEventListener("click", closeItemPopup);
