@@ -45,6 +45,8 @@ const text = {
     searchFor: "Find",
     found: "Found",
     bargain: "Bargain",
+    searching: "Tap the scene to search.",
+    notThere: "Not there. Try another busy detail.",
   },
   sv: {
     chooseLanguage: "Välj språk",
@@ -92,6 +94,8 @@ const text = {
     searchFor: "Hitta",
     found: "Hittad",
     bargain: "Förhandla",
+    searching: "Tryck i scenen för att leta.",
+    notThere: "Inte där. Prova en annan detalj.",
   },
 };
 
@@ -558,6 +562,7 @@ const els = {
   locationType: document.querySelector("#locationType"),
   locationName: document.querySelector("#locationName"),
   locationDescription: document.querySelector("#locationDescription"),
+  encounterCard: document.querySelector("#encounterCard"),
   encounterKind: document.querySelector("#encounterKind"),
   encounterTitle: document.querySelector("#encounterTitle"),
   encounterText: document.querySelector("#encounterText"),
@@ -573,6 +578,7 @@ const els = {
   tradeItems: document.querySelector("#tradeItems"),
   tradeResult: document.querySelector("#tradeResult"),
   helpPanel: document.querySelector("#helpPanel"),
+  searchScene: document.querySelector("#searchScene"),
   searchTarget: document.querySelector("#searchTarget"),
   searchImage: document.querySelector("#searchImage"),
   searchHotspot: document.querySelector("#searchHotspot"),
@@ -922,9 +928,18 @@ function startMinigame(type) {
   if (!scenario) return;
   stopBattle();
   state.minigame = type;
-  state.encounterResult = "";
+  state.encounterResult = type === "help" ? t("searching") : "";
   if (type === "fight") startBattle(scenario.fight);
   if (type !== "fight") state.battle = null;
+  saveProgress();
+  renderAdventure();
+}
+
+function resetMinigame() {
+  stopBattle();
+  state.minigame = "";
+  state.battle = null;
+  state.encounterResult = "";
   saveProgress();
   renderAdventure();
 }
@@ -1052,6 +1067,12 @@ function completeHelp() {
   renderAdventure();
 }
 
+function missHelpTarget() {
+  if (state.minigame !== "help") return;
+  state.encounterResult = t("notThere");
+  renderHelp();
+}
+
 function renderAdventure() {
   const location = selectedLocation();
   const locationMode = state.adventureView === "location";
@@ -1162,10 +1183,12 @@ function renderLocation(location) {
   els.locationDescription.textContent = local(location.description);
 
   const encounter = currentEncounter();
+  els.encounterCard.hidden = Boolean(state.minigame);
   els.fightPanel.hidden = state.minigame !== "fight";
   els.tradePanel.hidden = state.minigame !== "trade";
   els.helpPanel.hidden = state.minigame !== "help";
   if (!encounter || location.id === "first-marker") {
+    els.encounterCard.hidden = false;
     els.encounterKind.textContent = "";
     els.encounterTitle.textContent = t("noEncounter");
     els.encounterText.textContent = "";
@@ -1212,7 +1235,14 @@ function renderBattle() {
     row.textContent = line;
     els.battleLog.append(row);
   });
-  renderItemActions(els.combatItems, itemsWithTag("combat"), useCombatItem);
+  if (battle.done) {
+    els.combatItems.innerHTML = "";
+    const done = document.createElement("p");
+    done.textContent = state.language === "sv" ? "Striden är avslutad." : "The battle is over.";
+    els.combatItems.append(done);
+  } else {
+    renderItemActions(els.combatItems, itemsWithTag("combat"), useCombatItem);
+  }
 }
 
 function renderTrade() {
@@ -1240,11 +1270,13 @@ function renderTrade() {
 function renderHelp() {
   const scenario = currentEncounter();
   if (!scenario) return;
+  const found = state.completedHelp.includes(`${state.location}:help`);
   els.searchTarget.textContent = `${t("searchFor")}: ${local(scenario.help.target)}`;
   els.searchImage.src = scenario.help.image;
   els.searchImage.alt = local(scenario.help.target);
   els.searchHotspot.style.left = `${scenario.help.x}%`;
   els.searchHotspot.style.top = `${scenario.help.y}%`;
+  els.searchScene.classList.toggle("is-found", found);
   els.helpResult.textContent = state.minigame === "help" ? state.encounterResult : "";
 }
 
@@ -1292,6 +1324,11 @@ els.startAdventureButton.addEventListener("click", startAdventure);
 document.querySelector("#backToCreatorButton").addEventListener("click", backToCreator);
 adventureTabs.forEach((tab) => tab.addEventListener("click", () => setAdventureView(tab.dataset.adventureView)));
 els.itemPopupClose.addEventListener("click", closeItemPopup);
-els.searchHotspot.addEventListener("click", completeHelp);
+document.querySelectorAll("[data-minigame-back]").forEach((button) => button.addEventListener("click", resetMinigame));
+els.searchScene.addEventListener("click", missHelpTarget);
+els.searchHotspot.addEventListener("click", (event) => {
+  event.stopPropagation();
+  completeHelp();
+});
 
 render();
