@@ -129,6 +129,13 @@
               <strong id="partyItemCount">0</strong>
             </article>
           </div>
+          <section class="inventory-panel" aria-label="Inventory">
+            <div class="party-heading">
+              <strong data-i18n="inventory">Inventory</strong>
+              <span id="inventoryHint">Tap for info</span>
+            </div>
+            <div id="inventoryGrid" class="inventory-grid"></div>
+          </section>
           <div id="adventureParty" class="adventure-lineup"></div>
         </section>
 
@@ -152,11 +159,49 @@
             <div id="encounterChoices" class="encounter-choices"></div>
             <p id="encounterResult" class="encounter-result"></p>
           </article>
+          <article id="fightPanel" class="minigame-panel" hidden>
+            <div class="minigame-head">
+              <p class="eyebrow" data-i18n="autobattle">Autobattle</p>
+              <strong id="battleStats">Party vs Enemy</strong>
+            </div>
+            <div id="battleLog" class="battle-log"></div>
+            <div class="minigame-actions">
+              <p data-i18n="combatItems">Combat items</p>
+              <div id="combatItems" class="item-action-grid"></div>
+            </div>
+          </article>
+          <article id="tradePanel" class="minigame-panel" hidden>
+            <div class="minigame-head">
+              <p class="eyebrow" data-i18n="trade">Trade</p>
+              <strong id="tradeTitle">Make a deal</strong>
+            </div>
+            <p id="tradeText"></p>
+            <div id="tradeItems" class="item-action-grid"></div>
+            <p id="tradeResult" class="encounter-result"></p>
+          </article>
+          <article id="helpPanel" class="minigame-panel" hidden>
+            <div class="minigame-head">
+              <p class="eyebrow" data-i18n="help">Help</p>
+              <strong id="searchTarget">Find the hidden thing</strong>
+            </div>
+            <div id="searchScene" class="search-scene">
+              <img id="searchImage" src="" alt="">
+              <button id="searchHotspot" class="search-hotspot" type="button" aria-label="Search target"></button>
+            </div>
+            <p id="helpResult" class="encounter-result"></p>
+          </article>
         </section>
 
         <footer class="adventure-panel">
           <p id="adventureSummary">Your party gathers at the first marker.</p>
         </footer>
+
+        <div id="itemPopup" class="item-popup" hidden>
+          <button id="itemPopupClose" class="icon-button" type="button" aria-label="Close">x</button>
+          <span id="itemPopupIcon" class="item-icon">IT</span>
+          <h2 id="itemPopupTitle">Item</h2>
+          <p id="itemPopupText"></p>
+        </div>
       </section>
     </main>
 

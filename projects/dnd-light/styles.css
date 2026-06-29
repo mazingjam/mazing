@@ -453,6 +453,62 @@ h1 {
   font-size: 1.4rem;
 }
 
+.inventory-panel {
+  align-self: start;
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+}
+
+.inventory-grid,
+.item-action-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.inventory-item,
+.item-action {
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  gap: 3px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(255, 246, 226, 0.1);
+  font-weight: 900;
+}
+
+.inventory-item span,
+.item-action span,
+.item-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #160f08;
+  background: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 950;
+}
+
+.inventory-item small,
+.item-action small {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.56rem;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .primary-button,
 .secondary-button {
   flex: 1;
@@ -533,6 +589,8 @@ h1 {
 
 .adventure-party {
   display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 10px;
   align-items: end;
 }
 
@@ -674,6 +732,8 @@ h1 {
   display: grid;
   align-items: end;
   gap: 10px;
+  overflow: auto;
+  padding-bottom: 2px;
 }
 
 .location-card,
@@ -727,6 +787,115 @@ h1 {
 .encounter-result {
   margin-top: 10px;
   color: var(--gold) !important;
+}
+
+.minigame-panel {
+  width: min(100%, 540px);
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(12, 10, 10, 0.78);
+  backdrop-filter: blur(16px);
+}
+
+.minigame-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.minigame-head strong {
+  text-align: right;
+}
+
+.battle-log {
+  display: grid;
+  gap: 6px;
+  max-height: 150px;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.battle-log p,
+.minigame-actions p,
+#tradeText {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 760;
+}
+
+.minigame-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.search-scene {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.search-scene img {
+  width: 100%;
+  display: block;
+}
+
+.search-hotspot {
+  position: absolute;
+  width: 15%;
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(233, 185, 93, 0.02);
+  transform: translate(-50%, -50%);
+}
+
+.search-hotspot:focus-visible {
+  border-color: var(--gold);
+  outline: 0;
+  background: rgba(233, 185, 93, 0.16);
+}
+
+.item-popup {
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 40;
+  width: min(calc(100% - 28px), 420px);
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(14, 12, 12, 0.96);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.54);
+  transform: translateX(-50%);
+}
+
+.item-popup .icon-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  min-height: 34px;
+  height: 34px;
+  font-size: 0.9rem;
+}
+
+.item-popup h2 {
+  margin: 10px 42px 6px 0;
+}
+
+.item-popup p {
+  color: var(--muted);
+  font-weight: 760;
 }
 
 .adventure-panel {
