@@ -74,7 +74,7 @@ const locations = [
     type: "Town",
     image: "assets/images/adventure/sunspire-town.png",
     x: 50,
-    y: 34,
+    y: 42,
     description: "A bright hill town of banners, warm stone, and roadward towers.",
   },
   {
@@ -82,8 +82,8 @@ const locations = [
     name: "Mistmarket",
     type: "Town",
     image: "assets/images/adventure/mistmarket-town.png",
-    x: 24,
-    y: 42,
+    x: 16,
+    y: 50,
     description: "A riverside market where lanterns burn through morning fog.",
   },
   {
@@ -91,8 +91,8 @@ const locations = [
     name: "Harborbell",
     type: "Town",
     image: "assets/images/adventure/harborbell-town.png",
-    x: 25,
-    y: 74,
+    x: 82,
+    y: 70,
     description: "A cliffside harbor town where bright sails ring the bay.",
   },
   {
@@ -100,8 +100,8 @@ const locations = [
     name: "Stormcrown Peak",
     type: "Mountain",
     image: "assets/images/adventure/stormcrown-mountain.png",
-    x: 48,
-    y: 17,
+    x: 50,
+    y: 25,
     description: "A crystal mountain pass under rolling thunder and clean snow.",
   },
   {
@@ -109,8 +109,8 @@ const locations = [
     name: "Mirrorwake Lake",
     type: "Lake",
     image: "assets/images/adventure/mirrorwake-lake.png",
-    x: 59,
-    y: 65,
+    x: 28,
+    y: 57,
     description: "A clear magical lake reflecting lights that are not in the sky.",
   },
   {
@@ -118,8 +118,8 @@ const locations = [
     name: "Emberwild",
     type: "Forest",
     image: "assets/images/adventure/emberwild-forest.png",
-    x: 85,
-    y: 48,
+    x: 20,
+    y: 35,
     description: "A strange warm forest of red leaves, giant flowers, and hidden paths.",
   },
   {
@@ -127,8 +127,8 @@ const locations = [
     name: "Starfall Ruins",
     type: "Ruins",
     image: "assets/images/adventure/starfall-ruins.png",
-    x: 76,
-    y: 80,
+    x: 86,
+    y: 40,
     description: "An overgrown observatory built around a fallen crystal star.",
   },
 ];
@@ -376,7 +376,7 @@ function renderAdventure() {
     },
     map: {
       title: "Brightreach",
-      image: "assets/images/adventure/fantasyland-map.png",
+      image: "assets/images/adventure/fantasyland-map-wide.png",
       summary: "Choose a place on the map to travel there.",
     },
     location: {
