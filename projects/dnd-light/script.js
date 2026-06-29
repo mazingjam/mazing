@@ -68,12 +68,14 @@ const options = {
 };
 
 const panels = ["gender", "style", "race", "class"];
+const maxPartySize = 4;
 const state = {
   panel: "gender",
   race: "human",
   gender: "female",
   class: "fighter",
   style: "ember",
+  party: loadParty(),
 };
 
 const choicePanel = document.querySelector("#choicePanel");
@@ -81,13 +83,40 @@ const portraitImage = document.querySelector("#portraitImage");
 const styleAura = document.querySelector("#styleAura");
 const heroKicker = document.querySelector("#heroKicker");
 const heroName = document.querySelector("#heroName");
+const characterName = document.querySelector("#characterName");
 const heartStat = document.querySelector("#heartStat");
 const actionStat = document.querySelector("#actionStat");
 const luckStat = document.querySelector("#luckStat");
+const partyCount = document.querySelector("#partyCount");
+const partySlots = document.querySelector("#partySlots");
+const saveHeroButton = document.querySelector("#saveHeroButton");
+const startAdventureButton = document.querySelector("#startAdventureButton");
+const creatorStage = document.querySelector("#creatorStage");
+const creatorControls = document.querySelector("#creatorControls");
+const adventureStage = document.querySelector("#adventureStage");
+const adventureParty = document.querySelector("#adventureParty");
+const adventureSummary = document.querySelector("#adventureSummary");
 const tabs = [...document.querySelectorAll(".tab")];
+
+function loadParty() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("dnd-light-party") ?? "[]");
+    return Array.isArray(saved) ? saved.slice(0, maxPartySize) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveParty() {
+  localStorage.setItem("dnd-light-party", JSON.stringify(state.party));
+}
 
 function selected(kind) {
   return options[kind].find((item) => item.id === state[kind]);
+}
+
+function characterImage(character = state) {
+  return `assets/images/characters/${character.race}-${character.class}-${character.gender}-${character.style}.png`;
 }
 
 function renderChoices() {
@@ -129,7 +158,7 @@ function choiceThumb(kind, item) {
   const gender = kind === "gender" ? item.id : state.gender;
   const style = state.style;
   const image = document.createElement("img");
-  image.src = `assets/images/characters/${race}-${heroClass}-${gender}-${style}.png`;
+  image.src = characterImage({ race, class: heroClass, gender, style });
   image.alt = "";
   thumb.append(image);
   return thumb;
@@ -152,13 +181,114 @@ function renderHero() {
   const style = selected("style");
   const stats = totalStats();
 
-  portraitImage.src = `assets/images/characters/${race.id}-${heroClass.id}-${gender.id}-${style.id}.png`;
+  portraitImage.src = characterImage();
   styleAura.style.setProperty("--aura", style.aura);
   heroKicker.textContent = `${race.label} ${gender.label} ${style.label} ${heroClass.label}`;
   heroName.textContent = heroClass.name;
   heartStat.textContent = stats.heart;
   actionStat.textContent = stats.action;
   luckStat.textContent = stats.luck;
+}
+
+function createPartyMember() {
+  const stats = totalStats();
+  const race = selected("race");
+  const gender = selected("gender");
+  const heroClass = selected("class");
+  const style = selected("style");
+  const fallbackName = `${style.label} ${heroClass.label}`;
+
+  return {
+    id: typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+    name: characterName.value.trim() || fallbackName,
+    race: race.id,
+    gender: gender.id,
+    class: heroClass.id,
+    style: style.id,
+    title: heroClass.name,
+    summary: `${race.label} ${gender.label} ${style.label} ${heroClass.label}`,
+    stats,
+  };
+}
+
+function renderParty() {
+  partyCount.textContent = `${state.party.length}/${maxPartySize}`;
+  saveHeroButton.disabled = state.party.length >= maxPartySize;
+  startAdventureButton.disabled = state.party.length === 0;
+  partySlots.innerHTML = "";
+
+  for (let index = 0; index < maxPartySize; index++) {
+    const member = state.party[index];
+    const slot = document.createElement("article");
+    slot.className = "party-slot";
+
+    if (member) {
+      const image = document.createElement("img");
+      image.src = characterImage(member);
+      image.alt = "";
+      const label = document.createElement("strong");
+      label.textContent = member.name;
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.setAttribute("aria-label", `Remove ${member.name}`);
+      remove.textContent = "×";
+      remove.addEventListener("click", () => removePartyMember(member.id));
+      slot.append(image, label, remove);
+    } else {
+      const empty = document.createElement("span");
+      empty.textContent = "+";
+      slot.classList.add("is-empty");
+      slot.append(empty);
+    }
+
+    partySlots.append(slot);
+  }
+}
+
+function addCurrentHero() {
+  if (state.party.length >= maxPartySize) return;
+  state.party.push(createPartyMember());
+  characterName.value = "";
+  saveParty();
+  render();
+}
+
+function removePartyMember(id) {
+  state.party = state.party.filter((member) => member.id !== id);
+  saveParty();
+  render();
+}
+
+function startAdventure() {
+  if (state.party.length === 0) return;
+  creatorStage.hidden = true;
+  creatorControls.hidden = true;
+  adventureStage.hidden = false;
+  renderAdventure();
+}
+
+function backToCreator() {
+  adventureStage.hidden = true;
+  creatorStage.hidden = false;
+  creatorControls.hidden = false;
+}
+
+function renderAdventure() {
+  adventureParty.innerHTML = "";
+  state.party.forEach((member) => {
+    const card = document.createElement("article");
+    card.className = "adventure-member";
+    const image = document.createElement("img");
+    image.src = characterImage(member);
+    image.alt = "";
+    const label = document.createElement("strong");
+    label.textContent = member.name;
+    const meta = document.createElement("span");
+    meta.textContent = member.summary;
+    card.append(image, label, meta);
+    adventureParty.append(card);
+  });
+  adventureSummary.textContent = `${state.party.length} hero${state.party.length === 1 ? "" : "es"} stand ready at the first marker.`;
 }
 
 function setPanel(panel) {
@@ -182,11 +312,15 @@ function randomize() {
 function render() {
   renderChoices();
   renderHero();
+  renderParty();
 }
 
 tabs.forEach((tab) => tab.addEventListener("click", () => setPanel(tab.dataset.panel)));
 document.querySelector("#backButton").addEventListener("click", () => step(-1));
 document.querySelector("#nextButton").addEventListener("click", () => step(1));
 document.querySelector("#randomButton").addEventListener("click", randomize);
+saveHeroButton.addEventListener("click", addCurrentHero);
+startAdventureButton.addEventListener("click", startAdventure);
+document.querySelector("#backToCreatorButton").addEventListener("click", backToCreator);
 
 render();

@@ -8,6 +8,8 @@ The first vertical slice focuses on mobile/iPad character creation:
 - choose visual style
 - choose race
 - choose class
+- name and add heroes to a four-character party
+- start a placeholder adventure scene with the saved party
 - preview the current hero against an adventure background
 - use bottom controls for touch-first operation
 

@@ -12,7 +12,7 @@
   </head>
   <body>
     <main class="app" aria-label="D&D Light character creator">
-      <section class="stage" aria-label="Character preview">
+      <section id="creatorStage" class="stage" aria-label="Character preview">
         <img class="stage-bg" src="assets/images/character-creation-bg.png" alt="">
         <div class="stage-shade"></div>
 
@@ -53,7 +53,7 @@
         </section>
       </section>
 
-      <section class="controls" aria-label="Character choices">
+      <section id="creatorControls" class="controls" aria-label="Character choices">
         <nav class="tabs" aria-label="Creation steps">
           <button class="tab is-active" type="button" data-panel="gender">Gender</button>
           <button class="tab" type="button" data-panel="style">Style</button>
@@ -63,9 +63,45 @@
 
         <div id="choicePanel" class="choice-panel"></div>
 
+        <label class="name-field">
+          <span>Name</span>
+          <input id="characterName" type="text" maxlength="24" autocomplete="off" placeholder="Hero name">
+        </label>
+
+        <section class="party-strip" aria-label="Current party">
+          <div class="party-heading">
+            <strong>Party</strong>
+            <span id="partyCount">0/4</span>
+          </div>
+          <div id="partySlots" class="party-slots"></div>
+        </section>
+
         <footer class="bottom-actions">
           <button id="backButton" class="secondary-button" type="button">Back</button>
           <button id="nextButton" class="primary-button" type="button">Next</button>
+        </footer>
+        <footer class="bottom-actions party-actions">
+          <button id="saveHeroButton" class="secondary-button" type="button">Add</button>
+          <button id="startAdventureButton" class="primary-button" type="button">Start</button>
+        </footer>
+      </section>
+
+      <section id="adventureStage" class="adventure-stage" aria-label="Adventure party" hidden>
+        <div class="adventure-sky"></div>
+        <header class="topbar adventure-topbar">
+          <div>
+            <p class="eyebrow">D&D Light</p>
+            <h1>The Old Road</h1>
+          </div>
+          <button id="backToCreatorButton" class="icon-button" type="button" aria-label="Back to character creator" title="Back">
+            &#8592;
+          </button>
+        </header>
+        <section class="adventure-party" aria-live="polite">
+          <div id="adventureParty" class="adventure-lineup"></div>
+        </section>
+        <footer class="adventure-panel">
+          <p id="adventureSummary">Your party gathers at the first marker.</p>
         </footer>
       </section>
     </main>
