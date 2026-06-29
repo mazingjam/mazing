@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <section id="languageGate" class="language-gate" aria-label="Language selection">
+      <img class="stage-bg" src="assets/images/character-creation-bg.png" alt="">
+      <div class="stage-shade"></div>
+      <div class="language-panel">
+        <p class="eyebrow">D&D Light</p>
+        <h1>Choose Language / Välj språk</h1>
+        <div class="language-actions">
+          <button class="primary-button" type="button" data-language="en">English</button>
+          <button class="secondary-button" type="button" data-language="sv">Svenska</button>
+        </div>
+      </div>
+    </section>
+
     <main class="app" aria-label="D&D Light character creator">
       <section id="creatorStage" class="stage" aria-label="Character preview">
         <img class="stage-bg" src="assets/images/character-creation-bg.png" alt="">
@@ -19,7 +32,7 @@
         <header class="topbar">
           <div>
             <p class="eyebrow">D&D Light</p>
-            <h1>Create Hero</h1>
+            <h1 data-i18n="createHero">Create Hero</h1>
           </div>
           <button id="randomButton" class="icon-button" type="button" aria-label="Randomize character" title="Randomize">
             &#8635;
@@ -55,34 +68,34 @@
 
       <section id="creatorControls" class="controls" aria-label="Character choices">
         <nav class="tabs" aria-label="Creation steps">
-          <button class="tab is-active" type="button" data-panel="gender">Gender</button>
-          <button class="tab" type="button" data-panel="style">Style</button>
-          <button class="tab" type="button" data-panel="race">Race</button>
-          <button class="tab" type="button" data-panel="class">Class</button>
+          <button class="tab is-active" type="button" data-panel="gender" data-i18n="gender">Gender</button>
+          <button class="tab" type="button" data-panel="style" data-i18n="style">Style</button>
+          <button class="tab" type="button" data-panel="race" data-i18n="race">Race</button>
+          <button class="tab" type="button" data-panel="class" data-i18n="class">Class</button>
         </nav>
 
         <div id="choicePanel" class="choice-panel"></div>
 
         <label class="name-field">
-          <span>Name</span>
+          <span data-i18n="name">Name</span>
           <input id="characterName" type="text" maxlength="24" autocomplete="off" placeholder="Hero name">
         </label>
 
         <section class="party-strip" aria-label="Current party">
           <div class="party-heading">
-            <strong>Party</strong>
+            <strong data-i18n="party">Party</strong>
             <span id="partyCount">0/4</span>
           </div>
           <div id="partySlots" class="party-slots"></div>
         </section>
 
         <footer class="bottom-actions">
-          <button id="backButton" class="secondary-button" type="button">Back</button>
-          <button id="nextButton" class="primary-button" type="button">Next</button>
+          <button id="backButton" class="secondary-button" type="button" data-i18n="back">Back</button>
+          <button id="nextButton" class="primary-button" type="button" data-i18n="next">Next</button>
         </footer>
         <footer class="bottom-actions party-actions">
-          <button id="saveHeroButton" class="secondary-button" type="button">Add</button>
-          <button id="startAdventureButton" class="primary-button" type="button">Start</button>
+          <button id="saveHeroButton" class="secondary-button" type="button" data-i18n="add">Add</button>
+          <button id="startAdventureButton" class="primary-button" type="button" data-i18n="start">Start</button>
         </footer>
       </section>
 
@@ -100,18 +113,28 @@
         </header>
 
         <nav class="adventure-tabs" aria-label="Adventure views">
-          <button class="adventure-tab is-active" type="button" data-adventure-view="party">Party</button>
-          <button class="adventure-tab" type="button" data-adventure-view="map">Map</button>
-          <button class="adventure-tab" type="button" data-adventure-view="location">Location</button>
+          <button class="adventure-tab is-active" type="button" data-adventure-view="party" data-i18n="party">Party</button>
+          <button class="adventure-tab" type="button" data-adventure-view="map" data-i18n="map">Map</button>
+          <button class="adventure-tab" type="button" data-adventure-view="location" data-i18n="location">Location</button>
         </nav>
 
         <section id="partyView" class="adventure-party adventure-view" aria-live="polite">
+          <div class="party-ledger">
+            <article>
+              <span data-i18n="gold">Gold</span>
+              <strong id="partyGold">0</strong>
+            </article>
+            <article>
+              <span data-i18n="items">Items</span>
+              <strong id="partyItemCount">0</strong>
+            </article>
+          </div>
           <div id="adventureParty" class="adventure-lineup"></div>
         </section>
 
         <section id="mapView" class="map-view adventure-view" hidden>
           <div class="map-frame">
-            <img src="assets/images/adventure/fantasyland-map-wide.png" alt="Fantasyland map">
+            <img src="assets/images/adventure/fantasyland-map-portrait.png" alt="Fantasyland map">
             <div id="mapPoints" class="map-points"></div>
           </div>
         </section>
@@ -121,6 +144,13 @@
             <p id="locationType" class="eyebrow">Town</p>
             <h2 id="locationName">Sunspire</h2>
             <p id="locationDescription">A bright hill town watching the old roads.</p>
+          </article>
+          <article id="encounterCard" class="encounter-card">
+            <p id="encounterKind" class="eyebrow">Encounter</p>
+            <h2 id="encounterTitle">A stranger waits by the road.</h2>
+            <p id="encounterText">Choose how the party responds.</p>
+            <div id="encounterChoices" class="encounter-choices"></div>
+            <p id="encounterResult" class="encounter-result"></p>
           </article>
         </section>
 

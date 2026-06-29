@@ -48,6 +48,35 @@ button:disabled {
   overflow: hidden;
 }
 
+.language-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  isolation: isolate;
+}
+
+.language-panel {
+  width: min(100%, 420px);
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+}
+
+.language-panel h1 {
+  margin-bottom: 18px;
+}
+
+.language-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
 .stage {
   position: relative;
   min-height: 0;
@@ -395,6 +424,35 @@ h1 {
   font-weight: 900;
 }
 
+.party-ledger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-self: start;
+}
+
+.party-ledger article {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+}
+
+.party-ledger span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.party-ledger strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 1.4rem;
+}
+
 .primary-button,
 .secondary-button {
   flex: 1;
@@ -529,6 +587,16 @@ h1 {
   text-transform: uppercase;
 }
 
+.adventure-member small {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 850;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .map-view {
   display: grid;
   place-items: center;
@@ -537,9 +605,9 @@ h1 {
 
 .map-frame {
   position: relative;
-  width: 100%;
-  height: min(64svh, 100%);
-  min-height: 420px;
+  width: min(100%, 680px);
+  height: min(74svh, 100%);
+  min-height: 540px;
   border-block: 1px solid rgba(255, 246, 226, 0.22);
   overflow: hidden;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
@@ -549,7 +617,7 @@ h1 {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   background: #0e7190;
 }
 
@@ -568,6 +636,21 @@ h1 {
   background: var(--gold);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.36);
   transform: translate(-50%, -50%);
+}
+
+.map-point.is-current {
+  background: #fff7ea;
+  border-color: var(--gold);
+}
+
+.map-point.is-locked {
+  color: rgba(255, 247, 234, 0.75);
+  background: rgba(5, 7, 12, 0.62);
+  border-color: rgba(255, 247, 234, 0.42);
+}
+
+.map-point:disabled {
+  opacity: 0.78;
 }
 
 .map-point span {
@@ -590,9 +673,11 @@ h1 {
 .location-view {
   display: grid;
   align-items: end;
+  gap: 10px;
 }
 
-.location-card {
+.location-card,
+.encounter-card {
   width: min(100%, 540px);
   padding: 14px;
   border: 1px solid var(--line);
@@ -610,6 +695,38 @@ h1 {
 .location-card p:not(.eyebrow) {
   color: var(--ink);
   font-weight: 800;
+}
+
+.encounter-card h2 {
+  margin: 4px 0 8px;
+  font-size: 1.25rem;
+}
+
+.encounter-card p:not(.eyebrow) {
+  color: var(--ink);
+  font-weight: 760;
+}
+
+.encounter-choices {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.encounter-choice {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(255, 246, 226, 0.12);
+  font-weight: 850;
+  text-align: left;
+  padding: 8px 10px;
+}
+
+.encounter-result {
+  margin-top: 10px;
+  color: var(--gold) !important;
 }
 
 .adventure-panel {
@@ -661,8 +778,9 @@ h1 {
   }
 
   .map-frame {
-    height: min(74svh, 860px);
-    min-height: 560px;
+    width: min(68vw, 720px);
+    height: min(76svh, 960px);
+    min-height: 680px;
   }
 
   .adventure-member img {
