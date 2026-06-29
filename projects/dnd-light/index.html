@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>D&D Light</title>
+    <meta
+      name="description"
+      content="A lightweight visual fantasy adventure webapp prototype focused on fast character creation."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app" aria-label="D&D Light character creator">
+      <section class="stage" aria-label="Character preview">
+        <img class="stage-bg" src="assets/images/character-creation-bg.png" alt="">
+        <div class="stage-shade"></div>
+
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">D&D Light</p>
+            <h1>Create Hero</h1>
+          </div>
+          <button id="randomButton" class="icon-button" type="button" aria-label="Randomize character" title="Randomize">
+            &#8635;
+          </button>
+        </header>
+
+        <section class="hero-card" aria-live="polite">
+          <div class="portrait-frame">
+            <img id="portraitImage" class="portrait" src="assets/images/hero-fighter.png" alt="Current hero portrait">
+            <div id="colorAura" class="color-aura"></div>
+          </div>
+          <div class="hero-summary">
+            <p id="heroKicker">Human Fighter</p>
+            <h2 id="heroName">The Ready Blade</h2>
+            <p id="heroDescription">
+              A dependable first adventurer with simple attacks, clean defense, and clear choices.
+            </p>
+          </div>
+        </section>
+
+        <section class="sheet-strip" aria-label="Character stats">
+          <article>
+            <span>Heart</span>
+            <strong id="heartStat">8</strong>
+          </article>
+          <article>
+            <span>Action</span>
+            <strong id="actionStat">2</strong>
+          </article>
+          <article>
+            <span>Luck</span>
+            <strong id="luckStat">1</strong>
+          </article>
+        </section>
+      </section>
+
+      <section class="controls" aria-label="Character choices">
+        <nav class="tabs" aria-label="Creation steps">
+          <button class="tab is-active" type="button" data-panel="race">Race</button>
+          <button class="tab" type="button" data-panel="gender">Gender</button>
+          <button class="tab" type="button" data-panel="class">Class</button>
+          <button class="tab" type="button" data-panel="color">Color</button>
+        </nav>
+
+        <div id="choicePanel" class="choice-panel"></div>
+
+        <footer class="bottom-actions">
+          <button id="backButton" class="secondary-button" type="button">Back</button>
+          <button id="nextButton" class="primary-button" type="button">Next</button>
+        </footer>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

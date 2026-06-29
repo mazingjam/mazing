@@ -1,0 +1,37 @@
+[
+  {
+    "id": "character-creation-bg",
+    "file": "character-creation-bg.png",
+    "width": 1024,
+    "height": 1536,
+    "prompt": "vertical mobile game background, cozy fantasy adventure crossroads at dawn, distant castle, forest path, old stone ruins, warm lanterns, atmospheric depth, painterly anime fantasy environment, inviting lightweight tabletop RPG mood, no characters, no text, no border, no logo"
+  },
+  {
+    "id": "hero-fighter",
+    "file": "hero-fighter.png",
+    "width": 768,
+    "height": 1088,
+    "prompt": "vertical fantasy mobile game character portrait, friendly human fighter adventurer with simple steel armor, short sword and round shield, confident approachable pose, warm heroic lighting, painterly anime fantasy style, clean readable silhouette, full body, no text, no border, no logo"
+  },
+  {
+    "id": "hero-mage",
+    "file": "hero-mage.png",
+    "width": 768,
+    "height": 1088,
+    "prompt": "vertical fantasy mobile game character portrait, young mage adventurer holding a glowing lantern staff and small spellbook, blue gold magic, curious expression, approachable lightweight RPG tone, painterly anime fantasy style, clean readable silhouette, full body, no text, no border, no logo"
+  },
+  {
+    "id": "hero-ranger",
+    "file": "hero-ranger.png",
+    "width": 768,
+    "height": 1088,
+    "prompt": "vertical fantasy mobile game character portrait, nimble ranger adventurer in green travel cloak with bow and satchel, forest explorer mood, kind confident face, painterly anime fantasy style, clean readable silhouette, full body, no text, no border, no logo"
+  },
+  {
+    "id": "hero-rogue",
+    "file": "hero-rogue.png",
+    "width": 768,
+    "height": 1088,
+    "prompt": "vertical fantasy mobile game character portrait, charming rogue adventurer with hooded scarf, twin daggers, coin pouch, playful grin, moonlit alley adventure mood, painterly anime fantasy style, clean readable silhouette, full body, no text, no border, no logo"
+  }
+]
