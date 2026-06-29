@@ -13,6 +13,8 @@ const text = {
     add: "Add",
     start: "Start",
     reset: "Reset",
+    continue: "Continue",
+    result: "Result",
     map: "Map",
     location: "Location",
     gold: "Gold",
@@ -63,6 +65,8 @@ const text = {
     add: "Lägg till",
     start: "Starta",
     reset: "Reset",
+    continue: "Fortsätt",
+    result: "Resultat",
     map: "Karta",
     location: "Plats",
     gold: "Guld",
@@ -348,7 +352,7 @@ const locationScenarios = {
     },
     fight: { enemy: { en: "Coin-Shield Bandits", sv: "Myntsköldsbanditer" }, hp: 14, power: 4, rewardGold: 3, rewardItem: "bladeToken" },
     trade: { title: { en: "Trade for a fog pass", sv: "Byt till er ett dimpass" }, wants: ["compass", "sealedLetter", "traderSeal"], rewardGold: 2, rewardItem: "courierToken" },
-    help: { target: { en: "the red parcel courier", sv: "den röda paketkuriren" }, image: "assets/images/adventure/search/mistmarket-search.png", x: 58, y: 42, rewardItem: "sealedLetter" },
+    help: { target: { en: "the blue-hatted courier with the yellow note", sv: "kuriren med blå hatt och gul lapp" }, image: "assets/images/adventure/search/mistmarket-search.png", x: 58, y: 42, rewardItem: "sealedLetter" },
   },
   emberwild: {
     title: { en: "Roots glow under ash leaves", sv: "Rötter glöder under asklöv" },
@@ -358,7 +362,7 @@ const locationScenarios = {
     },
     fight: { enemy: { en: "Ash Prowler", sv: "Askstrykare" }, hp: 16, power: 5, rewardGold: 1, rewardItem: "warmScale" },
     trade: { title: { en: "Offer proof to the shrine", sv: "Ge altaret ett bevis" }, wants: ["rootKey", "warmScale", "runeKey"], rewardGold: 2, rewardItem: "brightPotion" },
-    help: { target: { en: "the carved green charm", sv: "den gröna träamuletten" }, image: "assets/images/adventure/search/emberwild-search.png", x: 38, y: 55, rewardItem: "rootKey" },
+    help: { target: { en: "the glowing root knot under the path", sv: "den lysande rotknuten under stigen" }, image: "assets/images/adventure/search/emberwild-search.png", x: 38, y: 55, rewardItem: "rootKey" },
   },
   sunspire: {
     title: { en: "Banners snap in the high wind", sv: "Fanor slår i högvinden" },
@@ -368,7 +372,7 @@ const locationScenarios = {
     },
     fight: { enemy: { en: "Training Yard Champion", sv: "Övningsgårdens mästare" }, hp: 18, power: 5, rewardGold: 3, rewardItem: "crownCharm" },
     trade: { title: { en: "Negotiate with the noble", sv: "Förhandla med den adliga" }, wants: ["crownCharm", "sealedLetter", "dragonClue"], rewardGold: 4, rewardItem: "traderSeal" },
-    help: { target: { en: "the tiny sun banner", sv: "den lilla solfanan" }, image: "assets/images/adventure/search/sunspire-search.png", x: 47, y: 35, rewardItem: "crownCharm" },
+    help: { target: { en: "the yellow fruit cart in the square", sv: "den gula fruktvagnen på torget" }, image: "assets/images/adventure/search/sunspire-search.png", x: 47, y: 35, rewardItem: "crownCharm" },
   },
   mirrorwake: {
     title: { en: "The lake reflects the wrong sky", sv: "Sjön speglar fel himmel" },
@@ -378,7 +382,7 @@ const locationScenarios = {
     },
     fight: { enemy: { en: "Glassfin Eel", sv: "Glasfensål" }, hp: 15, power: 6, rewardGold: 2, rewardItem: "runeKey" },
     trade: { title: { en: "Pay the mirror boatman", sv: "Betala spegelfärjkarlen" }, wants: ["runeKey", "courierToken", "compass"], rewardGold: 1, rewardItem: "dragonClue" },
-    help: { target: { en: "the moonlit key", sv: "den månbelysta nyckeln" }, image: "assets/images/adventure/search/mirrorwake-search.png", x: 63, y: 62, rewardItem: "runeKey" },
+    help: { target: { en: "the small purple crystal in the water", sv: "den lilla lila kristallen i vattnet" }, image: "assets/images/adventure/search/mirrorwake-search.png", x: 63, y: 62, rewardItem: "runeKey" },
   },
   stormcrown: {
     title: { en: "Thunder walks the pass", sv: "Åskan vandrar passet" },
@@ -388,7 +392,7 @@ const locationScenarios = {
     },
     fight: { enemy: { en: "Frost Brute", sv: "Frostbest" }, hp: 20, power: 6, rewardGold: 4, rewardItem: "warmScale" },
     trade: { title: { en: "Trade for a safer ledge", sv: "Byt till er en säkrare avsats" }, wants: ["banditMap", "warmScale", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
-    help: { target: { en: "the lost miner lantern", sv: "den förlorade gruvarbetarlyktan" }, image: "assets/images/adventure/search/stormcrown-search.png", x: 42, y: 47, rewardItem: "compass" },
+    help: { target: { en: "the red rescue flag in the snow", sv: "den röda nödflaggan i snön" }, image: "assets/images/adventure/search/stormcrown-search.png", x: 42, y: 47, rewardItem: "compass" },
   },
   harborbell: {
     title: { en: "Ships ring the bright bay", sv: "Skeppsklockor fyller viken" },
@@ -398,7 +402,7 @@ const locationScenarios = {
     },
     fight: { enemy: { en: "Dock Smugglers", sv: "Hamnsugglare" }, hp: 17, power: 5, rewardGold: 3, rewardItem: "banditMap" },
     trade: { title: { en: "Trade at the rope stall", sv: "Handla vid repståndet" }, wants: ["sealedLetter", "banditMap", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
-    help: { target: { en: "the blue tide chest", sv: "den blå tidvattenkistan" }, image: "assets/images/adventure/search/harborbell-search.png", x: 54, y: 69, rewardItem: "traderSeal" },
+    help: { target: { en: "the bronze pearl between the boats", sv: "den bronsfärgade pärlan mellan båtarna" }, image: "assets/images/adventure/search/harborbell-search.png", x: 54, y: 69, rewardItem: "traderSeal" },
   },
   starfall: {
     title: { en: "A crystal star hums in the ruin", sv: "En kristallstjärna nynnar i ruinen" },
@@ -528,6 +532,7 @@ const state = {
   encounterResult: "",
   minigame: "",
   battle: null,
+  outcome: null,
   completedHelp: loadJson("dnd-light-completed-help", []),
 };
 
@@ -586,6 +591,12 @@ const els = {
   searchImage: document.querySelector("#searchImage"),
   searchHotspot: document.querySelector("#searchHotspot"),
   helpResult: document.querySelector("#helpResult"),
+  outcomePanel: document.querySelector("#outcomePanel"),
+  outcomeKind: document.querySelector("#outcomeKind"),
+  outcomeTitle: document.querySelector("#outcomeTitle"),
+  outcomeText: document.querySelector("#outcomeText"),
+  outcomeReward: document.querySelector("#outcomeReward"),
+  outcomeContinueButton: document.querySelector("#outcomeContinueButton"),
   itemPopup: document.querySelector("#itemPopup"),
   itemPopupClose: document.querySelector("#itemPopupClose"),
   itemPopupIcon: document.querySelector("#itemPopupIcon"),
@@ -929,6 +940,13 @@ function rewardLine({ gold = 0, item = "" } = {}) {
   return reward ? ` (${reward})` : "";
 }
 
+function rewardText({ gold = 0, item = "" } = {}) {
+  return [
+    gold ? `${t("rewardGold")} +${gold}` : "",
+    item ? `${t("rewardItem")}: ${itemName(item)}` : "",
+  ].filter(Boolean).join(" | ");
+}
+
 function grantReward({ gold = 0, item = "" } = {}) {
   if (gold) state.gold = Math.max(0, state.gold + gold);
   if (item) addItem(item, state.encounterIndex);
@@ -939,6 +957,7 @@ function startMinigame(type) {
   if (!scenario) return;
   stopBattle();
   state.minigame = type;
+  state.outcome = null;
   state.encounterResult = type === "help" ? t("searching") : "";
   if (type === "fight") startBattle(scenario.fight);
   if (type !== "fight") state.battle = null;
@@ -950,7 +969,57 @@ function resetMinigame() {
   stopBattle();
   state.minigame = "";
   state.battle = null;
+  state.outcome = null;
   state.encounterResult = "";
+  saveProgress();
+  renderAdventure();
+}
+
+function makeOutcome(type, success, reward = {}) {
+  const scenario = currentEncounter();
+  const location = selectedLocation();
+  const target = scenario?.help ? local(scenario.help.target) : "";
+  const enemy = scenario?.fight ? local(scenario.fight.enemy) : "";
+  const titles = {
+    fight: success
+      ? { en: `${enemy} breaks`, sv: `${enemy} ger vika` }
+      : { en: "The party falls back", sv: "Gruppen faller tillbaka" },
+    trade: { en: "A deal changes the road", sv: "En affär ändrar vägen" },
+    help: { en: "The hidden clue is found", sv: "Den dolda ledtråden hittas" },
+  };
+  const bodies = {
+    fight: success
+      ? {
+          en: `With the threat handled, ${local(location.name)} becomes safer for a while. Someone grateful presses a reward into the party's hands before the road opens again.`,
+          sv: `När hotet är undanröjt blir ${local(location.name)} tryggare för en stund. Någon tacksam trycker en belöning i gruppens händer innan vägen öppnas igen.`,
+        }
+      : {
+          en: `The fight goes badly, but the party escapes with enough breath to rethink the approach.`,
+          sv: `Striden går illa, men gruppen kommer undan med nog kraft för att tänka om.`,
+        },
+    trade: {
+      en: `The exchange settles the local problem without blades. The party gains a useful lead and the people here remember the favor.`,
+      sv: `Bytet löser platsens problem utan vapen. Gruppen får ett användbart spår och folket här minns tjänsten.`,
+    },
+    help: {
+      en: `The party spots ${target}. That small detail untangles the whole scene and reveals what everyone else missed.`,
+      sv: `Gruppen hittar ${target}. Den lilla detaljen löser upp hela scenen och avslöjar det alla andra missade.`,
+    },
+  };
+  return {
+    type,
+    title: local(titles[type]),
+    text: local(bodies[type]),
+    reward: rewardText(reward),
+  };
+}
+
+function continueOutcome() {
+  state.outcome = null;
+  state.minigame = "";
+  state.battle = null;
+  state.encounterResult = "";
+  state.adventureView = "map";
   saveProgress();
   renderAdventure();
 }
@@ -1013,9 +1082,12 @@ function finishBattle(won) {
   if (!battle || battle.done) return;
   battle.done = true;
   if (won) {
-    grantReward({ gold: battle.rewardGold, item: battle.rewardItem });
-    battle.log.push(`${t("victory")}${rewardLine({ gold: battle.rewardGold, item: battle.rewardItem })}`);
+    const reward = { gold: battle.rewardGold, item: battle.rewardItem };
+    grantReward(reward);
+    state.outcome = makeOutcome("fight", true, reward);
+    battle.log.push(`${t("victory")}${rewardLine(reward)}`);
   } else {
+    state.outcome = makeOutcome("fight", false);
     battle.log.push(`${t("defeat")}. ${state.language === "sv" ? "Gruppen flyr tillbaka till vägen." : "The party escapes back to the road."}`);
   }
   saveProgress();
@@ -1046,8 +1118,10 @@ function useCombatItem(id) {
 function useTradeItem(id) {
   const scenario = currentEncounter();
   if (!scenario || !removeInventoryItem(id)) return;
-  grantReward({ gold: scenario.trade.rewardGold, item: scenario.trade.rewardItem });
-  state.encounterResult = `${state.language === "sv" ? "Affären lyckas." : "The trade works."}${rewardLine({ gold: scenario.trade.rewardGold, item: scenario.trade.rewardItem })}`;
+  const reward = { gold: scenario.trade.rewardGold, item: scenario.trade.rewardItem };
+  grantReward(reward);
+  state.outcome = makeOutcome("trade", true, reward);
+  state.encounterResult = `${state.language === "sv" ? "Affären lyckas." : "The trade works."}${rewardLine(reward)}`;
   saveProgress();
   renderAdventure();
 }
@@ -1057,8 +1131,10 @@ function bargainTrade() {
   if (!scenario) return;
   const totals = partyTotals();
   const gold = totals.luck >= 4 ? 2 : 1;
-  grantReward({ gold });
-  state.encounterResult = `${state.language === "sv" ? "Ni får igenom en enklare deal." : "You push through a modest deal."}${rewardLine({ gold })}`;
+  const reward = { gold };
+  grantReward(reward);
+  state.outcome = makeOutcome("trade", true, reward);
+  state.encounterResult = `${state.language === "sv" ? "Ni får igenom en enklare deal." : "You push through a modest deal."}${rewardLine(reward)}`;
   saveProgress();
   renderAdventure();
 }
@@ -1067,13 +1143,15 @@ function completeHelp() {
   const scenario = currentEncounter();
   if (!scenario) return;
   const key = `${state.location}:help`;
+  const reward = { item: scenario.help.rewardItem };
   if (!state.completedHelp.includes(key)) {
-    grantReward({ item: scenario.help.rewardItem });
+    grantReward(reward);
     state.completedHelp.push(key);
-    state.encounterResult = `${t("found")}: ${local(scenario.help.target)}${rewardLine({ item: scenario.help.rewardItem })}`;
+    state.encounterResult = `${t("found")}: ${local(scenario.help.target)}${rewardLine(reward)}`;
   } else {
-    state.encounterResult = state.language === "sv" ? "Ni har redan hittat målet här." : "You already found this target.";
+    state.encounterResult = `${t("found")}: ${local(scenario.help.target)}`;
   }
+  state.outcome = makeOutcome("help", true, reward);
   saveProgress();
   renderAdventure();
 }
@@ -1194,12 +1272,15 @@ function renderLocation(location) {
   els.locationDescription.textContent = local(location.description);
 
   const encounter = currentEncounter();
-  els.encounterCard.hidden = Boolean(state.minigame);
-  els.fightPanel.hidden = state.minigame !== "fight";
-  els.tradePanel.hidden = state.minigame !== "trade";
-  els.helpPanel.hidden = state.minigame !== "help";
+  const showingOutcome = Boolean(state.outcome);
+  els.encounterCard.hidden = Boolean(state.minigame) || showingOutcome;
+  els.fightPanel.hidden = showingOutcome || state.minigame !== "fight";
+  els.tradePanel.hidden = showingOutcome || state.minigame !== "trade";
+  els.helpPanel.hidden = showingOutcome || state.minigame !== "help";
+  els.outcomePanel.hidden = !showingOutcome;
   if (!encounter || location.id === "first-marker") {
     els.encounterCard.hidden = false;
+    els.outcomePanel.hidden = true;
     els.encounterKind.textContent = "";
     els.encounterTitle.textContent = t("noEncounter");
     els.encounterText.textContent = "";
@@ -1229,6 +1310,15 @@ function renderLocation(location) {
   renderBattle();
   renderTrade();
   renderHelp();
+  renderOutcome();
+}
+
+function renderOutcome() {
+  if (!state.outcome) return;
+  els.outcomeKind.textContent = t("result");
+  els.outcomeTitle.textContent = state.outcome.title;
+  els.outcomeText.textContent = state.outcome.text;
+  els.outcomeReward.textContent = state.outcome.reward;
 }
 
 function renderBattle() {
@@ -1336,6 +1426,7 @@ els.resetButton.addEventListener("click", resetGame);
 document.querySelector("#backToCreatorButton").addEventListener("click", backToCreator);
 adventureTabs.forEach((tab) => tab.addEventListener("click", () => setAdventureView(tab.dataset.adventureView)));
 els.itemPopupClose.addEventListener("click", closeItemPopup);
+els.outcomeContinueButton.addEventListener("click", continueOutcome);
 document.querySelectorAll("[data-minigame-back]").forEach((button) => button.addEventListener("click", resetMinigame));
 els.searchScene.addEventListener("click", missHelpTarget);
 els.searchHotspot.addEventListener("click", (event) => {
