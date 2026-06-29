@@ -1,322 +1,1282 @@
 ﻿[
     {
-        "id":  "human-fighter-male",
-        "file":  "characters/human-fighter-male.png",
-        "race":  "human",
-        "class":  "fighter",
-        "gender":  "male",
-        "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
-    },
-    {
-        "id":  "human-fighter-female",
-        "file":  "characters/human-fighter-female.png",
+        "id":  "human-fighter-female-ember",
+        "file":  "characters/human-fighter-female-ember.png",
         "race":  "human",
         "class":  "fighter",
         "gender":  "female",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "human-mage-male",
-        "file":  "characters/human-mage-male.png",
+        "id":  "human-fighter-female-moss",
+        "file":  "characters/human-fighter-female-moss.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-fighter-female-moon",
+        "file":  "characters/human-fighter-female-moon.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-fighter-female-sun",
+        "file":  "characters/human-fighter-female-sun.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-fighter-male-ember",
+        "file":  "characters/human-fighter-male-ember.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-fighter-male-moss",
+        "file":  "characters/human-fighter-male-moss.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-fighter-male-moon",
+        "file":  "characters/human-fighter-male-moon.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-fighter-male-sun",
+        "file":  "characters/human-fighter-male-sun.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-mage-female-ember",
+        "file":  "characters/human-mage-female-ember.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-mage-female-moss",
+        "file":  "characters/human-mage-female-moss.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-mage-female-moon",
+        "file":  "characters/human-mage-female-moon.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-mage-female-sun",
+        "file":  "characters/human-mage-female-sun.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-mage-male-ember",
+        "file":  "characters/human-mage-male-ember.png",
         "race":  "human",
         "class":  "mage",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "human-mage-female",
-        "file":  "characters/human-mage-female.png",
+        "id":  "human-mage-male-moss",
+        "file":  "characters/human-mage-male-moss.png",
         "race":  "human",
         "class":  "mage",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "human-ranger-male",
-        "file":  "characters/human-ranger-male.png",
+        "id":  "human-mage-male-moon",
+        "file":  "characters/human-mage-male-moon.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-mage-male-sun",
+        "file":  "characters/human-mage-male-sun.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-ranger-female-ember",
+        "file":  "characters/human-ranger-female-ember.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-ranger-female-moss",
+        "file":  "characters/human-ranger-female-moss.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-ranger-female-moon",
+        "file":  "characters/human-ranger-female-moon.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-ranger-female-sun",
+        "file":  "characters/human-ranger-female-sun.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-ranger-male-ember",
+        "file":  "characters/human-ranger-male-ember.png",
         "race":  "human",
         "class":  "ranger",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "human-ranger-female",
-        "file":  "characters/human-ranger-female.png",
+        "id":  "human-ranger-male-moss",
+        "file":  "characters/human-ranger-male-moss.png",
         "race":  "human",
         "class":  "ranger",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "human-rogue-male",
-        "file":  "characters/human-rogue-male.png",
+        "id":  "human-ranger-male-moon",
+        "file":  "characters/human-ranger-male-moon.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-ranger-male-sun",
+        "file":  "characters/human-ranger-male-sun.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-rogue-female-ember",
+        "file":  "characters/human-rogue-female-ember.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-rogue-female-moss",
+        "file":  "characters/human-rogue-female-moss.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-rogue-female-moon",
+        "file":  "characters/human-rogue-female-moon.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-rogue-female-sun",
+        "file":  "characters/human-rogue-female-sun.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-rogue-male-ember",
+        "file":  "characters/human-rogue-male-ember.png",
         "race":  "human",
         "class":  "rogue",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "human-rogue-female",
-        "file":  "characters/human-rogue-female.png",
+        "id":  "human-rogue-male-moss",
+        "file":  "characters/human-rogue-male-moss.png",
         "race":  "human",
         "class":  "rogue",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-fighter-male",
-        "file":  "characters/elf-fighter-male.png",
+        "id":  "human-rogue-male-moon",
+        "file":  "characters/human-rogue-male-moon.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "human-rogue-male-sun",
+        "file":  "characters/human-rogue-male-sun.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-fighter-female-ember",
+        "file":  "characters/elf-fighter-female-ember.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-fighter-female-moss",
+        "file":  "characters/elf-fighter-female-moss.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-fighter-female-moon",
+        "file":  "characters/elf-fighter-female-moon.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-fighter-female-sun",
+        "file":  "characters/elf-fighter-female-sun.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-fighter-male-ember",
+        "file":  "characters/elf-fighter-male-ember.png",
         "race":  "elf",
         "class":  "fighter",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-fighter-female",
-        "file":  "characters/elf-fighter-female.png",
+        "id":  "elf-fighter-male-moss",
+        "file":  "characters/elf-fighter-male-moss.png",
         "race":  "elf",
         "class":  "fighter",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-mage-male",
-        "file":  "characters/elf-mage-male.png",
+        "id":  "elf-fighter-male-moon",
+        "file":  "characters/elf-fighter-male-moon.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-fighter-male-sun",
+        "file":  "characters/elf-fighter-male-sun.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-mage-female-ember",
+        "file":  "characters/elf-mage-female-ember.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-mage-female-moss",
+        "file":  "characters/elf-mage-female-moss.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-mage-female-moon",
+        "file":  "characters/elf-mage-female-moon.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-mage-female-sun",
+        "file":  "characters/elf-mage-female-sun.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-mage-male-ember",
+        "file":  "characters/elf-mage-male-ember.png",
         "race":  "elf",
         "class":  "mage",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-mage-female",
-        "file":  "characters/elf-mage-female.png",
+        "id":  "elf-mage-male-moss",
+        "file":  "characters/elf-mage-male-moss.png",
         "race":  "elf",
         "class":  "mage",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-ranger-male",
-        "file":  "characters/elf-ranger-male.png",
+        "id":  "elf-mage-male-moon",
+        "file":  "characters/elf-mage-male-moon.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-mage-male-sun",
+        "file":  "characters/elf-mage-male-sun.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-ranger-female-ember",
+        "file":  "characters/elf-ranger-female-ember.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-ranger-female-moss",
+        "file":  "characters/elf-ranger-female-moss.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-ranger-female-moon",
+        "file":  "characters/elf-ranger-female-moon.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-ranger-female-sun",
+        "file":  "characters/elf-ranger-female-sun.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-ranger-male-ember",
+        "file":  "characters/elf-ranger-male-ember.png",
         "race":  "elf",
         "class":  "ranger",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-ranger-female",
-        "file":  "characters/elf-ranger-female.png",
+        "id":  "elf-ranger-male-moss",
+        "file":  "characters/elf-ranger-male-moss.png",
         "race":  "elf",
         "class":  "ranger",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-rogue-male",
-        "file":  "characters/elf-rogue-male.png",
+        "id":  "elf-ranger-male-moon",
+        "file":  "characters/elf-ranger-male-moon.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-ranger-male-sun",
+        "file":  "characters/elf-ranger-male-sun.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-rogue-female-ember",
+        "file":  "characters/elf-rogue-female-ember.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-rogue-female-moss",
+        "file":  "characters/elf-rogue-female-moss.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-rogue-female-moon",
+        "file":  "characters/elf-rogue-female-moon.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-rogue-female-sun",
+        "file":  "characters/elf-rogue-female-sun.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-rogue-male-ember",
+        "file":  "characters/elf-rogue-male-ember.png",
         "race":  "elf",
         "class":  "rogue",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "elf-rogue-female",
-        "file":  "characters/elf-rogue-female.png",
+        "id":  "elf-rogue-male-moss",
+        "file":  "characters/elf-rogue-male-moss.png",
         "race":  "elf",
         "class":  "rogue",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-fighter-male",
-        "file":  "characters/dwarf-fighter-male.png",
+        "id":  "elf-rogue-male-moon",
+        "file":  "characters/elf-rogue-male-moon.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "elf-rogue-male-sun",
+        "file":  "characters/elf-rogue-male-sun.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-fighter-female-ember",
+        "file":  "characters/dwarf-fighter-female-ember.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-fighter-female-moss",
+        "file":  "characters/dwarf-fighter-female-moss.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-fighter-female-moon",
+        "file":  "characters/dwarf-fighter-female-moon.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-fighter-female-sun",
+        "file":  "characters/dwarf-fighter-female-sun.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-fighter-male-ember",
+        "file":  "characters/dwarf-fighter-male-ember.png",
         "race":  "dwarf",
         "class":  "fighter",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-fighter-female",
-        "file":  "characters/dwarf-fighter-female.png",
+        "id":  "dwarf-fighter-male-moss",
+        "file":  "characters/dwarf-fighter-male-moss.png",
         "race":  "dwarf",
         "class":  "fighter",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-mage-male",
-        "file":  "characters/dwarf-mage-male.png",
+        "id":  "dwarf-fighter-male-moon",
+        "file":  "characters/dwarf-fighter-male-moon.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-fighter-male-sun",
+        "file":  "characters/dwarf-fighter-male-sun.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-mage-female-ember",
+        "file":  "characters/dwarf-mage-female-ember.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-mage-female-moss",
+        "file":  "characters/dwarf-mage-female-moss.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-mage-female-moon",
+        "file":  "characters/dwarf-mage-female-moon.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-mage-female-sun",
+        "file":  "characters/dwarf-mage-female-sun.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-mage-male-ember",
+        "file":  "characters/dwarf-mage-male-ember.png",
         "race":  "dwarf",
         "class":  "mage",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-mage-female",
-        "file":  "characters/dwarf-mage-female.png",
+        "id":  "dwarf-mage-male-moss",
+        "file":  "characters/dwarf-mage-male-moss.png",
         "race":  "dwarf",
         "class":  "mage",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-ranger-male",
-        "file":  "characters/dwarf-ranger-male.png",
+        "id":  "dwarf-mage-male-moon",
+        "file":  "characters/dwarf-mage-male-moon.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-mage-male-sun",
+        "file":  "characters/dwarf-mage-male-sun.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-ranger-female-ember",
+        "file":  "characters/dwarf-ranger-female-ember.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-ranger-female-moss",
+        "file":  "characters/dwarf-ranger-female-moss.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-ranger-female-moon",
+        "file":  "characters/dwarf-ranger-female-moon.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-ranger-female-sun",
+        "file":  "characters/dwarf-ranger-female-sun.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-ranger-male-ember",
+        "file":  "characters/dwarf-ranger-male-ember.png",
         "race":  "dwarf",
         "class":  "ranger",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-ranger-female",
-        "file":  "characters/dwarf-ranger-female.png",
+        "id":  "dwarf-ranger-male-moss",
+        "file":  "characters/dwarf-ranger-male-moss.png",
         "race":  "dwarf",
         "class":  "ranger",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-rogue-male",
-        "file":  "characters/dwarf-rogue-male.png",
+        "id":  "dwarf-ranger-male-moon",
+        "file":  "characters/dwarf-ranger-male-moon.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-ranger-male-sun",
+        "file":  "characters/dwarf-ranger-male-sun.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-rogue-female-ember",
+        "file":  "characters/dwarf-rogue-female-ember.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-rogue-female-moss",
+        "file":  "characters/dwarf-rogue-female-moss.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-rogue-female-moon",
+        "file":  "characters/dwarf-rogue-female-moon.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-rogue-female-sun",
+        "file":  "characters/dwarf-rogue-female-sun.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-rogue-male-ember",
+        "file":  "characters/dwarf-rogue-male-ember.png",
         "race":  "dwarf",
         "class":  "rogue",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "dwarf-rogue-female",
-        "file":  "characters/dwarf-rogue-female.png",
+        "id":  "dwarf-rogue-male-moss",
+        "file":  "characters/dwarf-rogue-male-moss.png",
         "race":  "dwarf",
         "class":  "rogue",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-fighter-male",
-        "file":  "characters/goblin-fighter-male.png",
+        "id":  "dwarf-rogue-male-moon",
+        "file":  "characters/dwarf-rogue-male-moon.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "dwarf-rogue-male-sun",
+        "file":  "characters/dwarf-rogue-male-sun.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-fighter-female-ember",
+        "file":  "characters/goblin-fighter-female-ember.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-fighter-female-moss",
+        "file":  "characters/goblin-fighter-female-moss.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-fighter-female-moon",
+        "file":  "characters/goblin-fighter-female-moon.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-fighter-female-sun",
+        "file":  "characters/goblin-fighter-female-sun.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-fighter-male-ember",
+        "file":  "characters/goblin-fighter-male-ember.png",
         "race":  "goblin",
         "class":  "fighter",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-fighter-female",
-        "file":  "characters/goblin-fighter-female.png",
+        "id":  "goblin-fighter-male-moss",
+        "file":  "characters/goblin-fighter-male-moss.png",
         "race":  "goblin",
         "class":  "fighter",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-mage-male",
-        "file":  "characters/goblin-mage-male.png",
+        "id":  "goblin-fighter-male-moon",
+        "file":  "characters/goblin-fighter-male-moon.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-fighter-male-sun",
+        "file":  "characters/goblin-fighter-male-sun.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-mage-female-ember",
+        "file":  "characters/goblin-mage-female-ember.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-mage-female-moss",
+        "file":  "characters/goblin-mage-female-moss.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-mage-female-moon",
+        "file":  "characters/goblin-mage-female-moon.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-mage-female-sun",
+        "file":  "characters/goblin-mage-female-sun.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-mage-male-ember",
+        "file":  "characters/goblin-mage-male-ember.png",
         "race":  "goblin",
         "class":  "mage",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-mage-female",
-        "file":  "characters/goblin-mage-female.png",
+        "id":  "goblin-mage-male-moss",
+        "file":  "characters/goblin-mage-male-moss.png",
         "race":  "goblin",
         "class":  "mage",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-ranger-male",
-        "file":  "characters/goblin-ranger-male.png",
+        "id":  "goblin-mage-male-moon",
+        "file":  "characters/goblin-mage-male-moon.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-mage-male-sun",
+        "file":  "characters/goblin-mage-male-sun.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-ranger-female-ember",
+        "file":  "characters/goblin-ranger-female-ember.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-ranger-female-moss",
+        "file":  "characters/goblin-ranger-female-moss.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-ranger-female-moon",
+        "file":  "characters/goblin-ranger-female-moon.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-ranger-female-sun",
+        "file":  "characters/goblin-ranger-female-sun.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-ranger-male-ember",
+        "file":  "characters/goblin-ranger-male-ember.png",
         "race":  "goblin",
         "class":  "ranger",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-ranger-female",
-        "file":  "characters/goblin-ranger-female.png",
+        "id":  "goblin-ranger-male-moss",
+        "file":  "characters/goblin-ranger-male-moss.png",
         "race":  "goblin",
         "class":  "ranger",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-rogue-male",
-        "file":  "characters/goblin-rogue-male.png",
+        "id":  "goblin-ranger-male-moon",
+        "file":  "characters/goblin-ranger-male-moon.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-ranger-male-sun",
+        "file":  "characters/goblin-ranger-male-sun.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-female-ember",
+        "file":  "characters/goblin-rogue-female-ember.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "ember",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-female-moss",
+        "file":  "characters/goblin-rogue-female-moss.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moss",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-female-moon",
+        "file":  "characters/goblin-rogue-female-moon.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-female-sun",
+        "file":  "characters/goblin-rogue-female-sun.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "female",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-male-ember",
+        "file":  "characters/goblin-rogue-male-ember.png",
         "race":  "goblin",
         "class":  "rogue",
         "gender":  "male",
+        "style":  "ember",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
     },
     {
-        "id":  "goblin-rogue-female",
-        "file":  "characters/goblin-rogue-female.png",
+        "id":  "goblin-rogue-male-moss",
+        "file":  "characters/goblin-rogue-male-moss.png",
         "race":  "goblin",
         "class":  "rogue",
-        "gender":  "female",
+        "gender":  "male",
+        "style":  "moss",
         "width":  640,
-        "height":  896,
-        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-male-moon",
+        "file":  "characters/goblin-rogue-male-moon.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "moon",
+        "width":  640,
+        "height":  896
+    },
+    {
+        "id":  "goblin-rogue-male-sun",
+        "file":  "characters/goblin-rogue-male-sun.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "male",
+        "style":  "sun",
+        "width":  640,
+        "height":  896
     }
 ]

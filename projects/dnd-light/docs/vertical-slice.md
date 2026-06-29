@@ -8,11 +8,11 @@ Create the first playable-feeling surface for D&D Light: character creation.
 
 - Mobile-first character creation screen.
 - Visual hero preview.
-- Race, gender, class, and color choices.
+- Gender, style, race, and class choices.
 - Bottom navigation buttons.
 - Randomize button.
 - Simple derived stats.
-- Transparent cartoon-style character portrait for every race/class/male-female combination.
+- Transparent cartoon-style character portrait for every race/class/male-female/style combination.
 
 ## Next Systems
 

@@ -59,26 +59,26 @@ const options = {
       stats: { heart: 0, action: 1, luck: 2 },
     },
   ],
-  color: [
-    { id: "ember", label: "Ember", detail: "Bold red cloak and forceful style.", aura: "#e85f4f" },
-    { id: "moss", label: "Moss", detail: "Green travel gear and support tone.", aura: "#75c778" },
-    { id: "moon", label: "Moon", detail: "Blue silver accents and mystical mood.", aura: "#6eb5ff" },
-    { id: "sun", label: "Sun", detail: "Gold white trim and heroic clarity.", aura: "#e9d68b" },
+  style: [
+    { id: "ember", label: "Ember", detail: "Red cloth, brass details, auburn hair.", aura: "#e85f4f" },
+    { id: "moss", label: "Moss", detail: "Green cloth, leather details, brown hair.", aura: "#75c778" },
+    { id: "moon", label: "Moon", detail: "Blue cloth, silver details, black hair.", aura: "#6eb5ff" },
+    { id: "sun", label: "Sun", detail: "Gold cloth, white details, blond hair.", aura: "#e9d68b" },
   ],
 };
 
-const panels = ["gender", "race", "class", "color"];
+const panels = ["gender", "style", "race", "class"];
 const state = {
   panel: "gender",
   race: "human",
   gender: "female",
   class: "fighter",
-  color: "ember",
+  style: "ember",
 };
 
 const choicePanel = document.querySelector("#choicePanel");
 const portraitImage = document.querySelector("#portraitImage");
-const colorAura = document.querySelector("#colorAura");
+const styleAura = document.querySelector("#styleAura");
 const heroKicker = document.querySelector("#heroKicker");
 const heroName = document.querySelector("#heroName");
 const heartStat = document.querySelector("#heartStat");
@@ -118,7 +118,7 @@ function choiceThumb(kind, item) {
   const thumb = document.createElement("span");
   thumb.className = "choice-thumb";
 
-  if (kind === "color") {
+  if (kind === "style") {
     thumb.classList.add("is-swatch");
     thumb.style.setProperty("--swatch", item.aura);
     return thumb;
@@ -127,8 +127,9 @@ function choiceThumb(kind, item) {
   const race = kind === "race" ? item.id : state.race;
   const heroClass = kind === "class" ? item.id : state.class;
   const gender = kind === "gender" ? item.id : state.gender;
+  const style = state.style;
   const image = document.createElement("img");
-  image.src = `assets/images/characters/${race}-${heroClass}-${gender}.png`;
+  image.src = `assets/images/characters/${race}-${heroClass}-${gender}-${style}.png`;
   image.alt = "";
   thumb.append(image);
   return thumb;
@@ -148,12 +149,12 @@ function renderHero() {
   const race = selected("race");
   const gender = selected("gender");
   const heroClass = selected("class");
-  const color = selected("color");
+  const style = selected("style");
   const stats = totalStats();
 
-  portraitImage.src = `assets/images/characters/${race.id}-${heroClass.id}-${gender.id}.png`;
-  colorAura.style.setProperty("--aura", color.aura);
-  heroKicker.textContent = `${race.label} ${gender.label} ${heroClass.label}`;
+  portraitImage.src = `assets/images/characters/${race.id}-${heroClass.id}-${gender.id}-${style.id}.png`;
+  styleAura.style.setProperty("--aura", style.aura);
+  heroKicker.textContent = `${race.label} ${gender.label} ${style.label} ${heroClass.label}`;
   heroName.textContent = heroClass.name;
   heartStat.textContent = stats.heart;
   actionStat.textContent = stats.action;
