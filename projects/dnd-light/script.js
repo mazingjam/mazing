@@ -12,6 +12,7 @@ const text = {
     next: "Next",
     add: "Add",
     start: "Start",
+    reset: "Reset",
     map: "Map",
     location: "Location",
     gold: "Gold",
@@ -61,6 +62,7 @@ const text = {
     next: "Nästa",
     add: "Lägg till",
     start: "Starta",
+    reset: "Reset",
     map: "Karta",
     location: "Plats",
     gold: "Guld",
@@ -544,6 +546,7 @@ const els = {
   partySlots: document.querySelector("#partySlots"),
   saveHeroButton: document.querySelector("#saveHeroButton"),
   startAdventureButton: document.querySelector("#startAdventureButton"),
+  resetButton: document.querySelector("#resetButton"),
   creatorStage: document.querySelector("#creatorStage"),
   creatorControls: document.querySelector("#creatorControls"),
   adventureStage: document.querySelector("#adventureStage"),
@@ -614,6 +617,14 @@ function saveProgress() {
   localStorage.setItem("dnd-light-inventory", JSON.stringify(state.inventory));
   localStorage.setItem("dnd-light-unlocked", JSON.stringify(state.unlocked));
   localStorage.setItem("dnd-light-completed-help", JSON.stringify(state.completedHelp));
+}
+
+function resetGame() {
+  stopBattle();
+  Object.keys(localStorage)
+    .filter((key) => key.startsWith("dnd-light-"))
+    .forEach((key) => localStorage.removeItem(key));
+  window.location.reload();
 }
 
 function t(key) {
@@ -1321,6 +1332,7 @@ document.querySelector("#nextButton").addEventListener("click", () => step(1));
 document.querySelector("#randomButton").addEventListener("click", randomize);
 els.saveHeroButton.addEventListener("click", addCurrentHero);
 els.startAdventureButton.addEventListener("click", startAdventure);
+els.resetButton.addEventListener("click", resetGame);
 document.querySelector("#backToCreatorButton").addEventListener("click", backToCreator);
 adventureTabs.forEach((tab) => tab.addEventListener("click", () => setAdventureView(tab.dataset.adventureView)));
 els.itemPopupClose.addEventListener("click", closeItemPopup);

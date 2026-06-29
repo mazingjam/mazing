@@ -116,6 +116,12 @@ button:disabled {
   gap: 10px;
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .eyebrow {
   margin: 0 0 4px;
   color: var(--gold);
@@ -155,6 +161,16 @@ h1 {
   place-items: center;
   border-radius: 50%;
   font-size: 1.3rem;
+}
+
+.text-button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: rgba(255, 246, 226, 0.1);
+  font-weight: 900;
 }
 
 .hero-card {
