@@ -414,45 +414,63 @@ h1 {
   min-height: 100svh;
   padding: max(12px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom));
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
   gap: 12px;
   overflow: hidden;
   isolation: isolate;
 }
 
-.adventure-stage::before,
-.adventure-stage::after,
-.adventure-sky {
+.adventure-bg,
+.adventure-shade {
   position: absolute;
   inset: 0;
-  z-index: -3;
-  content: "";
 }
 
-.adventure-stage::before {
-  background:
-    radial-gradient(circle at 50% 18%, rgba(245, 226, 165, 0.24), transparent 18%),
-    linear-gradient(180deg, #101821 0%, #172734 44%, #243823 100%);
+.adventure-bg {
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.adventure-stage::after {
+.adventure-shade {
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(3, 4, 8, 0.16), transparent 38%, rgba(2, 3, 4, 0.52)),
-    radial-gradient(ellipse at 50% 92%, rgba(233, 185, 93, 0.26), transparent 44%);
-}
-
-.adventure-sky {
-  z-index: -2;
-  background:
-    linear-gradient(145deg, transparent 0 48%, rgba(24, 45, 34, 0.82) 48% 52%, transparent 52%),
-    linear-gradient(35deg, transparent 0 45%, rgba(21, 37, 31, 0.72) 45% 49%, transparent 49%),
-    radial-gradient(ellipse at 18% 72%, rgba(56, 78, 50, 0.9), transparent 28%),
-    radial-gradient(ellipse at 82% 74%, rgba(41, 65, 47, 0.9), transparent 30%);
+    linear-gradient(180deg, rgba(3, 4, 8, 0.36), transparent 34%, rgba(2, 3, 4, 0.64)),
+    radial-gradient(ellipse at 50% 86%, rgba(233, 185, 93, 0.18), transparent 42%);
 }
 
 .adventure-topbar {
   align-items: start;
+}
+
+.adventure-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(5, 7, 12, 0.54);
+  backdrop-filter: blur(14px);
+}
+
+.adventure-tab {
+  min-height: 38px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  font-weight: 900;
+}
+
+.adventure-tab.is-active {
+  color: #160f08;
+  background: var(--gold);
+}
+
+.adventure-view {
+  min-height: 0;
 }
 
 .adventure-party {
@@ -509,6 +527,87 @@ h1 {
   font-size: 0.62rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.map-view {
+  display: grid;
+  place-items: center;
+}
+
+.map-frame {
+  position: relative;
+  width: min(100%, 620px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 246, 226, 0.28);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+}
+
+.map-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.map-points {
+  position: absolute;
+  inset: 0;
+}
+
+.map-point {
+  position: absolute;
+  min-width: 32px;
+  min-height: 32px;
+  border: 2px solid rgba(255, 247, 234, 0.9);
+  border-radius: 999px;
+  color: #160f08;
+  background: var(--gold);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.36);
+  transform: translate(-50%, -50%);
+}
+
+.map-point span {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 5px);
+  width: max-content;
+  max-width: 96px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(5, 7, 12, 0.78);
+  font-size: 0.62rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.location-view {
+  display: grid;
+  align-items: end;
+}
+
+.location-card {
+  width: min(100%, 540px);
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+}
+
+.location-card h2 {
+  margin: 2px 0 8px;
+  font-size: clamp(1.6rem, 8vw, 3rem);
+  line-height: 0.95;
+}
+
+.location-card p:not(.eyebrow) {
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .adventure-panel {

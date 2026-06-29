@@ -87,19 +87,43 @@
       </section>
 
       <section id="adventureStage" class="adventure-stage" aria-label="Adventure party" hidden>
-        <div class="adventure-sky"></div>
+        <img id="adventureBg" class="adventure-bg" src="assets/images/adventure/party-road.png" alt="">
+        <div class="adventure-shade"></div>
         <header class="topbar adventure-topbar">
           <div>
             <p class="eyebrow">D&D Light</p>
-            <h1>The Old Road</h1>
+            <h1 id="adventureTitle">The Old Road</h1>
           </div>
           <button id="backToCreatorButton" class="icon-button" type="button" aria-label="Back to character creator" title="Back">
             &#8592;
           </button>
         </header>
-        <section class="adventure-party" aria-live="polite">
+
+        <nav class="adventure-tabs" aria-label="Adventure views">
+          <button class="adventure-tab is-active" type="button" data-adventure-view="party">Party</button>
+          <button class="adventure-tab" type="button" data-adventure-view="map">Map</button>
+          <button class="adventure-tab" type="button" data-adventure-view="location">Location</button>
+        </nav>
+
+        <section id="partyView" class="adventure-party adventure-view" aria-live="polite">
           <div id="adventureParty" class="adventure-lineup"></div>
         </section>
+
+        <section id="mapView" class="map-view adventure-view" hidden>
+          <div class="map-frame">
+            <img src="assets/images/adventure/fantasyland-map.png" alt="Fantasyland map">
+            <div id="mapPoints" class="map-points"></div>
+          </div>
+        </section>
+
+        <section id="locationView" class="location-view adventure-view" hidden>
+          <article class="location-card">
+            <p id="locationType" class="eyebrow">Town</p>
+            <h2 id="locationName">Sunspire</h2>
+            <p id="locationDescription">A bright hill town watching the old roads.</p>
+          </article>
+        </section>
+
         <footer class="adventure-panel">
           <p id="adventureSummary">Your party gathers at the first marker.</p>
         </footer>

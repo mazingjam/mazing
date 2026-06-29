@@ -67,6 +67,72 @@ const options = {
   ],
 };
 
+const locations = [
+  {
+    id: "sunspire",
+    name: "Sunspire",
+    type: "Town",
+    image: "assets/images/adventure/sunspire-town.png",
+    x: 50,
+    y: 34,
+    description: "A bright hill town of banners, warm stone, and roadward towers.",
+  },
+  {
+    id: "mistmarket",
+    name: "Mistmarket",
+    type: "Town",
+    image: "assets/images/adventure/mistmarket-town.png",
+    x: 24,
+    y: 42,
+    description: "A riverside market where lanterns burn through morning fog.",
+  },
+  {
+    id: "harborbell",
+    name: "Harborbell",
+    type: "Town",
+    image: "assets/images/adventure/harborbell-town.png",
+    x: 25,
+    y: 74,
+    description: "A cliffside harbor town where bright sails ring the bay.",
+  },
+  {
+    id: "stormcrown",
+    name: "Stormcrown Peak",
+    type: "Mountain",
+    image: "assets/images/adventure/stormcrown-mountain.png",
+    x: 48,
+    y: 17,
+    description: "A crystal mountain pass under rolling thunder and clean snow.",
+  },
+  {
+    id: "mirrorwake",
+    name: "Mirrorwake Lake",
+    type: "Lake",
+    image: "assets/images/adventure/mirrorwake-lake.png",
+    x: 59,
+    y: 65,
+    description: "A clear magical lake reflecting lights that are not in the sky.",
+  },
+  {
+    id: "emberwild",
+    name: "Emberwild",
+    type: "Forest",
+    image: "assets/images/adventure/emberwild-forest.png",
+    x: 85,
+    y: 48,
+    description: "A strange warm forest of red leaves, giant flowers, and hidden paths.",
+  },
+  {
+    id: "starfall",
+    name: "Starfall Ruins",
+    type: "Ruins",
+    image: "assets/images/adventure/starfall-ruins.png",
+    x: 76,
+    y: 80,
+    description: "An overgrown observatory built around a fallen crystal star.",
+  },
+];
+
 const panels = ["gender", "style", "race", "class"];
 const maxPartySize = 4;
 const state = {
@@ -76,6 +142,8 @@ const state = {
   class: "fighter",
   style: "ember",
   party: loadParty(),
+  adventureView: "party",
+  location: "sunspire",
 };
 
 const choicePanel = document.querySelector("#choicePanel");
@@ -94,8 +162,18 @@ const startAdventureButton = document.querySelector("#startAdventureButton");
 const creatorStage = document.querySelector("#creatorStage");
 const creatorControls = document.querySelector("#creatorControls");
 const adventureStage = document.querySelector("#adventureStage");
+const adventureBg = document.querySelector("#adventureBg");
+const adventureTitle = document.querySelector("#adventureTitle");
 const adventureParty = document.querySelector("#adventureParty");
 const adventureSummary = document.querySelector("#adventureSummary");
+const adventureTabs = [...document.querySelectorAll(".adventure-tab")];
+const partyView = document.querySelector("#partyView");
+const mapView = document.querySelector("#mapView");
+const locationView = document.querySelector("#locationView");
+const mapPoints = document.querySelector("#mapPoints");
+const locationType = document.querySelector("#locationType");
+const locationName = document.querySelector("#locationName");
+const locationDescription = document.querySelector("#locationDescription");
 const tabs = [...document.querySelectorAll(".tab")];
 
 function loadParty() {
@@ -231,7 +309,7 @@ function renderParty() {
       const remove = document.createElement("button");
       remove.type = "button";
       remove.setAttribute("aria-label", `Remove ${member.name}`);
-      remove.textContent = "×";
+      remove.textContent = "x";
       remove.addEventListener("click", () => removePartyMember(member.id));
       slot.append(image, label, remove);
     } else {
@@ -273,7 +351,51 @@ function backToCreator() {
   creatorControls.hidden = false;
 }
 
+function selectedLocation() {
+  return locations.find((location) => location.id === state.location) ?? locations[0];
+}
+
+function setAdventureView(view) {
+  state.adventureView = view;
+  renderAdventure();
+}
+
+function travelTo(locationId) {
+  state.location = locationId;
+  state.adventureView = "location";
+  renderAdventure();
+}
+
 function renderAdventure() {
+  const location = selectedLocation();
+  const viewConfig = {
+    party: {
+      title: "The Old Road",
+      image: "assets/images/adventure/party-road.png",
+      summary: `${state.party.length} hero${state.party.length === 1 ? "" : "es"} stand ready at the first marker.`,
+    },
+    map: {
+      title: "Brightreach",
+      image: "assets/images/adventure/fantasyland-map.png",
+      summary: "Choose a place on the map to travel there.",
+    },
+    location: {
+      title: location.name,
+      image: location.image,
+      summary: `${location.name}: ${location.description}`,
+    },
+  }[state.adventureView];
+
+  adventureTabs.forEach((tab) => {
+    tab.classList.toggle("is-active", tab.dataset.adventureView === state.adventureView);
+  });
+  partyView.hidden = state.adventureView !== "party";
+  mapView.hidden = state.adventureView !== "map";
+  locationView.hidden = state.adventureView !== "location";
+  adventureTitle.textContent = viewConfig.title;
+  adventureBg.src = viewConfig.image;
+  adventureSummary.textContent = viewConfig.summary;
+
   adventureParty.innerHTML = "";
   state.party.forEach((member) => {
     const card = document.createElement("article");
@@ -288,7 +410,25 @@ function renderAdventure() {
     card.append(image, label, meta);
     adventureParty.append(card);
   });
-  adventureSummary.textContent = `${state.party.length} hero${state.party.length === 1 ? "" : "es"} stand ready at the first marker.`;
+
+  mapPoints.innerHTML = "";
+  locations.forEach((item) => {
+    const button = document.createElement("button");
+    button.className = "map-point";
+    button.type = "button";
+    button.style.left = `${item.x}%`;
+    button.style.top = `${item.y}%`;
+    button.setAttribute("aria-label", `Travel to ${item.name}`);
+    const label = document.createElement("span");
+    label.textContent = item.name;
+    button.append(label);
+    button.addEventListener("click", () => travelTo(item.id));
+    mapPoints.append(button);
+  });
+
+  locationType.textContent = location.type;
+  locationName.textContent = location.name;
+  locationDescription.textContent = location.description;
 }
 
 function setPanel(panel) {
@@ -322,5 +462,8 @@ document.querySelector("#randomButton").addEventListener("click", randomize);
 saveHeroButton.addEventListener("click", addCurrentHero);
 startAdventureButton.addEventListener("click", startAdventure);
 document.querySelector("#backToCreatorButton").addEventListener("click", backToCreator);
+adventureTabs.forEach((tab) => {
+  tab.addEventListener("click", () => setAdventureView(tab.dataset.adventureView));
+});
 
 render();

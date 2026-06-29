@@ -10,6 +10,8 @@ The first vertical slice focuses on mobile/iPad character creation:
 - choose class
 - name and add heroes to a four-character party
 - start a placeholder adventure scene with the saved party
+- switch from the party scene to a clickable fantasyland map
+- travel to named locations with their own environment backgrounds
 - preview the current hero against an adventure background
 - use bottom controls for touch-first operation
 
