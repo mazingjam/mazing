@@ -1,0 +1,21 @@
+id,name,type,energy,file
+new-01-red-ironbreaker,Ironbreaker,Hero,red,images/new-01-red-ironbreaker.png
+new-02-red-cinder-rush,Cinder Rush,Skill,red,images/new-02-red-cinder-rush.png
+new-03-red-blood-anvil,Blood Anvil,Item,red,images/new-03-red-blood-anvil.png
+new-04-red-rupture-beast,Rupture Beast,Companion,red,images/new-04-red-rupture-beast.png
+new-05-blue-mirror-savant,Mirror Savant,Hero,blue,images/new-05-blue-mirror-savant.png
+new-06-blue-second-thought,Second Thought,Spell Reaction,blue,images/new-06-blue-second-thought.png
+new-07-blue-stolen-moment,Stolen Moment,Skill,blue,images/new-07-blue-stolen-moment.png
+new-08-blue-storm-lantern,Storm Lantern,Item,blue,images/new-08-blue-storm-lantern.png
+new-09-green-wayfarer,Wayfarer,Hero,green,images/new-09-green-wayfarer.png
+new-10-green-sanctuary-bell,Sanctuary Bell,Item,green,images/new-10-green-sanctuary-bell.png
+new-11-green-oathkeeper,Oathkeeper,Companion,green,images/new-11-green-oathkeeper.png
+new-12-green-rootbind,Rootbind,Spell,green,images/new-12-green-rootbind.png
+new-13-white-prism-vow,Prism Vow,Crystal,white,images/new-13-white-prism-vow.png
+new-14-white-bridge-of-stars,Bridge of Stars,Skill,white,images/new-14-white-bridge-of-stars.png
+new-15-black-void-tithe,Void Tithe,Spell,black,images/new-15-black-void-tithe.png
+new-16-black-grave-contract,Grave Contract,Skill,black,images/new-16-black-grave-contract.png
+new-17-black-hollow-knight,Hollow Knight,Companion,black,images/new-17-black-hollow-knight.png
+new-18-hybrid-sparkweaver,Sparkweaver,Hero,red blue,images/new-18-hybrid-sparkweaver.png
+new-19-hybrid-field-medic,Field Medic,Companion,green blue,images/new-19-hybrid-field-medic.png
+new-20-hybrid-banner-breaker,Banner Breaker,Skill,red green,images/new-20-hybrid-banner-breaker.png

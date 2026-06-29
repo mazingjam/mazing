@@ -13,7 +13,7 @@ for (const name of ["index.html", "script.js", "styles.css", "README.md"]) {
   await cp(join(source, name), join(target, name));
 }
 
-for (const name of ["old-cards", "docs", "design", "cards", "board-book"]) {
+for (const name of ["old-cards", "generated-cards", "docs", "design", "cards", "board-book"]) {
   await cp(join(source, name), join(target, name), { recursive: true });
 }
 

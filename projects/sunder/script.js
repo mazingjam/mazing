@@ -1,6 +1,9 @@
 const grid = document.querySelector("#cardGrid");
 const searchInput = document.querySelector("#searchInput");
 const typeFilter = document.querySelector("#typeFilter");
+const energyFilter = document.querySelector("#energyFilter");
+const sourceFilter = document.querySelector("#sourceFilter");
+const sortSelect = document.querySelector("#sortSelect");
 const typeSummary = document.querySelector("#typeSummary");
 const cardCount = document.querySelector("#cardCount");
 
@@ -38,23 +41,32 @@ function slugTag(value) {
   if (lower.includes("red")) return "red";
   if (lower.includes("blue")) return "blue";
   if (lower.includes("green")) return "green";
+  if (lower.includes("white")) return "white";
+  if (lower.includes("black")) return "black";
+  if (lower.includes("generated")) return "generated";
   return "";
 }
 
-function renderTypeOptions() {
-  const types = [...new Set(cards.map((card) => card.type))].sort();
-  typeFilter.innerHTML = '<option value="all">All types</option>';
-  types.forEach((type) => {
+function setOptions(select, label, values) {
+  select.innerHTML = `<option value="all">${label}</option>`;
+  values.forEach((value) => {
     const option = document.createElement("option");
-    option.value = type;
-    option.textContent = type;
-    typeFilter.append(option);
+    option.value = value;
+    option.textContent = value;
+    select.append(option);
   });
 }
 
-function renderSummary() {
-  const counts = cards.reduce((acc, card) => {
-    acc[card.type] = (acc[card.type] ?? 0) + 1;
+function renderOptions() {
+  setOptions(typeFilter, "All types", [...new Set(cards.map((card) => card.type).filter(Boolean))].sort());
+  setOptions(energyFilter, "All energy", [...new Set(cards.map((card) => card.energy).filter(Boolean))].sort());
+  setOptions(sourceFilter, "All sources", [...new Set(cards.map((card) => card.sourceGroup).filter(Boolean))].sort());
+}
+
+function renderSummary(visibleCards = cards) {
+  const counts = visibleCards.reduce((acc, card) => {
+    const key = `${card.sourceGroup}: ${card.type}`;
+    acc[key] = (acc[key] ?? 0) + 1;
     return acc;
   }, {});
 
@@ -72,13 +84,36 @@ function renderSummary() {
 function matches(card) {
   const query = searchInput.value.trim().toLowerCase();
   const selectedType = typeFilter.value;
-  const haystack = `${card.name} ${card.type} ${card.category} ${card.notes}`.toLowerCase();
-  return (selectedType === "all" || card.type === selectedType) && (!query || haystack.includes(query));
+  const selectedEnergy = energyFilter.value;
+  const selectedSource = sourceFilter.value;
+  const haystack = `${card.name} ${card.type} ${card.category} ${card.notes} ${card.energy} ${card.sourceGroup}`.toLowerCase();
+
+  return (
+    (selectedType === "all" || card.type === selectedType) &&
+    (selectedEnergy === "all" || card.energy === selectedEnergy) &&
+    (selectedSource === "all" || card.sourceGroup === selectedSource) &&
+    (!query || haystack.includes(query))
+  );
+}
+
+function sortCards(items) {
+  const sorted = [...items];
+  const mode = sortSelect.value;
+
+  sorted.sort((a, b) => {
+    if (mode === "name") return a.name.localeCompare(b.name) || a.id.localeCompare(b.id);
+    if (mode === "type") return a.type.localeCompare(b.type) || a.name.localeCompare(b.name);
+    if (mode === "energy") return a.energy.localeCompare(b.energy) || a.name.localeCompare(b.name);
+    return a.order - b.order;
+  });
+
+  return sorted;
 }
 
 function renderCards() {
-  const filtered = cards.filter(matches);
+  const filtered = sortCards(cards.filter(matches));
   cardCount.textContent = filtered.length;
+  renderSummary(filtered);
   grid.innerHTML = "";
 
   if (!filtered.length) {
@@ -94,7 +129,7 @@ function renderCards() {
     article.className = "card";
 
     const image = document.createElement("img");
-    image.src = `old-cards/cards/${card.file}`;
+    image.src = card.imagePath;
     image.alt = `${card.name} card`;
     image.loading = "lazy";
 
@@ -106,7 +141,7 @@ function renderCards() {
 
     const meta = document.createElement("div");
     meta.className = "meta";
-    [card.type, card.category].forEach((value) => {
+    [card.sourceGroup, card.type, card.energy, card.category].filter(Boolean).forEach((value) => {
       const tag = document.createElement("span");
       tag.className = `tag ${slugTag(value)}`;
       tag.textContent = value;
@@ -123,16 +158,52 @@ function renderCards() {
 }
 
 async function init() {
-  const response = await fetch("old-cards/cards/cards.csv");
-  const text = await response.text();
-  cards = parseCsv(text);
-  renderTypeOptions();
-  renderSummary();
+  const [oldResponse, generatedResponse] = await Promise.all([
+    fetch("old-cards/cards/cards.csv"),
+    fetch("generated-cards/cards.csv"),
+  ]);
+
+  const oldCards = parseCsv(await oldResponse.text()).map((card, index) => ({
+    ...card,
+    order: index,
+    energy: card.energy || energyFromText(`${card.category} ${card.notes}`),
+    sourceGroup: "old archive",
+    imagePath: `old-cards/cards/${card.file}`,
+  }));
+
+  const generatedCards = parseCsv(await generatedResponse.text()).map((card, index) => ({
+    ...card,
+    order: oldCards.length + index,
+    category: card.energy,
+    notes: "Generated local Krea 2 concept image.",
+    sourceGroup: "generated",
+    imagePath: `generated-cards/${card.file}`,
+  }));
+
+  cards = [...oldCards, ...generatedCards];
+  renderOptions();
   renderCards();
+}
+
+function energyFromText(text) {
+  const lower = text.toLowerCase();
+  if (lower.includes("black")) return "black";
+  if (lower.includes("white")) return "white";
+  if (lower.includes("red") && lower.includes("blue")) return "red blue";
+  if (lower.includes("green") && lower.includes("blue")) return "green blue";
+  if (lower.includes("red") && lower.includes("green")) return "red green";
+  if (lower.includes("red")) return "red";
+  if (lower.includes("blue")) return "blue";
+  if (lower.includes("green")) return "green";
+  if (lower.includes("gold")) return "gold";
+  return "unknown";
 }
 
 searchInput.addEventListener("input", renderCards);
 typeFilter.addEventListener("change", renderCards);
+energyFilter.addEventListener("change", renderCards);
+sourceFilter.addEventListener("change", renderCards);
+sortSelect.addEventListener("change", renderCards);
 
 init().catch(() => {
   grid.innerHTML = '<p class="empty">Could not load the Sunder card catalog.</p>';

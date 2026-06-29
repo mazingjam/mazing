@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sunder Archive</title>
+    <title>Sunder Card Gallery</title>
     <meta
       name="description"
       content="Remote gallery for Sunder old card images, categories, and design references."
@@ -15,15 +15,15 @@
       <header class="hero">
         <div>
           <p class="eyebrow">Sunder</p>
-          <h1>Old Card Archive</h1>
+          <h1>Card Gallery</h1>
           <p>
-            A browsable reference shelf for the earlier card prototype while the new
-            board-game version takes shape.
+            A browsable reference shelf for the older prototype cards and the new
+            generated Sunder concepts.
           </p>
         </div>
         <div class="stats" aria-label="Archive stats">
           <strong id="cardCount">76</strong>
-          <span>cards indexed</span>
+          <span>cards visible</span>
         </div>
       </header>
 
@@ -36,6 +36,27 @@
           <span>Type</span>
           <select id="typeFilter">
             <option value="all">All types</option>
+          </select>
+        </label>
+        <label>
+          <span>Energy</span>
+          <select id="energyFilter">
+            <option value="all">All energy</option>
+          </select>
+        </label>
+        <label>
+          <span>Source</span>
+          <select id="sourceFilter">
+            <option value="all">All sources</option>
+          </select>
+        </label>
+        <label>
+          <span>Sort</span>
+          <select id="sortSelect">
+            <option value="source">Source order</option>
+            <option value="name">Name A-Z</option>
+            <option value="type">Type A-Z</option>
+            <option value="energy">Energy</option>
           </select>
         </label>
       </section>

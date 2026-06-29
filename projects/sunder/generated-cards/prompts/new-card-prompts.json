@@ -1,0 +1,142 @@
+[
+  {
+    "id": "new-01-red-ironbreaker",
+    "name": "Ironbreaker",
+    "type": "Hero",
+    "energy": "red",
+    "prompt": "portrait fantasy trading card art, a massive scarred warrior in cracked black iron armor smashing a stone gate with a rune hammer, red ember light, dynamic diagonal action, intense expression, anime fantasy illustration, painterly cel shading, ornate high contrast lighting, dramatic particles, no text, no border, no logo"
+  },
+  {
+    "id": "new-02-red-cinder-rush",
+    "name": "Cinder Rush",
+    "type": "Skill",
+    "energy": "red",
+    "prompt": "portrait fantasy trading card art, a reckless fighter sprinting through flying sparks with twin short axes raised, fiery orange-red motion streaks, brutal forward momentum, anime fantasy illustration, painterly cel shading, sharp rim light, dramatic particles, no text, no border, no logo"
+  },
+  {
+    "id": "new-03-red-blood-anvil",
+    "name": "Blood Anvil",
+    "type": "Item",
+    "energy": "red",
+    "prompt": "portrait fantasy trading card art, a heavy iron anvil glowing from within, surrounded by floating weapon shards and red molten cracks, mythic forge atmosphere, anime fantasy illustration, painterly cel shading, high contrast, deep shadows, no text, no border, no logo"
+  },
+  {
+    "id": "new-04-red-rupture-beast",
+    "name": "Rupture Beast",
+    "type": "Companion",
+    "energy": "red",
+    "prompt": "portrait fantasy trading card art, a hulking horned beast bursting from a shattered battlefield, red eyes and ember breath, muscular silhouette, aggressive but readable composition, anime fantasy illustration, painterly cel shading, cinematic firelight, no text, no border, no logo"
+  },
+  {
+    "id": "new-05-blue-mirror-savant",
+    "name": "Mirror Savant",
+    "type": "Hero",
+    "energy": "blue",
+    "prompt": "portrait fantasy trading card art, a calm young spell strategist holding a floating mirror that reflects three possible futures, blue arcane rings and glass shards, elegant robes, clever expression, anime fantasy illustration, painterly cel shading, luminous cool light, no text, no border, no logo"
+  },
+  {
+    "id": "new-06-blue-second-thought",
+    "name": "Second Thought",
+    "type": "Spell Reaction",
+    "energy": "blue",
+    "prompt": "portrait fantasy trading card art, a blue magical hand pausing an incoming blade in midair, fractured clock face behind it, suspended droplets and light trails, cunning defensive magic, anime fantasy illustration, painterly cel shading, crisp high contrast, no text, no border, no logo"
+  },
+  {
+    "id": "new-07-blue-stolen-moment",
+    "name": "Stolen Moment",
+    "type": "Skill",
+    "energy": "blue",
+    "prompt": "portrait fantasy trading card art, a hooded trickster stepping between ghostly afterimages while plucking a glowing card from the air, cool blue and violet lighting, agile cunning mood, anime fantasy illustration, painterly cel shading, no text, no border, no logo"
+  },
+  {
+    "id": "new-08-blue-storm-lantern",
+    "name": "Storm Lantern",
+    "type": "Item",
+    "energy": "blue",
+    "prompt": "portrait fantasy trading card art, an ornate lantern containing a miniature thunderstorm and blue lightning, held by a gloved hand in darkness, magical artifact focus, anime fantasy illustration, painterly cel shading, electric highlights, no text, no border, no logo"
+  },
+  {
+    "id": "new-09-green-wayfarer",
+    "name": "Wayfarer",
+    "type": "Hero",
+    "energy": "green",
+    "prompt": "portrait fantasy trading card art, a kind armored traveler guiding civilians through a glowing forest path, green healing motes, protective posture, support hero mood, anime fantasy illustration, painterly cel shading, warm sunlight and emerald rim light, no text, no border, no logo"
+  },
+  {
+    "id": "new-10-green-sanctuary-bell",
+    "name": "Sanctuary Bell",
+    "type": "Item",
+    "energy": "green",
+    "prompt": "portrait fantasy trading card art, an ancient bronze bell hanging from living vines, ringing visible green protective waves over small silhouettes below, support artifact, anime fantasy illustration, painterly cel shading, soft luminous atmosphere, no text, no border, no logo"
+  },
+  {
+    "id": "new-11-green-oathkeeper",
+    "name": "Oathkeeper",
+    "type": "Companion",
+    "energy": "green",
+    "prompt": "portrait fantasy trading card art, a loyal shield-bearing companion kneeling to protect an injured ally, green banner and gentle magic, heroic support composition, anime fantasy illustration, painterly cel shading, bright rim light, no text, no border, no logo"
+  },
+  {
+    "id": "new-12-green-rootbind",
+    "name": "Rootbind",
+    "type": "Spell",
+    "energy": "green",
+    "prompt": "portrait fantasy trading card art, thick emerald roots wrapping around a charging monster without killing it, forest magic restraint, leaves and golden dust, anime fantasy illustration, painterly cel shading, dramatic but nonlethal support tone, no text, no border, no logo"
+  },
+  {
+    "id": "new-13-white-prism-vow",
+    "name": "Prism Vow",
+    "type": "Crystal",
+    "energy": "white",
+    "prompt": "portrait fantasy trading card art, a radiant white prism crystal splitting light into red green and blue streams, floating above open hands, sacred flexible energy source, anime fantasy illustration, painterly cel shading, luminous high contrast, no text, no border, no logo"
+  },
+  {
+    "id": "new-14-white-bridge-of-stars",
+    "name": "Bridge of Stars",
+    "type": "Skill",
+    "energy": "white",
+    "prompt": "portrait fantasy trading card art, a glowing bridge made of white starlight connecting separated allies across a dark chasm, teamwork and flexible aid, anime fantasy illustration, painterly cel shading, cinematic light beams, no text, no border, no logo"
+  },
+  {
+    "id": "new-15-black-void-tithe",
+    "name": "Void Tithe",
+    "type": "Spell",
+    "energy": "black",
+    "prompt": "portrait fantasy trading card art, a forbidden black coin hovering over a shadowy altar, dark smoke forming grasping hands, ominous but elegant, black energy magic, anime fantasy illustration, painterly cel shading, red-violet highlights, no text, no border, no logo"
+  },
+  {
+    "id": "new-16-black-grave-contract",
+    "name": "Grave Contract",
+    "type": "Skill",
+    "energy": "black",
+    "prompt": "portrait fantasy trading card art, a hooded hero signing a glowing contract with skeletal ink, black flames curling around the parchment, tempting dangerous power, anime fantasy illustration, painterly cel shading, gothic shadows, no text, no border, no logo"
+  },
+  {
+    "id": "new-17-black-hollow-knight",
+    "name": "Hollow Knight",
+    "type": "Companion",
+    "energy": "black",
+    "prompt": "portrait fantasy trading card art, an empty black armor knight with a single red light in the helm, kneeling with a cracked sword, haunted companion mood, anime fantasy illustration, painterly cel shading, smoky high contrast, no text, no border, no logo"
+  },
+  {
+    "id": "new-18-hybrid-sparkweaver",
+    "name": "Sparkweaver",
+    "type": "Hero",
+    "energy": "red blue",
+    "prompt": "portrait fantasy trading card art, a battle mage weaving red sparks and blue runes around a spear, half aggressive half clever, confident stance, anime fantasy illustration, painterly cel shading, vivid split-color lighting, no text, no border, no logo"
+  },
+  {
+    "id": "new-19-hybrid-field-medic",
+    "name": "Field Medic",
+    "type": "Companion",
+    "energy": "green blue",
+    "prompt": "portrait fantasy trading card art, a nimble battlefield medic with blue diagnostic magic and green healing bandages, crouched beside an ally, practical support fantasy, anime fantasy illustration, painterly cel shading, soft glow with sharp details, no text, no border, no logo"
+  },
+  {
+    "id": "new-20-hybrid-banner-breaker",
+    "name": "Banner Breaker",
+    "type": "Skill",
+    "energy": "red green",
+    "prompt": "portrait fantasy trading card art, a warrior planting a torn red-green banner into the ground to rally allies while cracking enemy shields, support through force, anime fantasy illustration, painterly cel shading, dynamic heroic composition, no text, no border, no logo"
+  }
+]
