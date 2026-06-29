@@ -1,0 +1,322 @@
+﻿[
+    {
+        "id":  "human-fighter-male",
+        "file":  "characters/human-fighter-male.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-fighter-female",
+        "file":  "characters/human-fighter-female.png",
+        "race":  "human",
+        "class":  "fighter",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-mage-male",
+        "file":  "characters/human-mage-male.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-mage-female",
+        "file":  "characters/human-mage-female.png",
+        "race":  "human",
+        "class":  "mage",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-ranger-male",
+        "file":  "characters/human-ranger-male.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-ranger-female",
+        "file":  "characters/human-ranger-female.png",
+        "race":  "human",
+        "class":  "ranger",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-rogue-male",
+        "file":  "characters/human-rogue-male.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, warm heroic face, simple practical adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "human-rogue-female",
+        "file":  "characters/human-rogue-female.png",
+        "race":  "human",
+        "class":  "rogue",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, warm heroic face, simple practical adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-fighter-male",
+        "file":  "characters/elf-fighter-male.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-fighter-female",
+        "file":  "characters/elf-fighter-female.png",
+        "race":  "elf",
+        "class":  "fighter",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-mage-male",
+        "file":  "characters/elf-mage-male.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-mage-female",
+        "file":  "characters/elf-mage-female.png",
+        "race":  "elf",
+        "class":  "mage",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-ranger-male",
+        "file":  "characters/elf-ranger-male.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-ranger-female",
+        "file":  "characters/elf-ranger-female.png",
+        "race":  "elf",
+        "class":  "ranger",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-rogue-male",
+        "file":  "characters/elf-rogue-male.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "elf-rogue-female",
+        "file":  "characters/elf-rogue-female.png",
+        "race":  "elf",
+        "class":  "rogue",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, pointed ears, graceful face, lithe fantasy adventurer proportions, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-fighter-male",
+        "file":  "characters/dwarf-fighter-male.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-fighter-female",
+        "file":  "characters/dwarf-fighter-female.png",
+        "race":  "dwarf",
+        "class":  "fighter",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-mage-male",
+        "file":  "characters/dwarf-mage-male.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-mage-female",
+        "file":  "characters/dwarf-mage-female.png",
+        "race":  "dwarf",
+        "class":  "mage",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-ranger-male",
+        "file":  "characters/dwarf-ranger-male.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-ranger-female",
+        "file":  "characters/dwarf-ranger-female.png",
+        "race":  "dwarf",
+        "class":  "ranger",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-rogue-male",
+        "file":  "characters/dwarf-rogue-male.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, short sturdy build, broad shoulders, strong friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "dwarf-rogue-female",
+        "file":  "characters/dwarf-rogue-female.png",
+        "race":  "dwarf",
+        "class":  "rogue",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, short sturdy build, broad shoulders, strong friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-fighter-male",
+        "file":  "characters/goblin-fighter-male.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-fighter-female",
+        "file":  "characters/goblin-fighter-female.png",
+        "race":  "goblin",
+        "class":  "fighter",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, simple armor, short sword, round shield, brave stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-mage-male",
+        "file":  "characters/goblin-mage-male.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-mage-female",
+        "file":  "characters/goblin-mage-female.png",
+        "race":  "goblin",
+        "class":  "mage",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, travel robe, lantern staff, small spellbook, glowing simple magic, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-ranger-male",
+        "file":  "characters/goblin-ranger-male.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-ranger-female",
+        "file":  "characters/goblin-ranger-female.png",
+        "race":  "goblin",
+        "class":  "ranger",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, green travel cloak, bow, quiver, explorer gear, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-rogue-male",
+        "file":  "characters/goblin-rogue-male.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "male",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, masculine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    },
+    {
+        "id":  "goblin-rogue-female",
+        "file":  "characters/goblin-rogue-female.png",
+        "race":  "goblin",
+        "class":  "rogue",
+        "gender":  "female",
+        "width":  640,
+        "height":  896,
+        "prompt":  "full body character sprite on a pure white background, bold modern western TV cartoon fantasy style, clean thick outlines, simple expressive shapes, flat cel shading, saturated colors, playful lightweight adventure game look, feminine presentation, small green goblin adventurer, big expressive ears, mischievous friendly face, hooded scarf, twin daggers, coin pouch, sneaky playful stance, centered standing pose, readable silhouette, no scene, no text, no logo, no frame"
+    }
+]

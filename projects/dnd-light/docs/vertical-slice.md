@@ -12,6 +12,7 @@ Create the first playable-feeling surface for D&D Light: character creation.
 - Bottom navigation buttons.
 - Randomize button.
 - Simple derived stats.
+- Transparent cartoon-style character portrait for every race/class/male-female combination.
 
 ## Next Systems
 
@@ -21,4 +22,3 @@ Create the first playable-feeling surface for D&D Light: character creation.
 - First quest.
 - Simple combat.
 - Loot reward and party split.
-

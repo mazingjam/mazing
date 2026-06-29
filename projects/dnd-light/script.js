@@ -26,10 +26,8 @@ const options = {
     },
   ],
   gender: [
-    { id: "woman", label: "Woman", detail: "Feminine presentation." },
-    { id: "man", label: "Man", detail: "Masculine presentation." },
-    { id: "nonbinary", label: "Nonbinary", detail: "Androgynous presentation." },
-    { id: "unknown", label: "Mystery", detail: "Keep it mythic and undefined." },
+    { id: "female", label: "Female", detail: "Feminine presentation." },
+    { id: "male", label: "Male", detail: "Masculine presentation." },
   ],
   class: [
     {
@@ -37,7 +35,6 @@ const options = {
       label: "Fighter",
       detail: "Simple attacks and reliable defense.",
       name: "The Ready Blade",
-      portrait: "assets/images/hero-fighter.png",
       stats: { heart: 2, action: 1, luck: 0 },
     },
     {
@@ -45,7 +42,6 @@ const options = {
       label: "Mage",
       detail: "Bright spells and clever answers.",
       name: "The Lantern Mind",
-      portrait: "assets/images/hero-mage.png",
       stats: { heart: 0, action: 2, luck: 1 },
     },
     {
@@ -53,7 +49,6 @@ const options = {
       label: "Ranger",
       detail: "Exploration, ranged pressure, survival.",
       name: "The Green Trail",
-      portrait: "assets/images/hero-ranger.png",
       stats: { heart: 1, action: 1, luck: 1 },
     },
     {
@@ -61,7 +56,6 @@ const options = {
       label: "Rogue",
       detail: "Sneaky solutions and high-risk turns.",
       name: "The Locksmile",
-      portrait: "assets/images/hero-rogue.png",
       stats: { heart: 0, action: 1, luck: 2 },
     },
   ],
@@ -77,7 +71,7 @@ const panels = ["race", "gender", "class", "color"];
 const state = {
   panel: "race",
   race: "human",
-  gender: "woman",
+  gender: "female",
   class: "fighter",
   color: "ember",
 };
@@ -132,7 +126,7 @@ function renderHero() {
   const color = selected("color");
   const stats = totalStats();
 
-  portraitImage.src = heroClass.portrait;
+  portraitImage.src = `assets/images/characters/${race.id}-${heroClass.id}-${gender.id}.png`;
   colorAura.style.setProperty("--aura", color.aura);
   heroKicker.textContent = `${race.label} ${gender.label} ${heroClass.label}`;
   heroName.textContent = heroClass.name;
