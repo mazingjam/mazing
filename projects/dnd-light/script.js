@@ -354,7 +354,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Drive off the coin-shield bandits", sv: "Driv bort myntsköldsbanditerna" }, enemy: { en: "Coin-Shield Bandits", sv: "Myntsköldsbanditer" }, hp: 14, power: 4, rewardGold: 3, rewardItem: "bladeToken" },
     trade: { action: { en: "Trade for a fog pass", sv: "Byt till er ett dimpass" }, title: { en: "Trade for a fog pass", sv: "Byt till er ett dimpass" }, wants: ["compass", "sealedLetter", "traderSeal"], rewardGold: 2, rewardItem: "courierToken" },
-    help: { action: { en: "Find the matching mark in the crowd", sv: "Hitta samma märke i vimlet" }, target: { en: "the matching mark", sv: "samma märke" }, image: "assets/images/adventure/search/mistmarket-search.png", targetImage: "assets/images/adventure/search/targets/mistmarket-target.png", x: 58, y: 42, rewardItem: "sealedLetter" },
+    help: { action: { en: "Find the matching object in the crowd", sv: "Hitta samma föremål i vimlet" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/mistmarket-search.png", targetImage: "assets/images/adventure/search/targets/mistmarket-target.png", x: 58, y: 42, rewardItem: "sealedLetter" },
   },
   emberwild: {
     title: { en: "Roots glow under ash leaves", sv: "Rötter glöder under asklöv" },
@@ -364,7 +364,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Hold the ash prowler at the shrine", sv: "Håll askstrykaren borta från altaret" }, enemy: { en: "Ash Prowler", sv: "Askstrykare" }, hp: 16, power: 5, rewardGold: 1, rewardItem: "warmScale" },
     trade: { action: { en: "Offer proof to the root shrine", sv: "Ge rotaltaret ett bevis" }, title: { en: "Offer proof to the shrine", sv: "Ge altaret ett bevis" }, wants: ["rootKey", "warmScale", "runeKey"], rewardGold: 2, rewardItem: "brightPotion" },
-    help: { action: { en: "Find the matching root sign", sv: "Hitta samma rottecken" }, target: { en: "the matching root sign", sv: "samma rottecken" }, image: "assets/images/adventure/search/emberwild-search.png", targetImage: "assets/images/adventure/search/targets/emberwild-target.png", x: 38, y: 55, rewardItem: "rootKey" },
+    help: { action: { en: "Find the matching object among the roots", sv: "Hitta samma föremål bland rötterna" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/emberwild-search.png", targetImage: "assets/images/adventure/search/targets/emberwild-target.png", x: 38, y: 55, rewardItem: "rootKey" },
   },
   sunspire: {
     title: { en: "Banners snap in the high wind", sv: "Fanor slår i högvinden" },
@@ -374,7 +374,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Challenge the training-yard champion", sv: "Utmana övningsgårdens mästare" }, enemy: { en: "Training Yard Champion", sv: "Övningsgårdens mästare" }, hp: 18, power: 5, rewardGold: 3, rewardItem: "crownCharm" },
     trade: { action: { en: "Negotiate with the banner noble", sv: "Förhandla med fanadeln" }, title: { en: "Negotiate with the noble", sv: "Förhandla med den adliga" }, wants: ["crownCharm", "sealedLetter", "dragonClue"], rewardGold: 4, rewardItem: "traderSeal" },
-    help: { action: { en: "Find the matching banner", sv: "Hitta samma fana" }, target: { en: "the matching banner", sv: "samma fana" }, image: "assets/images/adventure/search/sunspire-search.png", targetImage: "assets/images/adventure/search/targets/sunspire-target.png", x: 47, y: 35, rewardItem: "crownCharm" },
+    help: { action: { en: "Find the matching object in the square", sv: "Hitta samma föremål på torget" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/sunspire-search.png", targetImage: "assets/images/adventure/search/targets/sunspire-target.png", x: 47, y: 35, rewardItem: "crownCharm" },
   },
   mirrorwake: {
     title: { en: "The lake reflects the wrong sky", sv: "Sjön speglar fel himmel" },
@@ -384,7 +384,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Fight the glassfin eel at the pier", sv: "Strid mot glasfensålen vid bryggan" }, enemy: { en: "Glassfin Eel", sv: "Glasfensål" }, hp: 15, power: 6, rewardGold: 2, rewardItem: "runeKey" },
     trade: { action: { en: "Pay the mirror boatman for a crossing", sv: "Betala spegelfärjkarlen för överfart" }, title: { en: "Pay the mirror boatman", sv: "Betala spegelfärjkarlen" }, wants: ["runeKey", "courierToken", "compass"], rewardGold: 1, rewardItem: "dragonClue" },
-    help: { action: { en: "Find the matching crystal", sv: "Hitta samma kristall" }, target: { en: "the matching crystal", sv: "samma kristall" }, image: "assets/images/adventure/search/mirrorwake-search.png", targetImage: "assets/images/adventure/search/targets/mirrorwake-target.png", x: 63, y: 62, rewardItem: "runeKey" },
+    help: { action: { en: "Find the matching object by the lake", sv: "Hitta samma föremål vid sjön" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/mirrorwake-search.png", targetImage: "assets/images/adventure/search/targets/mirrorwake-target.png", x: 63, y: 62, rewardItem: "runeKey" },
   },
   stormcrown: {
     title: { en: "Thunder walks the pass", sv: "Åskan vandrar passet" },
@@ -394,7 +394,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Push past the frost brute", sv: "Pressa er förbi frostbesten" }, enemy: { en: "Frost Brute", sv: "Frostbest" }, hp: 20, power: 6, rewardGold: 4, rewardItem: "warmScale" },
     trade: { action: { en: "Trade for a safer ledge route", sv: "Byt till er en säkrare avsatsväg" }, title: { en: "Trade for a safer ledge", sv: "Byt till er en säkrare avsats" }, wants: ["banditMap", "warmScale", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
-    help: { action: { en: "Find the matching rescue flag", sv: "Hitta samma nödflagga" }, target: { en: "the matching rescue flag", sv: "samma nödflagga" }, image: "assets/images/adventure/search/stormcrown-search.png", targetImage: "assets/images/adventure/search/targets/stormcrown-target.png", x: 42, y: 47, rewardItem: "compass" },
+    help: { action: { en: "Find the matching object in the snow", sv: "Hitta samma föremål i snön" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/stormcrown-search.png", targetImage: "assets/images/adventure/search/targets/stormcrown-target.png", x: 42, y: 47, rewardItem: "compass" },
   },
   harborbell: {
     title: { en: "Ships ring the bright bay", sv: "Skeppsklockor fyller viken" },
@@ -404,7 +404,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Break up the dock smugglers", sv: "Stoppa hamnsmugglarna" }, enemy: { en: "Dock Smugglers", sv: "Hamnsugglare" }, hp: 17, power: 5, rewardGold: 3, rewardItem: "banditMap" },
     trade: { action: { en: "Trade quietly at the rope stall", sv: "Handla diskret vid repståndet" }, title: { en: "Trade at the rope stall", sv: "Handla vid repståndet" }, wants: ["sealedLetter", "banditMap", "traderSeal"], rewardGold: 3, rewardItem: "brightPotion" },
-    help: { action: { en: "Find the matching pearl", sv: "Hitta samma pärla" }, target: { en: "the matching pearl", sv: "samma pärla" }, image: "assets/images/adventure/search/harborbell-search.png", targetImage: "assets/images/adventure/search/targets/harborbell-target.png", x: 54, y: 69, rewardItem: "traderSeal" },
+    help: { action: { en: "Find the matching object between the boats", sv: "Hitta samma föremål mellan båtarna" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/harborbell-search.png", targetImage: "assets/images/adventure/search/targets/harborbell-target.png", x: 54, y: 69, rewardItem: "traderSeal" },
   },
   starfall: {
     title: { en: "A crystal star hums in the ruin", sv: "En kristallstjärna nynnar i ruinen" },
@@ -414,7 +414,7 @@ const locationScenarios = {
     },
     fight: { action: { en: "Face the restless star guardian", sv: "Möt den rastlösa stjärnväktaren" }, enemy: { en: "Star Guardian", sv: "Stjärnväktare" }, hp: 22, power: 7, rewardGold: 5, rewardItem: "dragonClue" },
     trade: { action: { en: "Trade with the shard collector", sv: "Handla med skärvsamlaren" }, title: { en: "Trade with the shard collector", sv: "Handla med skärvsamlaren" }, wants: ["dragonClue", "runeKey", "crownCharm"], rewardGold: 4, rewardItem: "rootKey" },
-    help: { action: { en: "Find the matching star shard", sv: "Hitta samma stjärnskärva" }, target: { en: "the matching star shard", sv: "samma stjärnskärva" }, image: "assets/images/adventure/search/starfall-search.png", targetImage: "assets/images/adventure/search/targets/starfall-target.png", x: 51, y: 52, rewardItem: "dragonClue" },
+    help: { action: { en: "Find the matching object in the ruins", sv: "Hitta samma föremål i ruinen" }, target: { en: "the matching object", sv: "samma föremål" }, image: "assets/images/adventure/search/starfall-search.png", targetImage: "assets/images/adventure/search/targets/starfall-target.png", x: 51, y: 52, rewardItem: "dragonClue" },
   },
 };
 
