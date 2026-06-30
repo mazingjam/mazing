@@ -926,6 +926,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.2);
+  cursor: crosshair;
 }
 
 .search-scene img {
@@ -940,6 +941,7 @@ h1 {
   border: 2px solid transparent;
   border-radius: 999px;
   background: rgba(233, 185, 93, 0.02);
+  pointer-events: none;
   transform: translate(-50%, -50%);
 }
 

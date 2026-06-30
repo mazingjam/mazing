@@ -1188,6 +1188,24 @@ function missHelpTarget() {
   renderHelp();
 }
 
+function handleSearchClick(event) {
+  if (state.minigame !== "help") return;
+  const scenario = currentEncounter();
+  if (!scenario) return;
+  const rect = els.searchImage.getBoundingClientRect();
+  if (!rect.width || !rect.height) return;
+  const x = ((event.clientX - rect.left) / rect.width) * 100;
+  const y = ((event.clientY - rect.top) / rect.height) * 100;
+  const dx = x - scenario.help.x;
+  const dy = y - scenario.help.y;
+  const hitRadius = scenario.help.hitRadius ?? 9;
+  if (Math.hypot(dx, dy) <= hitRadius) {
+    completeHelp();
+    return;
+  }
+  missHelpTarget();
+}
+
 function renderAdventure() {
   const location = selectedLocation();
   const locationMode = state.adventureView === "location";
@@ -1473,10 +1491,6 @@ adventureTabs.forEach((tab) => tab.addEventListener("click", () => setAdventureV
 els.itemPopupClose.addEventListener("click", closeItemPopup);
 els.outcomeContinueButton.addEventListener("click", continueOutcome);
 document.querySelectorAll("[data-minigame-back]").forEach((button) => button.addEventListener("click", resetMinigame));
-els.searchScene.addEventListener("click", missHelpTarget);
-els.searchHotspot.addEventListener("click", (event) => {
-  event.stopPropagation();
-  completeHelp();
-});
+els.searchScene.addEventListener("click", handleSearchClick);
 
 render();
