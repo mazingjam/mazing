@@ -24,6 +24,18 @@ npm run build
 
 Builden hamnar i `dist/`.
 
+## Synka Spirimon
+
+Spirimon byggs som en statisk Vite/PWA-app med rätt bas-URL för Mazing och
+synkas sedan till `projects/spirimon/`:
+
+```powershell
+npm run sync:spirimon
+```
+
+Kör därefter `npm run build` i Mazing. Endast Spirimon-källprojektets byggda
+`dist` publiceras i Mazing, så källkod och `node_modules` följer inte med.
+
 ## Deploy via Vercel
 
 1. Skapa ett GitHub-repo och pusha projektet dit.

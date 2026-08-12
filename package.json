@@ -18,6 +18,7 @@
     "sync:brf-nygatan": "node scripts/sync-brf-nygatan.mjs",
     "sync:sunder": "node scripts/sync-sunder.mjs",
     "sync:dnd-light": "node scripts/sync-dnd-light.mjs",
-    "sync:previews": "node scripts/sync-again.mjs && node scripts/sync-wordalchemy.mjs && node scripts/sync-mtgset.mjs && node scripts/sync-resort.mjs && node scripts/sync-growup.mjs && node scripts/sync-clash-empire.mjs && node scripts/sync-puzzle.mjs && node scripts/sync-amercian-pettson.mjs && node scripts/sync-brf-nygatan.mjs && node scripts/sync-sunder.mjs && node scripts/sync-dnd-light.mjs"
+    "sync:spirimon": "node scripts/sync-spirimon.mjs",
+    "sync:previews": "node scripts/sync-again.mjs && node scripts/sync-wordalchemy.mjs && node scripts/sync-mtgset.mjs && node scripts/sync-resort.mjs && node scripts/sync-growup.mjs && node scripts/sync-clash-empire.mjs && node scripts/sync-puzzle.mjs && node scripts/sync-amercian-pettson.mjs && node scripts/sync-brf-nygatan.mjs && node scripts/sync-sunder.mjs && node scripts/sync-dnd-light.mjs && node scripts/sync-spirimon.mjs"
   }
 }
